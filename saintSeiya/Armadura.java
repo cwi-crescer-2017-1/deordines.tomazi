@@ -8,4 +8,14 @@ public class Armadura
         this.nome = nome;
         this.categoria = categoria;
     }
+    
+    public String getNome()
+    {
+        return this.nome;
+    }
+    
+    public Categoria getCategoria()
+    {
+        return this.categoria;
+    }
 }

@@ -4,11 +4,13 @@ public class Saint
     private Armadura armadura;
     private boolean armaduraVestida;
     private Genero genero = Genero.NAO_INFORMADO;
+    private Status status = Status.VIVO;
+    private double health = 100;
     
     public Saint(String nome, Armadura armadura)
     {
         this.nome = nome;
-        this.armadura = armadura;        
+        this.armadura = armadura;
     }
     
     public void VestirArmadura()
@@ -29,5 +31,36 @@ public class Saint
     public void setGenero(Genero genero)
     {
         this.genero = genero;
+    }
+    
+    public Status getStatus()
+    {
+        return this.status;
+    }
+    
+    public void perdeVida(double damage)
+    {
+        health -= damage;
+    }
+    
+    public double getVida()
+    {
+        return this.health;
+    }
+    
+        public String getNome()
+    {
+        return this.nome;
+    }
+    
+    //refatorar isso
+    public Categoria getCategoria()
+    {
+        return this.armadura.getCategoria();
+    }
+    
+    public Armadura getArmadura()
+    {
+        return this.armadura;
     }
 }
