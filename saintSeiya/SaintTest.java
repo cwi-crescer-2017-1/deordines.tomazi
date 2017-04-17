@@ -143,4 +143,12 @@ public class SaintTest
         
         assertEquals(5, shun.getQtdSentidosDespertados(), 0.01);
     }
+    
+    @Test
+    public void criarSaintPrataNasceCom6SentidosDespertados()
+    {
+        Saint marin = new Saint("Marin", new Armadura("Águia", Categoria.PRATA));
+        
+        assertEquals(6, marin.getQtdSentidosDespertados(), 0.01);    
+    }
 }
