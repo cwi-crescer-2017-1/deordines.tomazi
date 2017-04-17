@@ -91,7 +91,6 @@ public class SaintTest
         assertEquals(-900, saga.getVida(), 0.01);
     }
  
-    
     @Test
     public void aoIniciarBatalhaVerificaCategoriaSaint1()
     {
@@ -137,21 +136,11 @@ public class SaintTest
         assertEquals(seiya, seiya);
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    @Test
+    public void criarSaintNasceComCincoSentidosDespertados()
+    {
+        Saint shun = new Saint("Shun", new Armadura("Andrômeda", Categoria.BRONZE));
+        
+        assertEquals(5, shun.getQtdSentidosDespertados(), 0.01);
+    }
 }
