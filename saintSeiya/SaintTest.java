@@ -110,51 +110,32 @@ public class SaintTest
     }
     
     @Test
-    public void aoIniciarBatalhaVerificaQuemRecebeDanoPrimeiroOuroVsOuro() throws Exception
-    {
-        Saint dohko = new Saint("Dohko", new Armadura("Libra", Categoria.OURO));
-        Saint shion = new Saint("Shion", new Armadura("Áries", Categoria.OURO));
-        
-        assertEquals(dohko, dohko);
-    }
-    
-    @Test
-    public void aoIniciarBatalhaVerificaQuemRecebeDanoPrimeiroOuroVsBronze() throws Exception
-    {
-        Saint camus = new Saint("Camus", new Armadura("Aquário", Categoria.OURO));
-        Saint hyoga = new Saint("Hyoga", new Armadura("Cisne", Categoria.BRONZE));
-        
-        assertEquals(hyoga, hyoga);
-    }
-    
-    @Test
-    public void aoIniciarBatalhaVerificaQuemRecebeDanoPrimeiroBronzeVsPrata() throws Exception
-    {
-        Saint seiya = new Saint("Seiya", new Armadura("Pégasus", Categoria.BRONZE));
-        Saint misty = new Saint("Misty", new Armadura("Lagarto", Categoria.PRATA));
-        
-        assertEquals(seiya, seiya);
-    }
-    
-    @Test
     public void criarSaintNasceComCincoSentidosDespertados() throws Exception
     {
-        Saint shun = new Saint("Shun", new Armadura("Andrômeda", Categoria.BRONZE));
+        Saint shun = new BronzeSaint("Shun", new Armadura("Andrômeda", Categoria.BRONZE));
         
         assertEquals(5, shun.getQtdSentidosDespertados(), 0.01);
     }
     
     @Test
-    public void criarSaintPrataNasceCom6SentidosDespertados() throws Exception
+    public void criarSaintPrataNasceComSeisSentidosDespertados() throws Exception
     {
-        Saint marin = new Saint("Marin", new Armadura("Águia", Categoria.PRATA));
+        Saint marin = new SilverSaint("Marin", new Armadura("Águia", Categoria.PRATA));
         
         assertEquals(6, marin.getQtdSentidosDespertados(), 0.01);    
+    }
+    
+    @Test
+    public void criarSaintPrataNasceComSeteSentidosDespertados() throws Exception
+    {
+        Saint aiolos = new GoldSaint("Aiolos", new Armadura("Sagitário", Categoria.OURO));
+        
+        assertEquals(7, aiolos.getQtdSentidosDespertados(), 0.01);    
     }
     
     @Test(expected=Exception.class)
     public void constelacaoInvalidaDeOuroDeveLancarErro() throws Exception
     {
-        new Saint("Bernardo", new Armadura("Café", Categoria.OURO));
+        new GoldSaint("Bernardo", new Armadura("Café", Categoria.OURO));
     }
 }
