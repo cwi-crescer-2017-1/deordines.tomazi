@@ -38,7 +38,7 @@ public class Saint
         return this.status;
     }
     
-    public void perdeVida(double dano)
+    public void perderVida(double dano)
     {
         this.vida -= dano;
     }
@@ -51,12 +51,6 @@ public class Saint
         public String getNome()
     {
         return this.nome;
-    }
-    
-    //refatorar isso
-    public Categoria getCategoria()
-    {
-        return this.armadura.getCategoria();
     }
     
     public Armadura getArmadura()
