@@ -8,7 +8,7 @@ import org.junit.Test;
 public class SaintTest
 {
     @Test
-    public void vestirArmaduraDeixarArmaduraVestida()
+    public void vestirArmaduraDeixarArmaduraVestida() throws Exception
     {
         // AAA
         // 1. Arrange - Montagem dos dados de teste
@@ -24,21 +24,21 @@ public class SaintTest
     
     
     @Test
-    public void naoVestirArmaduraDeixaArmaduraVestida()
+    public void naoVestirArmaduraDeixaArmaduraVestida() throws Exception
     {
         Saint hyoga = new Saint("Hyoga", new Armadura("Cisne", Categoria.BRONZE));
         assertEquals(false, hyoga.getArmaduraVestida());
     }
     
     @Test
-    public void aoCriarSaintGeneroENaoInformado()
+    public void aoCriarSaintGeneroENaoInformado() throws Exception
     {
         Saint shaka = new Saint("Shaka", new Armadura("Virgem", Categoria.OURO));
         assertEquals(Genero.NAO_INFORMADO, shaka.getGenero());
     }
     
     @Test
-    public void deveSerPossivelAlterarOGenero()
+    public void deveSerPossivelAlterarOGenero() throws Exception
     {
         Saint jabu = new Saint("Jabu", new Armadura("Unicórino", Categoria.BRONZE));
         jabu.setGenero(Genero.MASCULINO);
@@ -46,21 +46,21 @@ public class SaintTest
     }
     
     @Test
-    public void aoCriarSaintStatusDeveSerVivo()
+    public void aoCriarSaintStatusDeveSerVivo() throws Exception
     {
         Saint ikki = new Saint("Ikki", new Armadura("Fênix", Categoria.BRONZE));
         assertEquals(Status.VIVO, ikki.getStatus());
     }
     
     @Test
-    public void aoCriarSaintVidaDeveSer100()
+    public void aoCriarSaintVidaDeveSer100() throws Exception
     {
         Saint albafica = new Saint("Albafica", new Armadura("Peixes", Categoria.OURO));
         assertEquals(100.0, albafica.getVida(), 0.01);
     }
     
     @Test
-    public void causarDanoAoSaintValor10()
+    public void causarDanoAoSaintValor10() throws Exception
     {
         Saint saga = new Saint("Saga", new Armadura("Gêmeos", Categoria.OURO));
         saga.perderVida(10);
@@ -68,7 +68,7 @@ public class SaintTest
     }
     
     @Test
-    public void causarDanoAoSaintValor100()
+    public void causarDanoAoSaintValor100() throws Exception
     {
         Saint saga = new Saint("Saga", new Armadura("Gêmeos", Categoria.OURO));
         saga.perderVida(100);
@@ -76,7 +76,7 @@ public class SaintTest
     }
     
     @Test
-    public void causarDanoAoSaintComValorMenos1000()
+    public void causarDanoAoSaintComValorMenos1000() throws Exception
     {
         Saint saga = new Saint("Saga", new Armadura("Gêmeos", Categoria.OURO));
         saga.perderVida(-1000);
@@ -84,7 +84,7 @@ public class SaintTest
     }
     
     @Test
-    public void causarDanoAoSaintValor1000()
+    public void causarDanoAoSaintValor1000() throws Exception
     {
         Saint saga = new Saint("Saga", new Armadura("Gêmeos", Categoria.OURO));
         saga.perderVida(1000);
@@ -92,7 +92,7 @@ public class SaintTest
     }
  
     @Test
-    public void aoIniciarBatalhaVerificaCategoriaSaint1()
+    public void aoIniciarBatalhaVerificaCategoriaSaint1() throws Exception
     {
         Saint manigold = new Saint("Manigold", new Armadura("Câncer", Categoria.OURO));
         Categoria saint1 = manigold.getArmadura().getCategoria();
@@ -101,7 +101,7 @@ public class SaintTest
     }
     
     @Test
-    public void aoIniciarBatalhaVerificaCategoriaSaint2()
+    public void aoIniciarBatalhaVerificaCategoriaSaint2() throws Exception
     {       
         Saint asmita = new Saint("Asmita", new Armadura("Virgem", Categoria.OURO));
         Categoria saint2 = asmita.getArmadura().getCategoria();
@@ -110,7 +110,7 @@ public class SaintTest
     }
     
     @Test
-    public void aoIniciarBatalhaVerificaQuemRecebeDanoPrimeiroOuroVsOuro()
+    public void aoIniciarBatalhaVerificaQuemRecebeDanoPrimeiroOuroVsOuro() throws Exception
     {
         Saint dohko = new Saint("Dohko", new Armadura("Libra", Categoria.OURO));
         Saint shion = new Saint("Shion", new Armadura("Áries", Categoria.OURO));
@@ -119,7 +119,7 @@ public class SaintTest
     }
     
     @Test
-    public void aoIniciarBatalhaVerificaQuemRecebeDanoPrimeiroOuroVsBronze()
+    public void aoIniciarBatalhaVerificaQuemRecebeDanoPrimeiroOuroVsBronze() throws Exception
     {
         Saint camus = new Saint("Camus", new Armadura("Aquário", Categoria.OURO));
         Saint hyoga = new Saint("Hyoga", new Armadura("Cisne", Categoria.BRONZE));
@@ -128,7 +128,7 @@ public class SaintTest
     }
     
     @Test
-    public void aoIniciarBatalhaVerificaQuemRecebeDanoPrimeiroBronzeVsPrata()
+    public void aoIniciarBatalhaVerificaQuemRecebeDanoPrimeiroBronzeVsPrata() throws Exception
     {
         Saint seiya = new Saint("Seiya", new Armadura("Pégasus", Categoria.BRONZE));
         Saint misty = new Saint("Misty", new Armadura("Lagarto", Categoria.PRATA));
@@ -137,7 +137,7 @@ public class SaintTest
     }
     
     @Test
-    public void criarSaintNasceComCincoSentidosDespertados()
+    public void criarSaintNasceComCincoSentidosDespertados() throws Exception
     {
         Saint shun = new Saint("Shun", new Armadura("Andrômeda", Categoria.BRONZE));
         
@@ -145,10 +145,16 @@ public class SaintTest
     }
     
     @Test
-    public void criarSaintPrataNasceCom6SentidosDespertados()
+    public void criarSaintPrataNasceCom6SentidosDespertados() throws Exception
     {
         Saint marin = new Saint("Marin", new Armadura("Águia", Categoria.PRATA));
         
         assertEquals(6, marin.getQtdSentidosDespertados(), 0.01);    
+    }
+    
+    @Test(expected=Exception.class)
+    public void constelacaoInvalidaDeOuroDeveLancarErro() throws Exception
+    {
+        new Saint("Bernardo", new Armadura("Café", Categoria.OURO));
     }
 }
