@@ -6,7 +6,7 @@ public class Saint
     private Genero genero = Genero.NAO_INFORMADO;
     private Status status = Status.VIVO;
     private double vida = 100.0;
-    private int qtdSentidosDespertados;
+    protected int qtdSentidosDespertados;
     
     public Saint(String nome, Armadura armadura) throws Exception
     {
@@ -16,32 +16,7 @@ public class Saint
         /*int valorCategoria = this.armadura.getCategoria().getValor();
         this.qtdSentidosDespertados += valorCategoria;*/
         
-        if(this.armadura.getCategoria() == Categoria.PRATA)
-        {
-            this.qtdSentidosDespertados = 6;
-        } else if(this.armadura.getCategoria() == Categoria.OURO){
-            this.qtdSentidosDespertados = 7;
-            String constelacao = armadura.getNome();
-            
-            if (!constelacao.equals("Áries")
-                && !constelacao.equals("Touro")
-                && !constelacao.equals("Gêmeos")
-                && !constelacao.equals("Câncer")
-                && !constelacao.equals("Virgem")
-                && !constelacao.equals("Leão")
-                && !constelacao.equals("Peixes")
-                && !constelacao.equals("Capricórnio")){
-                //dar erro
-                throw new Exception("Constelação inválida");
-            }
-            
-            
-            
-            
-            
-        } else {
-            this.qtdSentidosDespertados = 5;
-        }
+
     }
 
     public void VestirArmadura()

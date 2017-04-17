@@ -8,7 +8,7 @@ import org.junit.Test;
 public class BatalhaTest
 {
     @Test
-    public void categoriaSaint1MaiorQueSaint2()
+    public void categoriaSaint1MaiorQueSaint2() throws Exception
     {
         Saint shaina = new Saint("Shaina", new Armadura("Serpente", Categoria.PRATA));
         Saint hyoga = new Saint("Hyoga", new Armadura("Cisne", Categoria.BRONZE));
@@ -22,7 +22,7 @@ public class BatalhaTest
     }
     
     @Test
-    public void categoriaSaint1MenorQueSaint2()
+    public void categoriaSaint1MenorQueSaint2() throws Exception
     {
         
         Saint hyoga = new Saint("Hyoga", new Armadura("Cisne", Categoria.BRONZE));
@@ -37,7 +37,7 @@ public class BatalhaTest
     }
     
     @Test
-    public void categoriaSaint1IgualAoSaint2()
+    public void categoriaSaint1IgualAoSaint2() throws Exception
     {
         Saint dohko = new Saint("Dohko", new Armadura("Libra", Categoria.OURO));
         Saint shion = new Saint("Shion", new Armadura("Áries", Categoria.OURO));
