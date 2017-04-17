@@ -63,7 +63,7 @@ public class SaintTest
     public void causarDanoAoSaintValor10()
     {
         Saint saga = new Saint("Saga", new Armadura("Gêmeos", Categoria.OURO));
-        saga.perdeVida(10);
+        saga.perderVida(10);
         assertEquals(90, saga.getVida(), 0.01);
     }
     
@@ -71,7 +71,7 @@ public class SaintTest
     public void causarDanoAoSaintValor100()
     {
         Saint saga = new Saint("Saga", new Armadura("Gêmeos", Categoria.OURO));
-        saga.perdeVida(100);
+        saga.perderVida(100);
         assertEquals(0, saga.getVida(), 0.01);
     }
     
@@ -79,7 +79,7 @@ public class SaintTest
     public void causarDanoAoSaintComValorMenos1000()
     {
         Saint saga = new Saint("Saga", new Armadura("Gêmeos", Categoria.OURO));
-        saga.perdeVida(-1000);
+        saga.perderVida(-1000);
         assertEquals(1100, saga.getVida(), 0.01);
     }
     
@@ -87,15 +87,16 @@ public class SaintTest
     public void causarDanoAoSaintValor1000()
     {
         Saint saga = new Saint("Saga", new Armadura("Gêmeos", Categoria.OURO));
-        saga.perdeVida(1000);
+        saga.perderVida(1000);
         assertEquals(-900, saga.getVida(), 0.01);
     }
+ 
     
     @Test
     public void aoIniciarBatalhaVerificaCategoriaSaint1()
     {
         Saint manigold = new Saint("Manigold", new Armadura("Câncer", Categoria.OURO));
-        Categoria saint1 = manigold.getCategoria();
+        Categoria saint1 = manigold.getArmadura().getCategoria();
         
         assertEquals(saint1, Categoria.OURO);      
     }
@@ -104,7 +105,7 @@ public class SaintTest
     public void aoIniciarBatalhaVerificaCategoriaSaint2()
     {       
         Saint asmita = new Saint("Asmita", new Armadura("Virgem", Categoria.OURO));
-        Categoria saint2 = asmita.getCategoria();
+        Categoria saint2 = asmita.getArmadura().getCategoria();
         
         assertEquals(saint2, Categoria.OURO);        
     }
