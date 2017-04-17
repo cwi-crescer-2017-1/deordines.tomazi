@@ -38,18 +38,57 @@ public class SaintTest
     }
     
     @Test
-    public void aoCriarSaintStatusEVivo()
+    public void deveSerPossivelAlterarOGenero()
+    {
+        Saint jabu = new Saint("Jabu", new Armadura("Unicórino", Categoria.BRONZE));
+        jabu.setGenero(Genero.MASCULINO);
+        assertEquals(Genero.MASCULINO, jabu.getGenero());
+    }
+    
+    @Test
+    public void aoCriarSaintStatusDeveSerVivo()
     {
         Saint ikki = new Saint("Ikki", new Armadura("Fênix", Categoria.BRONZE));
         assertEquals(Status.VIVO, ikki.getStatus());
     }
     
     @Test
-    public void aoCriarSaintVerificaSuaVidaIgual100()
+    public void aoCriarSaintVidaDeveSer100()
     {
         Saint albafica = new Saint("Albafica", new Armadura("Peixes", Categoria.OURO));
-        double health = 100;
-        assertEquals(health, albafica.getVida(), 0);
+        assertEquals(100.0, albafica.getVida(), 0.01);
+    }
+    
+    @Test
+    public void causarDanoAoSaintValor10()
+    {
+        Saint saga = new Saint("Saga", new Armadura("Gêmeos", Categoria.OURO));
+        saga.perdeVida(10);
+        assertEquals(90, saga.getVida(), 0.01);
+    }
+    
+    @Test
+    public void causarDanoAoSaintValor100()
+    {
+        Saint saga = new Saint("Saga", new Armadura("Gêmeos", Categoria.OURO));
+        saga.perdeVida(100);
+        assertEquals(0, saga.getVida(), 0.01);
+    }
+    
+    @Test
+    public void causarDanoAoSaintComValorMenos1000()
+    {
+        Saint saga = new Saint("Saga", new Armadura("Gêmeos", Categoria.OURO));
+        saga.perdeVida(-1000);
+        assertEquals(1100, saga.getVida(), 0.01);
+    }
+    
+    @Test
+    public void causarDanoAoSaintValor1000()
+    {
+        Saint saga = new Saint("Saga", new Armadura("Gêmeos", Categoria.OURO));
+        saga.perdeVida(1000);
+        assertEquals(-900, saga.getVida(), 0.01);
     }
     
     @Test
@@ -85,7 +124,7 @@ public class SaintTest
         Saint camus = new Saint("Camus", new Armadura("Aquário", Categoria.OURO));
         Saint hyoga = new Saint("Hyoga", new Armadura("Cisne", Categoria.BRONZE));
         
-        assertEquals(camus, camus);
+        assertEquals(hyoga, hyoga);
     }
     
     @Test
@@ -94,9 +133,7 @@ public class SaintTest
         Saint seiya = new Saint("Seiya", new Armadura("Pégasus", Categoria.BRONZE));
         Saint misty = new Saint("Misty", new Armadura("Lagarto", Categoria.PRATA));
         
-        assertEquals(misty, misty);
-        
-        
+        assertEquals(seiya, seiya);
     }
     
     
