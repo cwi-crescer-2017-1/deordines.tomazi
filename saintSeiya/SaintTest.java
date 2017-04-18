@@ -254,4 +254,61 @@ public class SaintTest
         asmita.aprenderGolpe(golpeExtra);
         Golpe[] golpes = asmita.getGolpes();
     }
+    
+        
+    @Test
+    public void getProximoGolpeComUm() throws Exception
+    {
+        Saint milo = new Saint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        Golpe agulhaEscarlate = new Golpe("Agulha Escarlate", 25);
+        milo.aprenderGolpe(agulhaEscarlate);
+        
+        assertEquals(agulhaEscarlate, milo.getProximoGolpe());
+    }
+    
+    @Test
+    public void getProximoGolpeComDois() throws Exception
+    {
+        Saint milo = new Saint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        Golpe agulhaEscarlate = new Golpe("Agulha Escarlate", 25);
+        Golpe agulhaEscarlateAntares = new Golpe("Agulha Escarlate de Antares", 50);
+        milo.aprenderGolpe(agulhaEscarlate);
+        milo.aprenderGolpe(agulhaEscarlateAntares);    
+        
+        assertEquals(agulhaEscarlate, milo.getProximoGolpe());
+        assertEquals(agulhaEscarlateAntares, milo.getProximoGolpe());
+    }
+    
+    @Test
+    public void getProximoGolpeComTres() throws Exception
+    {
+        Saint asmita = new Saint("Asmita", new Armadura(new Constelacao("Virgem"), Categoria.OURO));
+        Golpe rendicaoDivina = new Golpe("Rendição Divina", 25);
+        Golpe cicloSeisExistencias = new Golpe("Ciclo das Seis Existêcias", 50);
+        Golpe tesouroDoCeu = new Golpe("Tesouro do Céu", 75);
+        asmita.aprenderGolpe(rendicaoDivina);
+        asmita.aprenderGolpe(cicloSeisExistencias);
+        asmita.aprenderGolpe(tesouroDoCeu);
+        
+        assertEquals(rendicaoDivina, asmita.getProximoGolpe());
+        assertEquals(cicloSeisExistencias, asmita.getProximoGolpe());
+        assertEquals(tesouroDoCeu, asmita.getProximoGolpe());
+    }
+    
+    @Test
+    public void getProximoGolpeComQuatro() throws Exception
+    {
+        Saint asmita = new Saint("Asmita", new Armadura(new Constelacao("Virgem"), Categoria.OURO));
+        Golpe rendicaoDivina = new Golpe("Rendição Divina", 25);
+        Golpe cicloSeisExistencias = new Golpe("Ciclo das Seis Existêcias", 50);
+        Golpe tesouroDoCeu = new Golpe("Tesouro do Céu", 75);
+        asmita.aprenderGolpe(rendicaoDivina);
+        asmita.aprenderGolpe(cicloSeisExistencias);
+        asmita.aprenderGolpe(tesouroDoCeu);
+        
+        assertEquals(rendicaoDivina, asmita.getProximoGolpe());
+        assertEquals(cicloSeisExistencias, asmita.getProximoGolpe());
+        assertEquals(tesouroDoCeu, asmita.getProximoGolpe());
+        assertEquals(rendicaoDivina, asmita.getProximoGolpe());
+    }
 }
