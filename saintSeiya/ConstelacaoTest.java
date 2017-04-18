@@ -4,13 +4,14 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import java.util.ArrayList;
 
 public class ConstelacaoTest
 {
     @Test
     public void criaUmSaintComConstelacao() throws Exception
     {
-        Saint dohko = new Saint("Dohko", new Armadura(new Constelacao("Libra", new Golpe[]{new Golpe("Cóleta dos Cem Dragões", 25), new Golpe("Último Dragão", 50)}), Categoria.OURO));
+        Saint dohko = new Saint("Dohko", new Armadura(new Constelacao("Libra"), Categoria.OURO));
     }
     
     @Test
@@ -21,6 +22,7 @@ public class ConstelacaoTest
        Golpe golpe3 = new Golpe("Fotóns", 75);
        Constelacao leao = new Constelacao("Leão");
        leao.adicionarGolpe(golpe1);
+
        leao.adicionarGolpe(golpe2);
        leao.adicionarGolpe(golpe3);
        Armadura ouroLeao = new Armadura(leao, Categoria.OURO);
@@ -33,12 +35,12 @@ public class ConstelacaoTest
         Constelacao touro = new Constelacao("Touro");
         Golpe grandeChifre = new Golpe("Grande Chifre", 25);
         touro.adicionarGolpe(grandeChifre);
-        Golpe[] golpes = touro.getGolpes();
+        ArrayList<Golpe> golpes = touro.getGolpes();
         
-        assertEquals(grandeChifre, golpes[0]);
+        assertEquals(grandeChifre, golpes.get(0));
         // TODO: assert null
-        assertNull(golpes[1]);
-        assertNull(golpes[2]);
+        assertNull(golpes.get(1));
+        assertNull(golpes.get(2));
     }
     
     @Test
@@ -49,10 +51,10 @@ public class ConstelacaoTest
         Golpe explosaoGalatica = new Golpe("Explosão Galática", 50);
         gemeos.adicionarGolpe(outraDimensao);
         gemeos.adicionarGolpe(explosaoGalatica);
-        Golpe[] golpes = gemeos.getGolpes();
+        ArrayList<Golpe> golpes = gemeos.getGolpes();
         
-        assertEquals(outraDimensao, golpes[0]);
-        assertEquals(explosaoGalatica, golpes[1]);
+        assertEquals(outraDimensao, golpes.get(0));
+        assertEquals(explosaoGalatica, golpes.get(1));
     }
     
     @Test
@@ -65,11 +67,11 @@ public class ConstelacaoTest
         gemeos.adicionarGolpe(outraDimensao);
         gemeos.adicionarGolpe(explosaoGalatica);
         gemeos.adicionarGolpe(sataImperial);
-        Golpe[] golpes = gemeos.getGolpes();
+        ArrayList<Golpe> golpes = gemeos.getGolpes();
         
-        assertEquals(outraDimensao, golpes[0]);
-        assertEquals(explosaoGalatica, golpes[1]);
-        assertEquals(sataImperial, golpes[2]);
+        assertEquals(outraDimensao, golpes.get(0));
+        assertEquals(explosaoGalatica, golpes.get(1));
+        assertEquals(sataImperial, golpes.get(2)); 
     }
     
     @Test(expected=ArrayIndexOutOfBoundsException.class)
