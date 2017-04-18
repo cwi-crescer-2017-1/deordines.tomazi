@@ -1,3 +1,5 @@
+import java.security.InvalidParameterException;
+
 public class Saint
 {
     private String nome;
@@ -17,8 +19,6 @@ public class Saint
         
         /*int valorCategoria = this.armadura.getCategoria().getValor();
         this.qtdSentidosDespertados += valorCategoria;*/
-        
-
     }
 
     public void VestirArmadura()
@@ -46,26 +46,21 @@ public class Saint
         return this.status;
     }
     
-    public void perderVida(double dano) throws Exception
+    public void perderVida(double dano)
     {
-        if (dano < 0)
+        if (dano < 0 )
         {
-            throw new Exception("Parâmetro inválido");
+            throw new InvalidParameterException("Parâmetro Inválido");
+        }
+        
+        if (vida - dano < 1)
+        {
+            this.status = Status.MORTO;
+            this.vida = 0;
         }
         else
         {
-            if(getStatus() != Status.MORTO)
-            {
-                this.vida -= dano;
-                if (getVida() < 1)
-                {
-                    this.status = Status.MORTO;
-                }
-            }
-            else
-            {
-                throw new Exception(getNome() + " está morto(a)");
-            }
+            this.vida -= dano;
         }
     }
     
@@ -100,8 +95,9 @@ public class Saint
     }
     
     //to do
-    /*public Golpe getProximoGolpe()
+    public Golpe getProximoGolpe()
     {
-        
-    }*/
+        indiceGolpe++;
+        return this.armadura.getConstelacao().getGolpe(indiceGolpe);        
+    }
 }
