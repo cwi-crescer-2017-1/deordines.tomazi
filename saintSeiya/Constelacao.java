@@ -1,30 +1,45 @@
 public class Constelacao
 {
     private String nome;
-    private Golpe[] golpe = new Golpe[3];
+    private Golpe[] golpes = new Golpe[2];
+    private int qtdGolpes = 0;
     
-    public Constelacao(String nome, Golpe[] golpe)
+    public Constelacao(String nome)
     {
         this.nome = nome;
-        this.golpe = golpe;
     }
     
-    //It was too late when i saw
-    public void adicionarGolpe(Golpe golpe)
+    public Constelacao(String nome, Golpe[] golpes) throws Exception
     {
-        //this.golpe.
+        this.nome = nome;
+        this.golpes = golpes;
     }
-    
-    /*public String getGolpes()
-    {
-        for (int i = 0; i < this.golpe.length; i++)
-        {
-            return this.golpe[i].getNome();
-        }
-    }*/
     
     public String getNome()
     {
         return this.nome;
+    }
+    
+    public void adicionarGolpe(Golpe golpe) throws Exception
+    {
+        if(qtdGolpes < golpes.length)
+        {
+            this.golpes[qtdGolpes] = golpe;
+            qtdGolpes++;
+        }
+        else
+        {
+            throw new Exception ("Limite de golpes excedido");
+        }
+    }
+    
+    public Golpe getGolpe(int indiceGolpe)
+    {
+        return this.golpes[indiceGolpe];
+    }
+    
+    public Golpe[] getGolpes()
+    {
+        return golpes;
     }
 }
