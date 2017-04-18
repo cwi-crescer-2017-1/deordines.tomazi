@@ -1,21 +1,26 @@
 public class Armadura
 {
-    private String nome;
+    private Constelacao constelacao;
     private Categoria categoria;
     
-    public Armadura(String nome, Categoria categoria)
+    public Armadura(Constelacao constelacao, Categoria categoria)
     {
-        this.nome = nome;
+        this.constelacao = constelacao;
         this.categoria = categoria;
     }
     
     public String getNome()
     {
-        return this.nome;
+        return this.constelacao.getNome();
     }
     
     public Categoria getCategoria()
     {
         return this.categoria;
     }
+    
+    /*public Constelacao getGolpesConstelacao()
+    {
+        return this.constelacao.getGolpes();
+    }*/
 }
