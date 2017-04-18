@@ -32,7 +32,7 @@ public class Constelacao
             Golpe golpeAtual = this.golpes[i];
             if (golpeAtual == null)
             {
-                this.golpes[i] = golpeAtual;
+                this.golpes[i] = golpe;
                 break;
             }
         }
