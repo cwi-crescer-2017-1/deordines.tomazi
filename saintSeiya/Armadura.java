@@ -9,18 +9,13 @@ public class Armadura
         this.categoria = categoria;
     }
     
-    public String getNome()
+    public Constelacao getConstelacao()
     {
-        return this.constelacao.getNome();
+        return this.constelacao;
     }
     
     public Categoria getCategoria()
     {
         return this.categoria;
     }
-    
-    /*public Constelacao getGolpesConstelacao()
-    {
-        return this.constelacao.getGolpes();
-    }*/
 }
