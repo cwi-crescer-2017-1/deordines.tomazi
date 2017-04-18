@@ -14,8 +14,11 @@ public class SaintTest
         // 1. Arrange - Montagem dos dados de teste
         Golpe golpe1 = new Golpe("Cápsula do Poder", 25);
         Golpe golpe2 = new Golpe("Relâmpago de Plasma", 50);
-        Armadura leao = new Armadura(new Constelacao("Leão", new Golpe[]{golpe1, golpe2}), Categoria.OURO);
-        Saint regulus = new Saint("Regulus", leao);
+        Constelacao leao = new Constelacao("Leão");
+        leao.adicionarGolpe(golpe1);
+        leao.adicionarGolpe(golpe2);
+        Armadura ouroLeao = new Armadura(leao, Categoria.OURO);
+        Saint regulus = new Saint("Regulus", ouroLeao);
         // 2. Act - Invocar a ação a ser testado
         regulus.VestirArmadura();
         // 3. Assert - Verificação dos resultados do teste
