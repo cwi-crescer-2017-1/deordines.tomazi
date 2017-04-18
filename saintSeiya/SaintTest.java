@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import java.security.InvalidParameterException;
 
 public class SaintTest
 {
@@ -93,7 +94,7 @@ public class SaintTest
         assertEquals(0, saga.getVida(), 0.01);
     }
     
-    @Test(expected=Exception.class)
+    @Test(expected=InvalidParameterException.class)
     public void causarDanoAoSaintComValorMenos1000() throws Exception
     {
         Golpe golpe1 = new Golpe("Outra Dimensão", 25);
@@ -109,7 +110,7 @@ public class SaintTest
         Golpe golpe2 = new Golpe("Explosão Galática", 50);
         Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos", new Golpe[]{golpe1, golpe2}), Categoria.OURO));
         saga.perderVida(1000);
-        assertEquals(-900, saga.getVida(), 0.01);
+        assertEquals(0, saga.getVida(), 0.01);
     }
  
     @Test
@@ -183,7 +184,7 @@ public class SaintTest
         assertEquals(Status.MORTO, seiya.getStatus());
     }
     
-    @Test(expected=Exception.class)
+    @Test
     public void saintComStatusMortoNaoPodeLevarDanoEDeveLancarErro() throws Exception
     {
         Golpe golpe1 = new Golpe("Agulha Escarlate", 25);
@@ -192,5 +193,65 @@ public class SaintTest
         milo.perderVida(100);
         //assertEquals(0, milo.getVida(), 0.01);
         milo.perderVida(100);
+    }
+    
+    @Test
+    public void aprenderUmGolpe() throws Exception
+    {
+        Saint milo = new Saint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        Golpe agulhaEscarlate = new Golpe("Agulha Escarlate", 25);
+        milo.aprenderGolpe(agulhaEscarlate);
+        Golpe[] golpes = milo.getGolpes();
+        
+        assertEquals(agulhaEscarlate, golpes[0]);
+        assertNull(golpes[1]);
+        assertNull(golpes[2]);
+    }
+    
+    @Test
+    public void aprenderDoisGolpes() throws Exception
+    {
+        Saint milo = new Saint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        Golpe agulhaEscarlate = new Golpe("Agulha Escarlate", 25);
+        Golpe agulhaEscarlateAntares = new Golpe("Agulha Escarlate de Antares", 50);
+        milo.aprenderGolpe(agulhaEscarlate);
+        milo.aprenderGolpe(agulhaEscarlateAntares);    
+        Golpe[] golpes = milo.getGolpes();
+        
+        assertEquals(agulhaEscarlate, golpes[0]);
+        assertEquals(agulhaEscarlateAntares, golpes[1]);
+        assertNull(golpes[2]);
+    }
+    
+    @Test
+    public void aprenderTresGolpes() throws Exception
+    {
+        Saint asmita = new Saint("Asmita", new Armadura(new Constelacao("Virgem"), Categoria.OURO));
+        Golpe rendicaoDivina = new Golpe("Rendição Divina", 25);
+        Golpe cicloSeisExistencias = new Golpe("Ciclo das Seis Existêcias", 50);
+        Golpe tesouroDoCeu = new Golpe("Tesouro do Céu", 75);
+        asmita.aprenderGolpe(rendicaoDivina);
+        asmita.aprenderGolpe(cicloSeisExistencias);
+        asmita.aprenderGolpe(tesouroDoCeu);
+        Golpe[] golpes = asmita.getGolpes();
+        
+        assertEquals(rendicaoDivina, golpes[0]);
+        assertEquals(cicloSeisExistencias, golpes[1]);
+        assertEquals(tesouroDoCeu, golpes[2]);
+    }
+    
+    @Test(expected=ArrayIndexOutOfBoundsException.class)
+    public void aprenderQuatroGolpes() throws Exception
+    {
+        Saint asmita = new Saint("Asmita", new Armadura(new Constelacao("Virgem"), Categoria.OURO));
+        Golpe rendicaoDivina = new Golpe("Rendição Divina", 25);
+        Golpe cicloSeisExistencias = new Golpe("Ciclo das Seis Existêcias", 50);
+        Golpe tesouroDoCeu = new Golpe("Tesouro do Céu", 75);
+        Golpe golpeExtra = new Golpe("Golpe Extra", 100);
+        asmita.aprenderGolpe(rendicaoDivina);
+        asmita.aprenderGolpe(cicloSeisExistencias);
+        asmita.aprenderGolpe(tesouroDoCeu);
+        asmita.aprenderGolpe(golpeExtra);
+        Golpe[] golpes = asmita.getGolpes();
     }
 }
