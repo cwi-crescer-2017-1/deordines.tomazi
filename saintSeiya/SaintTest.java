@@ -22,7 +22,6 @@ public class SaintTest
         assertEquals(true, resultado);
     }
     
-    
     @Test
     public void naoVestirArmaduraDeixaArmaduraVestida() throws Exception
     {
@@ -75,12 +74,11 @@ public class SaintTest
         assertEquals(0, saga.getVida(), 0.01);
     }
     
-    @Test
+    @Test(expected=Exception.class)
     public void causarDanoAoSaintComValorMenos1000() throws Exception
     {
         Saint saga = new Saint("Saga", new Armadura("Gêmeos", Categoria.OURO));
         saga.perderVida(-1000);
-        assertEquals(1100, saga.getVida(), 0.01);
     }
     
     @Test
@@ -137,5 +135,23 @@ public class SaintTest
     public void constelacaoInvalidaDeOuroDeveLancarErro() throws Exception
     {
         new GoldSaint("Bernardo", new Armadura("Café", Categoria.OURO));
+    }
+    
+    @Test
+    public void saintCriadoRecebe100DeDanoEAlteraStatusParaMorto() throws Exception
+    {
+        Saint seiya = new BronzeSaint("Seiya", new Armadura("Pégasus", Categoria.BRONZE));
+        seiya.perderVida(100);
+        
+        assertEquals(Status.MORTO, seiya.getStatus());
+    }
+    
+    @Test(expected=Exception.class)
+    public void saintComStatusMortoNaoPodeLevarDanoEDeveLancarErro() throws Exception
+    {
+        Saint milo = new GoldSaint("Milo", new Armadura("Escorpião", Categoria.OURO));
+        milo.perderVida(100);
+        //assertEquals(0, milo.getVida(), 0.01);
+        milo.perderVida(100);
     }
 }

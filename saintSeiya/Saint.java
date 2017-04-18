@@ -44,9 +44,27 @@ public class Saint
         return this.status;
     }
     
-    public void perderVida(double dano)
+    public void perderVida(double dano) throws Exception
     {
-        this.vida -= dano;
+        if (dano < 0)
+        {
+            throw new Exception("Parâmetro inválido");
+        }
+        else
+        {
+            if(getStatus() != Status.MORTO)
+            {
+                this.vida -= dano;
+                if (getVida() < 1)
+                {
+                    this.status = Status.MORTO;
+                }
+            }
+            else
+            {
+                throw new Exception(getNome() + " está morto(a)");
+            }
+        }
     }
     
     public double getVida()
