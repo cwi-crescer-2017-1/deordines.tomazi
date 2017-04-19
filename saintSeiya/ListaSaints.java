@@ -59,14 +59,39 @@ public class ListaSaints {
     }
     
     public Saint getSaintMaiorVida() {
+        if (listaSaints.isEmpty()) {
+            return null;
+        }
+        
         Saint maiorVida = this.listaSaints.get(0);
         for(int i = 1; i < this.listaSaints.size(); i++) {
-
+            Saint saint = this.listaSaints.get(i);
+            boolean encontreiMaior = saint.getVida() > maiorVida.getVida();
+            if (encontreiMaior) {
+                maiorVida = saint;
+            }            
         }
         return maiorVida;
     }
     
     public Saint getSaintMenorVida() {
-        return null;
+        if (listaSaints.isEmpty()) {
+            return null;
+        }
+        
+        Saint menorVida = this.listaSaints.get(0);
+        for(int i = 1; i < this.listaSaints.size(); i++) {
+            Saint saint = this.listaSaints.get(i);
+            boolean encontreiMenor = saint.getVida() < menorVida.getVida();
+            if (encontreiMenor) {
+                menorVida = saint;
+            }            
+        }
+        return menorVida;
+    }
+       
+    public void ordenar()
+    {
+        
     }
 }

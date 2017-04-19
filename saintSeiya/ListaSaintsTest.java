@@ -144,4 +144,63 @@ public class ListaSaintsTest
         assertEquals(regulus, listaSaints.buscarPorStatus(Status.MORTO).get(0));
         assertEquals(sisifos, listaSaints.buscarPorStatus(Status.MORTO).get(1));
     }
+    
+    @Test
+    public void getSaintMaiorVidaComApenasUm() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint regulus = new GoldSaint("Regulus", new Armadura(new Constelacao("Leão"), Categoria.OURO));
+        listaSaints.adicionarSaint(regulus);
+        
+        assertEquals(regulus, listaSaints.getSaintMaiorVida());
+    }
+    
+    @Test
+    public void getSaintMaiorVidaComApenasDois() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint regulus = new GoldSaint("Regulus", new Armadura(new Constelacao("Leão"), Categoria.OURO));
+        Saint sisifos = new GoldSaint("Sísifos", new Armadura(new Constelacao("Sagitário"), Categoria.OURO));
+        listaSaints.adicionarSaint(regulus);
+        listaSaints.adicionarSaint(sisifos);
+        regulus.perderVida(10);
+        
+        assertEquals(sisifos, listaSaints.getSaintMaiorVida());
+    }
+    
+    @Test
+    public void getSaintMaiorVidaComListaVazia() {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint maiorVida = listaSaints.getSaintMaiorVida();
+        
+        assertNull(maiorVida);
+    }
+    
+    @Test
+    public void getSaintMenorVidaComApenasUm() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint shiryu = new BronzeSaint("Shiryu", new Armadura(new Constelacao("Dragão"), Categoria.BRONZE));
+        listaSaints.adicionarSaint(shiryu);
+        
+        assertEquals(shiryu, listaSaints.getSaintMenorVida());
+    }
+    
+    @Test
+    public void getSaintMenorVidaComApenasDois() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint shiryu = new BronzeSaint("Shiryu", new Armadura(new Constelacao("Dragão"), Categoria.BRONZE));
+        Saint seiya = new BronzeSaint("Seiya", new Armadura(new Constelacao("Pégaso"), Categoria.BRONZE));
+        listaSaints.adicionarSaint(shiryu);
+        listaSaints.adicionarSaint(seiya);
+        
+        seiya.perderVida(25);
+        
+        assertEquals(seiya, listaSaints.getSaintMenorVida());
+    }
+    
+    @Test
+    public void getSaintMenorVidaComListaVazia() {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint menorVida = listaSaints.getSaintMenorVida();
+        
+        assertNull(menorVida);
+    }
 }
