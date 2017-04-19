@@ -50,12 +50,12 @@ public class Saint
         }
     }
     
-    public double getVida() {
-        return this.vida;
-    }
-    
     public String getNome() {
         return this.nome;
+    }
+    
+    public double getVida() {
+        return this.vida;
     }
     
     public Armadura getArmadura() {
