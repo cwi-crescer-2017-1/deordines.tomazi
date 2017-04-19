@@ -90,8 +90,61 @@ public class ListaSaints {
         return menorVida;
     }
        
-    public void ordenar()
-    {
+    public void ordenar() {
+        boolean posicoesSendoTrocadas = false;
         
+        do{
+            posicoesSendoTrocadas = false;
+            for(int i = 0; i < this.listaSaints.size() - 1; i++) {
+                Saint atual = this.listaSaints.get(i);
+                Saint proximo = this.listaSaints.get(i + 1);
+                boolean precisaTrocar = atual.getVida() > proximo.getVida();
+                
+                if (precisaTrocar){
+                    Saint troca = atual;
+                    this.listaSaints.set(i, proximo);
+                    this.listaSaints.set(i + 1, troca);
+                    posicoesSendoTrocadas = true;
+                }
+            }
+        } while(posicoesSendoTrocadas);        
     }
+    /*
+    public void ordenar(TipoEnumeracao tipo) {
+        boolean posicoesSendoTrocadas = false;
+        
+        switch(tipo) {
+            case ASCENDENTE: {
+            do {
+                for (int i = 0; i < this.listaSaints.size() - 1; i++) {
+                    Saint atual = this.listaSaints.get(i);
+                    Saint proximo = this.listaSaints.get(i + 1);
+                    boolean precisaTrocar = atual.getVida() < proximo.getVida();
+                    
+                    if (precisaTrocar) {
+                        Saint troca = atual;
+                        this.listaSaints.set(i, proximo);
+                        this.listaSaints.set(i + 1, troca);
+                        posicoesSendoTrocadas = true;
+                    }
+                }
+            }while (posicoesSendoTrocadas);
+        } break;
+            case DESCENDENTE: {
+        do {
+            for(int i = 0; i < this.listaSaints.size() - 1; i++) {
+                Saint atual = this.listaSaints.get(i);
+                Saint proximo = this.listaSaints.get(i + 1);
+                boolean precisaTrocar = atual.getVida() > proximo.getVida();
+                
+                if(precisaTrocar) {
+                    Saint troca = atual;
+                    this.listaSaints.set(i, proximo);
+                    this.listaSaints.set(i + 1, troca);
+                    posicoesSendoTrocadas = true;
+                }
+            }
+            } while(posicoesSendoTrocadas);
+        } break;
+    }*/
 }

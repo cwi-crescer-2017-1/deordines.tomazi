@@ -203,4 +203,37 @@ public class ListaSaintsTest
         
         assertNull(menorVida);
     }
+    
+    @Test
+    public void ordenarComListaDesordenada() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint shiryu = new BronzeSaint("Shiryu", new Armadura(new Constelacao("Dragão"), Categoria.BRONZE));
+        Saint seiya = new BronzeSaint("Seiya", new Armadura(new Constelacao("Pégaso"), Categoria.BRONZE));
+        Saint hyoga = new BronzeSaint("Hyoga", new Armadura(new Constelacao("Cisne"), Categoria.BRONZE));
+        listaSaints.adicionarSaint(shiryu);
+        listaSaints.adicionarSaint(seiya);
+        listaSaints.adicionarSaint(hyoga);
+        shiryu.perderVida(10);
+        seiya.perderVida(20);
+        hyoga.perderVida(30);
+        listaSaints.ordenar();
+        ArrayList<Saint> resultadoOrdenacao = listaSaints.getTodos();
+        
+        assertEquals(hyoga, resultadoOrdenacao.get(0));
+        assertEquals(seiya, resultadoOrdenacao.get(1));
+        assertEquals(shiryu, resultadoOrdenacao.get(2));
+    }
+    
+    @Test
+    public void ordenadorComListaOrdenada() throws Exception {
+        
+    }
+    
+    @Test
+    public void ordenarComListaVazia() throws Exception {
+    }
+    
+    @Test
+    public void ordenadorComListaApenasUm() throws Exception {
+    }
 }
