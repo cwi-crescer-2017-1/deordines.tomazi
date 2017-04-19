@@ -1,5 +1,3 @@
-
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
@@ -9,49 +7,37 @@ import java.util.ArrayList;
 public class ListaSaintsTest
 {
     @Test
-    public void buscarSaintPorNome() throws Exception {
+    public void buscarSaintExistente() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint regulus = new GoldSaint("Regulus", new Armadura(new Constelacao("Leão"), Categoria.OURO));
+        listaSaints.adicionarSaint(regulus);
+        
+        assertEquals(regulus, listaSaints.buscarPorNome("Regulus"));
+    }
+    
+    @Test
+    public void buscarSaintInexistente() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
         Saint regulus = new GoldSaint("Regulus", new Armadura(new Constelacao("Leão"), Categoria.OURO));
         Saint sisifos = new GoldSaint("Sísifos", new Armadura(new Constelacao("Sagitário"), Categoria.OURO));
-        Saint degel = new GoldSaint("Dégel", new Armadura(new Constelacao("Aquário"), Categoria.OURO));
         listaSaints.adicionarSaint(regulus);
-        listaSaints.adicionarSaint(sisifos);
-        listaSaints.adicionarSaint(degel);
-        listaSaints.buscarPorNome("Regulus");
+        listaSaints.adicionarSaint(sisifos);      
+        listaSaints.buscarPorNome("Degel");
         
-        assertEquals("Regulus", listaSaints.getSaint(0).getNome());
+        assertNull(listaSaints.buscarPorNome("Degel"));
     }
     
-    @Test(expected=AssertionError.class)
-    public void buscarSaintPorNomeCertoMasNaPosicaoErrada() throws Exception {
+    @Test
+    public void buscarSaintExistenteComRepeticaoDeNomes() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
+        Saint regulus2 = new GoldSaint("Regulus2", new Armadura(new Constelacao("Leão"), Categoria.OURO));
         Saint regulus = new GoldSaint("Regulus", new Armadura(new Constelacao("Leão"), Categoria.OURO));
-        Saint sisifos = new GoldSaint("Sísifos", new Armadura(new Constelacao("Sagitário"), Categoria.OURO));
-        Saint degel = new GoldSaint("Dégel", new Armadura(new Constelacao("Aquário"), Categoria.OURO));
+        listaSaints.adicionarSaint(regulus2);
         listaSaints.adicionarSaint(regulus);
-        listaSaints.adicionarSaint(sisifos);
-        listaSaints.adicionarSaint(degel);
-        listaSaints.buscarPorNome("Dégel");
         
-        assertEquals("Dégel", listaSaints.getSaint(1).getNome());
+        assertEquals(regulus2, listaSaints.buscarPorNome("Regulus2"));
     }
-    
-    @Test(expected=AssertionError.class)
-    public void buscaSaintPorNomeQueNaoEstaNaLista() throws Exception {
-        ListaSaints listaSaints = new ListaSaints();
-        Saint regulus = new GoldSaint("Regulus", new Armadura(new Constelacao("Leão"), Categoria.OURO));
-        Saint sisifos = new GoldSaint("Sísifos", new Armadura(new Constelacao("Sagitário"), Categoria.OURO));
-        Saint degel = new GoldSaint("Dégel", new Armadura(new Constelacao("Aquário"), Categoria.OURO));
-        listaSaints.adicionarSaint(regulus);
-        listaSaints.adicionarSaint(sisifos);
-        listaSaints.adicionarSaint(degel);        
-        listaSaints.buscarPorNome("Kardia");
-        
-        assertEquals("Kardia", null);
-    }
-    
-    
-    //Testar categoria antes
+    //Testar categoria
     
     
     @Test
