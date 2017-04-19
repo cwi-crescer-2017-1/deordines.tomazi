@@ -1,7 +1,5 @@
-public class GoldSaint extends Saint
-{
-    public GoldSaint(String nome, Armadura armadura) throws Exception
-    {
+public class GoldSaint extends Saint {
+    public GoldSaint(String nome, Armadura armadura) throws Exception {
         super(nome, armadura);
             this.qtdSentidosDespertados = 7;
             String constelacao = armadura.getConstelacao().getNome();
@@ -22,7 +20,5 @@ public class GoldSaint extends Saint
                 //dar erro
                 throw new Exception("Constelação inválida");
             }
-    }
-    
-    
+    }    
 }

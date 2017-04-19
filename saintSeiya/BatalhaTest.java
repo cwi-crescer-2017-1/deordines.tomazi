@@ -8,8 +8,7 @@ import org.junit.Test;
 public class BatalhaTest
 {
     @Test
-    public void categoriaSaint1MaiorQueSaint2() throws Exception
-    {
+    public void categoriaSaint1MaiorQueSaint2() throws Exception {
         Saint shaina = new Saint("Shaina", new Armadura(new Constelacao("Serpente"), Categoria.PRATA));        
         Saint hyoga = new Saint("Hyoga", new Armadura(new Constelacao("Cisne"), Categoria.BRONZE));
         
@@ -21,8 +20,7 @@ public class BatalhaTest
     }
     
     @Test
-    public void categoriaSaint1MenorQueSaint2() throws Exception
-    {
+    public void categoriaSaint1MenorQueSaint2() throws Exception {
         Saint hyoga = new Saint("Hyoga", new Armadura(new Constelacao("Cisne"), Categoria.BRONZE));
         Saint camus = new Saint("Camus", new Armadura(new Constelacao("Aquário"), Categoria.OURO));
         
@@ -34,8 +32,7 @@ public class BatalhaTest
     }
     
     @Test
-    public void categoriaSaint1IgualAoSaint2() throws Exception
-    {
+    public void categoriaSaint1IgualAoSaint2() throws Exception {
         Saint dohko = new Saint("Dohko", new Armadura(new Constelacao("Libra"), Categoria.OURO));
         Saint shion = new Saint("Shion", new Armadura(new Constelacao("Áries"), Categoria.OURO));
         

@@ -15,9 +15,6 @@ public class Saint
     public Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
         this.armadura = armadura;
-        
-        /*int valorCategoria = this.armadura.getCategoria().getValor();
-        this.qtdSentidosDespertados += valorCategoria;*/
     }
 
     public void VestirArmadura() {
@@ -41,18 +38,14 @@ public class Saint
     }
     
     public void perderVida(double dano) {
-        if (dano < 0 )
-        {
+        if (dano < 0 ) {
             throw new InvalidParameterException("Parâmetro Inválido");
         }
         
-        if (vida - dano < 1)
-        {
+        if (vida - dano < 1) {
             this.status = Status.MORTO;
             this.vida = 0;
-        }
-        else
-        {
+        } else {
             this.vida -= dano;
         }
     }

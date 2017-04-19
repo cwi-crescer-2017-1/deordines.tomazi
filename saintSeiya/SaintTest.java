@@ -31,12 +31,14 @@ public class SaintTest
     @Test
     public void naoVestirArmaduraDeixaArmaduraVestida() throws Exception {
         Saint hyoga = new Saint("Hyoga", new Armadura(new Constelacao("Cisne"), Categoria.BRONZE));
+        
         assertEquals(false, hyoga.getArmaduraVestida());
     }
     
     @Test
     public void aoCriarSaintGeneroENaoInformado() throws Exception {
         Saint shaka = new Saint("Shaka", new Armadura(new Constelacao("Virgem"), Categoria.OURO));
+        
         assertEquals(Genero.NAO_INFORMADO, shaka.getGenero());
     }
     
@@ -44,18 +46,21 @@ public class SaintTest
     public void deveSerPossivelAlterarOGenero() throws Exception {
         Saint jabu = new Saint("Jabu", new Armadura(new Constelacao("Unicórino"), Categoria.BRONZE));
         jabu.setGenero(Genero.MASCULINO);
+        
         assertEquals(Genero.MASCULINO, jabu.getGenero());
     }
     
     @Test
     public void aoCriarSaintStatusDeveSerVivo() throws Exception {
         Saint ikki = new Saint("Ikki", new Armadura(new Constelacao("Fênix"), Categoria.BRONZE));
+        
         assertEquals(Status.VIVO, ikki.getStatus());
     }
     
     @Test
     public void aoCriarSaintVidaDeveSer100() throws Exception {
         Saint albafica = new Saint("Albafica", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
+        
         assertEquals(100.0, albafica.getVida(), 0.01);
     }
     
@@ -63,6 +68,7 @@ public class SaintTest
     public void causarDanoAoSaintValor10() throws Exception {
         Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
         saga.perderVida(10);
+
         assertEquals(90, saga.getVida(), 0.01);
     }
     
@@ -70,6 +76,7 @@ public class SaintTest
     public void causarDanoAoSaintValor100() throws Exception {
         Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
         saga.perderVida(100);
+        
         assertEquals(0, saga.getVida(), 0.01);
     }
     
@@ -83,6 +90,7 @@ public class SaintTest
     public void causarDanoAoSaintValor1000() throws Exception {
         Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
         saga.perderVida(1000);
+        
         assertEquals(0, saga.getVida(), 0.01);
     }
  

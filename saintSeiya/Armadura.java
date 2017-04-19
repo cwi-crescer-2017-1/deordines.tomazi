@@ -1,21 +1,17 @@
-public class Armadura
-{
+public class Armadura {
     private Constelacao constelacao;
     private Categoria categoria;
     
-    public Armadura(Constelacao constelacao, Categoria categoria)
-    {
+    public Armadura(Constelacao constelacao, Categoria categoria) {
         this.constelacao = constelacao;
         this.categoria = categoria;
     }
     
-    public Constelacao getConstelacao()
-    {
+    public Constelacao getConstelacao() {
         return this.constelacao;
     }
     
-    public Categoria getCategoria()
-    {
+    public Categoria getCategoria() {
         return this.categoria;
     }
 }

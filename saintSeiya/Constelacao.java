@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
-public class Constelacao
-{
+public class Constelacao {
     private String nome;
     ArrayList<Golpe> golpes = new ArrayList<>();
     

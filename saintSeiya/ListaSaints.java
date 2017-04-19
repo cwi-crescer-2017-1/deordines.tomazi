@@ -1,62 +1,48 @@
 import java.util.ArrayList;
 import java.util.*;
 
-public class ListaSaints
-{
+public class ListaSaints {
     private ArrayList<Saint> listaSaints = new ArrayList<>();
     
-    public void adicionarSaint(Saint saint)
-    {
+    public void adicionarSaint(Saint saint) {
         this.listaSaints.add(saint);
     }
     
-    public Saint getSaint(int indice)
-    {
+    public Saint getSaint(int indice) {
         return this.listaSaints.get(indice);
     }
     
-    public ArrayList<Saint> getTodos()
-    {
+    public ArrayList<Saint> getTodos() {
         return this.listaSaints;
     }
     
-    public void removerSaint(int indice)
-    {
+    public void removerSaint(int indice) {
         this.listaSaints.remove(indice);
     }
     
-    public Saint buscarPorNome(String nome)
-    {
-        for(Saint saint : this.listaSaints)
-        {
-            if (saint.getNome() == nome)
-            {
+    public Saint buscarPorNome(String nome) {
+        for(Saint saint : this.listaSaints) {
+            if (saint.getNome() == nome) {
                 return saint;
             }
         }
         return null;
     }
     
-    public ArrayList<Saint> buscarPorCategoria(Categoria categoria)
-    {
+    public ArrayList<Saint> buscarPorCategoria(Categoria categoria) {
         ArrayList<Saint> subLista = new ArrayList<>();
-        for(Saint saint : this.listaSaints)
-        {
-            if (saint.getArmadura().getCategoria() == categoria)
-            {
+        for(Saint saint : this.listaSaints) {
+            if (saint.getArmadura().getCategoria() == categoria) {
                 subLista.add(saint);
             }
         }
         return subLista;
     }
     
-    public ArrayList<Saint> buscarPorStatus(Status status)
-    {
+    public ArrayList<Saint> buscarPorStatus(Status status) {
         ArrayList<Saint> subLista = new ArrayList<>();
-        for(Saint saint : this.listaSaints)
-        {
-            if (saint.getStatus() == status)
-            {
+        for(Saint saint : this.listaSaints) {
+            if (saint.getStatus() == status) {
                 subLista.add(saint);
             }
         }
