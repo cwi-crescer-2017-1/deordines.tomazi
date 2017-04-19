@@ -22,11 +22,17 @@ public class ListaSaints {
     
     public Saint buscarPorNome(String nome) {
         for(Saint saint : this.listaSaints) {
-            if (saint.getNome() == nome) {
+            if (saint.getNome().equals(nome)) {
                 return saint;
             }
         }
         return null;
+        
+        // Only JAVA 8
+        /*return this.listaSaints.stream()
+            .filter(s -> s.getNome().equals(nome)
+            .findFirst()
+            .orElse(null);*/
     }
     
     public ArrayList<Saint> buscarPorCategoria(Categoria categoria) {
