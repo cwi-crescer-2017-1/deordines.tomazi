@@ -12,8 +12,7 @@ public class Saint
     protected int qtdSentidosDespertados;
     private int indiceProximoGolpe = 0;
     
-    public Saint(String nome, Armadura armadura) throws Exception
-    {
+    public Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
         this.armadura = armadura;
         
@@ -21,33 +20,27 @@ public class Saint
         this.qtdSentidosDespertados += valorCategoria;*/
     }
 
-    public void VestirArmadura()
-    {
+    public void VestirArmadura() {
         armaduraVestida = true;
     }
     
-    public boolean getArmaduraVestida()
-    {
+    public boolean getArmaduraVestida() {
         return this.armaduraVestida;
     }
     
-    public Genero getGenero()
-    {
+    public Genero getGenero() {
         return this.genero;
     }
     
-    public void setGenero(Genero genero)
-    {
+    public void setGenero(Genero genero) {
         this.genero = genero;
     }
     
-    public Status getStatus()
-    {
+    public Status getStatus() {
         return this.status;
     }
     
-    public void perderVida(double dano)
-    {
+    public void perderVida(double dano) {
         if (dano < 0 )
         {
             throw new InvalidParameterException("Parâmetro Inválido");
@@ -64,42 +57,35 @@ public class Saint
         }
     }
     
-    public double getVida()
-    {
+    public double getVida() {
         return this.vida;
     }
     
-        public String getNome()
-    {
+    public String getNome() {
         return this.nome;
     }
     
-    public Armadura getArmadura()
-    {
+    public Armadura getArmadura() {
         return this.armadura;
     }
     
-    public int getQtdSentidosDespertados()
-    {
+    public int getQtdSentidosDespertados() {
         return this.qtdSentidosDespertados;
     }
     
-    public ArrayList<Golpe> getGolpes()
-    {
+    public ArrayList<Golpe> getGolpes() {
         return this.armadura.getConstelacao().getGolpes();
     }
     
-    private Constelacao getConstelacao()
-    {
+    private Constelacao getConstelacao() {
         return this.armadura.getConstelacao();
     }
-    public void aprenderGolpe(Golpe golpe)
-    {
+    
+    public void aprenderGolpe(Golpe golpe) {
         getConstelacao().adicionarGolpe(golpe);
     }
     
-    public Golpe getProximoGolpe()
-    {
+    public Golpe getProximoGolpe() {
         ArrayList<Golpe> golpes = getGolpes();
         int posicao = this.indiceProximoGolpe % golpes.size();
         return golpes.get(indiceProximoGolpe++ % golpes.size());
