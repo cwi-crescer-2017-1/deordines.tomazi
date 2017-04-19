@@ -3,8 +3,6 @@ import java.util.ArrayList;
 public class Constelacao
 {
     private String nome;
-    //private Golpe[] golpes = new Golpe[3];
-    //private int qtdGolpesAprendidos = 0;
     ArrayList<Golpe> golpes = new ArrayList<>();
     
     public Constelacao(String nome)
