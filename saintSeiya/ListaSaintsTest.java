@@ -37,7 +37,61 @@ public class ListaSaintsTest
         
         assertEquals(regulus2, listaSaints.buscarPorNome("Regulus2"));
     }
-    //Testar categoria
+    
+    @Test
+    public void buscarSaintComListaVazia() {
+        assertNull(new ListaSaints().buscarPorNome("Seiya"));
+    }
+    
+    @Test
+    public void buscarPorCategoriaListaVazia() {
+        ListaSaints listaSaints = new ListaSaints();
+        ArrayList<Saint> resultadoBusca = listaSaints.buscarPorCategoria(Categoria.BRONZE);
+        
+        assertEquals(new ArrayList<Saint>(), resultadoBusca);
+    }
+    
+    @Test
+    public void buscarPorCategoriaInexistente() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint ikki = new BronzeSaint("Ikki", new Armadura(new Constelacao("Fênix"), Categoria.BRONZE));
+        listaSaints.adicionarSaint(ikki);
+        ArrayList<Saint> resultadoBusca = listaSaints.buscarPorCategoria(Categoria.OURO);
+        
+        assertEquals(new ArrayList<Saint>(), resultadoBusca);    
+    }
+    
+    @Test
+    public void buscarPorCategoriaExistente() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint hyoga = new BronzeSaint("Hyoga", new Armadura(new Constelacao("Cisne"), Categoria.BRONZE));
+        Saint shun = new BronzeSaint("Shun", new Armadura(new Constelacao("Andrômeda"), Categoria.BRONZE));
+        Saint misty = new SilverSaint("Misty", new Armadura(new Constelacao("Lagarto"), Categoria.PRATA));
+        listaSaints.adicionarSaint(hyoga);
+        listaSaints.adicionarSaint(shun);
+        listaSaints.adicionarSaint(misty);
+        ArrayList<Saint> resultadoBusca = listaSaints.buscarPorCategoria(Categoria.BRONZE);
+        
+        assertEquals(hyoga, resultadoBusca.get(0));
+        assertEquals(shun, resultadoBusca.get(1));
+        assertEquals(2, resultadoBusca.size());
+    }
+    
+    @Test
+    public void buscarPorCategoriaComMaisDeUmExistente() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint hyoga = new BronzeSaint("Hyoga", new Armadura(new Constelacao("Cisne"), Categoria.BRONZE));
+        Saint shun = new BronzeSaint("Shun", new Armadura(new Constelacao("Andrômeda"), Categoria.BRONZE));
+        Saint misty = new SilverSaint("Misty", new Armadura(new Constelacao("Lagarto"), Categoria.PRATA));
+        listaSaints.adicionarSaint(shun);
+        listaSaints.adicionarSaint(misty);
+        listaSaints.adicionarSaint(hyoga);
+        ArrayList<Saint> resultadoBusca = listaSaints.buscarPorCategoria(Categoria.BRONZE);
+        
+        assertEquals(shun, resultadoBusca.get(0));
+        assertEquals(hyoga, resultadoBusca.get(1));
+        assertEquals(2, resultadoBusca.size());
+    }
     
     
     @Test

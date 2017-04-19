@@ -38,7 +38,7 @@ public class ListaSaints {
     public ArrayList<Saint> buscarPorCategoria(Categoria categoria) {
         ArrayList<Saint> subLista = new ArrayList<>();
         for(Saint saint : this.listaSaints) {
-            if (saint.getArmadura().getCategoria() == categoria) {
+            if (saint.getArmadura().getCategoria().equals(categoria)) {
                 subLista.add(saint);
             }
         }
