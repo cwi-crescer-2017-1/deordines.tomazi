@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.*;
+import java.util.stream.Collectors;
 
 public class ListaSaints {
     private ArrayList<Saint> listaSaints = new ArrayList<>();
@@ -21,28 +21,31 @@ public class ListaSaints {
     }
     
     public Saint buscarPorNome(String nome) {
-        for(Saint saint : this.listaSaints) {
+        /*for(Saint saint : this.listaSaints) {
             if (saint.getNome().equals(nome)) {
                 return saint;
             }
         }
-        return null;
+        return null;*/
         
         // Only JAVA 8
-        /*return this.listaSaints.stream()
-            .filter(s -> s.getNome().equals(nome)
+        return this.listaSaints.stream()
+            .filter(s -> s.getNome().equals(nome))
             .findFirst()
-            .orElse(null);*/
+            .orElse(null);
     }
     
     public ArrayList<Saint> buscarPorCategoria(Categoria categoria) {
-        ArrayList<Saint> subLista = new ArrayList<>();
+        /*ArrayList<Saint> subLista = new ArrayList<>();
         for(Saint saint : this.listaSaints) {
             if (saint.getArmadura().getCategoria().equals(categoria)) {
                 subLista.add(saint);
             }
         }
-        return subLista;
+        return subLista;*/
+        return (ArrayList<Saint>)this.listaSaints.stream()
+            .filter(s -> s.getArmadura().getCategoria().equals(categoria))
+            .collect(Collectors.toList());
     }
     
     public ArrayList<Saint> buscarPorStatus(Status status) {
@@ -55,35 +58,15 @@ public class ListaSaints {
         return subLista;
     }
     
-    // TODO
-    /*
-    public Saint getSaintMaiorVida()
-    {
-        double aux = 0;
-        for(Saint saint : this.listaSaints)
-        {
-            if (saint.getVida() > aux)
-            {
-                aux = saint.getVida();
-            }
+    public Saint getSaintMaiorVida() {
+        Saint maiorVida = this.listaSaints.get(0);
+        for(int i = 1; i < this.listaSaints.size(); i++) {
+
         }
+        return maiorVida;
     }
     
-    public Saint getSaintMenorVida()
-    {
-        double aux = 0;
-        for(Saint saint : this.listaSaints)
-        {
-            if (saint.getVida() > aux)
-            {
-                aux = saint.getVida();
-            }
-        }
+    public Saint getSaintMenorVida() {
+        return null;
     }
-    
-    public void ordenarSaints()
-    {
-        Collections.sort(listaSaints);
-    }
-    */
 }
