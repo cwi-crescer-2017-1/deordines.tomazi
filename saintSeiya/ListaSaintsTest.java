@@ -275,4 +275,24 @@ public class ListaSaintsTest
         assertEquals(seiya, resultadoOrdenacao.get(1));
         assertEquals(hyoga, resultadoOrdenacao.get(2));
     }
+    
+    @Test
+    public void getCSVComUmSaint() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint shiryu = new BronzeSaint("Shiryu", new Armadura(new Constelacao("Dragão"), Categoria.BRONZE));
+        listaSaints.adicionarSaint(shiryu);
+        listaSaints.getCSV();
+    }
+    
+    @Test
+    public void getCSVComTresSaints() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint shiryu = new BronzeSaint("Shiryu", new Armadura(new Constelacao("Dragão"), Categoria.BRONZE));
+        Saint seiya = new BronzeSaint("Seiya", new Armadura(new Constelacao("Pégaso"), Categoria.BRONZE));
+        Saint hyoga = new BronzeSaint("Hyoga", new Armadura(new Constelacao("Cisne"), Categoria.BRONZE));
+        listaSaints.adicionarSaint(shiryu);
+        listaSaints.adicionarSaint(seiya);
+        listaSaints.adicionarSaint(hyoga);
+        listaSaints.getCSV();
+    }
 }

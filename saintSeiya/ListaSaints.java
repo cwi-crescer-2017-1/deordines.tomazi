@@ -150,4 +150,25 @@ public class ListaSaints {
             } break;    
         }
     }
+
+    //public ArrayList<String> getCSV() {
+    public void getCSV() {
+        if (listaSaints.isEmpty()) {
+            return;
+        }
+        ArrayList<String> csv = new ArrayList<>();
+        for (Saint saint : this.listaSaints) {
+            csv.add(saint.getNome() + "," +
+                saint.getVida() + "," +
+                saint.getArmadura().getConstelacao().getNome() + "," +
+                saint.getArmadura().getCategoria() + "," +
+                saint.getStatus() + "," +
+                saint.getGenero() + "," +
+                saint.getArmaduraVestida());             
+            //return csv;
+        }
+        for (String s : csv)
+            System.out.println(s);
+        //return null;
+    }
 }
