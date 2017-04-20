@@ -151,12 +151,26 @@ public class ListaSaints {
         }
     }
 
-    public ArrayList<Saint> unir(ArrayList<Saint> outraLista) {
+    public ArrayList<Saint> unir(ListaSaints outraLista) {
         ArrayList<Saint> novaLista = new ArrayList<>();
+        ArrayList<Saint> auxOutraLista = outraLista.getTodos();
         novaLista.addAll(listaSaints);
-        
-        for(Saint saint : outraLista) {
-            novaLista.add(saint);
+
+        for (int i = 0; i < auxOutraLista.size(); i++) {
+            novaLista.add(auxOutraLista.get(i));
+        }
+        return novaLista;
+    }
+
+    public ArrayList<Saint> diff(ArrayList<Saint> outraLista) {
+        ArrayList<Saint> novaLista = new ArrayList<>();
+
+        for (int i = 0; i < this.listaSaints.size(); i++) {
+            for (int j = 0; i < outraLista.size(); i++) {
+                if (!this.listaSaints.get(i).getNome().equals(outraLista.get(j).getNome())) {
+                    novaLista.add(this.listaSaints.get(i));
+                }
+            }
         }
         return novaLista;
     }
