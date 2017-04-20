@@ -153,9 +153,6 @@ public class ListaSaints {
 
     //public ArrayList<String> getCSV() {
     public void getCSV() {
-        if (listaSaints.isEmpty()) {
-            return;
-        }
         ArrayList<String> csv = new ArrayList<>();
         for (Saint saint : this.listaSaints) {
             csv.add(saint.getNome() + "," +
