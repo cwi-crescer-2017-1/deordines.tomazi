@@ -248,7 +248,7 @@ public class ListaSaintsTest
         shiryu.perderVida(10);
         seiya.perderVida(20);
         hyoga.perderVida(30);
-        listaSaints.ordenar(TipoEnumeracao.ASCENDENTE);
+        listaSaints.ordenar(TipoOrdenacao.ASCENDENTE);
         ArrayList<Saint> resultadoOrdenacao = listaSaints.getTodos();
         
         assertEquals(hyoga, resultadoOrdenacao.get(0));
@@ -268,7 +268,7 @@ public class ListaSaintsTest
         shiryu.perderVida(10);
         seiya.perderVida(20);
         hyoga.perderVida(30);
-        listaSaints.ordenar(TipoEnumeracao.DESCENDENTE);
+        listaSaints.ordenar(TipoOrdenacao.DESCENDENTE);
         ArrayList<Saint> resultadoOrdenacao = listaSaints.getTodos();
         
         assertEquals(shiryu, resultadoOrdenacao.get(0));
@@ -345,11 +345,14 @@ public class ListaSaintsTest
     public void getCSVComTresSaints() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
         Saint shiryu = new BronzeSaint("Shiryu", new Armadura(new Constelacao("Dragão"), Categoria.BRONZE));
+        Saint ikki = new BronzeSaint("Ikki", new Armadura(new Constelacao("Fênix"), Categoria.BRONZE));
         Saint seiya = new BronzeSaint("Seiya", new Armadura(new Constelacao("Pégaso"), Categoria.BRONZE));
-        Saint hyoga = new BronzeSaint("Hyoga", new Armadura(new Constelacao("Cisne"), Categoria.BRONZE));
         listaSaints.adicionarSaint(shiryu);
+        listaSaints.adicionarSaint(ikki);
         listaSaints.adicionarSaint(seiya);
-        listaSaints.adicionarSaint(hyoga);
+        seiya.perderVida(30);
+        seiya.vestirArmadura();
+        
         listaSaints.getCSV();
     }
 }
