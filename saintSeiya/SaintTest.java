@@ -266,7 +266,7 @@ public class SaintTest
     }
 
     @Test
-    public void getCSVComArmaduraVestida() throws Exception {
+    public void getCSVComConstelacaoNulaEArmaduraVestida() throws Exception {
         Saint dohko = new Saint("Dohko", new Armadura(new Constelacao(""), Categoria.OURO));
         dohko.perderVida(90);
         dohko.vestirArmadura();
@@ -276,7 +276,7 @@ public class SaintTest
     }
     
     @Test
-    public void getCDVComNomeNulo() throws Exception {
+    public void getCDVComGeneroFeminino() throws Exception {
         Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
         june.setGenero(Genero.FEMININO);
         june.perderVida(15.5);
