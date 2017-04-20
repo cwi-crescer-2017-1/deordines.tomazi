@@ -30,9 +30,9 @@ public class ListaSaints {
 
         // Only JAVA 8
         return this.listaSaints.stream()
-        .filter(s -> s.getNome().equals(nome))
-        .findFirst()
-        .orElse(null);
+            .filter(saint -> saint.getNome().equals(nome))
+            .findFirst()
+            .orElse(null);
     }
 
     public ArrayList<Saint> buscarPorCategoria(Categoria categoria) {
@@ -44,8 +44,8 @@ public class ListaSaints {
         }
         return subLista;*/
         return (ArrayList<Saint>)this.listaSaints.stream()
-        .filter(s -> s.getArmadura().getCategoria().equals(categoria))
-        .collect(Collectors.toList());
+            .filter(s -> s.getArmadura().getCategoria().equals(categoria))
+            .collect(Collectors.toList());
     }
 
     public ArrayList<Saint> buscarPorStatus(Status status) {
@@ -142,9 +142,17 @@ public class ListaSaints {
     return novaLista;
     }*/
     
-    public void getCSV() {
-        for (Saint saint : this.listaSaints) {
-            System.out.println(saint.getCSV());
+    public String getCSV() {
+        if (this.listaSaints.isEmpty()) {
+            return null;
         }
+        
+        String separador = System.getProperty("line.separator");
+        StringBuilder builder = new StringBuilder(512);
+        for (Saint saint : listaSaints) {
+            builder.append(saint.getCSV());
+            builder.append(separador);
+        }
+        return builder.toString();
     }
 }
