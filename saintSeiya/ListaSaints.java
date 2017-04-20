@@ -151,6 +151,16 @@ public class ListaSaints {
         }
     }
 
+    public ArrayList<Saint> unir(ArrayList<Saint> outraLista) {
+        ArrayList<Saint> novaLista = new ArrayList<>();
+        novaLista.addAll(listaSaints);
+        
+        for(Saint saint : outraLista) {
+            novaLista.add(saint);
+        }
+        return novaLista;
+    }
+
     //public ArrayList<String> getCSV() {
     public void getCSV() {
         ArrayList<String> csv = new ArrayList<>();
@@ -164,8 +174,8 @@ public class ListaSaints {
                 saint.getArmaduraVestida());             
             //return csv;
         }
-        for (String s : csv)
-            System.out.println(s);
+        //for (String s : csv)
+        //    System.out.println(s);
         //return null;
     }
 }

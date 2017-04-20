@@ -277,6 +277,34 @@ public class ListaSaintsTest
     }
     
     @Test
+    public void unirDuasListasDeSaints() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint regulus = new GoldSaint("Regulus", new Armadura(new Constelacao("Leão"), Categoria.OURO));
+        Saint sisifos = new GoldSaint("Sísifos", new Armadura(new Constelacao("Sagitário"), Categoria.OURO));
+        Saint degel = new GoldSaint("Dégel", new Armadura(new Constelacao("Aquário"), Categoria.OURO));
+        listaSaints.adicionarSaint(regulus);
+        listaSaints.adicionarSaint(sisifos);
+        listaSaints.adicionarSaint(degel);
+        
+        ArrayList<Saint> novaLista = new ArrayList<>();
+        Saint aldebaran = new GoldSaint("Andebaran", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint shura = new GoldSaint("Shura", new Armadura(new Constelacao("Capricórnio"), Categoria.OURO));
+        Saint mascaraDaMorte = new GoldSaint("Máscara da Morte", new Armadura(new Constelacao("Câncer"), Categoria.OURO));
+        novaLista.add(aldebaran);
+        novaLista.add(shura);
+        novaLista.add(mascaraDaMorte);
+        
+        ArrayList<Saint> resultadoNovaLista = listaSaints.unir(novaLista);
+        
+        assertEquals(regulus, resultadoNovaLista.get(0));
+        assertEquals(sisifos, resultadoNovaLista.get(1));
+        assertEquals(degel, resultadoNovaLista.get(2));
+        assertEquals(aldebaran, resultadoNovaLista.get(4));
+        assertEquals(shura, resultadoNovaLista.get(3));
+        assertEquals(mascaraDaMorte, resultadoNovaLista.get(5));
+    }
+    
+    @Test
     public void getCSVComUmSaint() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
         Saint shiryu = new BronzeSaint("Shiryu", new Armadura(new Constelacao("Dragão"), Categoria.BRONZE));
