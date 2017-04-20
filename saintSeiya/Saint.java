@@ -87,7 +87,7 @@ public class Saint
     public String getCSV() {
         return String.format(
             "%s,%s,%s,%s,%s,%s,%s",
-            this.nome,
+            this.getNome(),
             this.vida,
             this.getConstelacao().getNome(),
             this.armadura.getCategoria(),
