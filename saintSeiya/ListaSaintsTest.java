@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class ListaSaintsTest
 {
     @Test
-    public void buscarSaintExistente() throws Exception {
+    public void buscarSaintExistentePorNome() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
         Saint regulus = new GoldSaint("Regulus", new Armadura(new Constelacao("Leão"), Categoria.OURO));
         listaSaints.adicionarSaint(regulus);
@@ -16,13 +16,12 @@ public class ListaSaintsTest
     }
 
     @Test
-    public void buscarSaintInexistente() throws Exception {
+    public void buscarSaintInexistentePorNome() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
         Saint regulus = new GoldSaint("Regulus", new Armadura(new Constelacao("Leão"), Categoria.OURO));
         Saint sisifos = new GoldSaint("Sísifos", new Armadura(new Constelacao("Sagitário"), Categoria.OURO));
         listaSaints.adicionarSaint(regulus);
-        listaSaints.adicionarSaint(sisifos);      
-        listaSaints.buscarPorNome("Degel");
+        listaSaints.adicionarSaint(sisifos);
 
         assertNull(listaSaints.buscarPorNome("Degel"));
     }
@@ -30,12 +29,12 @@ public class ListaSaintsTest
     @Test
     public void buscarSaintExistenteComRepeticaoDeNomes() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
-        Saint regulus2 = new GoldSaint("Regulus2", new Armadura(new Constelacao("Leão"), Categoria.OURO));
         Saint regulus = new GoldSaint("Regulus", new Armadura(new Constelacao("Leão"), Categoria.OURO));
+        Saint regulus2 = new GoldSaint("Regulus", new Armadura(new Constelacao("Leão"), Categoria.OURO));
         listaSaints.adicionarSaint(regulus2);
         listaSaints.adicionarSaint(regulus);
 
-        assertEquals(regulus2, listaSaints.buscarPorNome("Regulus2"));
+        assertEquals(regulus2, listaSaints.buscarPorNome("Regulus"));
     }
 
     @Test
@@ -338,7 +337,9 @@ public class ListaSaintsTest
         ListaSaints listaSaints = new ListaSaints();
         Saint shiryu = new BronzeSaint("Shiryu", new Armadura(new Constelacao("Dragão"), Categoria.BRONZE));
         listaSaints.adicionarSaint(shiryu);
-        listaSaints.getCSV();
+        String csvEsperado = "Shiryu,100.0,Dragão,BRONZE,VIVO,NAO_INFORMADO,false\r\n";
+    
+        assertEquals(csvEsperado, listaSaints.getCSV());
     }
     
     @Test
@@ -352,7 +353,8 @@ public class ListaSaintsTest
         listaSaints.adicionarSaint(seiya);
         seiya.perderVida(30);
         seiya.vestirArmadura();
+        String csvEsperado = "Shiryu,100.0,Dragão,BRONZE,VIVO,NAO_INFORMADO,false\r\nIkki,100.0,Fênix,BRONZE,VIVO,NAO_INFORMADO,false\r\nSeiya,70.0,Pégaso,BRONZE,VIVO,NAO_INFORMADO,true\r\n";
         
-        listaSaints.getCSV();
+        assertEquals(csvEsperado, listaSaints.getCSV());
     }
 }
