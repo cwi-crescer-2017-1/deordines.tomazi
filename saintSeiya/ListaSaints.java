@@ -141,23 +141,10 @@ public class ListaSaints {
     }
     return novaLista;
     }*/
-
-    //public ArrayList<String> getCSV() {
+    
     public void getCSV() {
-        ArrayList<String> csv = new ArrayList<>();
         for (Saint saint : this.listaSaints) {
-            csv.add(saint.getNome() + "," +
-                saint.getVida() + "," +
-                saint.getArmadura().getConstelacao().getNome() + "," +
-                saint.getArmadura().getCategoria() + "," +
-                saint.getStatus() + "," +
-                saint.getGenero() + "," +
-                saint.getArmaduraVestida());             
-            //return csv;
+            System.out.println(saint.getCSV());
         }
-        for (String s : csv) {
-            System.out.println(s);
-        }
-        //return null;
     }
 }

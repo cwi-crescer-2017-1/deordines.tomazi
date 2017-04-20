@@ -85,13 +85,14 @@ public class Saint
     }
 
     public String getCSV() {
-        return
-            this.nome + "," +
-            this.vida + "," +
-            this.getConstelacao().getNome() + "," +
-            this.armadura.getCategoria() + "," +
-            this.status + "," +
-            this.genero + "," +
-            this.armaduraVestida;
+        return String.format(
+            "%s,%s,%s,%s,%s,%s,%s",
+            this.nome,
+            this.vida,
+            this.getConstelacao().getNome(),
+            this.armadura.getCategoria(),
+            this.status,
+            this.genero,
+            this.armaduraVestida);
     }
 }
