@@ -162,7 +162,8 @@ public class ListaSaints {
         return novaLista;
     }
 
-    public ArrayList<Saint> diff(ArrayList<Saint> outraLista) {
+    // TODO
+    /*public ArrayList<Saint> diff(ArrayList<Saint> outraLista) {
         ArrayList<Saint> novaLista = new ArrayList<>();
 
         for (int i = 0; i < this.listaSaints.size(); i++) {
@@ -173,7 +174,7 @@ public class ListaSaints {
             }
         }
         return novaLista;
-    }
+    }*/
 
     //public ArrayList<String> getCSV() {
     public void getCSV() {
