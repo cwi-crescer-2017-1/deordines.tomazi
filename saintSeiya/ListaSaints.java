@@ -3,51 +3,51 @@ import java.util.stream.Collectors;
 
 public class ListaSaints {
     private ArrayList<Saint> listaSaints = new ArrayList<>();
-    
+
     public void adicionarSaint(Saint saint) {
         this.listaSaints.add(saint);
     }
-    
+
     public Saint getSaint(int indice) {
         return this.listaSaints.get(indice);
     }
-    
+
     public ArrayList<Saint> getTodos() {
         return this.listaSaints;
     }
-    
+
     public void removerSaint(int indice) {
         this.listaSaints.remove(indice);
     }
-    
+
     public Saint buscarPorNome(String nome) {
         /*for(Saint saint : this.listaSaints) {
-            if (saint.getNome().equals(nome)) {
-                return saint;
-            }
+        if (saint.getNome().equals(nome)) {
+        return saint;
+        }
         }
         return null;*/
-        
+
         // Only JAVA 8
         return this.listaSaints.stream()
-            .filter(s -> s.getNome().equals(nome))
-            .findFirst()
-            .orElse(null);
+        .filter(s -> s.getNome().equals(nome))
+        .findFirst()
+        .orElse(null);
     }
-    
+
     public ArrayList<Saint> buscarPorCategoria(Categoria categoria) {
         /*ArrayList<Saint> subLista = new ArrayList<>();
         for(Saint saint : this.listaSaints) {
-            if (saint.getArmadura().getCategoria().equals(categoria)) {
-                subLista.add(saint);
-            }
+        if (saint.getArmadura().getCategoria().equals(categoria)) {
+        subLista.add(saint);
+        }
         }
         return subLista;*/
         return (ArrayList<Saint>)this.listaSaints.stream()
-            .filter(s -> s.getArmadura().getCategoria().equals(categoria))
-            .collect(Collectors.toList());
+        .filter(s -> s.getArmadura().getCategoria().equals(categoria))
+        .collect(Collectors.toList());
     }
-    
+
     public ArrayList<Saint> buscarPorStatus(Status status) {
         ArrayList<Saint> subLista = new ArrayList<>();
         for(Saint saint : this.listaSaints) {
@@ -57,12 +57,12 @@ public class ListaSaints {
         }
         return subLista;
     }
-    
+
     public Saint getSaintMaiorVida() {
         if (listaSaints.isEmpty()) {
             return null;
         }
-        
+
         Saint maiorVida = this.listaSaints.get(0);
         for(int i = 1; i < this.listaSaints.size(); i++) {
             Saint saint = this.listaSaints.get(i);
@@ -73,12 +73,12 @@ public class ListaSaints {
         }
         return maiorVida;
     }
-    
+
     public Saint getSaintMenorVida() {
         if (listaSaints.isEmpty()) {
             return null;
         }
-        
+
         Saint menorVida = this.listaSaints.get(0);
         for(int i = 1; i < this.listaSaints.size(); i++) {
             Saint saint = this.listaSaints.get(i);
@@ -89,17 +89,17 @@ public class ListaSaints {
         }
         return menorVida;
     }
-       
+
     public void ordenar() {
         boolean posicoesSendoTrocadas = false;
-        
+
         do{
             posicoesSendoTrocadas = false;
             for(int i = 0; i < this.listaSaints.size() - 1; i++) {
                 Saint atual = this.listaSaints.get(i);
                 Saint proximo = this.listaSaints.get(i + 1);
                 boolean precisaTrocar = atual.getVida() > proximo.getVida();
-                
+
                 if (precisaTrocar){
                     Saint troca = atual;
                     this.listaSaints.set(i, proximo);
@@ -109,42 +109,45 @@ public class ListaSaints {
             }
         } while(posicoesSendoTrocadas);        
     }
-    /*
+
     public void ordenar(TipoEnumeracao tipo) {
         boolean posicoesSendoTrocadas = false;
-        
-        switch(tipo) {
+
+        switch (tipo) {
             case ASCENDENTE: {
-            do {
-                for (int i = 0; i < this.listaSaints.size() - 1; i++) {
-                    Saint atual = this.listaSaints.get(i);
-                    Saint proximo = this.listaSaints.get(i + 1);
-                    boolean precisaTrocar = atual.getVida() < proximo.getVida();
-                    
-                    if (precisaTrocar) {
-                        Saint troca = atual;
-                        this.listaSaints.set(i, proximo);
-                        this.listaSaints.set(i + 1, troca);
-                        posicoesSendoTrocadas = true;
+                do {
+                    posicoesSendoTrocadas = false;
+                    for (int i = 0; i < this.listaSaints.size() - 1; i++) {
+                        Saint atual = this.listaSaints.get(i);
+                        Saint proximo = this.listaSaints.get(i + 1);
+                        boolean precisaTrocar = atual.getVida() > proximo.getVida();
+
+                        if (precisaTrocar) {
+                            Saint troca = atual;
+                            this.listaSaints.set(i, proximo);
+                            this.listaSaints.set(i + 1, troca);
+                            posicoesSendoTrocadas = true;
+                        }
                     }
-                }
-            }while (posicoesSendoTrocadas);
-        } break;
+                }while (posicoesSendoTrocadas);
+            } break;
             case DESCENDENTE: {
-        do {
-            for(int i = 0; i < this.listaSaints.size() - 1; i++) {
-                Saint atual = this.listaSaints.get(i);
-                Saint proximo = this.listaSaints.get(i + 1);
-                boolean precisaTrocar = atual.getVida() > proximo.getVida();
-                
-                if(precisaTrocar) {
-                    Saint troca = atual;
-                    this.listaSaints.set(i, proximo);
-                    this.listaSaints.set(i + 1, troca);
-                    posicoesSendoTrocadas = true;
-                }
-            }
-            } while(posicoesSendoTrocadas);
-        } break;
-    }*/
+                do {
+                    posicoesSendoTrocadas = false;
+                    for(int i = 0; i < this.listaSaints.size() - 1; i++) {
+                        Saint atual = this.listaSaints.get(i);
+                        Saint proximo = this.listaSaints.get(i + 1);
+                        boolean precisaTrocar = atual.getVida() < proximo.getVida();
+
+                        if(precisaTrocar) {
+                            Saint troca = atual;
+                            this.listaSaints.set(i, proximo);
+                            this.listaSaints.set(i + 1, troca);
+                            posicoesSendoTrocadas = true;
+                        }
+                    }
+                } while(posicoesSendoTrocadas);
+            } break;    
+        }
+    }
 }
