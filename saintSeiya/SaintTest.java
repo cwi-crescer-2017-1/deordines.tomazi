@@ -21,7 +21,7 @@ public class SaintTest
         Armadura ouroLeao = new Armadura(leao, Categoria.OURO);
         Saint regulus = new Saint("Regulus", ouroLeao);
         // 2. Act - Invocar a ação a ser testado
-        regulus.VestirArmadura();
+        regulus.vestirArmadura();
         // 3. Assert - Verificação dos resultados do teste
         boolean resultado = regulus.getArmaduraVestida();
         

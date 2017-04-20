@@ -17,7 +17,7 @@ public class Saint
         this.armadura = armadura;
     }
 
-    public void VestirArmadura() {
+    public void vestirArmadura() {
         armaduraVestida = true;
     }
     
