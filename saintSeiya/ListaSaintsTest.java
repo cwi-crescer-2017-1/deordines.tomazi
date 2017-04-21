@@ -274,7 +274,7 @@ public class ListaSaintsTest
         assertEquals(seiya, resultadoOrdenacao.get(1));
         assertEquals(hyoga, resultadoOrdenacao.get(2));
     }
-    
+
     @Test
     public void unirDuasListasDeSaints() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
@@ -337,7 +337,7 @@ public class ListaSaintsTest
         ListaSaints listaSaints = new ListaSaints();
         Saint shiryu = new BronzeSaint("Shiryu", new Armadura(new Constelacao("Dragão"), Categoria.BRONZE));
         listaSaints.adicionarSaint(shiryu);
-        String csvEsperado = "Shiryu,100.0,Dragão,BRONZE,VIVO,NAO_INFORMADO,false\r\n";
+        String csvEsperado = "Shiryu,100.0,Dragão,BRONZE,VIVO,NAO_INFORMADO,false\n";
     
         assertEquals(csvEsperado, listaSaints.getCSV());
     }
@@ -353,7 +353,7 @@ public class ListaSaintsTest
         listaSaints.adicionarSaint(seiya);
         seiya.perderVida(30);
         seiya.vestirArmadura();
-        String csvEsperado = "Shiryu,100.0,Dragão,BRONZE,VIVO,NAO_INFORMADO,false\r\nIkki,100.0,Fênix,BRONZE,VIVO,NAO_INFORMADO,false\r\nSeiya,70.0,Pégaso,BRONZE,VIVO,NAO_INFORMADO,true\r\n";
+        String csvEsperado = "Shiryu,100.0,Dragão,BRONZE,VIVO,NAO_INFORMADO,false\nIkki,100.0,Fênix,BRONZE,VIVO,NAO_INFORMADO,false\nSeiya,70.0,Pégaso,BRONZE,VIVO,NAO_INFORMADO,true\n";
         
         assertEquals(csvEsperado, listaSaints.getCSV());
     }
