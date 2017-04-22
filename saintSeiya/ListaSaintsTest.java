@@ -303,8 +303,6 @@ public class ListaSaintsTest
         assertEquals(mascaraDaMorte, resultadoNovaLista.get(5));
     }
     
-    // TODO
-    /*
     @Test
     public void diffDuasListasComUmSaintIgualEmDuasListas() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
@@ -315,29 +313,29 @@ public class ListaSaintsTest
         listaSaints.adicionarSaint(sisifos);
         listaSaints.adicionarSaint(degel);
         
-        ArrayList<Saint> novaLista = new ArrayList<>();
+        ListaSaints novaLista = new ListaSaints();
         Saint aldebaran = new GoldSaint("Andebaran", new Armadura(new Constelacao("Touro"), Categoria.OURO));
         Saint shura = new GoldSaint("Shura", new Armadura(new Constelacao("Capricórnio"), Categoria.OURO));
         Saint mascaraDaMorte = new GoldSaint("Máscara da Morte", new Armadura(new Constelacao("Câncer"), Categoria.OURO));
         Saint regulus2 = new GoldSaint("Regulus", new Armadura(new Constelacao("Leão"), Categoria.OURO));
-        novaLista.add(aldebaran);
-        novaLista.add(shura);
-        novaLista.add(mascaraDaMorte);
-        novaLista.add(regulus2);
+        novaLista.adicionarSaint(aldebaran);
+        novaLista.adicionarSaint(shura);
+        novaLista.adicionarSaint(mascaraDaMorte);
+        novaLista.adicionarSaint(regulus2);
         
-        ArrayList<Saint> resultadoNovaLista = listaSaints.diff(novaLista);
+        ListaSaints resultadoNovaLista = listaSaints.diff(novaLista);
         
-        assertEquals(sisifos, resultadoNovaLista.get(0));
-        assertEquals(degel, resultadoNovaLista.get(2));
+        assertEquals(sisifos, resultadoNovaLista.getSaint(0));
+        assertEquals(degel, resultadoNovaLista.getSaint(1));
     }
-    */
    
     @Test
     public void getCSVComUmSaint() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
         Saint shiryu = new BronzeSaint("Shiryu", new Armadura(new Constelacao("Dragão"), Categoria.BRONZE));
         listaSaints.adicionarSaint(shiryu);
-        String csvEsperado = "Shiryu,100.0,Dragão,BRONZE,VIVO,NAO_INFORMADO,false\n";
+        String separador = System.getProperty("line.separator");
+        String csvEsperado = "Shiryu,100.0,Dragão,BRONZE,VIVO,NAO_INFORMADO,false"+separador;
     
         assertEquals(csvEsperado, listaSaints.getCSV());
     }
@@ -353,7 +351,10 @@ public class ListaSaintsTest
         listaSaints.adicionarSaint(seiya);
         seiya.perderVida(30);
         seiya.vestirArmadura();
-        String csvEsperado = "Shiryu,100.0,Dragão,BRONZE,VIVO,NAO_INFORMADO,false\nIkki,100.0,Fênix,BRONZE,VIVO,NAO_INFORMADO,false\nSeiya,70.0,Pégaso,BRONZE,VIVO,NAO_INFORMADO,true\n";
+        String separador = System.getProperty("line.separator");
+        String csvEsperado = "Shiryu,100.0,Dragão,BRONZE,VIVO,NAO_INFORMADO,false"+separador+
+            "Ikki,100.0,Fênix,BRONZE,VIVO,NAO_INFORMADO,false"+separador+
+            "Seiya,70.0,Pégaso,BRONZE,VIVO,NAO_INFORMADO,true"+separador;
         
         assertEquals(csvEsperado, listaSaints.getCSV());
     }

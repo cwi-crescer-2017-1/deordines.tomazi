@@ -30,9 +30,9 @@ public class ListaSaints {
 
         // Only JAVA 8
         return this.listaSaints.stream()
-            .filter(saint -> saint.getNome().equals(nome))
-            .findFirst()
-            .orElse(null);
+        .filter(saint -> saint.getNome().equals(nome))
+        .findFirst()
+        .orElse(null);
     }
 
     public ArrayList<Saint> buscarPorCategoria(Categoria categoria) {
@@ -44,8 +44,8 @@ public class ListaSaints {
         }
         return subLista;*/
         return (ArrayList<Saint>)this.listaSaints.stream()
-            .filter(s -> s.getArmadura().getCategoria().equals(categoria))
-            .collect(Collectors.toList());
+        .filter(s -> s.getArmadura().getCategoria().equals(categoria))
+        .collect(Collectors.toList());
     }
 
     public ArrayList<Saint> buscarPorStatus(Status status) {
@@ -89,11 +89,11 @@ public class ListaSaints {
         }
         return menorVida;
     }
-    
+
     public void ordenar() {
         this.ordenar(TipoOrdenacao.ASCENDENTE);    
     }
-    
+
     public void ordenar(TipoOrdenacao tipoOrdenacao) {
         boolean ascendente = tipoOrdenacao == tipoOrdenacao.ASCENDENTE;
         boolean posicoesSendoTrocadas = false;
@@ -128,25 +128,35 @@ public class ListaSaints {
         return novaLista;
     }
 
-    // TODO
-    /*public ArrayList<Saint> diff(ArrayList<Saint> outraLista) {
-    ArrayList<Saint> novaLista = new ArrayList<>();
+    public ListaSaints diff(ListaSaints listaRecebida) {
+        ListaSaints retornarNovaLista = new ListaSaints();
 
-    for (int i = 0; i < this.listaSaints.size(); i++) {
-    for (int j = 0; i < outraLista.size(); i++) {
-    if (!this.listaSaints.get(i).getNome().equals(outraLista.get(j).getNome())) {
-    novaLista.add(this.listaSaints.get(i));
+        for (int i = 0; i < this.listaSaints.size(); i++) {
+            for (int j = 0; j < listaRecebida.getTodos().size(); j++) {
+                boolean encontrou = false;
+                for (int z = 0; z < listaRecebida.getTodos().size(); z++) {
+                    if (this.listaSaints.get(i).getNome().equals(listaRecebida.getTodos().get(z).getNome())) {
+                        encontrou = true;
+                        break;
+                    }
+                }
+                
+                if (encontrou) {
+                    break;
+                } else {
+                    retornarNovaLista.adicionarSaint(this.listaSaints.get(i));
+                    break;
+                }
+            }
+        }
+        return retornarNovaLista;
     }
-    }
-    }
-    return novaLista;
-    }*/
-    
+
     public String getCSV() {
         if (this.listaSaints.isEmpty()) {
             return null;
         }
-        
+
         String separador = System.getProperty("line.separator");
         StringBuilder builder = new StringBuilder(512);
         for (Saint saint : listaSaints) {
