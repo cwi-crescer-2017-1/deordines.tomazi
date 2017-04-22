@@ -10,7 +10,7 @@ public class ConstelacaoTest
 {
     @Test
     public void criaUmSaintComConstelacao() throws Exception {
-        Saint dohko = new Saint("Dohko", new Armadura(new Constelacao("Libra"), Categoria.OURO));
+        Saint dohko = new GoldSaint("Dohko", "Libra");
     }
     
     @Test
@@ -22,8 +22,7 @@ public class ConstelacaoTest
        leao.adicionarGolpe(golpe1);
        leao.adicionarGolpe(golpe2);
        leao.adicionarGolpe(golpe3);
-       Armadura ouroLeao = new Armadura(leao, Categoria.OURO);
-       Saint regulus = new Saint("Regulus", ouroLeao);
+       Saint regulus = new GoldSaint("Regulus", "Leão");
     }
     
     @Test

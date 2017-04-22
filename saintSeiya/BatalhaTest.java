@@ -9,8 +9,8 @@ public class BatalhaTest
 {
     @Test
     public void categoriaSaint1MaiorQueSaint2() throws Exception {
-        Saint shaina = new Saint("Shaina", new Armadura(new Constelacao("Serpente"), Categoria.PRATA));        
-        Saint hyoga = new Saint("Hyoga", new Armadura(new Constelacao("Cisne"), Categoria.BRONZE));
+        Saint shaina = new SilverSaint("Shaina", "Serpente");        
+        Saint hyoga = new BronzeSaint("Hyoga", "Cisne");
         
         Batalha batalha = new Batalha(shaina, hyoga);
         batalha.Iniciar();
@@ -21,8 +21,8 @@ public class BatalhaTest
     
     @Test
     public void categoriaSaint1MenorQueSaint2() throws Exception {
-        Saint hyoga = new Saint("Hyoga", new Armadura(new Constelacao("Cisne"), Categoria.BRONZE));
-        Saint camus = new Saint("Camus", new Armadura(new Constelacao("Aquário"), Categoria.OURO));
+        Saint hyoga = new BronzeSaint("Hyoga", "Cisne");
+        Saint camus = new GoldSaint("Camus", "Aquário");
         
         Batalha batalha = new Batalha(hyoga, camus);
         batalha.Iniciar();
@@ -33,8 +33,8 @@ public class BatalhaTest
     
     @Test
     public void categoriaSaint1IgualAoSaint2() throws Exception {
-        Saint dohko = new Saint("Dohko", new Armadura(new Constelacao("Libra"), Categoria.OURO));
-        Saint shion = new Saint("Shion", new Armadura(new Constelacao("Áries"), Categoria.OURO));
+        Saint dohko = new GoldSaint("Dohko", "Libra");
+        Saint shion = new GoldSaint("Shion", "Áries");
         
         Batalha batalha = new Batalha(dohko, shion);
         batalha.Iniciar();
