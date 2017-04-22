@@ -129,30 +129,14 @@ public class ListaSaints {
     }
 
     public ListaSaints diff(ListaSaints listaRecebida) {
-        ListaSaints retornarNovaLista = new ListaSaints();
-
-        for (int i = 0; i < this.listaSaints.size(); i++) {
-            for (int j = 0; j < listaRecebida.getTodos().size(); j++) {
-                boolean encontrou = false;
-                for (int z = 0; z < listaRecebida.getTodos().size(); z++) {
-                    if (this.listaSaints.get(i).getNome().equals(listaRecebida.getTodos().get(z).getNome())) {
-                        encontrou = true;
-                        break;
-                    }
-                }
-
-                if (encontrou) {
-                    break;
-                } else {
-                    retornarNovaLista.adicionarSaint(this.listaSaints.get(i));
-                    break;
-                }
-            }
-        }
-        return retornarNovaLista;
+        return operacoesDiffIntersec(listaRecebida, 0);
     }
 
     public ListaSaints intersec(ListaSaints listaRecebida) {
+        return operacoesDiffIntersec(listaRecebida, 1);
+    }
+
+    private ListaSaints operacoesDiffIntersec(ListaSaints listaRecebida, int aux) {
         ListaSaints retornarNovaLista = new ListaSaints();
 
         for (int i = 0; i < this.listaSaints.size(); i++) {
@@ -165,11 +149,20 @@ public class ListaSaints {
                     }
                 }
 
-                if (encontrou) {
-                    retornarNovaLista.adicionarSaint(this.listaSaints.get(i));
-                    break;
-                } else {
-                    break;
+                if (aux == 0) {
+                    if (encontrou) {
+                        break;
+                    } else {
+                        retornarNovaLista.adicionarSaint(this.listaSaints.get(i));
+                        break;
+                    }
+                } else if (aux == 1) {
+                    if (encontrou) {
+                        retornarNovaLista.adicionarSaint(this.listaSaints.get(i));
+                        break;
+                    } else {
+                        break;
+                    }
                 }
             }
         }
