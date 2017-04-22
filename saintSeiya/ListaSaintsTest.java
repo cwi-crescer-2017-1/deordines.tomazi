@@ -328,7 +328,32 @@ public class ListaSaintsTest
         assertEquals(sisifos, resultadoNovaLista.getSaint(0));
         assertEquals(degel, resultadoNovaLista.getSaint(1));
     }
-   
+    
+    @Test
+    public void intersecDuasListasComUmSaintIguaisEmDuasListas() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint regulus = new GoldSaint("Regulus", new Armadura(new Constelacao("Leão"), Categoria.OURO));
+        Saint sisifos = new GoldSaint("Sísifos", new Armadura(new Constelacao("Sagitário"), Categoria.OURO));
+        Saint degel = new GoldSaint("Dégel", new Armadura(new Constelacao("Aquário"), Categoria.OURO));
+        listaSaints.adicionarSaint(regulus);
+        listaSaints.adicionarSaint(sisifos);
+        listaSaints.adicionarSaint(degel);
+        
+        ListaSaints novaLista = new ListaSaints();
+        Saint aldebaran = new GoldSaint("Andebaran", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint shura = new GoldSaint("Shura", new Armadura(new Constelacao("Capricórnio"), Categoria.OURO));
+        Saint mascaraDaMorte = new GoldSaint("Máscara da Morte", new Armadura(new Constelacao("Câncer"), Categoria.OURO));
+        Saint regulus2 = new GoldSaint("Regulus", new Armadura(new Constelacao("Leão"), Categoria.OURO));
+        novaLista.adicionarSaint(aldebaran);
+        novaLista.adicionarSaint(shura);
+        novaLista.adicionarSaint(mascaraDaMorte);
+        novaLista.adicionarSaint(regulus2);
+        
+        ListaSaints resultadoNovaLista = listaSaints.intersec(novaLista);
+        
+        assertEquals(regulus, resultadoNovaLista.getSaint(0));
+    }
+    
     @Test
     public void getCSVComUmSaint() throws Exception {
         ListaSaints listaSaints = new ListaSaints();

@@ -140,11 +140,35 @@ public class ListaSaints {
                         break;
                     }
                 }
-                
+
                 if (encontrou) {
                     break;
                 } else {
                     retornarNovaLista.adicionarSaint(this.listaSaints.get(i));
+                    break;
+                }
+            }
+        }
+        return retornarNovaLista;
+    }
+
+    public ListaSaints intersec(ListaSaints listaRecebida) {
+        ListaSaints retornarNovaLista = new ListaSaints();
+
+        for (int i = 0; i < this.listaSaints.size(); i++) {
+            for (int j = 0; j < listaRecebida.getTodos().size(); j++) {
+                boolean encontrou = false;
+                for (int z = 0; z < listaRecebida.getTodos().size(); z++) {
+                    if (this.listaSaints.get(i).getNome().equals(listaRecebida.getTodos().get(z).getNome())) {
+                        encontrou = true;
+                        break;
+                    }
+                }
+
+                if (encontrou) {
+                    retornarNovaLista.adicionarSaint(this.listaSaints.get(i));
+                    break;
+                } else {
                     break;
                 }
             }
