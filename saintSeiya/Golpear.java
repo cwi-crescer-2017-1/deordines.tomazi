@@ -14,11 +14,7 @@ public class Golpear implements Movimento {
         this.golpeado.perderVida(danoCausado);
     }
 
-    private double multiplicadorDeDano(Saint saint, Golpe golpe) {
-        if (saint == null || golpe == null) {
-            return 0;
-        }
-        
+    private double multiplicadorDeDano(Saint saint, Golpe golpe) {        
         double fatorDano = golpe.getFatorDano();
         double multiplicador = golpeador.getArmadura().getCategoria().getValor();
 
