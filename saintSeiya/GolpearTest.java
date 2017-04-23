@@ -127,14 +127,12 @@ public class GolpearTest {
         assertEquals(4.0, degel.getVida(), 0.01);
     }
     
-    @Test
+    @Test(expected=Exception.class)
     public void golpearComSaintBronzeSemGolpes() throws Exception {
         Saint seiya = new BronzeSaint("Seiya", "Pégaso");
         Saint hyoga = new BronzeSaint("Hyoga", "Cisne");
         
         Movimento golpear = new Golpear(seiya, hyoga);
         golpear.executar();
-        
-        assertEquals(100.0, hyoga.getVida(), 0.01);
     }
 }
