@@ -80,6 +80,9 @@ public abstract class Saint
 
     public Golpe getProximoGolpe() {
         ArrayList<Golpe> golpes = getGolpes();
+        if (golpes.size() == 0) {
+            throw new InvalidParameterException("Sem Golpes Para Executar");
+        }
         int posicao = this.indiceProximoGolpe % golpes.size();
         return golpes.get(indiceProximoGolpe++ % golpes.size());
     }
