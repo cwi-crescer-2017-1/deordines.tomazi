@@ -11,6 +11,8 @@ public abstract class Saint
     private double vida = 100.0;
     protected int qtdSentidosDespertados;
     private int indiceProximoGolpe = 0;
+    private ArrayList<Movimento> movimentos = new ArrayList<>();
+    private int indiceProximoMovimento = 0;
 
     public Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
@@ -84,7 +86,23 @@ public abstract class Saint
             throw new InvalidParameterException("Sem Golpes Para Executar");
         }
         int posicao = this.indiceProximoGolpe % golpes.size();
-        return golpes.get(indiceProximoGolpe++ % golpes.size());
+        return golpes.get(this.indiceProximoGolpe++ % golpes.size());
+    }
+    
+    public ArrayList<Movimento> getMovimentos() {
+        return this.movimentos;
+    }
+    
+    public void adicionarMovimento(Movimento movimento) {
+        this.movimentos.add(movimento);
+    }
+    
+    public Movimento getProximoMovimento() {
+        if (movimentos.isEmpty()) {
+            throw new InvalidParameterException("Sem Movimentos Para Executar");
+        }
+        int posicao = this.indiceProximoMovimento % movimentos.size();
+        return movimentos.get(this.indiceProximoMovimento++ % movimentos.size());
     }
     
     public String getCSV() {

@@ -283,4 +283,45 @@ public class SaintTest
         
         assertEquals(csvEsperado, june.getCSV());
     }
+    
+    @Test
+    public void adicionarMovimentoComNenhumMovimento() throws Exception {
+        Saint tenma = new BronzeSaint("Tenma", "Pégaso");
+        ArrayList<Movimento> movimentos = tenma.getMovimentos();
+        
+        assertEquals(true, movimentos.isEmpty());
+    }
+    
+    @Test
+    public void adicionarMovimentoComUmMovimento() throws Exception {
+        Saint tenma = new BronzeSaint("Tenma", "Pégaso");
+        Movimento vestirArmadura = new VestirArmadura(tenma);
+        tenma.adicionarMovimento(vestirArmadura);
+        ArrayList<Movimento> movimentos = tenma.getMovimentos();
+        
+        assertEquals(vestirArmadura, movimentos.get(0));
+    }
+    
+    @Test(expected=Exception.class)
+    public void getProximoMovimentoComListaVazia() throws Exception {
+        Saint tenma = new BronzeSaint("Tenma", "Pégaso");       
+        tenma.getProximoMovimento();
+    }
+    
+    @Test
+    public void getProximoMovimentoComDoisMovimentosNaLista() throws Exception {
+        Saint tenma = new BronzeSaint("Tenma", "Pégaso");
+        Golpe meteoroDePegaso = new Golpe("Meteoro de Pégaso", 5);
+        tenma.aprenderGolpe(meteoroDePegaso);
+        
+        Saint seiya = new BronzeSaint("Seiya", "Pégaso");
+        
+        Movimento vestirArmadura = new VestirArmadura(tenma);
+        Movimento golpear = new Golpear(tenma, seiya);
+        tenma.adicionarMovimento(vestirArmadura);
+        tenma.adicionarMovimento(golpear);
+        
+        assertEquals(vestirArmadura, tenma.getProximoMovimento());
+        assertEquals(golpear, tenma.getProximoMovimento());
+    }
 }
