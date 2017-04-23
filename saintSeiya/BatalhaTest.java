@@ -13,7 +13,7 @@ public class BatalhaTest
         Saint hyoga = new BronzeSaint("Hyoga", "Cisne");
         
         Batalha batalha = new Batalha(shaina, hyoga);
-        batalha.Iniciar();
+        batalha.iniciar();
         
         assertEquals(100, shaina.getVida(), 0.01);
         assertEquals(90, hyoga.getVida(), 0.01);      
@@ -25,7 +25,7 @@ public class BatalhaTest
         Saint camus = new GoldSaint("Camus", "Aquário");
         
         Batalha batalha = new Batalha(hyoga, camus);
-        batalha.Iniciar();
+        batalha.iniciar();
         
         assertEquals(90, hyoga.getVida(), 0.01);
         assertEquals(100, camus.getVida(), 0.01);
@@ -37,7 +37,7 @@ public class BatalhaTest
         Saint shion = new GoldSaint("Shion", "Áries");
         
         Batalha batalha = new Batalha(dohko, shion);
-        batalha.Iniciar();
+        batalha.iniciar();
         
         assertEquals(100, dohko.getVida(), 0.001);
         assertEquals(90, shion.getVida(), 0.001);
