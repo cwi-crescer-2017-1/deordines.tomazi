@@ -83,7 +83,7 @@ public abstract class Saint
         int posicao = this.indiceProximoGolpe % golpes.size();
         return golpes.get(indiceProximoGolpe++ % golpes.size());
     }
-
+    
     public String getCSV() {
         return String.format(
             "%s,%s,%s,%s,%s,%s,%s",
