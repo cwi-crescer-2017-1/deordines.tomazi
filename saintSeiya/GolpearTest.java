@@ -9,10 +9,10 @@ public class GolpearTest {
     @Test 
     public void golpearComSaintBronzeSemArmadura() throws Exception {
         Saint tenma = new BronzeSaint("Tenma", "Pégaso");
-        Golpe meteodoDePegaso = new Golpe("Meteoro de Pégaso", 5);
+        Golpe meteoroDePegaso = new Golpe("Meteoro de Pégaso", 5);
         Golpe cometaDePegaso = new Golpe("Cometa de Pégaso", 7);
         Golpe cometaBigBang = new Golpe("Cometa Big Bang", 10);
-        tenma.aprenderGolpe(meteodoDePegaso);
+        tenma.aprenderGolpe(meteoroDePegaso);
         tenma.aprenderGolpe(cometaDePegaso);
         tenma.aprenderGolpe(cometaBigBang);
         
