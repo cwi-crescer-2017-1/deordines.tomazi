@@ -10,11 +10,15 @@ public class Golpear implements Movimento {
     }
 
     public void executar() {
-        double danoCausado = multiplicadorDeDano(golpeador, golpeador.getProximoGolpe());
+        double danoCausado = multiplicadorDeDano(golpeador, golpeador.getProximoGolpe());   
         this.golpeado.perderVida(danoCausado);
     }
 
-    private double multiplicadorDeDano(Saint saint, Golpe golpe) {        
+    private double multiplicadorDeDano(Saint saint, Golpe golpe) {
+        if (saint == null || golpe == null) {
+            return 0;
+        }
+        
         double fatorDano = golpe.getFatorDano();
         double multiplicador = golpeador.getArmadura().getCategoria().getValor();
 
