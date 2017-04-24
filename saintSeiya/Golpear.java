@@ -17,12 +17,11 @@ public class Golpear implements Movimento {
     private double multiplicadorDeDano(Saint saint, Golpe golpe) {        
         double fatorDano = golpe.getFatorDano();
         double multiplicador = golpeador.getArmadura().getCategoria().getValor();
-
+        
         if (saint.getArmaduraVestida()) {
             fatorDano = golpe.getFatorDano() * (multiplicador + 1);
-        } else {
-            fatorDano = golpe.getFatorDano(); 
         }
+        
         return fatorDano;
     }
 }
