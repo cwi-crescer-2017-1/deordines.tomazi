@@ -80,13 +80,13 @@ public abstract class Saint
         getConstelacao().adicionarGolpe(golpe);
     }
 
-    public Golpe getProximoGolpe() {
+    public Golpe getProximoGolpe() throws Exception {
         ArrayList<Golpe> golpes = getGolpes();
         if (golpes.size() == 0) {
-            throw new InvalidParameterException("Sem Golpes Para Executar");
-        }
+            throw new Exception("Sem Golpes Para Executar");
+        } else {
         int posicao = this.indiceProximoGolpe % golpes.size();
-        return golpes.get(this.indiceProximoGolpe++ % golpes.size());
+        return golpes.get(this.indiceProximoGolpe++ % golpes.size());}
     }
     
     public ArrayList<Movimento> getMovimentos() {
@@ -97,9 +97,9 @@ public abstract class Saint
         this.movimentos.add(movimento);
     }
     
-    public Movimento getProximoMovimento() {
+    public Movimento getProximoMovimento() throws Exception {
         if (movimentos.isEmpty()) {
-            throw new InvalidParameterException("Sem Movimentos Para Executar");
+            throw new Exception("Sem Movimentos Para Executar");
         }
         int posicao = this.indiceProximoMovimento % movimentos.size();
         return movimentos.get(this.indiceProximoMovimento++ % movimentos.size());
