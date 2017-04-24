@@ -324,4 +324,14 @@ public class SaintTest
         assertEquals(vestirArmadura, tenma.getProximoMovimento());
         assertEquals(golpear, tenma.getProximoMovimento());
     }
+    
+    @Test
+    public void golpearDeveAdicionarMovimentoGolpear() throws Exception {
+    
+    }
+    
+    @Test
+    public void getQtdSaintsAdicionado() {
+        
+    }
 }
