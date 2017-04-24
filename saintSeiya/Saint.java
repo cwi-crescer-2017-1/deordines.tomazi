@@ -84,9 +84,9 @@ public abstract class Saint
         ArrayList<Golpe> golpes = getGolpes();
         if (golpes.size() == 0) {
             throw new Exception("Sem Golpes Para Executar");
-        } else {
+        }
         int posicao = this.indiceProximoGolpe % golpes.size();
-        return golpes.get(this.indiceProximoGolpe++ % golpes.size());}
+        return golpes.get(this.indiceProximoGolpe++ % golpes.size());
     }
     
     public ArrayList<Movimento> getMovimentos() {
