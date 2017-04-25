@@ -21,6 +21,10 @@ public abstract class Saint {
         this.id = Saint.qtdSaints;
         Saint.qtdSaints++;
     }
+    
+    protected void finalize() throws Throwable {
+        Saint.qtdSaints--;
+    }
 
     public static int getQtdSaints() {
         return Saint.qtdSaints;
