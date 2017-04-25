@@ -331,7 +331,13 @@ public class SaintTest
     }
     
     @Test
-    public void getQtdSaintsAdicionado() {
+    public void getQtdSaintsAdicionado() throws Exception {
+        //System.gc();
+        int qtdSaints = Saint.getQtdSaints();
+        Saint milo = new GoldSaint("Milo", "Escorpião");
+        Saint saga = new GoldSaint("Saga", "Gêmeos");
+        Saint aldebaran = new GoldSaint("Aldebaran", "Touro");
         
+        assertEquals(3, Saint.getQtdSaints() - qtdSaints);
     }
 }

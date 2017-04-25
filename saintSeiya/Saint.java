@@ -14,10 +14,12 @@ public abstract class Saint
     private ArrayList<Movimento> movimentos = new ArrayList<>();
     private int indiceProximoMovimento = 0;
     private static int qtdSaints = 0;
+    private static int id = 0;
 
     protected Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
         this.armadura = armadura;
+        Saint.id = Saint.qtdSaints;
         Saint.qtdSaints++;
     }
 
