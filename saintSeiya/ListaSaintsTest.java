@@ -4,8 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import java.util.ArrayList;
 
-public class ListaSaintsTest
-{
+public class ListaSaintsTest {
     @Test
     public void buscarSaintExistentePorNome() throws Exception {
         ListaSaints listaSaints = new ListaSaints();
