@@ -5,7 +5,12 @@ import org.junit.Test;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
-public class SaintTest {   
+public class SaintTest {
+    @After
+    public void tearDown() {
+        System.gc();
+    }
+    
     @Test
     public void vestirArmaduraDeixarArmaduraVestida() throws Exception {
         // AAA
@@ -330,29 +335,26 @@ public class SaintTest {
 
     @Test
     public void criarTresSaintsGetQtdSaintsDeveSerUmAMais() throws Exception {
-        int qtdSaints = Saint.getQtdSaints();
         Saint milo = new GoldSaint("Milo", "Escorpião");
         
-        assertEquals(qtdSaints + 1, Saint.getQtdSaints());
+        assertEquals(1, Saint.getQtdSaints());
     }
     
     @Test
     public void criarTresSaintsGetQtdSaintsDeveSerTres() throws Exception {
-        int qtdSaints = Saint.getQtdSaints();
         Saint milo = new GoldSaint("Milo", "Escorpião");
         Saint saga = new GoldSaint("Saga", "Gêmeos");
         Saint aldebaran = new GoldSaint("Aldebaran", "Touro");
         
-        assertEquals(3, Saint.getQtdSaints() - qtdSaints);
+        assertEquals(3, Saint.getQtdSaints());
     }
     
     @Test
     public void criarDuzentosSaintsQtdDeveTerDuzentosAMais() throws Exception {
-        int antes = Saint.getQtdSaints();
         for (int i = 0; i < 200; i++) {
             new BronzeSaint("Bronze" + i, "Constelação" + 1);
         }
         
-        assertEquals(antes + 200, Saint.getQtdSaints());
+        assertEquals(200, Saint.getQtdSaints());
     }
 }
