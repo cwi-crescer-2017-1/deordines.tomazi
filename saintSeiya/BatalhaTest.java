@@ -1,5 +1,3 @@
-
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
@@ -44,18 +42,18 @@ public class BatalhaTest
     }
     
     @Test
-    public void iniciarBatalhaComGoldSaintEMovimentos() throws Exception {
+    public void iniciarBatalhaGoldSaintComMovimentos() throws Exception {
         Saint dohko = new GoldSaint("Dohko", "Libra");
         Golpe coleraDoDragao = new Golpe("Cólega do Dragão", 5);
         Golpe coleraDosCemDragoes = new Golpe("Cólera dos Cem Dragões", 8);
         dohko.aprenderGolpe(coleraDoDragao);
-        dohko.aprenderGolpe(coleraDosCemDragoes);
+        //dohko.aprenderGolpe(coleraDosCemDragoes);
         
         Saint shion = new GoldSaint("Shion", "Áries");
         Golpe extincaoEstelar = new Golpe("Extinção Estelar", 5);
         Golpe revolucaoEstelar = new Golpe("Revolução Estelar", 8);
         shion.aprenderGolpe(extincaoEstelar);
-        shion.aprenderGolpe(revolucaoEstelar);
+        //shion.aprenderGolpe(revolucaoEstelar);
         
         Movimento dohkoVestirArmadura = new VestirArmadura(dohko);
         Movimento golpear1 = new Golpear(dohko, shion);
