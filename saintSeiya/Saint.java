@@ -1,8 +1,7 @@
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
-public abstract class Saint
-{
+public abstract class Saint {
     private String nome;
     private Armadura armadura;
     private boolean armaduraVestida;
@@ -14,12 +13,12 @@ public abstract class Saint
     private ArrayList<Movimento> movimentos = new ArrayList<>();
     private int indiceProximoMovimento = 0;
     private static int qtdSaints = 0;
-    private static int id = 0;
+    private int id = 0;
 
     protected Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
         this.armadura = armadura;
-        Saint.id = Saint.qtdSaints;
+        this.id = Saint.qtdSaints;
         Saint.qtdSaints++;
     }
 

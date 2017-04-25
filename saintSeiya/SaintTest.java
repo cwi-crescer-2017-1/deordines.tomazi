@@ -1,4 +1,3 @@
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
@@ -6,8 +5,7 @@ import org.junit.Test;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
-public class SaintTest
-{
+public class SaintTest {
     @Test
     public void vestirArmaduraDeixarArmaduraVestida() throws Exception {
         // AAA
