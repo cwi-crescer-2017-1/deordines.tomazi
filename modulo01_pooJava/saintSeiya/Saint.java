@@ -21,7 +21,7 @@ public abstract class Saint {
         this.id = ++Saint.acumuladorQtdSaints;
         Saint.qtdSaints++;
     }
-    
+
     protected void finalize() throws Throwable {
         Saint.qtdSaints--;
     }
@@ -29,15 +29,15 @@ public abstract class Saint {
     public static int getQtdSaints() {
         return Saint.qtdSaints;
     }
-    
+
     public static int getAcumuladorQtdSaints() {
         return Saint.acumuladorQtdSaints;
     }
-    
+
     public int getId() {
         return this.id;
     }
-    
+
     public void vestirArmadura() {
         armaduraVestida = true;
     }
@@ -99,31 +99,25 @@ public abstract class Saint {
         getConstelacao().adicionarGolpe(golpe);
     }
 
-    public Golpe getProximoGolpe() throws Exception {
+    public Golpe getProximoGolpe() {
         ArrayList<Golpe> golpes = getGolpes();
-        if (golpes.size() == 0) {
-            throw new Exception("Sem Golpes Para Executar");
-        }
         int posicao = this.indiceProximoGolpe % golpes.size();
         return golpes.get(this.indiceProximoGolpe++ % golpes.size());
     }
-    
+
     public ArrayList<Movimento> getMovimentos() {
         return this.movimentos;
     }
-    
+
     public void adicionarMovimento(Movimento movimento) {
         this.movimentos.add(movimento);
     }
-    
-    public Movimento getProximoMovimento() throws Exception {
-        if (movimentos.isEmpty()) {
-            throw new Exception("Sem Movimentos Para Executar");
-        }
+
+    public Movimento getProximoMovimento() {
         int posicao = this.indiceProximoMovimento % movimentos.size();
         return movimentos.get(this.indiceProximoMovimento++ % movimentos.size());
     }
-    
+
     public String getCSV() {
         return String.format(
             "%s,%s,%s,%s,%s,%s,%s",

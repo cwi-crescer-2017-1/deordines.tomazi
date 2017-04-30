@@ -127,7 +127,7 @@ public class GolpearTest {
         assertEquals(4.0, degel.getVida(), 0.01);
     }
     
-    @Test(expected=Exception.class)
+    @Test(expected=ArithmeticException.class)
     public void golpearComSaintBronzeSemGolpes() throws Exception {
         Saint seiya = new BronzeSaint("Seiya", "Pégaso");
         Saint hyoga = new BronzeSaint("Hyoga", "Cisne");

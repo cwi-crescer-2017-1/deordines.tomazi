@@ -9,7 +9,7 @@ public class Golpear implements Movimento {
         this.golpeado = golpeado;
     }
 
-    public void executar() throws Exception {
+    public void executar() {
         double danoCausado = multiplicadorDeDano(golpeador, golpeador.getProximoGolpe());   
         this.golpeado.perderVida(danoCausado);
     }

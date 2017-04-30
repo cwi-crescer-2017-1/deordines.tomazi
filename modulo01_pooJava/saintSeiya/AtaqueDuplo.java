@@ -9,7 +9,7 @@ public class AtaqueDuplo implements Movimento {
         this.golpeado = golpeado;
     }
     
-    public void executar() throws Exception {
+    public void executar() {
         Golpe golpe = this.golpeador.getProximoGolpe();
         double danoCausado = golpe.getFatorDano();
         

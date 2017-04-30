@@ -29,7 +29,7 @@ public class BatalhaTest
         assertEquals(100, camus.getVida(), 0.01);
     }
     
-    @Test(expected=Exception.class)
+    @Test(expected=ArithmeticException.class)
     public void categoriaSaint1IgualAoSaint2() throws Exception {
         Saint dohko = new GoldSaint("Dohko", "Libra");
         Saint shion = new GoldSaint("Shion", "Áries");

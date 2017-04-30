@@ -1,3 +1,3 @@
 public interface Movimento {    
-    public void executar() throws Exception;
+    public void executar();
 }
