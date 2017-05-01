@@ -1,4 +1,5 @@
 public class VestirArmadura implements Movimento {
+    
     private Saint saint;
     
     public VestirArmadura(Saint saint) {
