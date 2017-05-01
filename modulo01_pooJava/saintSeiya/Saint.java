@@ -2,6 +2,7 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
 public abstract class Saint {
+    
     private int id = 0;
     private String nome;
     private Armadura armadura;
