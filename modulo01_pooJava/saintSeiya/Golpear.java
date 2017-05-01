@@ -22,10 +22,6 @@ public class Golpear implements Movimento {
         }
     }
 
-    public TipoDeMovimento getTipoDeMovimento() {
-        return TipoDeMovimento.OFENSIVO;
-    }
-
     private double multiplicadorDeDano(Saint saint, Golpe golpe) {        
         double fatorDano = golpe.getFatorDano();
         double multiplicador = golpeador.getArmadura().getCategoria().getValor();

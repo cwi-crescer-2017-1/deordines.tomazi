@@ -32,10 +32,6 @@ public class AtaqueDuplo implements Movimento {
         }
     }
 
-    public TipoDeMovimento getTipoDeMovimento() {
-        return TipoDeMovimento.OFENSIVO;
-    }
-
     private boolean ataqueDuplo() {
         return this.sorteador.sortear() <= 2;
     }
