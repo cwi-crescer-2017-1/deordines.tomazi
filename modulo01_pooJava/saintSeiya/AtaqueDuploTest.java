@@ -5,9 +5,9 @@ import org.junit.Test;
 
 public class AtaqueDuploTest {
 
-    @Test(expected=Exception.class)
+    @Test(expected=ArithmeticException.class)
     public void ataqueDuploSemMovimentos() throws Exception {
-        Movimento ataqueDuplo = new AtaqueDuplo(new BronzeSaint("Hyoga", "Cisne"), new GoldSaint("Camus", "Aquário"));
+        Movimento ataqueDuplo = new AtaqueDuplo(new BronzeSaint("Hyoga", "Cisne"), new GoldSaint("Camus", "Aquário"), new DadoFalso(1));
         ataqueDuplo.executar();
     }
 
@@ -19,7 +19,7 @@ public class AtaqueDuploTest {
         Saint camus = new GoldSaint("Camus", "Aquário");
         camus.aprenderGolpe(new Golpe("Pó de Diamante", 5));
 
-        Movimento ataqueDuplo = new AtaqueDuplo(hyoga, camus);
+        Movimento ataqueDuplo = new AtaqueDuplo(hyoga, camus, new DadoFalso(1));
         hyoga.adicionarMovimento(ataqueDuplo);
         hyoga.getProximoMovimento().executar();
 
@@ -40,7 +40,7 @@ public class AtaqueDuploTest {
         camus.aprenderGolpe(new Golpe("Execução Aurora", 10));
 
         Movimento vestirArmadura = new VestirArmadura(hyoga);
-        Movimento ataqueDuplo = new AtaqueDuplo(hyoga, camus);
+        Movimento ataqueDuplo = new AtaqueDuplo(hyoga, camus, new DadoFalso(1));
         hyoga.adicionarMovimento(vestirArmadura);
         hyoga.adicionarMovimento(ataqueDuplo);
 
