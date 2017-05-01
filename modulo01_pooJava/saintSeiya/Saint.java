@@ -14,6 +14,7 @@ public abstract class Saint {
     private ArrayList<Movimento> movimentos = new ArrayList<>();
     private int indiceProximoMovimento = 0;
     private static int qtdSaints = 0, acumuladorQtdSaints = 0;
+    private boolean contraAtacar = false;
 
     protected Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
@@ -117,7 +118,15 @@ public abstract class Saint {
         int posicao = this.indiceProximoMovimento % movimentos.size();
         return movimentos.get(this.indiceProximoMovimento++ % movimentos.size());
     }
-
+    
+    public void setContraAtacar() {
+        this.contraAtacar = !this.contraAtacar;
+    }
+    
+    public boolean getContraAtacar() {
+        return this.contraAtacar;
+    }
+    
     public String getCSV() {
         return String.format(
             "%s,%s,%s,%s,%s,%s,%s",
