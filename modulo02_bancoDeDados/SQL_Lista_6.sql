@@ -7,7 +7,7 @@ SELECT TOP 1 SUBSTRING(Nome, 1, CHARINDEX(' ', Nome) - 1) as PrimeiroNome,
 	COUNT(*) as TotalOcorrencias
 FROM Cliente
 GROUP BY SUBSTRING(Nome, 1, CHARINDEX(' ', Nome) - 1)
-ORDER BY TotalOcorrencias DESC
+ORDER BY TotalOcorrencias DESC;
 
 -- Exercício 2
 -- Total do Mês
@@ -70,21 +70,22 @@ SELECT * FROM Produto
 SELECT prod.*
 FROM Produto prod
 LEFT JOIN PedidoItem pedItem ON pedItem.IDProduto = prod.IDProduto
-WHERE pedItem.IDProduto IS NULL
+WHERE pedItem.IDProduto IS NULL;
 
 SELECT *
 FROM Produto prod
 WHERE NOT EXISTS (SELECT 1
 			  FROM PedidoItem pedItem
-			  WHERE pedItem.IDProduto = prod.IDProduto)
+			  WHERE pedItem.IDProduto = prod.IDProduto);
 
 -- Exercício 6
 -- Principais Produtos
 -- Liste os 30 produtos que mais geraram lucro em 2016.
 SELECT TOP 30 prod.Nome,
-	pedItem.PrecoUnitario
+	SUM((prod.PrecoVenda - prod.PrecoCusto) * pedItem.Quantidade) as Lucro
 FROM PedidoItem pedItem
 INNER JOIN Produto prod ON prod.IDProduto = pedItem.IDProduto
 INNER JOIN Pedido ped ON ped.IDPedido = pedItem.IDPedido
 WHERE ped.DataPedido BETWEEN CONVERT(DATE, '01/01/2016', 103) AND CONVERT(DATE, '31/12/2016 23:59:59', 103)
-ORDER BY pedItem.PrecoUnitario DESC;
+GROUP BY prod.Nome
+ORDER BY Lucro DESC;
