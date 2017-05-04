@@ -1,0 +1,81 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3C159AB9-7020-A4E6-5F68-5EB50AE43269" name="Pessoa">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>9267C12E-0ADD-CCE0-009F-82FCEA250FA4</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDPessoa" id="85D6CA05-E5F5-5A56-8B21-BA8DAFE0652B">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>666595F3-CD56-A495-8AD9-804C76177271</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome" id="AD1EA775-26CD-4EC1-845F-65C2823B56D6">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>607E72F9-7AC9-C30D-DDAB-48C7EF3286AE</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CPF" id="F974FDA5-D571-3634-452A-D3F17B8DAB23">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>BAD4C2EB-5912-7E92-5F26-E2B8E86FD6ED</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Endereco" id="751DF7E6-78A3-B175-E9D2-58861D82DA59">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>A698B6B5-4AA8-7F6B-DA67-A67944740495</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Telefone" id="CF25CE2C-1CA8-DAF6-C4C2-1A8C40A07CAA">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>23428704-FE9A-3FEC-FBD7-6FF48BC9EA0D</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1E4BB7B0-F1AD-2ECA-AF5D-ACBB9009F29F" name="Pessoa_PK">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>CA27DECC-1426-AE62-E904-0BEB9CAE784A</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="85D6CA05-E5F5-5A56-8B21-BA8DAFE0652B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8AC2B1FA-3C49-05BF-F0B0-16E853E1EA66" name="Empresa">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:46:52 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<engineerTo>
+<item key="0598DC09-577E-3178-9B1C-31E6562783FE" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDEmpresa" id="8471A733-654B-86CE-E84F-5CACFD2BC152">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:46:57 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<engineerTo>
+<item key="0598DC09-577E-3178-9B1C-31E6562783FE" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nome" id="F3630DFC-6F13-DC3C-1567-5D8FAFDFE116">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:47:05 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<engineerTo>
+<item key="0598DC09-577E-3178-9B1C-31E6562783FE" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDSeguro" id="73048214-5FF3-5910-2DBB-6E7AF12E2A3D">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:47:41 UTC</createdTime>
+<generatorID>700BCB99-C194-9B16-221A-9C55A93D3C42</generatorID>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<engineerTo>
+<item key="0598DC09-577E-3178-9B1C-31E6562783FE" value="true"/>
+</engineerTo>
+<referedAttribute>20F4815B-46FA-2D1E-7075-305E1048F468</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="E898A2D7-A383-0365-BF4E-035C32F09C6A" name="Empresa PK">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:47:17 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<engineerTo>
+<item key="0598DC09-577E-3178-9B1C-31E6562783FE" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>8471A733-654B-86CE-E84F-5CACFD2BC152</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

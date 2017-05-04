@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="337533F6-8CB9-74EE-7F49-D65D422105BC" name="PessoaJuridica">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 17:46:47 UTC</createdTime>
+<ownerDesignName>ModeloPessoa</ownerDesignName>
+<ordsAlias>table_4</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDPessoaJuridica" id="E960E5DC-C9A3-2ECD-DB58-DA97C7A23E90">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 17:47:20 UTC</createdTime>
+<ownerDesignName>ModeloPessoa</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDPessoa" id="42E494D3-6480-C8C8-70B9-6FA817707392">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 17:48:40 UTC</createdTime>
+<ownerDesignName>ModeloPessoa</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2C0CEFE6-1131-D1B2-A7B4-AE3986854504" referredColumn="F9D3A282-A431-D3ED-4EB1-38876DC77680"/>
+</associations>
+</Column>
+<Column name="CNPJ" id="4C681EF4-9209-9FA9-0FB9-300B81BC2779">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:00:52 UTC</createdTime>
+<ownerDesignName>ModeloPessoa</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="InscricaoEstadual" id="CD50E6AC-E547-A6CD-6D0A-3A83B10569DA">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:00:52 UTC</createdTime>
+<ownerDesignName>ModeloPessoa</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DCAE031C-E8E9-A3D5-E878-BF8C6D8C5C82" name="PK_PessoaJuridica">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 17:47:20 UTC</createdTime>
+<ownerDesignName>ModeloPessoa</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E960E5DC-C9A3-2ECD-DB58-DA97C7A23E90"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="52CC334C-9A9B-4925-2E84-DB8F5FF29C1E" name="FK_PessoaJuridica_Pessoa">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 17:48:40 UTC</createdTime>
+<ownerDesignName>ModeloPessoa</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="42E494D3-6480-C8C8-70B9-6FA817707392"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

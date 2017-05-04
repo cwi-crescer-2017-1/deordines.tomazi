@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="16DC0073-5AC9-7C82-B8C1-09421958C543" name="TipoSeguro">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:19:11 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<ordsAlias>table_11</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDTipoSeguro" id="D6052646-EAB7-FF91-C3B8-218F8F05EA43">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:19:38 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Seguro_IDSeguro" id="EAE32629-21E6-39D3-44CA-187E35A71A43">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:19:50 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="030E1BBE-B55B-F8C4-47C8-9E4E22CF35E1" referredColumn="C8164D67-B394-1FF2-9D49-42115F729550"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5A7F5024-22D6-4AB0-4B34-FED7690E89B2" name="TipoSeguro_PK">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:20:28 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D6052646-EAB7-FF91-C3B8-218F8F05EA43"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="67C9B8FE-6BE8-6357-14FE-D69BDAAAA385" name="TipoSeguro_Seguro_FK">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:19:50 UTC</createdTime>
+<generatorID>C7B96526-249E-CB61-7F10-B62E9109CC05</generatorID>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EAE32629-21E6-39D3-44CA-187E35A71A43"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FE73511A-039A-A6DB-C599-682AAFD09D3F" name="Pessoa">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 17:40:11 UTC</createdTime>
+<ownerDesignName>ModeloPessoa</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDPessoa" id="F9D3A282-A431-D3ED-4EB1-38876DC77680">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 17:43:37 UTC</createdTime>
+<ownerDesignName>ModeloPessoa</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome" id="5C4C4848-4123-DF01-8A62-0B826FBB0601">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 17:43:37 UTC</createdTime>
+<ownerDesignName>ModeloPessoa</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TipoPessoa" id="0B3B4CB0-17CE-88E9-04B6-D6CE18023252">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 17:53:48 UTC</createdTime>
+<commentInRDBMS>PF = Pessoa Física&lt;br/&gt;PJ = Pessoa Jurídica</commentInRDBMS>
+<ownerDesignName>ModeloPessoa</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>2,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E680C6F4-7F0E-B730-AE29-3061570F241D" name="PK_Pessoa">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 17:43:37 UTC</createdTime>
+<ownerDesignName>ModeloPessoa</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F9D3A282-A431-D3ED-4EB1-38876DC77680"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

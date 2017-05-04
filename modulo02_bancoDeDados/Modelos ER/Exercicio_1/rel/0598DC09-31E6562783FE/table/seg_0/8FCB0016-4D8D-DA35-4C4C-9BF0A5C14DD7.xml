@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8FCB0016-4D8D-DA35-4C4C-9BF0A5C14DD7" name="Contrato">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:17:21 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<ordsAlias>table_10</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDContrato" id="DC21E0BA-3862-E645-4B70-FC71EDCCB68C">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:17:45 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Empresa_IDEmpresa" id="99ACD0B3-1761-6B76-C577-4CEC0EABCE42">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:18:02 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5CAAC240-2BC5-959C-DC3B-15EA20AC40DB" referredColumn="94F6898F-EDD3-D174-D291-79D03A3B5C6D"/>
+</associations>
+</Column>
+<Column name="DataInicio" id="BA0FF68E-1596-288C-F3C7-DF9DC6C118F6">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:25:18 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataFim" id="351A6E5C-2B8D-0F89-26FA-C39F25960856">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:25:18 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B3272B0A-C073-2315-8B3F-6276AE74F8D2" name="Contrato_PK">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:17:45 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DC21E0BA-3862-E645-4B70-FC71EDCCB68C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6E9A3586-6AA8-CB8C-13D9-6AF855789260" name="Contrato_Empresa_FK">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:18:02 UTC</createdTime>
+<generatorID>E898A2D7-A383-0365-BF4E-035C32F09C6A</generatorID>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="99ACD0B3-1761-6B76-C577-4CEC0EABCE42"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

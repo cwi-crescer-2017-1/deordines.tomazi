@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Diagram class="oracle.dbtools.crest.swingui.logical.DPVLogical" name="Logical" id="2ACE8E17-4105-99D1-B051-7F5D167732E2">
+<createdBy>deordines.tomazi</createdBy>
+<modifiedBy>deordines.tomazi</modifiedBy>
+<createdTime>2017-05-03 18:43:21 UTC</createdTime>
+<autoRoute>false</autoRoute>
+<boxInbox>true</boxInbox>
+<showLegend>false</showLegend>
+<showLabels>false</showLabels>
+<showRelAttributes>false</showRelAttributes>
+<gridEnabled>false</gridEnabled>
+<showGrid>false</showGrid>
+<diagramColor>-1</diagramColor>
+<display>false</display>
+<notation>1</notation>
+<objectViews>
+<OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="0B71B6E3-D3FE-883A-2DEA-C5460093A076" otype="Entity" vid="838E2FE8-0A26-F273-57B0-68F6D0000569">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="84" y="92" width="170" height="110"/>
+</OView>
+<OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="585D8521-AFB2-E3F0-F61B-189056E0853A" otype="Entity" vid="D25F22C2-116B-C0DA-E2BA-5FC5A29C2F7F">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="380" y="143" width="170" height="110"/>
+</OView>
+<OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="8AC2B1FA-3C49-05BF-F0B0-16E853E1EA66" otype="Entity" vid="73BB927F-D2DB-8BD5-1737-0108D4F799CB">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="612" y="107" width="170" height="110"/>
+</OView>
+</objectViews>
+<connectors>
+<Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="3FC6EDBD-ABD1-110F-C10E-818B16D3FAD2" otype="Relation" vid_source="838E2FE8-0A26-F273-57B0-68F6D0000569" vid_target="D25F22C2-116B-C0DA-E2BA-5FC5A29C2F7F">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<lineWidth>1</lineWidth>
+<points>
+<point x="254" y="172"/>
+<point x="380" y="172"/>
+</points>
+</Connector>
+<Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="700BCB99-C194-9B16-221A-9C55A93D3C42" otype="Relation" vid_source="D25F22C2-116B-C0DA-E2BA-5FC5A29C2F7F" vid_target="73BB927F-D2DB-8BD5-1737-0108D4F799CB">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<lineWidth>1</lineWidth>
+<points>
+<point x="550" y="180"/>
+<point x="612" y="180"/>
+</points>
+</Connector>
+</connectors>
+</Diagram>

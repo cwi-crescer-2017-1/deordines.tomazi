@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="RelacaoSeguroEmpresa" directorySegmentName="seg_0" id="700BCB99-C194-9B16-221A-9C55A93D3C42">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:47:41 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<engineerTo>
+<item key="0598DC09-577E-3178-9B1C-31E6562783FE" value="true"/>
+</engineerTo>
+<sourcePk>C7B96526-249E-CB61-7F10-B62E9109CC05</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>585D8521-AFB2-E3F0-F61B-189056E0853A</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>8AC2B1FA-3C49-05BF-F0B0-16E853E1EA66</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,114 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="83FEC00C-77C1-73B1-EA1C-1A93270A245F" name="Contrato">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>A793E045-CE07-59C8-68EC-88332A2B00CF</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDContrato" id="AFC19F3A-596A-0674-7022-3C3D4EDF4556">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>51775C7F-3FAC-A917-6E51-C605B43CD699</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Empresa_IDEmpresa" id="704825BE-90D0-2827-8FC6-B7206259BE67">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>18CE796E-6960-2568-33D9-9107F02CBF60</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7A4003B3-F28B-4953-D7B0-19EF360B78CC" referredColumn="8D112C50-F2F5-0BAD-35E3-AB12B136D64B"/>
+</associations>
+</Column>
+<Column name="Seguro_IDSeguro" id="5E6437E6-ED12-CA11-9675-95EE60F76B3A">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>6208B30C-DBA7-6BE4-FDAE-CF0D2CF8E534</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3576E9E8-C831-EFE4-A5BD-A91C78014012" referredColumn="9D45E1FA-015A-D3F5-E47C-DC83BE83BFE1"/>
+</associations>
+</Column>
+<Column name="DataInicio" id="17A7F62E-C782-8C95-CAB8-063255B14F40">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:23:40 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataFim" id="923667A8-DE84-3329-77A6-980C6A74E40B">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:23:40 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3C8E9409-2AAE-16BA-02E8-F3EBABE7D376" name="Contrato_PK">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>41346D94-E753-C9FB-8328-5C9C8150DE29</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AFC19F3A-596A-0674-7022-3C3D4EDF4556"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B0164291-2A09-B707-4283-AE4DFFC9E0CB" name="Contrato__IDX">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>AADD9BF5-60C4-9DE4-B477-DF8ED8DA0264</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="5E6437E6-ED12-CA11-9675-95EE60F76B3A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4A6C16DB-88C3-C15F-81CF-5566FF5A44E4" name="Contrato_Empresa_FK">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>B2A7CD27-3047-136C-84A3-EE1AF9CEFA41</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="704825BE-90D0-2827-8FC6-B7206259BE67"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9EBBD178-BE36-1CAD-8F33-AC506D32A495" name="Contrato_Seguro_FK">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>AADD9BF5-60C4-9DE4-B477-DF8ED8DA0264</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5E6437E6-ED12-CA11-9675-95EE60F76B3A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

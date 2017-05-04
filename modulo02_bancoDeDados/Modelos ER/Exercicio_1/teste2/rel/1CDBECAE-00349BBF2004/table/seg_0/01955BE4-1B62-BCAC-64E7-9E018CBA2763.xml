@@ -1,0 +1,55 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="01955BE4-1B62-BCAC-64E7-9E018CBA2763" name="Seguro">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>895736A0-841F-F0DB-D59F-BE34D9DB1133</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDSeguro" id="9D45E1FA-015A-D3F5-E47C-DC83BE83BFE1">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>0AF9ADB5-5427-2BD4-ECE2-0551518FCDE8</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome" id="6EDC72A0-CF95-FC6A-0CA4-35D0F7719E4E">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>BBDE2854-CECF-E3AE-2FF4-66AA6133C9E6</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Valor" id="3FAC2E75-74A8-C380-A50F-B9848D5EC89D">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>56F7E3B0-0A1B-30A3-2428-013AEED8D47B</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="074ED0C8-C303-41BA-B50D-93601DDC8FB1" name="Seguro_PK">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>AA1BC8C3-D583-FED2-36A9-825496D3FA33</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9D45E1FA-015A-D3F5-E47C-DC83BE83BFE1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

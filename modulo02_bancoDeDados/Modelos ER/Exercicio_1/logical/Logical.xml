@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="6E6AC88E-DE7D-C4D0-14E4-E0E926BAB925" mainViewID="2ACE8E17-4105-99D1-B051-7F5D167732E2">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:40:15 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

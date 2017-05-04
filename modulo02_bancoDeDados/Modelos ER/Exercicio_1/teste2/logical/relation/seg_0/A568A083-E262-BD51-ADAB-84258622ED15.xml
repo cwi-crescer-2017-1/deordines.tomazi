@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="ContratoBeneficiario" directorySegmentName="seg_0" id="A568A083-E262-BD51-ADAB-84258622ED15">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:15:23 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<engineerTo>
+<item key="1CDBECAE-84E4-7EB2-7EAD-00349BBF2004" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>6D994543-629D-57CC-013C-0C5917CA73A1</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>A793E045-CE07-59C8-68EC-88332A2B00CF</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

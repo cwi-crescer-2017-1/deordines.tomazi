@@ -1,0 +1,118 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5037DB07-FA32-A06C-FBAA-84C519E993A9" name="ProjetoEmpregado">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 17:00:09 UTC</createdTime>
+<ownerDesignName>Projeto</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDProjetoEmpregado" id="E536D3A2-D49B-41CA-DAB0-E34C37F088AC">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 17:07:43 UTC</createdTime>
+<ownerDesignName>Projeto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDProjeto" id="93F1AF59-A182-7A38-ADA0-AE4291CFCFD0">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 17:00:09 UTC</createdTime>
+<ownerDesignName>Projeto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FC74B805-6FAB-7BDD-846E-BABD3487DB2A" referredColumn="0F9DF314-7ABB-60DB-81F3-314EAE043B6A"/>
+</associations>
+</Column>
+<Column name="IDEmpregado" id="D577422D-ED6F-19EB-AA0F-A6F26F6E4489">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 17:00:09 UTC</createdTime>
+<ownerDesignName>Projeto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="02AAC889-5AD8-C0D0-D8AE-8D001975B73D" referredColumn="A5583F99-A037-2FF9-FF29-4F269BFC9AB7"/>
+</associations>
+</Column>
+<Column name="PercentualParticipacao" id="E02F3735-CEEA-F8B4-E4FC-4A596F9CB47F">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 17:14:54 UTC</createdTime>
+<ownerDesignName>Projeto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,3,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataInicio" id="1EB99F7D-0D5B-901F-8CFA-CE33F0746DEC">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 17:36:06 UTC</createdTime>
+<ownerDesignName>Projeto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataFim" id="ED179B58-3922-104B-FA01-BA56CFBE8309">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 17:36:06 UTC</createdTime>
+<ownerDesignName>Projeto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B39C13D3-6C77-CD12-010E-84ECAED3175E" name="ProjetoEmpregado_PK">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 17:00:09 UTC</createdTime>
+<ownerDesignName>Projeto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E536D3A2-D49B-41CA-DAB0-E34C37F088AC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9D7FB116-AD84-2F89-4FB6-8972E60CE152" name="FK_ProjetoEmpregado_Projeto">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 17:00:09 UTC</createdTime>
+<generatorID>E1D8AB58-9805-2E9E-3AD9-346532A570BB</generatorID>
+<ownerDesignName>Projeto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="93F1AF59-A182-7A38-ADA0-AE4291CFCFD0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="215C7348-EE93-F50C-E426-8A95E8625425" name="FK_ProjetoEmpregado_Empregado">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 17:00:09 UTC</createdTime>
+<generatorID>E1D8AB58-9805-2E9E-3AD9-346532A570BB</generatorID>
+<ownerDesignName>Projeto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D577422D-ED6F-19EB-AA0F-A6F26F6E4489"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

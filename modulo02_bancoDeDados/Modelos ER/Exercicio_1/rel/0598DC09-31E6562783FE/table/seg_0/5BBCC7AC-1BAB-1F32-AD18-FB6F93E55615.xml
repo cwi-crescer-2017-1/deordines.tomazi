@@ -1,0 +1,35 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5BBCC7AC-1BAB-1F32-AD18-FB6F93E55615" name="Cliente">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:42:11 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<ordsAlias>table_15</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDCliente" id="5077A591-6DA7-5506-E7B6-357862BBE4F5">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:42:25 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3387BFBB-BF52-EEED-344D-2B44774F5A5E" name="Cliente_PK">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:42:36 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5077A591-6DA7-5506-E7B6-357862BBE4F5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

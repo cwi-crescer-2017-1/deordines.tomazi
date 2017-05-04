@@ -1,0 +1,69 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FE9A69AB-BDFF-6F06-0D7C-D302810F00A5" name="SeguroVida">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:13:45 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDSeguroVida" id="73B7AAE8-C8B3-6666-D260-F0E2754E48E8">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:14:33 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Valor" id="3FBF9FAA-C18A-C06A-DCE4-BA4682CFA6CB">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:14:33 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Indenicacao" id="8428D23D-2F2E-5D4B-BCD9-C9E268BCEB29">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:14:33 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TipoSeguro_IDTipoSeguro" id="3AD49680-DAF3-DBC5-A107-0BF2B35AFEF6">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:20:32 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="20847604-5D96-01AC-ACA5-68DD1E85D9E5" referredColumn="D6052646-EAB7-FF91-C3B8-218F8F05EA43"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EFB09328-DF3E-108F-6D9D-CE7CA345D0E5" name="SeguroVida_TipoSeguro_FK">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:20:32 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3AD49680-DAF3-DBC5-A107-0BF2B35AFEF6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

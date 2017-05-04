@@ -1,0 +1,68 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4F6391EC-F79E-5DC5-2F20-D291B579807C" name="Empresa">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:48:11 UTC</createdTime>
+<generatorID>8AC2B1FA-3C49-05BF-F0B0-16E853E1EA66</generatorID>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDEmpresa" id="94F6898F-EDD3-D174-D291-79D03A3B5C6D">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:48:11 UTC</createdTime>
+<generatorID>8471A733-654B-86CE-E84F-5CACFD2BC152</generatorID>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome" id="C23AF230-BECC-0004-2A39-02AAAD7DB192">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:48:11 UTC</createdTime>
+<generatorID>F3630DFC-6F13-DC3C-1567-5D8FAFDFE116</generatorID>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CNPJ" id="2E511634-0946-DE07-F42D-8B5E96D601CC">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:27:54 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Endereco" id="357FC022-0A51-0CD2-8427-BA8E51F16F75">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:27:54 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6441785C-823D-9856-4CAA-ADB01C515DCC" name="PK_Empresa">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:48:11 UTC</createdTime>
+<generatorID>E898A2D7-A383-0365-BF4E-035C32F09C6A</generatorID>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="94F6898F-EDD3-D174-D291-79D03A3B5C6D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

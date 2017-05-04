@@ -1,0 +1,45 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A18D55AA-D08A-6C3C-5B6E-636072F2D5B3" name="Empresa">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>4CF62522-1333-8710-5AE8-105577CB3B25</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDEmpresa" id="8D112C50-F2F5-0BAD-35E3-AB12B136D64B">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>90EE56FE-95CE-55FA-7667-EA9B488210E2</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome" id="5FD46667-EAE8-9D79-21A3-51617097509D">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>F0D7C085-5CF4-87D9-E852-3DEED0FDFC59</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6AC67552-7AFC-2149-2995-B932C6823546" name="Empresa_PK">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>AE85EA52-0EAB-4D64-7B24-CB1D5E8588D6</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8D112C50-F2F5-0BAD-35E3-AB12B136D64B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

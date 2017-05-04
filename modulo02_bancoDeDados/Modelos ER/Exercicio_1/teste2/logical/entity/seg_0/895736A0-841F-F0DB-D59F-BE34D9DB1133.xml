@@ -1,0 +1,66 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="895736A0-841F-F0DB-D59F-BE34D9DB1133" name="Seguro">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:58:43 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<engineerTo>
+<item key="1CDBECAE-84E4-7EB2-7EAD-00349BBF2004" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDSeguro" id="0AF9ADB5-5427-2BD4-ECE2-0551518FCDE8">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:58:48 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<engineerTo>
+<item key="1CDBECAE-84E4-7EB2-7EAD-00349BBF2004" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nome" id="BBDE2854-CECF-E3AE-2FF4-66AA6133C9E6">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:58:53 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<engineerTo>
+<item key="1CDBECAE-84E4-7EB2-7EAD-00349BBF2004" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Valor" id="56F7E3B0-0A1B-30A3-2428-013AEED8D47B">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:01:27 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<engineerTo>
+<item key="1CDBECAE-84E4-7EB2-7EAD-00349BBF2004" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="AA1BC8C3-D583-FED2-36A9-825496D3FA33" name="Seguro PK">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:58:57 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="1CDBECAE-84E4-7EB2-7EAD-00349BBF2004" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>0AF9ADB5-5427-2BD4-ECE2-0551518FCDE8</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

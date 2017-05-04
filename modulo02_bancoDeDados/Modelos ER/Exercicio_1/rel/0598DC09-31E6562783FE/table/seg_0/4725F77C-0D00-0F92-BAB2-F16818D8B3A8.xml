@@ -1,0 +1,83 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4725F77C-0D00-0F92-BAB2-F16818D8B3A8" name="BeneficiarioCliente">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:44:04 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<ordsAlias>table_16</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDBeneficiarioCliente" id="F2373267-F6F8-A494-7A8D-AF1BC9F39B23">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:44:30 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Beneficiario_IDBeneficiario" id="CD6CDAF5-A300-F92D-F2E9-F877C6EC2293">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:47:33 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B049F5B6-7919-7180-2B02-9E623EAC8080" referredColumn="EDD06B07-1308-703A-60FE-EE0DFCB8339D"/>
+</associations>
+</Column>
+<Column name="Cliente_IDCliente" id="CB814E99-1EEF-57D0-C4EA-CE4134F8BBCD">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:49:52 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CC773A0B-E325-3179-B70C-E3D68FB31273" referredColumn="5077A591-6DA7-5506-E7B6-357862BBE4F5"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CE1E1496-EC19-3CED-BFE8-ABECCC2A028A" name="ClienteBeneficiario_PK">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:44:30 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F2373267-F6F8-A494-7A8D-AF1BC9F39B23"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E43C55BD-FC9B-1EF4-D914-B93A40209CD8" name="ClienteBeneficiario_Beneficiario_FK">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:47:33 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CD6CDAF5-A300-F92D-F2E9-F877C6EC2293"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DF45C764-CF9B-0189-307F-770FE0351BC2" name="ClienteBeneficiario_Cliente_FK">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-04 17:49:52 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CB814E99-1EEF-57D0-C4EA-CE4134F8BBCD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

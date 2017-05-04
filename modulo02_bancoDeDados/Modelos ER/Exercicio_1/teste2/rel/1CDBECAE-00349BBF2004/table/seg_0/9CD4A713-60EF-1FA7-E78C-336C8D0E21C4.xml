@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9CD4A713-60EF-1FA7-E78C-336C8D0E21C4" name="ContratoBeneficiario">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Beneficiario_Beneficiario_ID" id="F8DEB812-2826-15B4-5696-21C31C271F6B">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Contrato_IDContrato" id="8B81DDAA-2D3C-1B6B-26FF-4A136BFBC5D3">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2236D477-3222-3AFA-0C1E-3734BCB39D44" referredColumn="AFC19F3A-596A-0674-7022-3C3D4EDF4556"/>
+</associations>
+</Column>
+<Column name="Beneficiario_IDBeneficiario" id="158EEF41-0498-DF00-02CB-77319DB8B850">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:26:12 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5A55A58E-BF62-84EB-ECBA-C17DE16132D9" referredColumn="B6BDABE9-271F-84DC-EEE9-9EE3517BCEDF"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="23CC99AA-3A0E-04C6-01A5-7CFABEFB2E69" name="ContratoBeneficiario_PK">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F8DEB812-2826-15B4-5696-21C31C271F6B"/>
+<colUsage columnID="8B81DDAA-2D3C-1B6B-26FF-4A136BFBC5D3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A396F09D-AD2F-8722-72DF-319456AD02C6" name="FK_ASS_14">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>A568A083-E262-BD51-ADAB-84258622ED15</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="158EEF41-0498-DF00-02CB-77319DB8B850"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="853BA50E-28EA-2FF1-2650-3DE11A8E9359" name="FK_ASS_15">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:16:23 UTC</createdTime>
+<generatorID>A568A083-E262-BD51-ADAB-84258622ED15</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8B81DDAA-2D3C-1B6B-26FF-4A136BFBC5D3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

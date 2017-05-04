@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.logical.LogicalDesign>
+   <object objectType="Entity" objectID="0B71B6E3-D3FE-883A-2DEA-C5460093A076" name="Cliente" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Entity" propertyParentId="6E6AC88E-DE7D-C4D0-14E4-E0E926BAB925" propertySourceId="" propertyTargetId=""/>
+   <object objectType="Entity" objectID="585D8521-AFB2-E3F0-F61B-189056E0853A" name="Seguro" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Entity" propertyParentId="6E6AC88E-DE7D-C4D0-14E4-E0E926BAB925" propertySourceId="" propertyTargetId=""/>
+   <object objectType="Entity" objectID="8AC2B1FA-3C49-05BF-F0B0-16E853E1EA66" name="Empresa" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Entity" propertyParentId="6E6AC88E-DE7D-C4D0-14E4-E0E926BAB925" propertySourceId="" propertyTargetId=""/>
+   <object objectType="Relation" objectID="3FC6EDBD-ABD1-110F-C10E-818B16D3FAD2" name="RelacaoClienteSeguro" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Relation" propertyParentId="6E6AC88E-DE7D-C4D0-14E4-E0E926BAB925" propertySourceId="0B71B6E3-D3FE-883A-2DEA-C5460093A076" propertyTargetId="585D8521-AFB2-E3F0-F61B-189056E0853A"/>
+   <object objectType="Relation" objectID="700BCB99-C194-9B16-221A-9C55A93D3C42" name="RelacaoSeguroEmpresa" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Relation" propertyParentId="6E6AC88E-DE7D-C4D0-14E4-E0E926BAB925" propertySourceId="585D8521-AFB2-E3F0-F61B-189056E0853A" propertyTargetId="8AC2B1FA-3C49-05BF-F0B0-16E853E1EA66"/>
+</oracle.dbtools.crest.model.design.logical.LogicalDesign>

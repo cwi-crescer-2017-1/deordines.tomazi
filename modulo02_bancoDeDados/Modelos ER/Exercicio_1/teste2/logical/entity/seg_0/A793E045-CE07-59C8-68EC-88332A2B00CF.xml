@@ -1,0 +1,67 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A793E045-CE07-59C8-68EC-88332A2B00CF" name="Contrato">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:00:05 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<engineerTo>
+<item key="1CDBECAE-84E4-7EB2-7EAD-00349BBF2004" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDContrato" id="51775C7F-3FAC-A917-6E51-C605B43CD699">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:00:13 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<engineerTo>
+<item key="1CDBECAE-84E4-7EB2-7EAD-00349BBF2004" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDEmpresa" id="18CE796E-6960-2568-33D9-9107F02CBF60">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:07:37 UTC</createdTime>
+<generatorID>B2A7CD27-3047-136C-84A3-EE1AF9CEFA41</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<engineerTo>
+<item key="1CDBECAE-84E4-7EB2-7EAD-00349BBF2004" value="true"/>
+</engineerTo>
+<referedAttribute>90EE56FE-95CE-55FA-7667-EA9B488210E2</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDSeguro" id="6208B30C-DBA7-6BE4-FDAE-CF0D2CF8E534">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:14:34 UTC</createdTime>
+<generatorID>AADD9BF5-60C4-9DE4-B477-DF8ED8DA0264</generatorID>
+<ownerDesignName>teste2</ownerDesignName>
+<engineerTo>
+<item key="1CDBECAE-84E4-7EB2-7EAD-00349BBF2004" value="true"/>
+</engineerTo>
+<referedAttribute>0AF9ADB5-5427-2BD4-ECE2-0551518FCDE8</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="41346D94-E753-C9FB-8328-5C9C8150DE29" name="Contrato PK">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 19:00:19 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<engineerTo>
+<item key="1CDBECAE-84E4-7EB2-7EAD-00349BBF2004" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>51775C7F-3FAC-A917-6E51-C605B43CD699</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

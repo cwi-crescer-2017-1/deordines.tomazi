@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="9267C12E-0ADD-CCE0-009F-82FCEA250FA4" name="Pessoa">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:57:53 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<engineerTo>
+<item key="1CDBECAE-84E4-7EB2-7EAD-00349BBF2004" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDPessoa" id="666595F3-CD56-A495-8AD9-804C76177271">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:58:04 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<engineerTo>
+<item key="1CDBECAE-84E4-7EB2-7EAD-00349BBF2004" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nome" id="607E72F9-7AC9-C30D-DDAB-48C7EF3286AE">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:58:09 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<engineerTo>
+<item key="1CDBECAE-84E4-7EB2-7EAD-00349BBF2004" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CPF" id="BAD4C2EB-5912-7E92-5F26-E2B8E86FD6ED">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:58:12 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<engineerTo>
+<item key="1CDBECAE-84E4-7EB2-7EAD-00349BBF2004" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Endereco" id="A698B6B5-4AA8-7F6B-DA67-A67944740495">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:58:14 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<engineerTo>
+<item key="1CDBECAE-84E4-7EB2-7EAD-00349BBF2004" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Telefone" id="23428704-FE9A-3FEC-FBD7-6FF48BC9EA0D">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:58:19 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<engineerTo>
+<item key="1CDBECAE-84E4-7EB2-7EAD-00349BBF2004" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="CA27DECC-1426-AE62-E904-0BEB9CAE784A" name="Cliente PK">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:58:27 UTC</createdTime>
+<ownerDesignName>teste2</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="1CDBECAE-84E4-7EB2-7EAD-00349BBF2004" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>666595F3-CD56-A495-8AD9-804C76177271</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

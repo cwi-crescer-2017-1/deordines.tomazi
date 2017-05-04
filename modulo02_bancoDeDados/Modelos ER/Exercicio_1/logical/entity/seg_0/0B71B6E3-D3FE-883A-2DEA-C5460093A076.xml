@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="0B71B6E3-D3FE-883A-2DEA-C5460093A076" name="Cliente">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:44:05 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<engineerTo>
+<item key="0598DC09-577E-3178-9B1C-31E6562783FE" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDCliente" id="CB7DB5EF-B59A-97A7-5580-79F06A647E08">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:44:12 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<engineerTo>
+<item key="0598DC09-577E-3178-9B1C-31E6562783FE" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nome" id="2A74CCED-F4BA-4D2C-64D3-3239B1975AE4">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:44:24 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<engineerTo>
+<item key="0598DC09-577E-3178-9B1C-31E6562783FE" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CPF" id="15DD7C49-439E-DF5C-410D-D17C88383335">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:45:30 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<engineerTo>
+<item key="0598DC09-577E-3178-9B1C-31E6562783FE" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Endereco" id="FB02EFEC-BDB3-695A-3EA0-C3C65FCE40DA">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:45:36 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<engineerTo>
+<item key="0598DC09-577E-3178-9B1C-31E6562783FE" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="75B37017-97AA-117B-1E7C-95B6496DBF88" name="Cliente PK">
+<createdBy>deordines.tomazi</createdBy>
+<createdTime>2017-05-03 18:45:25 UTC</createdTime>
+<ownerDesignName>Modelalgem_Exercício_1</ownerDesignName>
+<engineerTo>
+<item key="0598DC09-577E-3178-9B1C-31E6562783FE" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>CB7DB5EF-B59A-97A7-5580-79F06A647E08</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
