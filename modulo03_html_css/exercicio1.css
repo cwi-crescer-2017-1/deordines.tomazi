@@ -1,0 +1,46 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    font-size: 0;
+    width: 100%;
+    height: 25vh;
+}
+
+.line {
+    font-size: initial;
+    display: inline-block;
+    color: white;
+    height: 100%;
+    border: 2px solid black;
+    padding: 20px;
+}
+
+.line1 {
+    background: red;
+    width: 25%;
+}
+
+.line2 {
+    background: blue;
+    color: white;
+    width: 50%;
+}
+
+.line3 {
+    background: mediumorchid;
+    color: white;
+    width: 100%;
+}
+
+.line4 {
+    background: yellow;
+    color: white;
+    width: 10%;
+}
