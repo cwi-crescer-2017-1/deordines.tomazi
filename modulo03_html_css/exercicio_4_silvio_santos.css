@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+img {
+    float: left;
+}
+
+h1 {
+    color: white;
+    margin: 0;
+}
+
+p {
+    font-size: 20px;
+    color: white;
+    display: none;
+}
+
+.container {
+    position: absolute;
+    top: 50%;    
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.box {
+    width: 100%;
+    background: rgba(0, 191, 255, 0.5);
+    position: absolute;
+    padding: 10px;
+    bottom: 0;
+}
+
+.box:hover p {
+    display: block;
+}
