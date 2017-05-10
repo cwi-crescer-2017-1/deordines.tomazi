@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <title>Exercício 6 - Formulário</title>
+    <style>
+        .container {
+            height: 100vh;
+            padding: 30px;
+        }
+
+        .row {
+            height: 25%;
+        }
+
+        .container button {
+            padding: 7px;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<div class="container">
+    <h1>Formulário Cadastro</h1>
+    <hr>
+    <div class="row">
+        <form>
+            <div class="col-md-6">
+                <label for="nome">Nome:</label>
+                <div><input required id="nome" type="text" class="form-control"></div>
+            </div>
+            <div class="col-md-6">
+                <label for="email">Email</label>
+                <div><input required id="email" type="email" class="form-control"></div>
+            </div>
+            <div class="col-md-6">
+                <label for="data-nascimento">Data de Nascimento</label>
+                <div><input required id="data-nascimento" type="date" class="form-control"></div>
+            </div>
+            <div class="col-md-6">
+                <label for="estado">Estado</label>
+                <div>
+                    <select required id="estado" class="form-control">
+                        <option selected value="1">Rio Grande Do Sul</option>
+                        <option value="2">Bahia</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="cidade">Cidade</label>
+                <div><input required id="cidade" type="text" class="form-control"></div>
+            </div>
+            <div class="col-md-6">
+                <label for="sexo">Sexo</label>
+                <div>
+                    <select required id="sexo" class="form-control">
+                        <option value="1">Masculino</option>
+                        <option value="2">Feminino</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+    <hr>
+    <button type="submit" class="pull-right" class="btn btn-primary" class="submit">Enviar</button>
+    <button type="reset" class="pull-right" class="reset">Limpar</button>
+</div>
+
+<body>
+
+</body>
+
+</html>
