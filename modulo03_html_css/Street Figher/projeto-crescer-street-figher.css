@@ -22,8 +22,10 @@ body {
 }
 
 .container .menu {
-    width: 100%;
+    width: 65%;
     height: 80px;
+    position: relative;
+    left: 17%;
     background: rgba(153,153,153,0.8);
     border: 3px solid rgba(204,204,204, 0.8);
     border-radius: 25px;
@@ -31,11 +33,12 @@ body {
 
 .container .menu .menu-itens {
     float: left;
+    position: relative;
+    left: 8%;
 }
 
 .container .menu .menu-itens .menu-link {
     font-size: 25px;
-    margin-left: 25px;
     padding: 20px;
     color: white;
     text-decoration: none;
@@ -54,6 +57,7 @@ body {
 .container .conteudo {
     width: 100%;
     padding: 20px;
+    line-height: 160%;
     /*position: relative;*/
     background: rgba(204,204,204,1);
 }
