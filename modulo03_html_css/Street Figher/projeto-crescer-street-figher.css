@@ -23,9 +23,10 @@ body {
 
 .container .menu {
     /*width: 65%;*/
+    width: 550px;
     height: 80px;
-    /*position: relative;*/
-    /*left: 17%;*/
+    position: relative;
+    left: 70px;
     background: rgba(153,153,153,0.8);
     border: 3px solid rgba(204,204,204, 0.8);
     border-radius: 25px;
@@ -33,8 +34,8 @@ body {
 
 .container .menu .menu-itens {
     float: left;
-    position: relative;
-    left: 8%;
+    /*position: relative;*/
+    margin-left: 5px;
 }
 
 .container .menu .menu-itens .menu-link {
