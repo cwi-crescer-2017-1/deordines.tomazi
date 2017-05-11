@@ -22,10 +22,10 @@ body {
 }
 
 .container .menu {
-    width: 65%;
+    /*width: 65%;*/
     height: 80px;
-    position: relative;
-    left: 17%;
+    /*position: relative;*/
+    /*left: 17%;*/
     background: rgba(153,153,153,0.8);
     border: 3px solid rgba(204,204,204, 0.8);
     border-radius: 25px;
