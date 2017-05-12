@@ -47,37 +47,17 @@ function somar(a) {
 console.log("Somar(5)(5): ", somar(5)(5));
 
 // Exercício 5
-// function fiboSum(number) {
-//   return (number <= 3) ? number : fiboSum(number - 1) + fiboSum(number - 2) + 1;
-// }
-//   if (number === 1) return a;
-//   if (number === 2) return b;
-//
-//   return fiboSum(b, a + b, number - 1);
-// }
-//
-// var fibo = function(number) {
-//   return fiboSum(0, 1, (number > 0) ? n : 1);
-// }
-// console.log("Fibo: ", fibo(7));
-
-
-// function fib(number) {
-//   return number < 2 ? number : fib(number - 1) + fib(number - 2);
-// }
-//
-// function sumFib(number) {
-//   return number < 0 ? 0 : fib(number) + sumFib(number - 1);
-// }
-
 function fib(number) {
   var fnum = 0;
   var val1 = 0;
   var val2 = 1;
 
-  for (var i = 1; i <= number; i++) {
+  if (number === 0) {
+    return 1;
+  }
+  for (var i = 0; i < number; i++) {
     if (number < 2) {
-      fnum = 1;
+      return 1;
     } else {
       fnum = val1 + val2;
       val1 = val2;
@@ -85,6 +65,9 @@ function fib(number) {
     }
   }
   return fnum;
+}
+for (var i = 0; i < 9; i++) {
+  console.log("Fibonacci: ", i , fib(i));
 }
 console.log("Fucking Fibonacci: ", fib(8));
 
