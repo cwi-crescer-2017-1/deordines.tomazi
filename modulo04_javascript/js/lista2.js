@@ -124,19 +124,19 @@ function mascadaEmSerieTotal(series) {
 // Exercício 6
 function queroGenero(genero) {
   return series
-    .filter (serie => serie.genero.includes(genero))
+    .filter (serie => serie.genero.toString().toLowerCase().includes(genero.toLowerCase()))
     .map (serie => serie.titulo);
 }
 
 function queroTitulo(titulo) {
   return series
-    .filter (serie => serie.titulo.includes(titulo))
+    .filter (serie => serie.titulo.toString().toLowerCase().includes(titulo.toLowerCase()))
     .map (serie => serie.titulo)
 }
 
 // Exercício 7
 function creditosIlluminatis(series) {
-  var diretores = Object.values(series.diretor).toString();
+  var diretores = Object.values(series.diretor);
   var elenco = Object.values(series.elenco);
 
   function sortSobrenome(a, b) {
@@ -156,9 +156,12 @@ function creditosIlluminatis(series) {
   }
 
   return console.log(
-    `Título:\n   ${series.titulo}\n
-    Diretores:\n   ${series.diretor.sort(sortSobrenome).join(', ')}\n
-    Elenco:\n   ${series.elenco.sort(sortSobrenome).join(', ')}`
+    `Título:
+    ${series.titulo}` +
+    `\n\nDiretores:
+    ${series.diretor.sort(sortSobrenome).join(', ')}` +
+    `\n\nElenco:
+    ${series.elenco.sort(sortSobrenome).join(', ')}`
   );
 }
 
