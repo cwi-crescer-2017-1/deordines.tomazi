@@ -11,11 +11,7 @@ myApp.controller('Exercicio1', function ($scope) {
 
 myApp.filter('mascada', function () {
     return function (nome) {
-        // if (nome === 'Nunes')
-            // return '$ Nunes $';
-            return nome.replace('Nunes', '$ { Nunes } $');
-        // else
-            // return nome;
+        return nome.replace(/(nunes)/i, '$ $1 $');
     }
 })
 
