@@ -30,21 +30,21 @@ myApp.controller('Exemplo2', function($scope) {
 
 myApp.controller('Exercicio2', function($scope) {
     let pokemons = [
-        $scope.pokemons = {id: '001', nome: 'Bulbasaur', tipo: 'Veneno/Grama'},
-        $scope.pokemons = {id: '002', nome: 'Ivysaur', tipo: 'Veneno/Grama'},
-        $scope.pokemons = {id: '003', nome: 'Venusaur', tipo: 'Veneno/Grama'},
-        $scope.pokemons = {id: '004', nome: 'Charmander', tipo: 'Fogo'},
-        $scope.pokemons = {id: '005', nome: 'Charmeleon', tipo: 'Fogo'},
-        $scope.pokemons = {id: '006', nome: 'Charizard', tipo: 'Fogo/Voador'},
-        $scope.pokemons = {id: '007', nome: 'Squirtle', tipo: 'Água'},
-        $scope.pokemons = {id: '008', nome: 'Wartortle', tipo: 'Água'},
-        $scope.pokemons = {id: '009', nome: 'Blastoise', tipo: 'Água'},
+        {id: '001', nome: 'Bulbasaur', tipo: 'Veneno/Grama'},
+        {id: '002', nome: 'Ivysaur', tipo: 'Veneno/Grama'},
+        {id: '003', nome: 'Venusaur', tipo: 'Veneno/Grama'},
+        {id: '004', nome: 'Charmander', tipo: 'Fogo'},
+        {id: '005', nome: 'Charmeleon', tipo: 'Fogo'},
+        {id: '006', nome: 'Charizard', tipo: 'Fogo/Voador'},
+        {id: '007', nome: 'Squirtle', tipo: 'Água'},
+        {id: '008', nome: 'Wartortle', tipo: 'Água'},
+        {id: '009', nome: 'Blastoise', tipo: 'Água'},
 
-        $scope.pokemons = {id: '', nome: 'Pidgey', tipo: 'Normal/Voador'},
-        $scope.pokemons = {id: '', nome: 'Geodude', tipo: 'Pedra/Terra'},
-        $scope.pokemons = {id: '', nome: 'Abra', tipo: 'Psíquico'},
-        $scope.pokemons = {id: '', nome: 'Lapras', tipo: 'Água/Gelo'},
-        $scope.pokemons = {id: '', nome: 'Bellsprout', tipo: 'Grama/Veneno'}
+        {id: '', nome: 'Pidgey', tipo: 'Normal/Voador'},
+        {id: '', nome: 'Geodude', tipo: 'Pedra/Terra'},
+        {id: '', nome: 'Abra', tipo: 'Psíquico'},
+        {id: '', nome: 'Lapras', tipo: 'Água/Gelo'},
+        {id: '', nome: 'Bellsprout', tipo: 'Grama/Veneno'}
     ];
 
     $scope.pokemons = pokemons;
