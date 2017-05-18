@@ -15,10 +15,10 @@
         <form>
             <div class="form-group" ng-controller="Exercicio1">
                 <h1><label for="idData">Inserir Data:</label></h1>
-                <input type="text" id="idData" class="form-control" placeholder="dd/mm/aaaa" ng-model="dataInserida">
+                <input type="text" id="idData" class="form-control" placeholder="dd.mm.aaaa" ng-model="dataInserida">
                 <br>
                 <input type="button" class="btn btn-default" value="Converter Data" ng-click="imprimirDataFormatada()">
-                <h1><label>Data Convertida:</label> {{ dataObjeto | date:'shortDate' }}</h1>
+                <h1><label>Data Convertida:</label>{{ dataObjeto | date:'dd/MM/yyyy' }}</h1>
             </div>
         </form>
     </div>
