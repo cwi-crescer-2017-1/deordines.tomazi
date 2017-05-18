@@ -21,6 +21,15 @@
                 <h1><label>Data Convertida:</label>{{ dataObjeto | date:'dd/MM/yyyy' }}</h1>
             </div>
         </form>
+
+        <div ng-controller="Exercicio2">
+            <ul>
+                <li ng-repeat="instrutor in instrutores">
+                    {{ instrutor.nome | mascada }}
+                </li>
+            </ul>
+
+        </div>
     </div>
 </body>
 
