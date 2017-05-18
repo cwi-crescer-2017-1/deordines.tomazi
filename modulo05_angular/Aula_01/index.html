@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="aula01">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="js/angular.js"></script>
+    <script src="js/controller.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div ng-controller="Exemplo1">
+        <label>Nome:</label>
+        <input type="text" ng-model="nomeDoCampo">
+        <h1>Olá, {{ nomeDoCampo }}</h1>
+    </div>
+    <hr>
+    <div ng-controller="Exercicio1">
+        <div>
+            <label>Nome:</label>
+            <input type="text" ng-model="pokemon.nome">
+            <label>Tipo:</label>
+            <input type="text" ng-model="pokemon.tipo">
+        </div>
+        <div>
+            <h1>{{ pokemon.nome }}</h1>
+        </div>
+        <div>
+            <h1>{{ pokemon.tipo }}</h1>
+        </div>
+    </div>
+    <hr>
+    <div ng-controller="Exemplo2">
+        <ul>
+            <li ng-repeat="pokemon in pokemons">
+                {{ pokemon.nome }} {{ pokemon.tipo }}
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
