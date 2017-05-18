@@ -27,3 +27,16 @@ myApp.controller('Exemplo2', function($scope) {
 
     $scope.pokemons = pokemons;
 });
+
+myApp.controller('Exercicio2', function($scope) {
+    let pokemons = [
+        $scope.pokemons = {nome: 'Bulbasaur', tipo: 'Veneno/Grama'},
+        $scope.pokemons = {nome: 'Pidgey', tipo: 'Normal/Voador'},
+        $scope.pokemons = {nome: 'Geodude', tipo: 'Pedra/Terra'},
+        $scope.pokemons = {nome: 'Abra', tipo: 'Psíquico'},
+        $scope.pokemons = {nome: 'Lapras', tipo: 'Água/Gelo'},
+        $scope.pokemons = {nome: 'Bellsprout', tipo: 'Grama/Veneno'}
+    ];
+
+    $scope.pokemons = pokemons;
+});

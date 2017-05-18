@@ -37,6 +37,15 @@
             </li>
         </ul>
     </div>
+    <hr>
+    <div ng-controller="Exercicio2">
+        <label>Pesquisar</label>
+        <input ng-model="pesquisar.nome">
+        <ul>
+            <li ng-repeat="pokemon in pokemons | filter:pesquisar">
+                {{ pokemon.nome }} - {{ pokemon.tipo }}
+            </li>
+    </div>
 </body>
 
 </html>
