@@ -30,7 +30,37 @@
                 {{ nome }}
             </li>
         </ul>
+        <hr>
     </div>
+
+    <h1>Exercício 1</h1>
+    <div class="container-fluid" ng-controller="Exercicio1">
+        <form novalidate name="meuFormulario">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" ng-model="nome" required ng-minlength="3" ng-maxlength="20">
+            <label for="sobrenome">Sobrenome</label>
+            <input type="text" name="sobrenome" ng-model="sobrenome" ng-maxlength="30">
+            <label for="idade">Idade</label>
+            <input type="number" name="idade" ng-model="idade" required>
+            <label for="email">Email</label>
+            <input type="email" name="email" ng-model="email" required>
+            <label for="jaDeuAula">Já deu aula?</label>
+            <input type="checkbox" name="jaDeuAula" ng-model="jaDeuAula">
+            <label for="disciplina">Disciplinas ministradas</label>
+            <select name="disciplina" ng-model="mySelect">
+                <option ng-repeat="disciplina in disciplinas">
+                    {{ disciplina }}
+                </option>
+            </select>
+
+            <input type="button" class="btn btn-defaul" ng-click="adicionar(nome, sobrenome, idade, email, jaDeuAula, disciplina)" value="Incluir dados">
+        </form>
+
+        <ul>
+            <li ng-repeat="instrutor in instrutores">
+                {{ instrutor }}
+            </li>
+        </ul>
 
     <script src="js/angular.js"></script>
     <script src="js/controller.js"></script>

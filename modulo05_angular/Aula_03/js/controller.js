@@ -19,3 +19,21 @@ myApp.controller('MainController', function ($scope) {
         $scope.nomes.push(novoNome);
     }
 });
+
+myApp.controller('Exercicio1', function($scope) {
+    let instrutores = [{nome: '', sobrenome: '', idade: '', email: '', jaDeuAula: '', aulasMinistradas: [{nome: ''}]}];
+    $scope.instrutores = instrutores;
+
+    let disciplinas = ['OO', 'HTML e CSS', 'Javascript', 'AngularJS', 'Banco de Dados I'];
+    $scope.disciplinas = disciplinas;
+
+    $scope.adicionar = function(nome, sobrenome, idade, email, jaDeuAula, aulaMinistrada) {
+        console.log(nome);
+        console.log(sobrenome);
+        console.log(idade);
+        console.log(email);
+        console.log(jaDeuAula);
+        console.log(aulasMinistrada);
+        $scope.instrutores.push({nome, sobrenome, idade, email, jaDeuAula});//aulasMinistradas.push(aulasMinistrada);
+    }
+});
