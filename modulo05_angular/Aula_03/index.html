@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="aula03">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="js/index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-fluid" ng-controller="MainController">
+        <form novalidade name="meuFormulario" ng-submit="incluir(novoNome)">
+        <!--<form novalidate name="meuFormulario">-->
+            <label for="nome"></label>
+            <input type="text" class="form-control" name="nome" ng-model="novoNome" required ng-minlength="3">
+            <input type="submit" class="btn btn-default" value="Incluir nome">
+            <!--<input type="button" class="btn btn-default" ng-click="incluir(novoNome)" value="Incluir nome">-->
+
+            <span ng-show="meuFormulario.nome.$error.required">Campo obrigatório</span>
+            <!--<h3>{{ novoNome }} </h3>-->
+            <!--<h3>{{ meuFormulario }}</h3>-->
+            <!--<h3>{{ meuFormulario.nome.$error | json }}</h3>-->
+        </form>
+
+        <h1>{{ nome }}</h1>
+        <ul>
+            <li ng-repeat="nome in nomes">
+                {{ nome }}
+            </li>
+        </ul>
+    </div>
+
+    <script src="js/angular.js"></script>
+    <script src="js/controller.js"></script>
+</body>
+
+</html>
