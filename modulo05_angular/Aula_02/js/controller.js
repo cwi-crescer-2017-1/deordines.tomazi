@@ -22,7 +22,7 @@ myApp.filter('mascada', function () {
 
 myApp.filter('formatacao', function() {
     return function(modulo) {
-        return pad(modulo.id, 3) + " - " + modulo.nome.toUpperCase();
+        return `${pad(modulo.id, 3)} - ${modulo.nome.toUpperCase()}`;
     }
 
     function pad(numero, digitos) {
