@@ -11,24 +11,50 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
+        <h2>Exercício 1</h2>
         <form>
-            <div class="form-group" ng-controller="Exercicio1">
-                <h1><label for="idData">Inserir Data:</label></h1>
-                <input type="text" id="idData" class="form-control" placeholder="dd.mm.aaaa" ng-model="dataInserida">
-                <br>
+            <div ng-controller="Exercicio1">
+                <h3><label for="idData">Inserir Data:</label></h3>
+                <input type="text" id="idData" class="form-control" placeholder="dd/mm/aaaa" ng-model="dataInserida" style="width: 200px;">
                 <input type="button" class="btn btn-default" value="Converter Data" ng-click="imprimirDataFormatada()">
-                <h1><label>Data Convertida:</label>{{ dataObjeto | date:'dd/MM/yyyy' }}</h1>
+                <h3><label>Data Convertida:</label> {{ dataObjeto | date:'dd/MM/yyyy' }}</h3>
             </div>
         </form>
 
-        <div ng-controller="Exercicio2">
-            <ul>
-                <li ng-repeat="instrutor in instrutores">
-                    {{ instrutor.nome | mascada }}
+        <h2>Exercício 2</h2>
+        <h4>1 - Listar todas as aulas (nome) e o respectivo instrutor (nome). A Ordem de exibição deve ser pelo número da aula
+            (crescente).
+        </h4>
+        <div ng-controller="Exercicio2" class="list-group">
+            <ul style="width: 500px;">
+                <li ng-repeat="modulo in modulos | orderBy:'id'" class="list-group-item">
+                    <div class="col-md-7">{{ modulo.nome }}</div>
+                    <div>{{ modulo.instrutor }}</div>
                 </li>
             </ul>
+        </div>
 
+        <h4>2- Criar um filtro que substitui adiciona '$ ' no início e fim da palavra 'nunes' (sem considerar o case) e utilizar
+            ele na listagem do exercício 1 (no nome do instrutor).</h4>
+        <div ng-controller="Exercicio2" class="list-group">
+            <ul style="width: 500px;">
+                <li ng-repeat="modulo in modulos | orderBy:'id'" class="list-group-item">
+                    <div class="col-md-7">{{ modulo.nome }}</div>
+                    <div>{{ modulo.instrutor | mascada }}</div>
+                </li>
+            </ul>
+        </div>
+
+        <h4>3 - Criar um novo filtro que recebe o objeto aula e formata como "numero - aula", onde numero deve ser lpad 3 (0)
+            e aula uppercase. utilizar ele na listagem do exercício 2.</h4>
+        <div ng-controller="Exercicio2" class="list-group">
+            <ul style="width: 500px;">
+                <li ng-repeat="modulo in modulos | orderBy:'id'" class="list-group-item">
+                    <div class="col-md-7">{{ modulo | formatacao }}</div>
+                    <div>{{ modulo.instrutor }}</div>
+                </li>
+            </ul>
         </div>
     </div>
 </body>
