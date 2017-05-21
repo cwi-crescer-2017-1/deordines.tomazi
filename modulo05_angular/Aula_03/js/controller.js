@@ -21,19 +21,19 @@ myApp.controller('MainController', function ($scope) {
 });
 
 myApp.controller('Exercicio1', function($scope) {
-    let instrutores = [{nome: '', sobrenome: '', idade: '', email: '', jaDeuAula: '', aulasMinistradas: [{nome: ''}]}];
+    let instrutores = [{nome: '', sobrenome: '', idade: '', email: '', jaDeuAula: '', disciplina: ''}];
     $scope.instrutores = instrutores;
 
     let disciplinas = ['OO', 'HTML e CSS', 'Javascript', 'AngularJS', 'Banco de Dados I'];
     $scope.disciplinas = disciplinas;
 
-    $scope.adicionar = function(nome, sobrenome, idade, email, jaDeuAula, aulaMinistrada) {
+    $scope.adicionar = function(nome, sobrenome, idade, email, jaDeuAula, disciplina) {
         console.log(nome);
         console.log(sobrenome);
         console.log(idade);
         console.log(email);
         console.log(jaDeuAula);
-        console.log(aulasMinistrada);
-        $scope.instrutores.push({nome, sobrenome, idade, email, jaDeuAula});//aulasMinistradas.push(aulasMinistrada);
+        console.log(disciplina);
+        $scope.instrutores.push({nome, sobrenome, idade, email, jaDeuAula, disciplina});//aulasMinistradas.push(aulasMinistrada);
     }
 });

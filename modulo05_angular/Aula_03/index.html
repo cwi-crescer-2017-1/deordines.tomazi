@@ -47,8 +47,8 @@
             <label for="jaDeuAula">Já deu aula?</label>
             <input type="checkbox" name="jaDeuAula" ng-model="jaDeuAula">
             <label for="disciplina">Disciplinas ministradas</label>
-            <select name="disciplina" ng-model="mySelect">
-                <option ng-repeat="disciplina in disciplinas">
+            <select name="disciplina" ng-model="disciplina">
+                <option ng-repeat="disciplina in disciplinas" value="{{ disciplina }}">
                     {{ disciplina }}
                 </option>
             </select>
