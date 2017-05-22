@@ -3,50 +3,238 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
-    <!--<link rel="stylesheet" type="text/css" href="js/index.css">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="js/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
     <title>Crud</title>
 </head>
 
 <body>
-    <div class="container-fluid" ng-controller="aula">
-        <h1>Cadastrar Aula</h1>
-        <form novalidate name="FormularioAula" ng-submit="adicionar(novaAula.nome)">
-            <label for="nome">Aula</label>
-            <input type="text" name="nome" ng-model="novaAula.nome"><!--ng-minlength="3" ng-maxlength="20" required>-->
+    <div class="container" ng-controller="MainController">
+        <h1>Aula</h1>
+        <h2>Cadastrar</h2>
+        <form novalidate name="FormAddAula" class="ui form" ng-submit="adicionarAula(novaAula.nome)">
+            <div class="field">
+                <label for="nome">Nome da aula</label>
+                <input type="text" name="nome" ng-model="novaAula.nome" style="width:500px" placeholder="Ex.: Matemática" required ng-minlength="3" ng-maxlength="20">
+                <div ng-show="FormAddAula.nome.$error.required && FormAddAula.nome.$touched">Campo obrigatório!</div>
+                <div ng-show="FormAddAula.nome.$error.minlength">Deve possuir no mínimo 3 caracteres!</div>
+                <div ng-show="FormAddAula.nome.$error.maxlength">Limite de 20 caracteres excedido!</div>
+                <!--<h2>{{ FormAddAula.$error | json }}</h2>-->
+            </div>
+            <input type="submit" class="ui button" value="Cadastrar">
+        </form>
 
-            <input type="submit" value="Cadastrar">
-        </form>
         <hr>
-        <h1>Alterar Aula Cadastrada</h1>
-        <form novalidate name="FormularioAula" ng-submit="alterar(alterarAula, novoNome)">
-            <select name="aula" ng-model="alterarAula">
-                <option ng-repeat="aula in aulas" value="{{ aula.id }}">
-                    {{ aula.id }} - {{ aula.nome }} 
-                </option>
-                <input type="text" name="nome" ng-model="novoNome">
-                <input type="submit" value="Salvar">
-            </select>
+
+        <h2>Alterar</h2>
+        <form novalidate name="FormularioAula" class="ui form" ng-submit="alterarAula(alterarAulaId, novoNome.nome)">
+            <div class="field">
+                <select name="nome" class="ui fluid dropdown" ng-model="alterarAulaId" style="width:200px">
+                    <option value="" selected>Selecionar...</option>
+                    <option ng-repeat="aula in aulas" value="{{ aula.id }}">
+                        {{ aula.id }} - {{ aula.nome }} 
+                    </option>
+                </select>
+                <label for="name">Nome</label>
+                <input type="text" name="nome" ng-model="novoNome.nome" style="width:500px" placeholder="Ex.: Matemática">
+            </div>
+            <input type="submit" class="ui button" value="Salvar">
         </form>
+
         <hr>
-        <h1>Excluir Aula</h1>
-        <form novalidate name="FormularioAula" ng-submit="excluir(excluirAula)">
-            <select name="aula" ng-model="excluirAula">
-                <option ng-repeat="aula in aulas" value="{{ aula.id }}">
-                    {{ aula.id }} - {{ aula.nome }} 
-                </option>
-                <input type="submit" value="Excluir">
-            </select>
+
+        <h2>Excluir</h2>
+        <form novalidate name="FormularioAula" class="ui form" ng-submit="excluirAula(aulaExcluida)">
+            <div class="field">
+                <select name="aula" class="ui fluid dropdown" ng-model="aulaExcluida" style="width:200px">
+                    <option value="" selected>Selecionar...</option>
+                    <option ng-repeat="aula in aulas" ng-value="{{ aula }}">
+                        {{ aula.id }} - {{ aula.nome }} 
+                    </option>
+                </select>
+            </div>
+            <input type="submit" class="ui button" value="Excluir">
         </form>
-        <ul>
-            <li ng-repeat="aula in aulas | orderBy:'nome'">
-                {{ aula.id }} - {{ aula.nome }}
-            </li>
-        </ul>
-    </div>
+
+        <hr>
+
+        <h1>Aulas Cadastradas</h1>
+        <div class="row" style="height:30px">
+            <div class="col-md-1">ID</div>
+            <div class="col-md-1">Nome</div>
+        </div>
+
+        <div class="row" ng-repeat="aula in aulas" | orderBy: 'nome' style="height:30px">
+            <div class="ui form col-md-1">{{ aula.id }}</div>
+            <div class="ui form col-md-1">{{ aula.nome }}</div>
+        </div>
+
+        <hr>
+
+        <h1>Instrutor</h1>
+
+        <h2>Cadastrar</h2>
+        <form novalidate name="FormAddInstrutor" class="ui form" ng-submit="adicionarInstrutor()">
+            <div class="field">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" ng-model="novoInstrutor.nome" style="width:500px" required ng-minlength="3" ng-maxlength="20">
+                <div ng-show="FormAddInstrutor.nome.$error.required && FormAddInstrutor.nome.$touched">Campo obrigatório!</div>
+                <div ng-show="FormAddInstrutor.nome.$error.minlength">Deve possuir no mínimo 3 caracteres!</div>
+                <div ng-show="FormAddInstrutor.nome.$error.maxlength">Limite de 20 caracteres excedido!</div>
+            </div>
+
+            <div class="field">
+                <label for="sobrenome">Sobrenome</label>
+                <input type="text" name="sobrenome" ng-model="novoInstrutor.sobrenome" style="width:500px" ng-maxlength="30">
+                <div ng-show="FormAddInstrutor.sobrenome.$error.maxlength">Limite de 30 caracteres excedido!</div>
+            </div>
+
+            <div class="field">
+                <label for="idade">Idade</label>
+                <input type="number" name="idade" ng-model="novoInstrutor.idade" style="width:500px" required min="18" max="90">
+                <div ng-show="FormAddInstrutor.idade.$error.min">Idade mínima de 18 anos!</div>
+                <div ng-show="FormAddInstrutor.idade.$error.max">Idade máxima de 90 anos!</div>
+            </div>
+
+            <div class="field">
+                <label for="email">Email</label>
+                <input type="email" name="email" ng-model="novoInstrutor.email" style="width:500px" required type="email">
+                <div ng-show="FormAddInstrutor.email.$error.email">Email inválido!</div>
+            </div>
+
+            <div class="field">
+                <label for="dandoAula">Dando Aula</label>
+                <input type="checkbox" name="dandoAula" ng-model="novoInstrutor.dandoAula">
+            </div>
+
+            <div class="field">
+                <select multiple name="aula" class="ui fluid dropdown" ng-model="novoInstrutor.aula">
+                    <option value="" disabled>Selecionar...</option>
+                    <option ng-repeat="aula in aulas" ng-value="{{ aula.id }}">
+                        {{ aula.nome }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="linkImagem">Link Imagem</label>
+                <input type="text" name="linkImagem" ng-model="novoInstrutor.linkImagem" style="width:500px">
+            </div>
+
+            <input type="submit" class="ui button" value="Cadastrar">
+        </form>
+
+        <hr>
+
+        <h2>Alterar</h2>
+        <form novalidate name="AlterarFormInstrutor" class="ui form" ng-submit="alterarInstrutor(instrutorAtual)">
+            <select name="nome" class="ui fluid dropdown" ng-model="instrutorAtual.id">
+                <option value="" disable>Selecionar...</option>
+                <option ng-repeat="instrutor in instrutores" value="{{ instrutor.id }}">
+                    {{ instrutor.id }} - {{ instrutor.nome }}
+                </option>
+            </select>
+
+            <div class="field">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" ng-model="instrutorAtual.nome" style="width:500px" required ng-minlength="3" ng-maxlength="20">
+                <div ng-show="AlterarFormInstrutor.nome.$error.required && FormAddInstrutor.nome.$touched">Campo obrigatório!</div>
+                <div ng-show="AlterarFormInstrutor.nome.$error.minlength">Deve possuir no mínimo 3 caracteres!</div>
+                <div ng-show="AlterarFormInstrutor.nome.$error.maxlength">Limite de 20 caracteres excedido!</div>
+            </div>
+
+            <div class="field">
+                <label for="sobrenome">Sobrenome</label>
+                <input type="text" name="sobrenome" ng-model="instrutorAtual.sobrenome" style="width:500px" ng-maxlength="30">
+                <div ng-show="AlterarFormInstrutor.sobrenome.$error.maxlength">Limite de 30 caracteres excedido!</div>
+            </div>
+
+            <div class="field">
+                <label for="idade">Idade</label>
+                <input type="number" name="idade" ng-model="instrutorAtual.idade" style="width:500px" required min="18" max="90">
+                <div ng-show="AlterarFormInstrutor.idade.$error.min">Idade mínima de 18 anos!</div>
+                <div ng-show="AlterarFormInstrutor.idade.$error.max">Idade máxima de 90 anos!</div>
+            </div>
+
+            <div class="field">
+                <label for="email">Email</label>
+                <input type="email" name="email" ng-model="instrutorAtual.email" style="width:500px" required type="email">
+                <div ng-show="FormAddInstrutor.email.$error.email">Email inválido!</div>
+            </div>
+
+            <div class="field">
+                <label for="dandoAula">Dando Aula</label>
+                <input type="checkbox" name="dandoAula" ng-model="instrutorAtual.dandoAula">
+            </div>
+
+            <div class="field">
+                <select multiple name="aula" class="ui fluid dropdown" ng-model="novoInstrutor.aula" style="width:200px">
+                    <option value="" disabled>Selecione as aulas</option>
+                    <option ng-repeat="aula in aulas" ng-value="{{ aula.id }}">
+                        {{ aula.nome }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="linkImagem">Link Imagem</label>
+                <input type="text" name="linkImagem" ng-model="novoInstrutor.linkImagem" style="width:500px">
+            </div>
+            <input type="submit" class="ui button" value="Salvar">
+        </form>
+
+        <hr>
+
+        <h2>Excluir</h2>
+        <form novalidade name="FormularioInstrutor" class="ui form" ng-submit="excluirInstrutor(instrutorExcluido)">
+            <div class="field">
+                <select name="nome" class="ui fluid dropdown" ng-model="instrutorExcluido">
+                    <option value="" selected>Selecionar...</option>
+                    <option ng-repeat="instrutor in instrutores" ng-value="{{ instrutor }}">
+                       {{ instrutor.id}} - {{ instrutor.nome }}
+                    </option>
+                </select>
+            </div>
+            <input type="submit" class="ui button" value="Excluir">
+        </form>
+
+        <hr>
+
+        <h1>Instrutores Cadastrados</h1>
+        <div class="row" style="height:30px">
+            <div class="col-md-1">ID</div>
+            <div class="col-md-1">Nome</div>
+            <div class="col-md-1">Sobrenome</div>
+            <div class="col-md-1">Idade</div>
+            <div class="col-md-2">Email</div>
+            <div class="col-md-1">Dando Aula</div>
+            <div class="col-md-1">Aulas</div>
+        </div>
+
+        <div class="row" ng-repeat="instrutor in instrutores" | orderBy: 'nome' style="height:30px">
+            <div class="col-md-1">{{ instrutor.id }}</div>
+            <div class="col-md-1">{{ instrutor.nome }}</div>
+            <div class="col-md-1">{{ instrutor.sobrenome }}</div>
+            <div class="col-md-1">{{ instrutor.idade }}</div>
+            <div class="col-md-2">{{ instrutor.email }}</div>
+            <div class="col-md-1">{{ instrutor.dandoAula }}</div>
+            <div class="col-md-1">{{ instrutor.aula }}</div>
+        </div>
+
     <script src="js/angular.js"></script>
     <script src="js/controller.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script>
+        $("select.ui.dropdown").dropdown();
+    </script>
 </body>
 
 </html>
