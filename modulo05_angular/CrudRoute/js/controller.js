@@ -40,33 +40,47 @@ appRoute.config(function ($routeProvider) {
         });
 });
 
-appRoute.controller('AulaController', function($scope, $routeParams, AulaService) {
+appRoute.controller('AulaController', function($scope, $routeParams, aulaService) {
 
-    $scope.id = $routePArams.idUrl;
+    // $scope.id = $routeParams.idUrl;
+    $scope.criar = criar;
+    $scope.editar = editar;
+    $scope.excluir = excluir;
 
-    $scope.create = create;
-    $scope.update = update;
+    // Funções internas
+    // buscarAulaPorId($scope.id);
+    // editar($scope.id);
+    carregarListaDeAulas();
 
-    findById($scope.id);
-    list();
-
-    function create(aula) {
-        AulaService.create(aula);
+    function criar(aula) {
+        aulaService.criar(aula);
+        $scope.novaAula = {};
     }
 
-    function findById(id) {
-        AulaService.findById(id).then(response => $scope.aula = responde.data);
+    function editar(aula) {
+        aulaService.editar(aula).then(response => carregarListaDeAulas());
+        $scope.novaAula = {};
     }
 
-    function list() {
-        AulaService.list().then(responde => $scope.aulas = response.data);
+    function excluir(aula) {
+        aulaService.excluir(aula).then(response => carregarListaDeAulas());
     }
 
-    function update(aula) {
-        AulaService.update(aula).then(function () {
-            list();
-        })
+    function carregarListaDeAulas() {
+        // $scope.aulas = listar();
+        // function listar() {
+        //     aulaService.listar().then(function(response) {
+        //         $scope.aulas = response.data;
+        //     })
+        // }
+
+        // ArrowFunction
+        $scope.aulas = aulaService.listar().then(response => $scope.aulas = response.data);
     }
+
+    // function buscarAulaPorId(id) {
+    //     aulaService.buscarAulaPorId(id).then(response => $scope.aula = responde.data);
+    // }
 });
 
 appRoute.controller('InstrutorController', function($scope) {

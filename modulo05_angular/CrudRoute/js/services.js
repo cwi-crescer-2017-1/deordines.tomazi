@@ -1,43 +1,46 @@
 appRoute.factory('aulaService', function($http) {
 
-    let urlBase = `http://localhost:3000/aula/`;
-
-    function getTodasAsAulas() {
-        return $http.get(urlBase);
-    }
-
-    function getAulaPorId(id) {
-        return $http.get(`${urlBase}/${id}`);
-    }
+    let url = 'http://localhost:3000/aula/';
 
     function criar(aula) {
-        aula.id = ++idAulaAux;
-        aula.push(angular.copy(aula));
+        return $http.post(`${url}`, aula);
     }
 
-    function atualizar(aula) {
-        return $http.put(`${urlBase}/${aula.id}`, aula);
+    function editar(aula) {
+        return $http.put(`${url}${aula.id}`, aula);
     }
+
+    function excluir(aula) {
+        return $http.delete(`${url}${aula.id}`);
+    }
+
+    function listar() {
+        return $http.get(url);
+    }
+
+    // function buscarAulaPorId(id) {
+    //     return $http.get(`${url}/${id}`);
+    // }
 
     return {
-        list: getTodasAsAulas,
-        findById: getAulaPorId,
-        update: atualizar,
-        create: criar
+        criar: criar,
+        editar: editar,
+        excluir: excluir,
+        listar: listar
+        // buscarAulaPorId: buscarAulaPorId
     }
-
 });
 
 appRoute.factory('instrutorService', function($http) {
 
-    let urlBase = `http://localhost:3000/instrutor/`;
+    let url = `http://localhost:3000/instrutor/`;
 
     function getTodosOsIntrutores() {
-        return $http.get(urlBase);
+        return $http.get(url);
     }
 
     function getInstrutorPorId(id) {
-        return $http.get(`${urlBase}/${id}`);
+        return $http.get(`${url}/${id}`);
     }
 
     function criar(instrutor) {
@@ -46,7 +49,7 @@ appRoute.factory('instrutorService', function($http) {
     }
 
     function atualizar(instrutor) {
-        return $http.put(`${urlBase}/${instrutor.id}`, instrutor);
+        return $http.put(`${url}/${instrutor.id}`, instrutor);
     }
 
     return {
