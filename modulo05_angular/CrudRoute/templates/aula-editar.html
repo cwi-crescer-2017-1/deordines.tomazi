@@ -1,0 +1,14 @@
+<h2>Editar Aula</h2>
+<form novalidate name="FormularioAula" class="ui form" ng-submit="editar(novaAula)">
+    <div class="field">
+        <select name="nome" class="ui fluid dropdown" ng-model="novaAula.id" style="width:200px">
+            <option value="" selected>Selecionar...</option>
+            <option ng-repeat="aula in aulas" value="{{ aula.id }}">
+                {{ aula.id }} - {{ aula.nome }} 
+            </option>
+        </select>
+        <label for="name">Nome</label>
+        <input type="text" name="nome" ng-model="novaAula.nome" style="width:500px" placeholder="Ex.: Matemática">
+    </div>
+    <input type="submit" class="ui button" value="Salvar">
+</form>

@@ -3,37 +3,37 @@ var appRoute = angular.module('CrudRoute', ['ngRoute']);
 
 appRoute.config(function ($routeProvider) {
     $routeProvider
-        .when('/html/aula-cadastrar', {
+        .when('/templates/aula-cadastrar', {
             controller: 'AulaController',
-            templateUrl: '/html/aula-cadastrar.html'
+            templateUrl: '/templates/aula-cadastrar.html'
         })
-        .when('/html/aula-editar', {
+        .when('/templates/aula-editar', {
             controller: 'AulaController',
-            templateUrl: '/html/aula-editar.html'
+            templateUrl: '/templates/aula-editar.html'
         })
-        .when('/html/aula-excluir', {
+        .when('/templates/aula-excluir', {
             controller: 'AulaController',
-            templateUrl: '/html/aula-excluir.html'
+            templateUrl: '/templates/aula-excluir.html'
         })
-        .when('/html/aula-listar', {
+        .when('/templates/aula-listar', {
             controller: 'AulaController',
-            templateUrl: '/html/aula-listar.html'
+            templateUrl: '/templates/aula-listar.html'
         })
-        .when('/html/instrutor-cadastrar', {
+        .when('/templates/instrutor-cadastrar', {
             controller: 'InstrutorController',
-            templateUrl: '/html/instrutor-cadastrar.html'
+            templateUrl: '/templates/instrutor-cadastrar.html'
         })
-        .when('/html/instrutor-editar', {
+        .when('/templates/instrutor-editar', {
             controller: 'InstrutorController',
-            templateUrl: '/html/instrutor-editar.html'
+            templateUrl: '/templates/instrutor-editar.html'
         })
-        .when('/html/instrutor-excluir', {
+        .when('/templates/instrutor-excluir', {
             controller: 'InstrutorController',
-            templateUrl: '/html/instrutor-excluir.html'
+            templateUrl: '/templates/instrutor-excluir.html'
         })
-        .when('/html/instrutor-listar', {
+        .when('/templates/instrutor-listar', {
             controller: 'InstrutorController',
-            templateUrl: '/html/instrutor-listar.html'
+            templateUrl: '/templates/instrutor-listar.html'
         })
         .otherwise({
             redirectTo: '/index.html'

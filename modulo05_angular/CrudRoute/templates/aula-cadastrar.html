@@ -1,0 +1,13 @@
+<h2>Cadastrar Aula</h2>
+<form novalidate name="FormAddAula" class="ui form" ng-submit="criar(novaAula)">
+    <div class="field">
+        <label for="nome">Nome da aula</label>
+        <input type="text" name="nome" ng-model="novaAula.nome" style="width:500px" placeholder="Ex.: Matemática" required ng-minlength="3"
+            ng-maxlength="20">
+        <div ng-show="FormAddAula.nome.$error.required && FormAddAula.nome.$touched">Campo obrigatório!</div>
+        <div ng-show="FormAddAula.nome.$error.minlength">Deve possuir no mínimo 3 caracteres!</div>
+        <div ng-show="FormAddAula.nome.$error.maxlength">Limite de 20 caracteres excedido!</div>
+        <!--<h2>{{ FormAddAula.$error | json }}</h2>-->
+    </div>
+    <input type="submit" class="ui button" value="Cadastrar">
+</form>
