@@ -1,5 +1,5 @@
 <h2>Cadastrar Aula</h2>
-<form novalidate name="FormAddAula" class="ui form" ng-submit="adicionarAula(novaAula.nome)">
+<form novalidate name="FormAddAula" class="ui form" ng-submit="criar(novaAula)">
     <div class="field">
         <label for="nome">Nome da aula</label>
         <input type="text" name="nome" ng-model="novaAula.nome" style="width:500px" placeholder="Ex.: Matemática" required ng-minlength="3"
