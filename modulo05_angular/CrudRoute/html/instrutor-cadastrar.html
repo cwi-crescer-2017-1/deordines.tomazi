@@ -1,0 +1,50 @@
+<h2>Cadastrar Instrutor</h2>
+<form novalidate name="FormAddInstrutor" class="ui form" ng-submit="adicionarInstrutor()">
+    <div class="field">
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" ng-model="novoInstrutor.nome" style="width:500px" required ng-minlength="3" ng-maxlength="20">
+        <div ng-show="FormAddInstrutor.nome.$error.required && FormAddInstrutor.nome.$touched">Campo obrigatório!</div>
+        <div ng-show="FormAddInstrutor.nome.$error.minlength">Deve possuir no mínimo 3 caracteres!</div>
+        <div ng-show="FormAddInstrutor.nome.$error.maxlength">Limite de 20 caracteres excedido!</div>
+    </div>
+
+    <div class="field">
+        <label for="sobrenome">Sobrenome</label>
+        <input type="text" name="sobrenome" ng-model="novoInstrutor.sobrenome" style="width:500px" ng-maxlength="30">
+        <div ng-show="FormAddInstrutor.sobrenome.$error.maxlength">Limite de 30 caracteres excedido!</div>
+    </div>
+
+    <div class="field">
+        <label for="idade">Idade</label>
+        <input type="number" name="idade" ng-model="novoInstrutor.idade" style="width:500px" required min="18" max="90">
+        <div ng-show="FormAddInstrutor.idade.$error.min">Idade mínima de 18 anos!</div>
+        <div ng-show="FormAddInstrutor.idade.$error.max">Idade máxima de 90 anos!</div>
+    </div>
+
+    <div class="field">
+        <label for="email">Email</label>
+        <input type="email" name="email" ng-model="novoInstrutor.email" style="width:500px" required type="email">
+        <div ng-show="FormAddInstrutor.email.$error.email">Email inválido!</div>
+    </div>
+
+    <div class="field">
+        <label for="dandoAula">Dando Aula</label>
+        <input type="checkbox" name="dandoAula" ng-model="novoInstrutor.dandoAula">
+    </div>
+
+    <div class="field">
+        <select multiple name="aula" class="ui fluid dropdown" ng-model="novoInstrutor.aula">
+            <option value="" disabled>Selecionar...</option>
+            <option ng-repeat="aula in aulas" ng-value="{{ aula.id }}">
+                {{ aula.nome }}
+            </option>
+        </select>
+    </div>
+
+    <div class="field">
+        <label for="linkImagem">Link Imagem</label>
+        <input type="text" name="linkImagem" ng-model="novoInstrutor.linkImagem" style="width:500px">
+    </div>
+
+    <input type="submit" class="ui button" value="Cadastrar">
+</form>

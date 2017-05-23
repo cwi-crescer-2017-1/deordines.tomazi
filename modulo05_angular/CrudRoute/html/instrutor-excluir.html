@@ -1,0 +1,12 @@
+<h2>Excluir Instrutor</h2>
+<form novalidade name="FormularioInstrutor" class="ui form" ng-submit="excluirInstrutor(instrutorExcluido)">
+    <div class="field">
+        <select name="nome" class="ui fluid dropdown" ng-model="instrutorExcluido">
+            <option value="" selected>Selecionar...</option>
+            <option ng-repeat="instrutor in instrutores" ng-value="{{ instrutor }}">
+                {{ instrutor.id}} - {{ instrutor.nome }}
+            </option>
+        </select>
+    </div>
+    <input type="submit" class="ui button" value="Excluir">
+</form>
