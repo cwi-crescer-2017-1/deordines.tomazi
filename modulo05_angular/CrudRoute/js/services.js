@@ -2,7 +2,7 @@ appRoute.factory('aulaService', function($http) {
 
     let url = 'http://localhost:3000/aula/';
 
-    function criar(aula) {
+    function cadastrar(aula) {
         return $http.post(`${url}`, aula);
     }
 
@@ -23,7 +23,7 @@ appRoute.factory('aulaService', function($http) {
     // }
 
     return {
-        criar: criar,
+        cadastrar: cadastrar,
         editar: editar,
         excluir: excluir,
         listar: listar
@@ -35,7 +35,7 @@ appRoute.factory('instrutorService', function($http) {
 
     let url = 'http://localhost:3000/instrutor/';
 
-    function criar(instrutor) {
+    function cadastrar(instrutor) {
         return $http.post(url, instrutor);
     }
 
@@ -56,7 +56,7 @@ appRoute.factory('instrutorService', function($http) {
     // }
 
     return {
-        criar: criar,
+        cadastrar: cadastrar,
         editar: editar,
         excluir: excluir,
         listar: listar
