@@ -8,9 +8,24 @@
                 {{ aula.id }} - {{ aula.nome }} 
             </option>
         </select>
+        <br>
         <label for="name">Nome</label>
         <input type="text" name="nome" ng-model="aulaAtual.nome" style="width:500px" placeholder="Ex.: Matemática">
     </div>
-    <input type="submit" class="ui button" value="Salvar">
+    <input type="submit" class="ui yellow button" value="Salvar">
 </form>
+<hr>
+
+<table class="table table-striped">
+    <thead>
+        <th>ID</th>
+        <th>Nome</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="aula in aulas | orderBy: 'nome'">
+            <td>{{ aula.id }}</td>
+            <td>{{ aula.nome }}</td>
+        </tr>
+    </tbody>
+</table>
 <hr>
