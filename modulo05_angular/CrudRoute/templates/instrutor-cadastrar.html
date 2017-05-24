@@ -1,5 +1,6 @@
-<h2>Cadastrar Instrutor</h2>
-<form novalidate name="FormAddInstrutor" class="ui form" ng-submit="criar(novoInstrutor)">
+<h2>Instrutor - Cadastrar</h2>
+<hr>
+<form novalidate name="FormAddInstrutor" class="ui form" ng-submit="cadastrar(novoInstrutor)">
     <div class="field">
         <label for="nome">Nome</label>
         <input type="text" name="nome" ng-model="novoInstrutor.nome" style="width:500px" required ng-minlength="3" ng-maxlength="20">
@@ -33,7 +34,7 @@
     </div>
 
     <div class="field">
-        <select multiple name="aula" class="ui fluid dropdown" ng-model="novoInstrutor.aula">
+        <select multiple name="aula" class="ui fluid dropdown" ng-model="novoInstrutor.aula" style="width:200px">
             <option value="" disabled>Selecionar...</option>
             <option ng-repeat="aula in aulas" ng-value="{{ aula.id }}">
                 {{ aula.nome }}
@@ -42,9 +43,10 @@
     </div>
 
     <div class="field">
-        <label for="linkImagem">Link Imagem</label>
-        <input type="text" name="linkImagem" ng-model="novoInstrutor.linkImagem" style="width:500px">
+        <label for="urlFoto">Link Imagem</label>
+        <input type="text" name="urlFoto" ng-model="novoInstrutor.urlFoto" style="width:500px">
     </div>
 
     <input type="submit" class="ui button" value="Cadastrar">
 </form>
+<hr>

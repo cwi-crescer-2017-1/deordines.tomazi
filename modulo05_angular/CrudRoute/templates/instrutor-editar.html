@@ -1,4 +1,5 @@
-<h2>Editar Instrutor</h2>
+<h2>Instrutor - Editar</h2>
+<hr>
 <form novalidate name="AlterarFormInstrutor" class="ui form" ng-submit="editar(instrutorAtual)">
     <select name="nome" class="ui fluid dropdown" ng-model="instrutorAtual.id">
         <option value="" disable>Selecionar...</option>
@@ -49,8 +50,9 @@
     </div>
 
     <div class="field">
-        <label for="linkImagem">Link Imagem</label>
-        <input type="text" name="linkImagem" ng-model="instrutorAtual.linkImagem" style="width:500px">
+        <label for="urlFoto">Link Imagem</label>
+        <input type="text" name="urlFoto" ng-model="instrutorAtual.urlFoto" style="width:500px">
     </div>
     <input type="submit" class="ui button" value="Salvar">
 </form>
+<hr>
