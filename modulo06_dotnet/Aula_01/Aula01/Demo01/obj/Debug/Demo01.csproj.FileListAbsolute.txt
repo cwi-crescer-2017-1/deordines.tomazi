@@ -1,0 +1,6 @@
+C:\Users\deordines.tomazi\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_01\Aula01\Demo01\bin\Debug\Demo01.exe.config
+C:\Users\deordines.tomazi\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_01\Aula01\Demo01\bin\Debug\Demo01.exe
+C:\Users\deordines.tomazi\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_01\Aula01\Demo01\bin\Debug\Demo01.pdb
+C:\Users\deordines.tomazi\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_01\Aula01\Demo01\obj\Debug\Demo01.csprojResolveAssemblyReference.cache
+C:\Users\deordines.tomazi\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_01\Aula01\Demo01\obj\Debug\Demo01.exe
+C:\Users\deordines.tomazi\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_01\Aula01\Demo01\obj\Debug\Demo01.pdb
