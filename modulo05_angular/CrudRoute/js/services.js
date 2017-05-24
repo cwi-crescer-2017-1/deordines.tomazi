@@ -19,7 +19,7 @@ appRoute.factory('aulaService', function($http) {
     }
 
     // function buscarAulaPorId(id) {
-    //     return $http.get(`${url}/${id}`);
+    //     return $http.get(`${url}${id}`);
     // }
 
     return {
@@ -33,29 +33,32 @@ appRoute.factory('aulaService', function($http) {
 
 appRoute.factory('instrutorService', function($http) {
 
-    let url = `http://localhost:3000/instrutor/`;
+    let url = 'http://localhost:3000/instrutor/';
 
-    function getTodosOsIntrutores() {
+    function criar(instrutor) {
+        return $http.post(url, instrutor);
+    }
+
+    function editar(instrutor) {
+        return $http.put(`${url}${instrutor.id}`, instrutor);
+    }
+
+    function excluir(instrutor) {
+        return $http.delete(`${url}${instrutor.id}`);
+    }
+
+    function listar() {
         return $http.get(url);
     }
 
-    function getInstrutorPorId(id) {
-        return $http.get(`${url}/${id}`);
-    }
-
-    function criar(instrutor) {
-        instrutor.id = ++idInstrutorAux;
-        instrutor.push(angular.copy(instrutor));
-    }
-
-    function atualizar(instrutor) {
-        return $http.put(`${url}/${instrutor.id}`, instrutor);
-    }
+    // function buscarInstrutorPorId(id) {
+    //     return $http.get(`${url}${id}`);
+    // }
 
     return {
-        list: getTodosOsIntrutores,
-        findById: getInstrutorPorId,
-        update: atualizar,
-        create: criar
+        criar: criar,
+        editar: editar,
+        excluir: excluir,
+        listar: listar
     }
 });

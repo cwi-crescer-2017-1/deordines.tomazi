@@ -59,7 +59,7 @@ appRoute.controller('AulaController', function($scope, $routeParams, aulaService
 
     function editar(aula) {
         aulaService.editar(aula).then(response => carregarListaDeAulas());
-        $scope.novaAula = {};
+        $scope.aulaAtual = {};
     }
 
     function excluir(aula) {
@@ -83,8 +83,31 @@ appRoute.controller('AulaController', function($scope, $routeParams, aulaService
     // }
 });
 
-appRoute.controller('InstrutorController', function($scope) {
+appRoute.controller('InstrutorController', function($scope, $routeParams, instrutorService) {
 
+    $scope.criar = criar;
+    $scope.editar = editar;
+    $scope.excluir = excluir;
+
+    carregarListaDeInstrutores();
+
+    function criar(instrutor) {
+        instrutorService.criar(instrutor);
+        $scope.novoInstrutor = {};
+    }
+
+    function editar(instrutor) {
+        instrutorService.editar(instrutor).then(response => carregarListaDeInstrutores());
+        $scope.instrutorAtual = {};
+    }
+
+    function excluir(instrutor) {
+        instrutorService.excluir(instrutor).then(response => carregarListaDeInstrutores());
+    }
+
+    function carregarListaDeInstrutores() {
+        $scope.instrutores = instrutorService.listar().then(response => $scope.instrutores = response.data);
+    }
 });
 
 myApp.controller('MainController', function($scope) {
