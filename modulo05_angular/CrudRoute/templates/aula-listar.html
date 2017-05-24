@@ -6,7 +6,7 @@
         <th>Nome</th>
     </thead>
     <tbody>
-        <tr ng-repeat="aula in aulas | orderBy: nome">
+        <tr ng-repeat="aula in aulas | orderBy: 'nome'">
             <td>{{ aula.id }}</td>
             <td>{{ aula.nome }}</td>
         </tr>
