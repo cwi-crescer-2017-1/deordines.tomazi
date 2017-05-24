@@ -1,15 +1,15 @@
-<h1>Aulas Cadastradas</h1>
-
+<h1>Aulas Cadastradas No Sistema</h1>
 <hr>
-<div>{{ aulas }}</div>
+<table class="table table-striped">
+    <thead>
+        <th>ID</th>
+        <th>Nome</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="aula in aulas | orderBy: nome">
+            <td>{{ aula.id }}</td>
+            <td>{{ aula.nome }}</td>
+        </tr>
+    </tbody>
+</table>
 <hr>
-
-<div class="row" style="height:30px">
-    <div class="col-md-1">ID</div>
-    <div class="col-md-1">Nome</div>
-</div>
-
-<div class="row" ng-repeat="aula in aulas" | orderBy: 'nome' style="height:30px">
-    <div class="ui form col-md-1">{{ aula.id }}</div>
-    <div class="ui form col-md-1">{{ aula.nome }}</div>
-</div>

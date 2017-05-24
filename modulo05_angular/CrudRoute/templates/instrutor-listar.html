@@ -1,25 +1,29 @@
-<h1>Instrutores Cadastrados</h1>
-
+<h1>Instrutores Cadastrados no Sistema</h1>
 <hr>
-<div>{{ instrutores }}</div>
+<table class="table table-striped">
+    <thead>
+        <th>Imagem</th>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Idade</th>
+        <th>Email</th>
+        <th>Dando Aula</th>
+        <th>Aulas</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="instrutor in instrutores | orderBy: 'nome'">
+            <td><img src="{{ instrutor.urlFoto }}"></td>
+            <td>{{ instrutor.id }}</td>
+            <td>{{ instrutor.nome }}</td>
+            <td>{{ instrutor.sobrenome }}</td>
+            <td>{{ instrutor.idade }}</td>
+            <td>{{ instrutor.email }}</td>
+            <td>{{ instrutor.dandoAula }}</td>
+            <td>
+                <div ng-repeat="aula in instrutor.aula | orderBy: 'nome'">{{ getNomeAula(aula).nome }}</div>
+            </td>
+        </tr>
+    </tbody>
+</table>
 <hr>
-
-<div class="row" style="height:30px">
-    <div class="col-md-1">ID</div>
-    <div class="col-md-1">Nome</div>
-    <div class="col-md-1">Sobrenome</div>
-    <div class="col-md-1">Idade</div>
-    <div class="col-md-2">Email</div>
-    <div class="col-md-1">Dando Aula</div>
-    <div class="col-md-1">Aulas</div>
-</div>
-
-<div class="row" ng-repeat="instrutor in instrutores" | orderBy: 'nome' style="height:30px">
-    <div class="col-md-1">{{ instrutor.id }}</div>
-    <div class="col-md-1">{{ instrutor.nome }}</div>
-    <div class="col-md-1">{{ instrutor.sobrenome }}</div>
-    <div class="col-md-1">{{ instrutor.idade }}</div>
-    <div class="col-md-2">{{ instrutor.email }}</div>
-    <div class="col-md-1">{{ instrutor.dandoAula }}</div>
-    <div class="col-md-1">{{ instrutor.aula }}</div>
-</div>
