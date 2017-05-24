@@ -1,6 +1,6 @@
 <h2>Aula - Excluir</h2>
 <hr>
-<form novalidate name="FormularioAula" class="ui form" ng-submit="excluir(aulaExcluida)">
+<!--<form novalidate name="FormularioAula" class="ui form" ng-submit="excluir(aulaExcluida)">
     <div class="field">
         <select name="aula" class="ui fluid dropdown" ng-model="aulaExcluida" style="width:200px">
             <option value="" selected>Selecionar...</option>
@@ -11,4 +11,19 @@
     </div>
     <input type="submit" class="ui button" value="Excluir">
 </form>
+<hr>-->
+
+<table class="table table-striped">
+    <thead>
+        <th>ID</th>
+        <th>Nome</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="aula in aulas | orderBy: 'nome'">
+            <td>{{ aula.id }}</td>
+            <td>{{ aula.nome }}</td>
+            <td><input type="submit" class="ui red button" ng-click="excluir(aula)" value="Excluir"></td>
+        </tr>
+    </tbody>
+</table>
 <hr>
