@@ -1,4 +1,4 @@
-var appRoute = angular.module('CrudRoute', ['ngRoute']);
+var appRoute = angular.module('CrudRoute', ['ngRoute', 'ngAnimate', 'toastr']);
 
 appRoute.config(function ($routeProvider) {
     $routeProvider
@@ -35,14 +35,14 @@ appRoute.config(function ($routeProvider) {
             templateUrl: '/templates/instrutor-listar.html'
         })
         .otherwise({
-            redirectTo: '/index.html'
+            redirect: '/index.html'
         });
 });
 
-appRoute.controller('AulaController', function($scope, $routeParams, aulaService) {
+appRoute.controller('AulaController', function($scope, $routeParams, aulaService, toastr) {
 
     // $scope.id = $routeParams.idUrl;
-    $scope.criar = criar;
+    $scope.cadastrar = cadastrar;
     $scope.editar = editar;
     $scope.excluir = excluir;
 
@@ -51,18 +51,30 @@ appRoute.controller('AulaController', function($scope, $routeParams, aulaService
     // editar($scope.id);
     carregarListaDeAulas();
 
-    function criar(aula) {
-        aulaService.criar(aula);
+    function cadastrar(aula) {
+        if (angular.isUndefined(aula) || aula === null) {
+            toastr.error('Aula inválida');
+            return;
+        }
+        aulaService.cadastrar(aula);
         $scope.novaAula = {};
+        toastr.success('Cadastro efetuado!');
     }
 
     function editar(aula) {
+        if (angular.isUndefined(aula) || aula === null) {
+            toastr.warning('Seleciona uma aula');
+            return;
+        }
         aulaService.editar(aula).then(response => carregarListaDeAulas());
         $scope.aulaAtual = {};
+        toastr.success('Edição concluída!');
     }
 
     function excluir(aula) {
         aulaService.excluir(aula).then(response => carregarListaDeAulas());
+        toastr.success('Cadastro removido!');
+
     }
 
     function carregarListaDeAulas() {
@@ -82,7 +94,7 @@ appRoute.controller('AulaController', function($scope, $routeParams, aulaService
     // }
 });
 
-appRoute.controller('InstrutorController', function($scope, $routeParams, instrutorService, aulaService) {
+appRoute.controller('InstrutorController', function($scope, $routeParams, instrutorService, aulaService, toastr) {
 
     $scope.cadastrar = cadastrar;
     $scope.editar = editar;
@@ -91,20 +103,31 @@ appRoute.controller('InstrutorController', function($scope, $routeParams, instru
     $scope.aulas = carregarListaDeAulas();
 
     function cadastrar(instrutor) {
+        if (angular.isUndefined(instrutor) || instrutor === null) {
+            toastr.error('Instrutor inválido');
+            return;
+        }
         if (angular.isUndefined(instrutor.urlFoto) || instrutor.urlFoto === null) {
             instrutor.urlFoto = 'http://hvazone.com/sodiz/adminlte/img/unknown-user.png';
         }
         instrutorService.cadastrar(instrutor);
         $scope.novoInstrutor = {};
+        toastr.success('Cadastro efetuado!');
     }
 
     function editar(instrutor) {
+        if (angular.isUndefined(instrutor) || instrutor === null) {
+            toastr.warning('Selecione um instrutor');
+            return;
+        }
         instrutorService.editar(instrutor).then(response => carregarListaDeInstrutores());
         $scope.instrutorAtual = {};
+        toastr.success('Edição concluída!');        
     }
 
     function excluir(instrutor) {
         instrutorService.excluir(instrutor).then(response => carregarListaDeInstrutores());
+        toastr.success('Cadastro removido!');
     }
 
     function carregarListaDeInstrutores() {
