@@ -34,8 +34,8 @@
     </div>
 
     <div class="field">
-        <select multiple name="aula" class="ui fluid dropdown" ng-model="novoInstrutor.aula" style="width:200px">
-            <option value="" disabled>Selecionar...</option>
+        <select multiple name="aula" ng-model="novoInstrutor.aula" style="width:500px">
+            <option value="" disabled>Pressione ctrl para selecionar múltipla opções...</option>
             <option ng-repeat="aula in aulas" ng-value="{{ aula.id }}">
                 {{ aula.nome }}
             </option>
@@ -44,9 +44,9 @@
 
     <div class="field">
         <label for="urlFoto">Link Imagem</label>
-        <input type="text" name="urlFoto" ng-model="novoInstrutor.urlFoto" style="width:500px">
+        <input type="text" name="urlFoto" ng-model="novoInstrutor.urlFoto" style="width:500px" size:"10">
     </div>
 
-    <input type="submit" class="ui button" value="Cadastrar">
+    <input type="submit" class="ui green button" value="Cadastrar">
 </form>
 <hr>
