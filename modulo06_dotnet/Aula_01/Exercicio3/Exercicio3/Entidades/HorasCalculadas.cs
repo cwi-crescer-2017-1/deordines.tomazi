@@ -13,6 +13,7 @@ namespace Exercicio3.Entidades
             QtdHoras = qtdHoras;
             ValorTotalHoras = valorTotalHoras;
         }
+
         public double QtdHoras { get; private set; }
         public double ValorTotalHoras { get; private set; }
     }
