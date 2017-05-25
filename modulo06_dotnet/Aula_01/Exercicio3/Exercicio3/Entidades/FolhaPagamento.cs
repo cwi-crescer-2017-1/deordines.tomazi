@@ -13,8 +13,8 @@ namespace Exercicio3.Entidades
         public Demonstrativo GerarDemonstrativo(double salarioBase, double horasCategoria, double horasExtras, double horasDescontadas)
         {
             double valorHora = ValorHora(salarioBase, horasCategoria);
-            HorasCalculadas horaExtra = new HorasCalculadas(horasExtras, ValorTotalHoras(horasExtras));
-            HorasCalculadas horaDescontada = new HorasCalculadas(horasDescontadas, ValorTotalHoras(horasDescontadas));
+            HorasCalculadas horaExtra = new HorasCalculadas(horasExtras, ValorTotalHoras(valorHora, horasExtras));
+            HorasCalculadas horaDescontada = new HorasCalculadas(horasDescontadas, ValorTotalHoras(valorHora, horasDescontadas));
             double proventos = TotalProventos(salarioBase, horaExtra.ValorTotalHoras, horaDescontada.ValorTotalHoras);
             Desconto inss = Inss(proventos);
             Desconto irrf = Irrf(proventos - inss.Valor);
@@ -22,13 +22,13 @@ namespace Exercicio3.Entidades
             double valorLiquido = SalarioLiquido(proventos, descontos);
             Desconto fgts = Fgts(aliquota, proventos);
 
-            double ValorTotalHoras(double horas)
-            {
-                return valorHora * horas;
-            }
-
             return new Demonstrativo(salarioBase, horasCategoria, horaExtra, horaDescontada, proventos, inss, irrf, descontos, valorLiquido, fgts);
             //return new Demonstrativo(salarioBase, horasCategoria, horasExtras, horasDescontadas, TotalProventos, valorInss, valorIrrf, valorDescontos, salarioLiquido, 11);
+        }
+
+        public double ValorTotalHoras(double valorHora, double horas)
+        {
+            return valorHora * horas;
         }
 
         // Valor Hora: é o Salário-base dividido pelo número de horas estabelecido pela convenção.
