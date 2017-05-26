@@ -50,12 +50,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Entidades\CalculoFolhaPagamento.cs" />
     <Compile Include="Entidades\Demonstrativo.cs" />
     <Compile Include="Entidades\Desconto.cs" />
+    <Compile Include="Entidades\FolhaPagamento.cs" />
     <Compile Include="Entidades\HorasCalculadas.cs" />
     <Compile Include="Entidades\IFolhaPagamento.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="FolhaPagamentoUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Choose>
