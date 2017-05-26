@@ -100,7 +100,7 @@ namespace Repositorio
         public IList<Funcionario> BuscarPorNome(string nome)
         {
             return this.Funcionarios
-                .Where(funcionario => IgnoreCaseSensitive(funcionario.Nome, nome, StringComparison.CurrentCultureIgnoreCase))
+                .Where(funcionario => ContainsIgnoreCaseSensitive(funcionario.Nome, nome, StringComparison.CurrentCultureIgnoreCase))
                 .ToList();
         }
 
@@ -144,7 +144,7 @@ namespace Repositorio
             throw new NotImplementedException();
         }
 
-        public bool IgnoreCaseSensitive(string source, string toCheck, StringComparison comparison)
+        public bool ContainsIgnoreCaseSensitive(string source, string toCheck, StringComparison comparison)
         {
             return source.IndexOf(toCheck, comparison) >= 0;
         }
