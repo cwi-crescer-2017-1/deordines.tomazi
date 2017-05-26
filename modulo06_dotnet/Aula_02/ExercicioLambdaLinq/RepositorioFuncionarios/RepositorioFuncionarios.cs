@@ -99,7 +99,9 @@ namespace Repositorio
 
         public IList<Funcionario> BuscarPorNome(string nome)
         {
-            throw new NotImplementedException();
+            return this.Funcionarios
+                .Where(funcionario => IgnoreCaseSensitive(funcionario.Nome, nome, StringComparison.CurrentCultureIgnoreCase))
+                .ToList();
         }
 
         public IList<Funcionario> BuscarPorTurno(params TurnoTrabalho[] turnos)
@@ -140,6 +142,11 @@ namespace Repositorio
         public dynamic FuncionarioMaisComplexo()
         {
             throw new NotImplementedException();
+        }
+
+        public bool IgnoreCaseSensitive(string source, string toCheck, StringComparison comparison)
+        {
+            return source.IndexOf(toCheck, comparison) >= 0;
         }
     }
 }
