@@ -140,7 +140,9 @@ namespace Repositorio
 
         public IList<Funcionario> AniversariantesDoMes()
         {
-            throw new NotImplementedException();
+            return this.Funcionarios
+                .Where(funcionario => DateTime.Now.Month.Equals(funcionario.DataNascimento.Month))
+                .ToList();
         }
 
         public IList<dynamic> BuscaRapida()
