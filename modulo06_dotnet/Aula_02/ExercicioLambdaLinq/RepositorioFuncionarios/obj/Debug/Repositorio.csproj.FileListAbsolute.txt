@@ -1,0 +1,5 @@
+C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_02\ExercicioLambdaLinq\RepositorioFuncionarios\bin\Debug\Repositorio.dll
+C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_02\ExercicioLambdaLinq\RepositorioFuncionarios\bin\Debug\Repositorio.pdb
+C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_02\ExercicioLambdaLinq\RepositorioFuncionarios\obj\Debug\Repositorio.csprojResolveAssemblyReference.cache
+C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_02\ExercicioLambdaLinq\RepositorioFuncionarios\obj\Debug\Repositorio.dll
+C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_02\ExercicioLambdaLinq\RepositorioFuncionarios\obj\Debug\Repositorio.pdb

@@ -1,0 +1,10 @@
+C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_02\ExercicioLambdaLinq\Testes\bin\Debug\Testes.dll
+C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_02\ExercicioLambdaLinq\Testes\bin\Debug\Testes.pdb
+C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_02\ExercicioLambdaLinq\Testes\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_02\ExercicioLambdaLinq\Testes\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_02\ExercicioLambdaLinq\Testes\bin\Debug\Repositorio.dll
+C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_02\ExercicioLambdaLinq\Testes\bin\Debug\Repositorio.pdb
+C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_02\ExercicioLambdaLinq\Testes\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_02\ExercicioLambdaLinq\Testes\obj\Debug\Testes.csprojResolveAssemblyReference.cache
+C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_02\ExercicioLambdaLinq\Testes\obj\Debug\Testes.dll
+C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_02\ExercicioLambdaLinq\Testes\obj\Debug\Testes.pdb
