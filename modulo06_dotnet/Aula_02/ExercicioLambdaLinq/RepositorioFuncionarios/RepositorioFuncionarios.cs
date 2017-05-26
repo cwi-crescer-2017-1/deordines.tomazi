@@ -130,9 +130,12 @@ namespace Repositorio
             return idade;
         }
 
-        public double SalarioMedio(TurnoTrabalho? turno = null)
+        public double SalarioMedio(TurnoTrabalho ? turno = null)
         {
-            throw new NotImplementedException();
+            return this.Funcionarios
+                .Where(funcionario => turno.Equals(null) ? true : funcionario.TurnoTrabalho.Equals(turno))
+                .Select(funcionario => funcionario.Cargo.Salario)
+                .Average();
         }
 
         public IList<Funcionario> AniversariantesDoMes()
