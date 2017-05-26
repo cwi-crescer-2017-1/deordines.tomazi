@@ -86,7 +86,8 @@ namespace Repositorio
         public IList<Funcionario> BuscarPorCargo(Cargo cargo)
         {
             return this.Funcionarios
-                .Where(funcionarios => funcionarios.Cargo.Equals(cargo)).ToList();
+                .Where(funcionarios => funcionarios.Cargo.Equals(cargo))
+                .ToList();
         }
 
         public IList<Funcionario> OrdenadosPorCargo()
@@ -106,7 +107,9 @@ namespace Repositorio
 
         public IList<Funcionario> BuscarPorTurno(params TurnoTrabalho[] turnos)
         {
-            throw new NotImplementedException();
+            return this.Funcionarios
+                .Where(funcionario => turnos.Contains(funcionario.TurnoTrabalho))
+                .ToList();
         }
 
         public IList<Funcionario> FiltrarPorIdadeAproximada(int idade)
