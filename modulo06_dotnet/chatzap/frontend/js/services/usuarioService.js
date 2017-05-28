@@ -1,17 +1,20 @@
 modulo.factory("usuarioService", function ($http) {
-
-    let url = "http://localhost:56235/api/usuarios";
-
-    function obterUsuarios() {
-        return $http.get(url);
-    }
-
-    function registrar(usuario) {
-        return $http.post(url, usuario)
-    }
-
     return ({
         obterUsuarios: obterUsuarios,
-        registrar: registrar
+        enviarUsuario: enviarUsuario
     });
+
+    function obterUsuarios() {
+        return $http.get("http://localhost:56235/api/usuarios");
+    }
+
+    function enviarUsuario() {
+        return $http({
+            method: "post",
+            url: "http://localhost:56235/api/usuarios",
+            data: {
+                "Nome": "Deórdines"
+            }
+        });
+    }
 });
