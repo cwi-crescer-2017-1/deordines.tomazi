@@ -6,12 +6,12 @@ modulo.factory("usuarioService", function ($http) {
         return $http.get(url);
     }
 
-    function enviarUsuario(usuario) {
+    function registrar(usuario) {
         return $http.post(url, usuario);
     }
 
     return ({
         obterUsuarios: obterUsuarios,
-        enviarUsuario: enviarUsuario
+        registrar: registrar
     });
 });
