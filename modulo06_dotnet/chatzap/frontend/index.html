@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="chatZap-app">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Exemplo</title>
+</head>
+
+<body ng-controller="UsuarioController">
+    <h1>Projeto Crescer - CWI Software</h1>
+    
+    <ul>
+        <li ng-repeat="usuario in usuarios">
+            {{ usuario.Id }} - {{ usuario.Nome }} - {{ usuario.urlFoto }}
+        </li>
+    </ul>
+
+    <button ng-click="enviarUsuario()">Enviar Herói</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/controllers/usuarioController.js"></script>
+    <script src="js//services/usuarioService.js"></script>
+</body>
+
+</html>
