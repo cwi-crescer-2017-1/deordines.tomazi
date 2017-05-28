@@ -10,10 +10,10 @@ namespace chatzap.Controllers
 {
     public class MensagensController : ApiController
     {
-        private List<Mensagem> Mensagem = new List<Mensagem>();
+        private static List<Mensagem> Mensagem = new List<Mensagem>();
         private static object objetoLock = new object();
 
-        public IEnumerable<Mensagem> Get(Pessoa usuario, string frase = null)
+        public IEnumerable<Mensagem> Get(Pessoa usuario, string texto = null)
         {
             //var mensagemAux = new List<Mensagem>()
             //{
@@ -27,9 +27,9 @@ namespace chatzap.Controllers
             return Mensagem;
         }
 
-        public IHttpActionResult Post(Pessoa usuario, Mensagem mensagem)
+        public IHttpActionResult Post(Mensagem mensagem)
         {
-            if (usuario == null)
+            if (mensagem.Usuario == null)
             {
                 return BadRequest();
             }
@@ -38,7 +38,6 @@ namespace chatzap.Controllers
                 lock (objetoLock)
                 {
                     Mensagem.Add(mensagem);
-                    mensagem.Usuario = usuario;
 
                 }
                 return Ok();

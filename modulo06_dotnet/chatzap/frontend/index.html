@@ -7,20 +7,41 @@
     <title>Exemplo</title>
 </head>
 
-<body ng-controller="UsuarioController">
+<body>
     <h1>Projeto Crescer - CWI Software</h1>
     
-    <ul>
-        <li ng-repeat="usuario in usuarios">
-            {{ usuario.Id }} - {{ usuario.Nome }} - {{ usuario.urlFoto }}
-        </li>
-    </ul>
+    <div ng-controller="UsuarioController">
+        <label>Nome</label>
+        <input type="text" ng-model="novoUsuario.nome">
 
-    <button ng-click="enviarUsuario()">Enviar Herói</button>
+        <label>UrlFoto</label>
+        <input type="text" ng-model="novoUsuario.urlFoto">
+
+        <button ng-click="registrar(novoUsuario)">Enviar Herói</button>
+
+
+    </div>
+        <ul>
+            <li ng-repeat="usuario in usuarios">
+                {{ usuario.Id }} - {{ usuario.Nome }} - {{ usuario.urlFoto }}
+            </li>
+        </ul>
+    <hr>
+
+    <div ng-controller="MensagemController">
+        <label>Mensagem</label>
+        <!--<input type="textarea" style="width:500px;height:100px;vertical-align:top;" ng-model="novaMensagem.texto">-->
+        <input type="text" ng-model="novaMensagem.texto">
+        <textarea style="width:500px;height:100px;resize:none;vertical-align:top;" ng-model="novaMensagem.texto"></textarea>
+
+        <input type="submit" ng-click="enviar(novaMensagem)" value="Enviar">
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="js/controllers/usuarioController.js"></script>
-    <script src="js//services/usuarioService.js"></script>
+    <script src="js/controllers/mensagemController.js"></script>
+    <script src="js/services/usuarioService.js"></script>
+    <script src="js/services/mensagemService.js"></script>
 </body>
 
 </html>
