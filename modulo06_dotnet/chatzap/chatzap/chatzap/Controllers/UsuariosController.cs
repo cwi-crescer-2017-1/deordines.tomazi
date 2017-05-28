@@ -16,15 +16,6 @@ namespace chatzap.Controllers
 
         public IEnumerable<Pessoa> Get(string nome = null, int? id = null)
         {
-            //var usuarioAux = new List<Pessoa>()
-            //{
-            //    new Pessoa() { Id = ++UltimoId, Nome = "Deórdines" },
-            //    new Pessoa() { Id = ++UltimoId, Nome = "Geovane" },
-            //    new Pessoa() { Id = ++UltimoId, Nome = "Renan" },
-            //    new Pessoa() { Id = ++UltimoId, Nome = "Taiguara" }
-            //};
-
-            //Usuarios.AddRange(usuarioAux);
             return Usuarios;
         }
 

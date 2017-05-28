@@ -15,15 +15,6 @@ namespace chatzap.Controllers
 
         public IEnumerable<Mensagem> Get(Pessoa usuario, string frase = null)
         {
-            //var mensagemAux = new List<Mensagem>()
-            //{
-            //    new Mensagem() { Usuario = new Pessoa() {Id = 1, Nome = "Deórdines", UrlFoto = "http://" }, Texto = "auhaushaushasu" },
-            //    new Mensagem() { Usuario = new Pessoa() {Id = 2, Nome = "Geovane", UrlFoto = "http://" }, Texto = "Eu joguei lolzinho" },
-            //    new Mensagem() { Usuario = new Pessoa() {Id = 3, Nome = "Renan", UrlFoto = "http://" }, Texto = "Qualquer coisa haha" },
-            //    new Mensagem() { Usuario = new Pessoa() {Id = 4, Nome = "Taiguara", UrlFoto = "http://" }, Texto = "Canalizar poder" }
-            //};
-
-            //Mensagem.AddRange(mensagemAux);
             return Mensagem;
         }
 
