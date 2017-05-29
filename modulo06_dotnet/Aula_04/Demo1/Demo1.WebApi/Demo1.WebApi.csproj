@@ -110,6 +110,10 @@
       <Project>{4CFD0A4E-36F9-45FE-98ED-3DF9353E48B3}</Project>
       <Name>Demo1.Dominio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Demo1.Infraestrutura\Demo1.Infraestrutura.csproj">
+      <Project>{9EC7F849-3885-4059-BFF7-501D70C95855}</Project>
+      <Name>Demo1.Infraestrutura</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

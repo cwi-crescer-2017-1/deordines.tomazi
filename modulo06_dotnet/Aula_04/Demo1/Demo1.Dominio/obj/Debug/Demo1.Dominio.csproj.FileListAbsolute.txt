@@ -1,0 +1,5 @@
+C:\Users\deordines.tomazi\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_04\Demo1\Demo1.Dominio\bin\Debug\Demo1.Dominio.dll
+C:\Users\deordines.tomazi\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_04\Demo1\Demo1.Dominio\bin\Debug\Demo1.Dominio.pdb
+C:\Users\deordines.tomazi\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_04\Demo1\Demo1.Dominio\obj\Debug\Demo1.Dominio.csprojResolveAssemblyReference.cache
+C:\Users\deordines.tomazi\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_04\Demo1\Demo1.Dominio\obj\Debug\Demo1.Dominio.dll
+C:\Users\deordines.tomazi\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_04\Demo1\Demo1.Dominio\obj\Debug\Demo1.Dominio.pdb

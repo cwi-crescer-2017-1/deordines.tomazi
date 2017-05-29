@@ -26,3 +26,7 @@ C:\Users\deordines.tomazi\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula
 C:\Users\deordines.tomazi\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_04\Demo1\Demo1.WebApi\obj\Debug\Demo1.WebApi.csprojResolveAssemblyReference.cache
 C:\Users\deordines.tomazi\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_04\Demo1\Demo1.WebApi\obj\Debug\Demo1.WebApi.dll
 C:\Users\deordines.tomazi\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_04\Demo1\Demo1.WebApi\obj\Debug\Demo1.WebApi.pdb
+C:\Users\deordines.tomazi\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_04\Demo1\Demo1.WebApi\bin\Demo1.Dominio.dll
+C:\Users\deordines.tomazi\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_04\Demo1\Demo1.WebApi\bin\Demo1.Infraestrutura.dll
+C:\Users\deordines.tomazi\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_04\Demo1\Demo1.WebApi\bin\Demo1.Dominio.pdb
+C:\Users\deordines.tomazi\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_04\Demo1\Demo1.WebApi\bin\Demo1.Infraestrutura.pdb
