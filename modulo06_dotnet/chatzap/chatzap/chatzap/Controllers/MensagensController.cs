@@ -29,7 +29,7 @@ namespace chatzap.Controllers
             {
                 lock (objetoLock)
                 {
-                    mensagem.Texto = Regex.Replace(mensagem.Texto, "Andre Nunes", "$$$$$ $$$$$", RegexOptions.IgnoreCase);
+                    mensagem.Texto = Regex.Replace(mensagem.Texto, "Andre Nunes", "$$$$$$$$$$ $$$$$$$$$$", RegexOptions.IgnoreCase);
                     Mensagem.Add(mensagem);
                 }
                 return Ok();
