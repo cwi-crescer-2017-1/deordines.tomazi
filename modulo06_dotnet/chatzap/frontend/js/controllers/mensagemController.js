@@ -1,6 +1,15 @@
-modulo.controller("MensagemController", function ($scope, mensagemService) {
+modulo.controller("MensagemController", function ($scope, mensagemService, $timeout) {
+
     $scope.enviar = enviar;
-    obterMensagens();
+
+    $scope.intervalFuction = function() {
+        $timeout(function() {
+            obterMensagens();
+            $scope.intervalFuction();
+        }, 1000)
+    };
+
+    $scope.intervalFuction();
 
     function obterMensagens() {
         mensagemService
@@ -10,14 +19,12 @@ modulo.controller("MensagemController", function ($scope, mensagemService) {
             })
     }
 
+    $scope.usuario = { Nome: localStorage.getItem('Nome'), UrlFoto: localStorage.getItem('UrlFoto') };
+
     function enviar(mensagem) {
-        mensagemService.enviar({
-            "Usuario": {
-                "Nome": localStorage.getItem("Nome"),
-                "UrlFoto": localStorage.getItem("UrlFoto")
-            },
-            "Texto": mensagem.texto
-        });
+        mensagem.Usuario = $scope.usuario;
+        mensagem.Texto = mensagem.texto;
+        mensagemService.enviar(mensagem);
         $scope.novaMensagem = {};
     }
 }); 

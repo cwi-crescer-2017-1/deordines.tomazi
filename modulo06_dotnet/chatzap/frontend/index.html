@@ -5,34 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css">
     <title>Document</title>
 </head>
 
 <body>
-    <h1>Projeto Crescer - CWI Software</h1>
-    <div ng-controller="UsuarioController">
-        <label>Nome</label>
-        <input type="text" ng-model="novoUsuario.nome">
-        <ul>
-            <li ng-repeat="usuario in usuarios">
-                {{ usuario.Id }} - {{ usuario.Nome }} - {{ usuario.urlFoto }}
-            </li>
-        </ul>
-        <label>UrlFoto</label>
-        <input type="text" ng-model="novoUsuario.urlFoto">
-        <button ng-click="registrar(novoUsuario)">Enviar</button>
+    <div class="container">
+        <h1>Projeto Crescer - CWI Software</h1>
+
+        <div ng-controller="UsuarioController">
+            <form style="margin-left:320px;">
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="novoUsuario.nome" placeholder="Insira seu nome" style="width:500px;">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="novoUsuario.urlFoto" placeholder="Insira o link da sua foto" style="width:500px;">
+                </div>
+            </form>
+            <input type="submit" class="btn btn-default" ng-click="registrar(novoUsuario)" value="Registrar" style="margin-left:500px;">
+        </div>
+        <br><br>
+
+        <div ng-controller="MensagemController" style="margin-left:70px;width:1000px;height:500px;overflow:auto;background:#e6e6e6;">
+            <div>
+                <ul ng-repeat="mensagem in mensagens">
+                    <span ng-class="{ odd: mensagem.Usuario.Nome == usuario.Nome }">
+                        <li><img class="img-circle" src="{{ mensagem.Usuario.UrlFoto }}"></li>
+                        <div style="margin-left:100px;font-size:18px;">{{ mensagem.Usuario.Nome }}</div>
+                        <div style="margin-left:100px;font-size:15px;">{{ mensagem.Texto }}</div>
+                    </span>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <footer ng-controller="MensagemController">
+            <input type="text" style="margin-left:80px;width:910px;height:35px;" ng-model="novaMensagem.texto">
+            <button class="btn btn-default" ng-click="enviar(novaMensagem)">Enviar</button>
+        </footer>
     </div>
+    
 
-    <hr>
-
-    <div ng-controller="MensagemController">
-        <label>Mensagem</label>
-        <!--<input type="textarea" style="width:500px;height:100px;vertical-align:top;" ng-model="novaMensagem.texto">-->
-        <input type="text" ng-model="novaMensagem.texto">
-        <textarea style="width:500px;height:100px;resize:none;vertical-align:top;" ng-model="novaMensagem.texto"></textarea>
-        <input type="submit" ng-click="enviar(novaMensagem)" value="Enviar">
-    </div>
-
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="js/controllers/usuarioController.js"></script>
     <script src="js/controllers/mensagemController.js"></script>

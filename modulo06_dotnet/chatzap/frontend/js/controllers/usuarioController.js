@@ -3,7 +3,7 @@ var modulo = angular.module('chatZap-app', []);
 modulo.controller('UsuarioController', function ($scope, usuarioService) {
     $scope.usuarios = {};
     $scope.registrar = registrar;
-    obterUsuarios();    
+    obterUsuarios();
 
     function obterUsuarios() {
         usuarioService
@@ -15,7 +15,12 @@ modulo.controller('UsuarioController', function ($scope, usuarioService) {
 
     function registrar(usuario) {
         localStorage.setItem('Nome', usuario.nome);
-        localStorage.setItem('UrlFoto', usuario.urlFoto);
+        if (angular.isUndefined(usuario.urlFoto) || usuario === null) {
+            usuario.urlFoto = 'http://hvazone.com/sodiz/adminlte/img/unknown-user.png'
+        } else {
+            localStorage.setItem('UrlFoto', usuario.urlFoto);
+        }
         usuarioService.registrar(usuario);
+        $scope.novoUsuario = {};
     }
 }); 

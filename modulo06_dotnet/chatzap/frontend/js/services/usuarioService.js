@@ -6,6 +6,10 @@ modulo.factory("usuarioService", function ($http) {
         return $http.get(url);
     }
 
+    function obterUltimoUsuario(numero) {
+        return $http.het(`${url}/${numero}`);
+    }
+
     function registrar(usuario) {
         return $http.post(url, usuario);
     }
