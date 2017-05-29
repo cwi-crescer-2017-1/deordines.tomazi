@@ -14,6 +14,10 @@ modulo.controller('UsuarioController', function ($scope, usuarioService) {
     }
 
     function registrar(usuario) {
+        if (localStorage.getItem('Nome') !== null || localStorage.getItem('UrlFoto') !== null) {
+            return;
+        }
+        
         localStorage.setItem('Nome', usuario.nome);
         if (angular.isUndefined(usuario.urlFoto) || usuario === null) {
             usuario.urlFoto = 'http://hvazone.com/sodiz/adminlte/img/unknown-user.png'
