@@ -1,4 +1,4 @@
-﻿using Demo1.WebApi.Models;
+﻿using Demo1.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -16,18 +16,9 @@ namespace Demo1.WebApi.Controllers
             string stringConexao =
                 "Server=13.65.101.67;User Id=deordines.tomazi;PAssword=123456;Database=aluno03db";
 
-            if (produto.Estoque < 1)
-            {
-                return BadRequest("Quantidade em estoque deve ser maior que 0.");
-            }
-            else if (produto.Preco < 0.01M)
-            {
-                return BadRequest("Preço deve ser mais que zero.");
-            }
-            else if (string.IsNullOrWhiteSpace(produto.Nome))
-            {
-                return BadRequest("Nome deve ser informado.");
-            }
+            var mensagens = new List<string>();
+            if (!produto.Validar(out mensagens))
+                return BadRequest(string.Join(".", mensagens.ToArray()));
 
             using (var conexao = new SqlConnection(stringConexao))
             {
