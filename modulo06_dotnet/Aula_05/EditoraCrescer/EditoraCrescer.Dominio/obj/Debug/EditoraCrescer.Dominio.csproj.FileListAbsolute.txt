@@ -2,3 +2,4 @@ C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_05\Edi
 C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_05\EditoraCrescer\EditoraCrescer.Dominio\bin\Debug\EditoraCrescer.Dominio.pdb
 C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_05\EditoraCrescer\EditoraCrescer.Dominio\obj\Debug\EditoraCrescer.Dominio.dll
 C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_05\EditoraCrescer\EditoraCrescer.Dominio\obj\Debug\EditoraCrescer.Dominio.pdb
+C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_05\EditoraCrescer\EditoraCrescer.Dominio\obj\Debug\EditoraCrescer.Dominio.csprojResolveAssemblyReference.cache

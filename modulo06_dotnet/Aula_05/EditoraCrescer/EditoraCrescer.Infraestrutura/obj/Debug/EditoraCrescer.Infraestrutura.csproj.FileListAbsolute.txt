@@ -12,3 +12,4 @@ C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_05\Edi
 C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_05\EditoraCrescer\EditoraCrescer.Infraestrutura\obj\Debug\EditoraCrescer.Infraestrutura.pdb
 C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_05\EditoraCrescer\EditoraCrescer.Infraestrutura\obj\Debug\EditoraCrescer.Infraestrutura.Migrations.CriacaoDoBanco.resources
 C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_05\EditoraCrescer\EditoraCrescer.Infraestrutura\obj\Debug\EditoraCrescer.Infraestrutura.csproj.GenerateResource.Cache
+C:\Users\Deordines\Documents\GitHub\deordines.tomazi\modulo06_dotnet\Aula_05\EditoraCrescer\EditoraCrescer.Infraestrutura\obj\Debug\EditoraCrescer.Infraestrutura.Migrations.CriacaoFKRevisorTabelaLivros.resources

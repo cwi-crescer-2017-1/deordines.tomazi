@@ -57,6 +57,10 @@
     <Compile Include="Migrations\201705310222075_CriacaoDoBanco.Designer.cs">
       <DependentUpon>201705310222075_CriacaoDoBanco.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705310305557_CriacaoFKRevisorTabelaLivros.cs" />
+    <Compile Include="Migrations\201705310305557_CriacaoFKRevisorTabelaLivros.Designer.cs">
+      <DependentUpon>201705310305557_CriacaoFKRevisorTabelaLivros.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\AutorRepositorio.cs" />
@@ -76,6 +80,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201705310222075_CriacaoDoBanco.resx">
       <DependentUpon>201705310222075_CriacaoDoBanco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705310305557_CriacaoFKRevisorTabelaLivros.resx">
+      <DependentUpon>201705310305557_CriacaoFKRevisorTabelaLivros.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
