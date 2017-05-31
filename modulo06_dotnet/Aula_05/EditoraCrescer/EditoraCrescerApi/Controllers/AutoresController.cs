@@ -21,6 +21,7 @@ namespace EditoraCrescer.Api.Controllers
 
         public IHttpActionResult Post(Autor autor)
         {
+            _autorRepositorio.Criar(autor.Nome);
             return Ok();
         }
 

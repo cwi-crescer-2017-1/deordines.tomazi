@@ -21,6 +21,7 @@ namespace EditoraCrescer.Api.Controllers
 
         public IHttpActionResult Post(Livro livro)
         {
+            _livroRepositorio.Criar(livro);
             return Ok();
         }
 

@@ -11,6 +11,16 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
     {
         private Contexto contexto = new Contexto();
 
+        public void Criar(string nome)
+        {
+            var revisor = new Revisor()
+            {
+                Nome = nome
+            };
+            contexto.Revisores.Add(revisor);
+            contexto.SaveChanges();
+        }
+
         public List<Revisor> Listar()
         {
             return contexto.Revisores.ToList();
