@@ -61,6 +61,10 @@
     <Compile Include="Migrations\201705310305557_CriacaoFKRevisorTabelaLivros.Designer.cs">
       <DependentUpon>201705310305557_CriacaoFKRevisorTabelaLivros.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705311835545_IncluirCampoCapaNaTabelaLivro.cs" />
+    <Compile Include="Migrations\201705311835545_IncluirCampoCapaNaTabelaLivro.Designer.cs">
+      <DependentUpon>201705311835545_IncluirCampoCapaNaTabelaLivro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\AutorRepositorio.cs" />
@@ -83,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705310305557_CriacaoFKRevisorTabelaLivros.resx">
       <DependentUpon>201705310305557_CriacaoFKRevisorTabelaLivros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705311835545_IncluirCampoCapaNaTabelaLivro.resx">
+      <DependentUpon>201705311835545_IncluirCampoCapaNaTabelaLivro.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
