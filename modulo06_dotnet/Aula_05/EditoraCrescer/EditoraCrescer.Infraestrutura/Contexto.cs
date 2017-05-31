@@ -1,4 +1,4 @@
-﻿using EditoraCrescer.Infraestrutura.Entidades;
+﻿using EditoraCrescer.Dominio.Entidades;
 using EditoraCrescer.Infraestrutura.Mappings;
 using System;
 using System.Collections.Generic;
@@ -18,11 +18,13 @@ namespace EditoraCrescer.Infraestrutura
 
         public DbSet<Autor> Autores { get; set; }
         public DbSet<Livro> Livros { get; set; }
+        public DbSet<Revisor> Revisores { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new AutorMap());
             modelBuilder.Configurations.Add(new LivroMap());
+            modelBuilder.Configurations.Add(new RevisorMap());
             //base.OnModelCreating(modelBuilder);
         }
     }

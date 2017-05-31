@@ -1,5 +1,5 @@
-﻿using EditoraCrescer.Api.Repositorios;
-using EditoraCrescer.Infraestrutura.Entidades;
+﻿using EditoraCrescer.Dominio.Entidades;
+using EditoraCrescer.Infraestrutura.Repositorios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +11,12 @@ namespace EditoraCrescer.Api.Controllers
 {
     public class AutoresController : ApiController
     {
-        private AutorRepositorio _produtoRepositorio = new AutorRepositorio();
+        private AutorRepositorio _autorRepositorio = new AutorRepositorio();
 
         public IHttpActionResult Get()
         {
-            return Ok();
+            var obterAutores = _autorRepositorio.Listar();
+            return Ok(obterAutores);
         }
 
         public IHttpActionResult Post(Autor autor)

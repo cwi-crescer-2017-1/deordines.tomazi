@@ -96,14 +96,11 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\LivrosController.cs" />
     <Compile Include="Controllers\AutoresController.cs" />
-    <Compile Include="Controllers\RevisorController.cs" />
+    <Compile Include="Controllers\RevisoresController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositorios\AutorRepositorio.cs" />
-    <Compile Include="Repositorios\LivroRepositorio.cs" />
-    <Compile Include="Repositorios\RevisorRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -119,6 +116,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EditoraCrescer.Dominio\EditoraCrescer.Dominio.csproj">
+      <Project>{0BC655C4-817D-4BB2-9E10-4D74A4129E52}</Project>
+      <Name>EditoraCrescer.Dominio</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EditoraCrescer.Infraestrutura\EditoraCrescer.Infraestrutura.csproj">
       <Project>{121F4C81-2CA7-45A9-86F8-FC5150B30A96}</Project>
       <Name>EditoraCrescer.Infraestrutura</Name>
@@ -142,8 +143,7 @@
           <IISUrl>http://localhost:65018/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl>http://localhost:65018/</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

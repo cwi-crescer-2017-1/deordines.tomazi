@@ -1,5 +1,5 @@
-﻿using EditoraCrescer.Api.Repositorios;
-using EditoraCrescer.Infraestrutura.Entidades;
+﻿using EditoraCrescer.Dominio.Entidades;
+using EditoraCrescer.Infraestrutura.Repositorios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +15,8 @@ namespace EditoraCrescer.Api.Controllers
 
         public IHttpActionResult Get()
         {
-            return Ok();
+            var obterLivros = _livroRepositorio.Listar();
+            return Ok(obterLivros);
         }
 
         public IHttpActionResult Post(Livro livro)
