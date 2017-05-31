@@ -26,6 +26,25 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
             return contexto.Autores.ToList();
         }
 
+        public Autor ObterAutor(int id)
+        {
+            return contexto.Autores.FirstOrDefault(x => x.Id == id);
+        }
+
+        public List<Livro> ObterLivrosDoAutor(int id)
+        {
+            return contexto.Livros.Where(x => x.IdAutor == id).ToList();
+        }
+
+        public void AlterarAutor(int id, Autor autor)
+        {
+            if (id != autor.Id)
+                return;
+
+            contexto.Entry(autor).State = System.Data.Entity.EntityState.Modified;
+            contexto.SaveChanges();
+        }
+
         public void Excluir(int id)
         {
             var autor = contexto.Autores.FirstOrDefault(x => x.Id == id);

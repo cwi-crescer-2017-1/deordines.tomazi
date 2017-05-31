@@ -34,12 +34,14 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
             return contexto.Livros.Where(x => x.Genero.Contains(genero)).ToList();
         }
 
-        public void AlterarLivro(Livro livro)
+        public void AlterarLivro(int isbn, Livro livro)
         {
-            var isbn = livro.Isbn;
-            Livro aux = contexto.Livros.FirstOrDefault(x => x.Isbn == isbn);
-            aux.Descricao = livro.Descricao;
-            contexto.Entry(aux).State = System.Data.Entity.EntityState.Modified;
+            if (isbn != livro.Isbn)
+                return;
+
+            //Livro aux = contexto.Livros.FirstOrDefault(x => x.Isbn == isbn);
+            //aux = livro;
+            contexto.Entry(livro).State = System.Data.Entity.EntityState.Modified;
             contexto.SaveChanges();
         }
 

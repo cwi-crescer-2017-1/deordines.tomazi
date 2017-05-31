@@ -39,9 +39,10 @@ namespace EditoraCrescer.Api.Controllers
         }
 
         [HttpPut]
-        public IHttpActionResult AlterarLivro(Livro livro)
+        [Route("{isbn}")]
+        public IHttpActionResult AlterarLivro(int isbn, Livro livro)
         {
-            _livroRepositorio.AlterarLivro(livro);
+            _livroRepositorio.AlterarLivro(isbn, livro);
             return Ok(new { dados = livro });
         }
 
