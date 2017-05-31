@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace EditoraCrescer.Api.Repositorios
 {
-    public class LivroRepositorio : ApiController
+    public class RevisorRepositorio : ApiController
     {
         private Contexto contexto = new Contexto();
     }

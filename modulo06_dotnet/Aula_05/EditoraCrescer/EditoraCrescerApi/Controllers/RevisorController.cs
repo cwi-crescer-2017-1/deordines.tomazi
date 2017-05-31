@@ -9,16 +9,16 @@ using System.Web.Http;
 
 namespace EditoraCrescer.Api.Controllers
 {
-    public class LivrosController : ApiController
+    public class RevisorController : ApiController
     {
-        private LivroRepositorio _livroRepositorio = new LivroRepositorio();
+        private RevisorRepositorio _revisorRepositorio = new RevisorRepositorio();
 
         public IHttpActionResult Get()
         {
             return Ok();
         }
 
-        public IHttpActionResult Post(Livro livro)
+        public IHttpActionResult Post(Revisor revisor)
         {
             return Ok();
         }
