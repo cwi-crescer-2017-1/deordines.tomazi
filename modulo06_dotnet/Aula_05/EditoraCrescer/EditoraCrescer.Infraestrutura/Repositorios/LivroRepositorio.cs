@@ -15,5 +15,12 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
         {
             return contexto.Livros.ToList();
         }
+
+        public void Excluir(int isbn)
+        {
+            var livro = contexto.Livros.FirstOrDefault(x => x.Isbn == isbn);
+            contexto.Livros.Remove(livro);
+            contexto.SaveChanges();
+        }
     }
 }

@@ -24,8 +24,9 @@ namespace EditoraCrescer.Api.Controllers
             return Ok();
         }
 
-        public IHttpActionResult Delete(int id)
+        public IHttpActionResult Delete(int isbn)
         {
+            _livroRepositorio.Excluir(isbn);
             return Ok();
         }
     }

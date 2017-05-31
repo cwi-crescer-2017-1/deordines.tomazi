@@ -15,5 +15,12 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
         {
             return contexto.Autores.ToList();
         }
+
+        public void Excluir(int id)
+        {
+            var autor = contexto.Autores.FirstOrDefault(x => x.Id == id);
+            contexto.Autores.Remove(autor);
+            contexto.SaveChanges();
+        }
     }
 }

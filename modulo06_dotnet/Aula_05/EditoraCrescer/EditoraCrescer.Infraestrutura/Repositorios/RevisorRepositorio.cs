@@ -15,5 +15,12 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
         {
             return contexto.Revisores.ToList();
         }
+
+        public void Excluir(int id)
+        {
+            var revisor = contexto.Revisores.FirstOrDefault(x => x.Id == id);
+            contexto.Revisores.Remove(revisor);
+            contexto.SaveChanges();
+        }
     }
 }
