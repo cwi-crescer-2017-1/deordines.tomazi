@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace EditoraCrescer.Api.Controllers
 {
-    [RoutePrefix("api/Livros")]
+    [RoutePrefix("api/livros")]
     public class LivrosController : ApiController
     {
         private LivroRepositorio _livroRepositorio = new LivroRepositorio();
@@ -39,7 +39,7 @@ namespace EditoraCrescer.Api.Controllers
         }
 
         [HttpGet]
-        [Route("Lancamentos")]
+        [Route("lancamentos")]
         public IHttpActionResult ObterPorLancamento()
         {
             var obterLivros = _livroRepositorio.ObterPorLancamento();

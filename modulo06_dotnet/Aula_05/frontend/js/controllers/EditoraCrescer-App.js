@@ -1,0 +1,1 @@
+var modulo = angular.module('EditoraCrescer-App', []);
