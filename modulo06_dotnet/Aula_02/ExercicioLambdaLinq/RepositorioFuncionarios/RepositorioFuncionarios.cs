@@ -172,7 +172,18 @@ namespace Repositorio
 
         public dynamic FuncionarioMaisComplexo()
         {
-            throw new NotImplementedException();
+            return this.Funcionarios
+                    .Where(funcionario => funcionario.Cargo.Titulo != "Desenvolvedor Júnior" && funcionario.TurnoTrabalho != TurnoTrabalho.Tarde)
+                    .OrderBy(funcionario => Regex.Replace(funcionario.Nome, "aeiouAEIOU", "").Length)
+                    .Select(funcionario =>
+                    new
+                    {
+                        Nome = funcionario.Nome,
+                        DataNascimento = $"{funcionario.DataNascimento.Day}/{funcionario.DataNascimento.Month}/{funcionario.DataNascimento.Year}",
+                        SalarioRS = funcionario.Cargo.Salario.ToString("C", new CultureInfo("pt-BR")).Replace("R$", "R$ "),
+                        SalarioUS = funcionario.Cargo.Salario.ToString("C", new CultureInfo("en-US")),
+                        QuantidadeMesmoCargo = this.Funcionarios.Count(c => c.Cargo.Equals(funcionario.Cargo))
+                    }).Last();
         }
 
         public bool ContainsIgnoreCaseSensitive(string source, string toCheck, StringComparison comparison)
