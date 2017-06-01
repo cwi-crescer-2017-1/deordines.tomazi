@@ -19,9 +19,18 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
             contexto.SaveChanges();
         }
 
-        public List<Livro> Listar()
+        public dynamic Listar()
         {
-            return contexto.Livros.ToList();
+            return contexto.Livros
+                .Select(x => new
+                {
+                    Isbn = x.Isbn,
+                    Titulo = x.Titulo,
+                    Capa = x.Capa,
+                    NomeAutor = x.Autor,
+                    ObterPorGenero = x.Genero
+                })
+                .ToList();
         }
 
         public Livro ObterLivro(int isbn)
@@ -29,9 +38,19 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
             return contexto.Livros.FirstOrDefault(x => x.Isbn == isbn);
         }
 
-        public List<Livro> ObterPorGenero(string genero)
+        public dynamic ObterPorGenero(string genero)
         {
-            return contexto.Livros.Where(x => x.Genero.Contains(genero)).ToList();
+            return contexto.Livros
+                .Where(x => x.Genero.Contains(genero))
+                .Select(x => new
+                {
+                    Isbn = x.Isbn,
+                    Titulo = x.Titulo,
+                    Capa = x.Capa,
+                    NomeAutor = x.Autor,
+                    ObterPorGenero = x.Genero
+                })
+                .ToList();
         }
 
         public void AlterarLivro(int isbn, Livro livro)
