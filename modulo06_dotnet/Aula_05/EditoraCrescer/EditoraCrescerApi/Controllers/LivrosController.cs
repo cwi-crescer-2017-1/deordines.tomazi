@@ -38,6 +38,14 @@ namespace EditoraCrescer.Api.Controllers
             return Ok(new { dados = obterLivros });
         }
 
+        [HttpGet]
+        [Route("Lancamentos")]
+        public IHttpActionResult ObterPorLancamento()
+        {
+            var obterLivros = _livroRepositorio.ObterPorLancamento();
+            return Ok(new { dados = obterLivros });
+        }
+
         [HttpPut]
         [Route("{isbn}")]
         public IHttpActionResult AlterarLivro(int isbn, Livro livro)

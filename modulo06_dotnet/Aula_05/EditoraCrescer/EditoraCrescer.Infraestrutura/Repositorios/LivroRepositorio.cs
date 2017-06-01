@@ -13,8 +13,8 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
 
         public void Criar(Livro livro)
         {
-            livro.DataPublicacao = DateTime.Now;
-            livro.DataRevisao = DateTime.Now;
+            //livro.DataPublicacao = DateTime.Now;
+            //livro.DataRevisao = DateTime.Now;
             contexto.Livros.Add(livro);
             contexto.SaveChanges();
         }
@@ -42,6 +42,22 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
         {
             return contexto.Livros
                 .Where(x => x.Genero.Contains(genero))
+                .Select(x => new
+                {
+                    Isbn = x.Isbn,
+                    Titulo = x.Titulo,
+                    Capa = x.Capa,
+                    NomeAutor = x.Autor,
+                    ObterPorGenero = x.Genero
+                })
+                .ToList();
+        }
+
+        public dynamic ObterPorLancamento()
+        {
+            return contexto.Livros
+                //.Where(x => (DateTime.Now - x.DataPublicacao).TotalDays <= 7)
+                .Where(x => System.Data.Entity.SqlServer.SqlFunctions.DateDiff("day", x.DataPublicacao, DateTime.Now) <= 7)
                 .Select(x => new
                 {
                     Isbn = x.Isbn,
