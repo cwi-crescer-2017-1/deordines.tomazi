@@ -106,7 +106,8 @@ namespace Demo1.Infraestrutura.Repositorios
                 {
                     comando.CommandText = "SELECT Id, NomeCliente FROM Pedido";
 
-                    while (comando.ExecuteReader().Read())
+                    var dataReader = comando.ExecuteReader();
+                    while (dataReader.Read())
                     {
                         var pedido = new Pedido()
                         {
