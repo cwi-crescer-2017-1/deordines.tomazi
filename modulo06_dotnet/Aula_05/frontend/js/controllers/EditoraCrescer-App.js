@@ -1,1 +1,1 @@
-var modulo = angular.module('EditoraCrescer-App', []);
+var modulo = angular.module('EditoraCrescer-App', ['ui.bootstrap']);
