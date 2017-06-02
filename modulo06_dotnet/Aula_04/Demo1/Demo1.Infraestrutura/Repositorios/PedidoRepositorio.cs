@@ -145,6 +145,26 @@ namespace Demo1.Infraestrutura.Repositorios
                         };
                     }
                 }
+
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText = "SELECT Id, PedidoId, ProdutoId, Quanntidade FROM ItemPedido WHERE PedidoId = @pedidoId";
+
+                    comando.Parameters.AddWithValue("@pedidoId", pedido.Id);
+
+                    var dataReader = comando.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        var itemPedido = new ItemPedido()
+                        {
+                            Id = (int)dataReader["Id"],
+                            ProdutoId = (int)dataReader["ProdutoId"],
+                            Quantidade = (int)dataReader["Quantidade"]
+                        };
+
+                        pedido.Itens.Add(itemPedido);
+                    }
+                }
             }
 
             return pedido;
