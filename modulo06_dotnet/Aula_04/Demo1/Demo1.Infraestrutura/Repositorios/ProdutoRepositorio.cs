@@ -10,7 +10,7 @@ namespace Demo1.Infraestrutura.Repositorios
 {
     public class ProdutoRepositorio
     {
-        string stringConexao = "Server=13.65.101.67;User Id=deordines.tomazi;Password=123456;Database=aluno03db";
+        string stringConexao = "Server=191.232.191.228;User Id=deordines.tomazi;Password=123456;Database=aluno03db";
 
         public void Criar(Produto produto)
         {
