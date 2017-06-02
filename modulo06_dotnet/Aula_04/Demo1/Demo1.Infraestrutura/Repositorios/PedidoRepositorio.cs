@@ -79,19 +79,119 @@ namespace Demo1.Infraestrutura.Repositorios
 
         public void Alterar(Pedido pedido)
         {
-            //using (var conexao = new SqlConnection(stringConexao))
-            //{
-            //    conexao.Open();
+            using (var conexao = new SqlConnection(stringConexao))
+            {
+                conexao.Open();
 
-            //    using (var comando = conexao.CreateCommand())
-            //    {
-            //        comando.CommandText = "UPDATE PEDIDO SET NomeCliente = @nomeCliente WHERE Id = @id";
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText = "UPDATE PEDIDO SET NomeCliente = @nomeCliente WHERE Id = @id";
 
-            //        comando.Parameters.AddWithValue("@nomeCliente", pedido.NomeCliente);
+                    comando.Parameters.AddWithValue("@nomeCliente", pedido.NomeCliente);
+                    comando.Parameters.AddWithValue("@id", pedido.Id);
 
-            //        comando.ExecuteNonQuery();
-            //    }
-            //}
+                    comando.ExecuteNonQuery();
+                }
+
+                using (var comando = conexao.CreateCommand())
+                {
+                    foreach (var itemPedido in pedido.Itens)
+                    {
+                        if (itemPedido.Id == 0)
+                        {
+                            comando.CommandText = "INSERT INTO ItemPedido (PedidoId, ProdutoId, Quantidade) VALUES (@pedidoId, @produtoId, @quantidade)";
+                            comando.CommandTimeout = 120;
+
+                            comando.Parameters.AddWithValue("@pedidoId", pedido.Id);
+                            comando.Parameters.AddWithValue("@produtoId", itemPedido.ProdutoId);
+                            comando.Parameters.AddWithValue("@quantidade", itemPedido.Quantidade);
+
+                            comando.ExecuteNonQuery();
+
+                            comando.CommandText = "UPDATE Produto SET Estoque -= @quantidade WHERE Id = @itemProdutoId";
+
+                            comando.Parameters.AddWithValue("@itemProdutoId", itemPedido.ProdutoId);
+                            comando.Parameters.AddWithValue("@quantidade", itemPedido.Quantidade);
+
+                            comando.ExecuteNonQuery();
+
+                            comando.Parameters.Clear();
+                        }
+                        else
+                        {
+                            var diferenca = 0;
+
+                            comando.CommandText = "SELECT Quantidade FROM ItemPedido WHERE Id = @id";
+
+                            comando.Parameters.AddWithValue("@id", itemPedido.Id);
+
+                            diferenca = (int)comando.ExecuteScalar();
+
+                            comando.CommandText = "UPDATE ItemPedido SET PedidoId = @pedidoId, ProdutoId = @produtoId, Quantidade = @quantidade WHERE Id = @id";
+
+                            comando.Parameters.AddWithValue("@id", itemPedido.Id);
+                            comando.Parameters.AddWithValue("@pedidoId", pedido.Id);
+                            comando.Parameters.AddWithValue("@produtoId", itemPedido.ProdutoId);
+                            comando.Parameters.AddWithValue("@quantidade", itemPedido.Quantidade);
+
+                            comando.ExecuteNonQuery();
+
+                            comando.CommandText = "UPDATE PRoduto SET Estoque -= @quantidade WHERE Id = @produtoId";
+
+                            comando.Parameters.AddWithValue("@produtoId", itemPedido.ProdutoId);
+                            comando.Parameters.AddWithValue("@quantidade", itemPedido.Quantidade - diferenca);
+
+                            comando.ExecuteNonQuery();
+                        }
+                    }
+                }
+
+                var itensPedidoExcluir = new List<ItemPedido>();
+
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText = "SELECT Id, PedidoId, ProdutoId, Quannntidade FROM ItemPedido WHERE PedidoId = @pedidoId";
+                    comando.Parameters.AddWithValue("@pedidoId", pedido.Id);
+
+                    var dataReader = comando.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        var itemPedidoExcluir = new ItemPedido()
+                        {
+                            Id = (int)dataReader["Ïd"],
+                            ProdutoId = (int)dataReader["ProdutoId"],
+                            Quantidade = (int)dataReader["Quantidade"]
+                        };
+
+                        if (!pedido.Itens.Where(item => item.Id == itemPedidoExcluir.Id).Any())
+                        {
+                            itensPedidoExcluir.Add(itemPedidoExcluir);
+                        }
+                    }
+                }
+
+                foreach (var excluirItem in itensPedidoExcluir)
+                {
+                    using (var comando = conexao.CreateCommand())
+                    {
+                        comando.CommandText = "DELETE ItemPedido WHERE Id = @id";
+
+                        comando.Parameters.AddWithValue(@"id", pedido.Id);
+
+                        comando.ExecuteNonQuery();
+                    }
+
+                    using (var comando = conexao.CreateCommand())
+                    {
+                        comando.CommandText = "UPDATE PRODUTO SET Estoque += @quantidade WHERE Id = @produtoId";
+
+                        comando.Parameters.AddWithValue("@produtoId", excluirItem.Id);
+                        comando.Parameters.AddWithValue("@quantidade", excluirItem.Quantidade);
+
+                        comando.ExecuteNonQuery();
+                    }
+                }
+            }
         }
 
         public IEnumerable<Pedido> Listar()
