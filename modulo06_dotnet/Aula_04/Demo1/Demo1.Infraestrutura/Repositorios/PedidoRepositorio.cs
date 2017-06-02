@@ -125,31 +125,29 @@ namespace Demo1.Infraestrutura.Repositorios
 
         public Pedido Obter(int id)
         {
-            //Pedido pedido = null;
+            Pedido pedido = null;
 
-            //using (var conexao = new SqlConnection(stringConexao))
-            //{
-            //    using (var comando = conexao.CreateCommand())
-            //    {
-            //        comando.CommandText = "SELECT Id, NomeCliente, Itens FROM Pedido WHERE Id = @id";
+            using (var conexao = new SqlConnection(stringConexao))
+            {
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText = "SELECT Id, NomeCliente FROM Pedido WHERE Id = @id";
+                    comando.Parameters.AddWithValue("@id", id);
 
-            //        comando.Parameters.AddWithValue("@id", id);
+                    var dataReader = comando.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        pedido = new Pedido()
+                        {
+                            Id = (int)dataReader["Id"],
+                            NomeCliente = (string)dataReader["NomeCliente"],
+                            Itens = (List<ItemPedido>)dataReader["Itens"]
+                        };
+                    }
+                }
+            }
 
-            //        var dataReader = comando.ExecuteReader();
-            //        while (dataReader.Read())
-            //        {
-            //            pedido = new Pedido()
-            //            {
-            //                Id = (int)dataReader["Id"],
-            //                NomeCliente = (string)dataReader["NomeCliente"],
-            //                Itens = (List<ItemPedido>)dataReader["Itens"]
-            //            };
-            //        }
-            //    }
-            //}
-
-            //return pedido;
-            return null;
+            return pedido;
         }
 
         public void Excluir(int id)
