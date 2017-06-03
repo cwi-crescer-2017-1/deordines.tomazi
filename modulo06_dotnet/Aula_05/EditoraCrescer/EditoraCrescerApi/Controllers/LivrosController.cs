@@ -14,10 +14,23 @@ namespace EditoraCrescer.Api.Controllers
     {
         private LivroRepositorio _livroRepositorio = new LivroRepositorio();
 
+        ~LivrosController()
+        {
+            _livroRepositorio.Dispose();
+        }
+
         [HttpGet]
         public IHttpActionResult ListarLivros()
         {
             var obterLivros = _livroRepositorio.Listar();
+            _livroRepositorio.Dispose();
+            return Ok(new { dados = obterLivros });
+        }
+
+        [HttpGet]
+        public IHttpActionResult ListarLivrosPaginados(int quantidadePular, int quantidadeTrazer)
+        {
+            var obterLivros = _livroRepositorio.ListarLivrosPaginados(quantidadePular, quantidadeTrazer);
             _livroRepositorio.Dispose();
             return Ok(new { dados = obterLivros });
         }

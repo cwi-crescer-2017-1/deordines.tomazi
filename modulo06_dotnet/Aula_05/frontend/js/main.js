@@ -45,6 +45,7 @@
 
 	// Animate Leadership
 	var animateTeam = function() {
+
 		if ( $('#fh5co-team').length > 0 ) {	
 			$('#fh5co-team .to-animate').each(function( k ) {
 				

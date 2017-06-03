@@ -1,0 +1,35 @@
+<div class="row">
+
+    <h1 class="page-header">Exemplo de Paginação</h1>
+
+    <div class="row">
+
+        <div class="col-sm-4">
+
+            <form novalidate name="formPaginacao" ng-submit="buscar(parametros)">
+
+                <div class="form-group">
+                    <label for="quantidadePular">Quantidade Pular</label>
+                    <input type="number" class="form-control" name="quantidadePular" ng-model="parametros.quantidadePular">
+                </div>
+
+                <div class="form-group">
+                    <label for="quantidadeTrazer">Quantidade Trazer</label>
+                    <input type="number" class="form-control" name="quantidadeTrazer" ng-model="parametros.quantidadeTrazer">
+                </div>
+
+                <button type="submit" class="btn btn-default">Buscar</button>
+
+            </form>
+
+        </div>
+
+        <ul>
+            <li ng-repeat="livro in livros">
+                {{ livro.Titulo }}
+            </li>
+        </ul>
+
+    </div>
+
+</div>

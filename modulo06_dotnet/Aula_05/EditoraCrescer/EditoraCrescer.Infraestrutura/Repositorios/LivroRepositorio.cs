@@ -10,6 +10,7 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
     public class LivroRepositorio : IDisposable
     {
         private Contexto contexto = new Contexto();
+        private List<Livro> livrosPublicados = new List<Livro>();
 
         public void Criar(Livro livro)
         {
@@ -31,6 +32,36 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
                     ObterPorGenero = x.Genero
                 })
                 .ToList();
+        }
+
+        public dynamic ListarLivrosPaginados(int quantidadePular, int quantidadeTrazer)
+        {
+            livrosPublicados = contexto.Livros.ToList();
+
+            var livrosPaginados = livrosPublicados
+                .Select(x => new
+                {
+                    Isbn = x.Isbn,
+                    Titulo = x.Titulo,
+                    Capa = x.Capa,
+                    NomeAutor = x.Autor,
+                    Genero = x.Genero
+                })
+                .OrderBy(a => a.Isbn)
+                .Skip(quantidadePular)
+                .Take(quantidadeTrazer)
+                .ToList();
+
+            return new
+            {
+                livros = livrosPaginados.ToList(),
+                quantidadeTotal = QuantidadeLivrosPublicados()
+            };
+        }
+
+        public int QuantidadeLivrosPublicados()
+        {
+            return livrosPublicados.Count();
         }
 
         public Livro ObterLivro(int isbn)
