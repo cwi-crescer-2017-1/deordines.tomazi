@@ -2,7 +2,10 @@
 using EditoraCrescer.Infraestrutura;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.SqlServer;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 
 namespace EditoraCrescer.Infraestrutura.Repositorios
@@ -14,15 +17,16 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
 
         public void Criar(Livro livro)
         {
-            //livro.DataPublicacao = DateTime.Now;
-            //livro.DataRevisao = DateTime.Now;
             contexto.Livros.Add(livro);
             contexto.SaveChanges();
         }
 
-        public dynamic Listar()
+        public dynamic ListarTodosOsLivros()
         {
+            var data = DateTime.Now.AddDays(-7);
+
             return contexto.Livros
+                .Where(livro => livro.DataPublicacao < data)
                 .Select(x => new
                 {
                     Isbn = x.Isbn,
@@ -34,9 +38,29 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
                 .ToList();
         }
 
-        public dynamic ListarLivrosPaginados(int quantidadePular, int quantidadeTrazer)
+        public dynamic ListarTodosOsLancamentos()
         {
-            livrosPublicados = contexto.Livros.ToList();
+            var data = DateTime.Now.AddDays(-7);
+
+            return contexto.Livros
+                .Where(livro => livro.DataPublicacao > data)
+                .Select(x => new
+                {
+                    Isbn = x.Isbn,
+                    Titulo = x.Titulo,
+                    Capa = x.Capa,
+                    NomeAutor = x.Autor,
+                    ObterPorGenero = x.Genero
+                })
+                .ToList();
+        }
+
+        public dynamic ListarLivrosPaginadosExcetoLancamentos(int quantidadePular, int quantidadeTrazer)
+        {
+            var data = DateTime.Now.AddDays(-7);
+            livrosPublicados = contexto.Livros
+                .Where(livro => livro.DataPublicacao != null && livro.DataPublicacao < data)
+                .ToList();
 
             var livrosPaginados = livrosPublicados
                 .Select(x => new
@@ -55,24 +79,18 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
             return new
             {
                 livros = livrosPaginados.ToList(),
-                quantidadeTotal = QuantidadeLivrosPublicados()
+                quantidadeTotal = Quantidade(livrosPublicados)
             };
         }
 
-        public int QuantidadeLivrosPublicados()
+        public dynamic ListarLivrosPaginadosPorLancamento(int quantidadePular, int quantidadeTrazer)
         {
-            return livrosPublicados.Count();
-        }
+            var data = DateTime.Now.AddDays(-7);
+            livrosPublicados = contexto.Livros
+                .Where(livro => livro.DataPublicacao != null && livro.DataPublicacao > data)
+                .ToList();
 
-        public Livro ObterLivro(int isbn)
-        {
-            return contexto.Livros.FirstOrDefault(x => x.Isbn == isbn);
-        }
-
-        public dynamic ObterPorGenero(string genero)
-        {
-            return contexto.Livros
-                .Where(x => x.Genero.Contains(genero))
+            var livrosPaginados = livrosPublicados
                 .Select(x => new
                 {
                     Isbn = x.Isbn,
@@ -81,14 +99,32 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
                     NomeAutor = x.Autor,
                     ObterPorGenero = x.Genero
                 })
+                .OrderBy(livro => livro.Isbn)
+                .Skip(quantidadePular)
+                .Take(quantidadeTrazer)
                 .ToList();
+
+            return new
+            {
+                livros = livrosPaginados.ToList(),
+                quantidadeTotal = Quantidade(livrosPublicados)
+            };
         }
 
-        public dynamic ObterPorLancamento()
+        public int Quantidade(List<Livro> livro)
+        {
+            return livro.Count();
+        }
+
+        public Livro ObterLivro(int isbn)
+        {
+            return contexto.Livros.Include("Autor").FirstOrDefault(x => x.Isbn == isbn);
+        }
+
+        public dynamic ObterPorGenero(string genero)
         {
             return contexto.Livros
-                //.Where(x => (DateTime.Now - x.DataPublicacao).TotalDays <= 7)
-                .Where(x => System.Data.Entity.SqlServer.SqlFunctions.DateDiff("day", x.DataPublicacao, DateTime.Now) <= 7)
+                .Where(x => x.Genero.Contains(genero))
                 .Select(x => new
                 {
                     Isbn = x.Isbn,

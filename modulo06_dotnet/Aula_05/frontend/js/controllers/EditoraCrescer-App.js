@@ -1,10 +1,18 @@
-var modulo = angular.module('EditoraCrescer-App', ['ngRoute', 'ui.bootstrap']);
+var modulo = angular.module('EditoraCrescer-App', ['ngRoute', 'auth', 'ui.bootstrap']);
 
 modulo.config(function ($routeProvider) {
     $routeProvider
-        .when('/templates/home', {
+        .when('/home', {
             controller: 'LivrosController',
             templateUrl: '/templates/home.html'
         })
-        .otherwise('/templates/home');
+        .when('/detalhamento/:isbn', {
+            controller: 'DetalhamentoController',
+            templateUrl: '/templates/detalhamento.html'
+        })
+        .when('/administrativo', {
+            controller: 'AdministrativoController',
+            templateUrl: '/templates/administrativo.html'
+        })
+        .otherwise('/home');
 });

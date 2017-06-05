@@ -1,29 +1,37 @@
-modulo.controller('LivrosController', function ($scope, $http, livroService) {
-    $scope.myInterval = 3000;
-    $scope.livros = [];
-    listarLivros();
+modulo.controller('LivrosController', function ($scope, livroService) {
+    $scope.lancamentos = [];
+    $scope.livrosFiltrados = [];
+    $scope.detalhes = [];
+    $scope.currentPage = 1;
+    $scope.numPerPage = 12;
+    $scope.maxSize = 5;
 
-    $scope.parametros = {
-        quantidadeTrazer: 5,
-        quantidadePular: 0
-    };
+    $scope.lancamentos = listarLancamentos();
 
-    $scope.buscar = function(parametros) {
-        $http({
-            url: 'http://localhost:65018/api/livros',
-            method: 'GET',
-            params: parametros
-        })
-        .then(response => {
-            $scope.livros = response.data.dados
-        })
+    function listarLancamentos() {
+        livroService
+            .listarLancamentos()
+            .then(response => {
+                console.log(response.data.dados);
+                $scope.lancamentos = response.data.dados;
+            })
     }
 
-    function listarLivros() {
+    // https://stackoverflow.com/questions/10816073/how-to-do-paging-in-angularjs
+    $scope.listarLivros = function() {
+        $scope.livros = [];
         livroService
             .listarLivros()
             .then(response => {
+                console.log(response);
                 $scope.livros = response.data.dados;
+                $scope.quantidadeTotal = $scope.livros.length;
             })
     }
+    $scope.listarLivros();
+  
+    $scope.$watch('currentPage + numPerPage', function() {
+        var begin = (($scope.currentPage - 1) * $scope.numPerPage), end = begin + $scope.numPerPage;
+        $scope.livrosFiltrados = $scope.livros.slice(begin, end);
+    });
 });

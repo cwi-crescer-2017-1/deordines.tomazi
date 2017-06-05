@@ -22,16 +22,30 @@ namespace EditoraCrescer.Api.Controllers
         [HttpGet]
         public IHttpActionResult ListarLivros()
         {
-            var obterLivros = _livroRepositorio.Listar();
-            _livroRepositorio.Dispose();
+            var obterLivros = _livroRepositorio.ListarTodosOsLivros();
+            return Ok(new { dados = obterLivros });
+        }
+
+        [HttpGet]
+        [Route("lancamentos")]
+        public IHttpActionResult ListarLancamentos()
+        {
+            var obterLivros = _livroRepositorio.ListarTodosOsLancamentos();
             return Ok(new { dados = obterLivros });
         }
 
         [HttpGet]
         public IHttpActionResult ListarLivrosPaginados(int quantidadePular, int quantidadeTrazer)
         {
-            var obterLivros = _livroRepositorio.ListarLivrosPaginados(quantidadePular, quantidadeTrazer);
-            _livroRepositorio.Dispose();
+            var obterLivros = _livroRepositorio.ListarLivrosPaginadosExcetoLancamentos(quantidadePular, quantidadeTrazer);
+            return Ok(new { dados = obterLivros });
+        }
+
+        [HttpGet]
+        [Route("lancamentos")]
+        public IHttpActionResult ListarLancamentosPaginados(int quantidadePular, int quantidadeTrazer)
+        {
+            var obterLivros = _livroRepositorio.ListarLivrosPaginadosPorLancamento(quantidadePular, quantidadeTrazer);
             return Ok(new { dados = obterLivros });
         }
 
@@ -45,17 +59,9 @@ namespace EditoraCrescer.Api.Controllers
 
         [HttpGet]
         [Route("{genero}")]
-        public IHttpActionResult ObterPorGenero(string genero)
+        public IHttpActionResult ListarPorGenero(string genero)
         {
             var obterLivros = _livroRepositorio.ObterPorGenero(genero);
-            return Ok(new { dados = obterLivros });
-        }
-
-        [HttpGet]
-        [Route("lancamentos")]
-        public IHttpActionResult ObterPorLancamento()
-        {
-            var obterLivros = _livroRepositorio.ObterPorLancamento();
             return Ok(new { dados = obterLivros });
         }
 
@@ -68,10 +74,11 @@ namespace EditoraCrescer.Api.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult CriarLivro(Livro livro)
+        public IHttpActionResult CriarLivro(Livro[] livros)
         {
-            _livroRepositorio.Criar(livro);
-            return Ok(new { dados = livro });
+            foreach (var livro in livros)
+                _livroRepositorio.Criar(livro);
+            return Ok(new { dados = livros });
         }
 
         [HttpDelete]
