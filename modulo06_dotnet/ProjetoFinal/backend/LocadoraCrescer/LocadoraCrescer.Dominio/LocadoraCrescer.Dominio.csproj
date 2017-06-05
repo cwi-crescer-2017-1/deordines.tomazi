@@ -40,11 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidades\Cliente.cs" />
+    <Compile Include="Entidades\Cargo.cs" />
+    <Compile Include="Entidades\Extra.cs" />
+    <Compile Include="Entidades\Genero.cs" />
+    <Compile Include="Entidades\Locacao.cs" />
+    <Compile Include="Entidades\Pacote.cs" />
+    <Compile Include="Entidades\Console.cs" />
+    <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entidades\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraCrescer.Dominio.Entidades
 {
-    public class Extras
+    public class Extra
     {
         public int Id { get; set; }
         public string Nome { get; set; }
