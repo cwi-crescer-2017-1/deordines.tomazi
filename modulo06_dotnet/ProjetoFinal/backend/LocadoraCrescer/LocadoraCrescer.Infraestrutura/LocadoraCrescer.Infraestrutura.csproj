@@ -49,15 +49,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contexto.cs" />
+    <Compile Include="Mappings\ExtraMap.cs" />
+    <Compile Include="Mappings\UsuarioMap.cs" />
+    <Compile Include="Mappings\ProdutoConsoleMap.cs" />
+    <Compile Include="Mappings\PacoteMap.cs" />
+    <Compile Include="Mappings\LocacaoMap.cs" />
+    <Compile Include="Mappings\ClienteMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Mapping\" />
     <Folder Include="Repositorios\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LocadoraCrescer.Dominio\LocadoraCrescer.Dominio.csproj">
+      <Project>{0A3F2192-4E70-489E-9E97-91FB2CE35FE8}</Project>
+      <Name>LocadoraCrescer.Dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
