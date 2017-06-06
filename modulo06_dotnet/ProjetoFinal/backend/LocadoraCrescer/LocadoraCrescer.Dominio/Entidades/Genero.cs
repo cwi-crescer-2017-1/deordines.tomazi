@@ -8,6 +8,8 @@ namespace LocadoraCrescer.Dominio.Entidades
 {
     public enum Genero : byte
     {
-        NaoInformado = 0, Feminino = 1, Masculino = 2
+        NAOINFORMADO = 0,
+        FEMININO = 1,
+        MASCULINO = 2
     }
 }

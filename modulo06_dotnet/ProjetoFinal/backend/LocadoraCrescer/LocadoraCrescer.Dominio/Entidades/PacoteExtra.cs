@@ -8,9 +8,9 @@ namespace LocadoraCrescer.Dominio.Entidades
 {
     public class PacoteExtra
     {
-        public int PacoteExtraId { get; set; }
-        public int PacoteId { get; set; }
-        public int ExtraId { get; set; }
+        public int Id { get; set; }
+        public Pacote Pacote { get; set; }
+        public Extra Extra { get; set; }
         public int Quantidade { get; set; }
     }
 }

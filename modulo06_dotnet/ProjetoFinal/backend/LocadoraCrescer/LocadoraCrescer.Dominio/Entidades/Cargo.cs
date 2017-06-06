@@ -8,6 +8,6 @@ namespace LocadoraCrescer.Dominio.Entidades
 {
     public enum Cargo : byte
     {
-        Funcionario = 0, Gerente = 1
+        FUNCiONARIO = 0, GERENTE = 1
     }
 }

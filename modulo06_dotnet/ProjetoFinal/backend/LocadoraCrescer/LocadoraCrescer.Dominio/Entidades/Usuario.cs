@@ -13,5 +13,7 @@ namespace LocadoraCrescer.Dominio.Entidades
         public string Email { get; set; }
         public string Senha { get; set; }
         public Cargo Cargo { get; set; }
+
+        protected Usuario() { }
     }
 }

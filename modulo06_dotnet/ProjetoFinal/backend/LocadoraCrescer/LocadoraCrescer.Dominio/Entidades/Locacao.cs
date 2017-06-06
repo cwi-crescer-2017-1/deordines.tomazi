@@ -12,11 +12,13 @@ namespace LocadoraCrescer.Dominio.Entidades
         public Usuario Usuario { get; set; }
         public Cliente Cliente { get; set; }
         public ProdutoConsole ProdutoConsole { get; set; }
-        public List<Extra> Itens { get; set; }
+        public PacoteExtra PacoteExtra { get; set; }
         public DateTime DataPedido { get; set; }
         public DateTime DataEntrega { get; set; }
         public DateTime? DataDevolucao { get; set; }
         public decimal ValorPrevisto { get; set; }
         public decimal ValorFinal { get; set; }
+
+        protected Locacao() { }
     }
 }

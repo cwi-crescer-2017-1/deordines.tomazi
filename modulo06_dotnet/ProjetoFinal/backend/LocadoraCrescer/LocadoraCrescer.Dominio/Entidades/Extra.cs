@@ -12,5 +12,7 @@ namespace LocadoraCrescer.Dominio.Entidades
         public string Nome { get; set; }
         public decimal Valor { get; set; }
         public int Estoque { get; set; }
+
+        protected Extra() { }
     }
 }
