@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace LocadoraCrescer.Infraestrutura.Mappings
 {
-    class ClienteMap : EntityTypeConfiguration<Cliente>
+    class UsuarioMap : EntityTypeConfiguration<Usuario>
     {
-        public ClienteMap()
+        public UsuarioMap()
         {
-            ToTable("Cliente");
+            // Somente criar a tabela
+            ToTable("Usuario");
         }
     }
 }

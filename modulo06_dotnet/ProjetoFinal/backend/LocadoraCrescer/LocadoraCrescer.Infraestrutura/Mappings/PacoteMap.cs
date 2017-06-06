@@ -13,6 +13,15 @@ namespace LocadoraCrescer.Infraestrutura.Mappings
         public PacoteMap()
         {
             ToTable("Pacote");
+
+            HasMany(x => x.Itens)
+                .WithMany()
+                .Map(x =>
+                {
+                    x.MapLeftKey("PacoteId");
+                    x.MapRightKey("ExtraId");
+                    x.ToTable("ExtraPAcote");
+                });
         }
     }
 }

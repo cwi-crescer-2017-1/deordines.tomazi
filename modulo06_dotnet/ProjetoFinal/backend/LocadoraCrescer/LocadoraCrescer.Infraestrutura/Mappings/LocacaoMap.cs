@@ -13,6 +13,16 @@ namespace LocadoraCrescer.Infraestrutura.Mappings
         public LocacaoMap()
         {
             ToTable("Locacao");
+
+            // http://www.entityframeworktutorial.net/code-first/configure-many-to-many-relationship-in-code-first.aspx
+            HasMany(x => x.Itens)
+                .WithMany()
+                .Map(x =>
+                {
+                    x.MapLeftKey("LocacaoId");
+                    x.MapRightKey("ExtraId");
+                    x.ToTable("ExtraLocacao");
+                });
         }
     }
 }
