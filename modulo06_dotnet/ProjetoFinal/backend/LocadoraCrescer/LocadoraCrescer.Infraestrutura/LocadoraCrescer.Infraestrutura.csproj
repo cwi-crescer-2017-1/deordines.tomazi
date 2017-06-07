@@ -64,7 +64,10 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\ExtraRepositorio.cs" />
     <Compile Include="Repositorios\ClienteRepositorio.cs" />
+    <Compile Include="Repositorios\LocacaoRepositorio.cs" />
+    <Compile Include="Repositorios\ProdutoConsoleRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706070032235_CriacaoDatabase.resx">
