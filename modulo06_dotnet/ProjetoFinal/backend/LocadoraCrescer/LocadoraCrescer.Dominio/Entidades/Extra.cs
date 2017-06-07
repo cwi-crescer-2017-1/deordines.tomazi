@@ -21,5 +21,20 @@ namespace LocadoraCrescer.Dominio.Entidades
             Valor = valor;
             Estoque = estoque;
         }
+
+        public void Alugar(int quantidade)
+        {
+            Estoque -= quantidade;
+        }
+
+        public void Devolver(int quantidade)
+        {
+            Estoque += quantidade;
+        }
+
+        public bool ValidarEstoque()
+        {
+            return Estoque > 0;
+        }
     }
 }
