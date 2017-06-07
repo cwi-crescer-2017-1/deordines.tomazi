@@ -12,5 +12,14 @@ namespace LocadoraCrescer.Dominio.Entidades
         public Locacao Locacao { get; set; }
         public Extra Extra { get; set; }
         public int Quantidade { get; set; }
+
+        protected LocacaoExtra() { }
+
+        public LocacaoExtra(Locacao locacao, Extra extra, int quantidade)
+        {
+            Locacao = locacao;
+            Extra = extra;
+            Quantidade = quantidade;
+        }
     }
 }

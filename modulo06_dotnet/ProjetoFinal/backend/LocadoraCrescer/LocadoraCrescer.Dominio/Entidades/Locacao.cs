@@ -20,5 +20,13 @@ namespace LocadoraCrescer.Dominio.Entidades
         public decimal ValorFinal { get; set; }
 
         protected Locacao() { }
+
+        public Locacao(Usuario usuario, Cliente cliente, ProdutoConsole produto, PacoteExtra pacote)
+        {
+            Usuario = usuario;
+            Cliente = cliente;
+            ProdutoConsole = produto;
+            PacoteExtra = pacote;
+        }
     }
 }

@@ -12,5 +12,14 @@ namespace LocadoraCrescer.Dominio.Entidades
         public Pacote Pacote { get; set; }
         public Extra Extra { get; set; }
         public int Quantidade { get; set; }
+
+        protected PacoteExtra() { }
+
+        public PacoteExtra(Pacote pacote, Extra extra, int quantidade)
+        {
+            Pacote = pacote;
+            Extra = extra;
+            Quantidade = quantidade;
+        }
     }
 }

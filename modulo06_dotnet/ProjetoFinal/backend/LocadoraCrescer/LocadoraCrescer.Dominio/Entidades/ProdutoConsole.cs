@@ -14,5 +14,12 @@ namespace LocadoraCrescer.Dominio.Entidades
         public int Estoque { get; set; }
 
         protected ProdutoConsole() { }
+
+        public ProdutoConsole(string nome, decimal valor, int estoque)
+        {
+            Nome = nome;
+            Valor = valor;
+            Estoque = estoque;
+        }
     }
 }

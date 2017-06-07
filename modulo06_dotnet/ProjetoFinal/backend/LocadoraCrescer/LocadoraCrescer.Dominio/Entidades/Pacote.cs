@@ -14,5 +14,12 @@ namespace LocadoraCrescer.Dominio.Entidades
         public int QuantidadeDias { get; set; }
 
         protected Pacote() { }
+
+        public Pacote(string nome, PacoteExtra pacoteExtra, int quantidadeDias)
+        {
+            Nome = nome;
+            PacoteExtra = pacoteExtra;
+            QuantidadeDias = quantidadeDias;
+        }
     }
 }
