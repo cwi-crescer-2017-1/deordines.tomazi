@@ -26,7 +26,6 @@ namespace LocadoraCrescer.Infraestrutura.Mappings
                 .WithMany()
                 .Map(x => x.MapKey("IdExtra"))
                 .WillCascadeOnDelete(false);
-
         }
     }
 }

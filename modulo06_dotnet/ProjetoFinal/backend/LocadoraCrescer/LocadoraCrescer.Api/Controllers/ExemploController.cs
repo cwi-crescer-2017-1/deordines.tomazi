@@ -1,11 +1,11 @@
-﻿using AutDemo.Dominio.Entidades;
+﻿using LocadoraCrescer.Dominio.Entidades;
 using System;
 using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Web.Http;
 
-namespace AutDemo.WebApi.Controllers
+namespace LocadoraCrescer.WebApi.Controllers
 {
 
     public class ExemploController : ControllerBasica

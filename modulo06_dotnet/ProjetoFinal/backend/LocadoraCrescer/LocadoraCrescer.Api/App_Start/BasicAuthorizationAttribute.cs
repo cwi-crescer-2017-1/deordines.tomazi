@@ -1,5 +1,5 @@
-﻿using AutDemo.Dominio.Entidades;
-using AutDemo.Infraestrutura.Repositorios;
+﻿using LocadoraCrescer.Infraestrutura.Repositorios;
+using LocadoraCrescer.Dominio.Entidades;
 using System;
 using System.Linq;
 using System.Net;
@@ -12,15 +12,15 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 
-namespace AutDemo.WebApi
+namespace LocadoraCrescer.WebApi
 {
     public class BasicAuthorization : AuthorizeAttribute
     {
-        readonly UsuarioRepositorio _usuarioRepositorio;
+        readonly UsuarioRepositorio repositorio;
 
         public BasicAuthorization()
         {
-            _usuarioRepositorio = new UsuarioRepositorio();
+            repositorio = new UsuarioRepositorio();
         }
 
         public override void OnAuthorization(HttpActionContext actionContext)
@@ -92,7 +92,7 @@ namespace AutDemo.WebApi
         {
             usuarioRetorno = null;
 
-            var usuario = _usuarioRepositorio.Obter(login);
+            var usuario = repositorio.Obter(login);
 
             if (usuario != null && usuario.ValidarSenha(senha))
                 usuarioRetorno = usuario;

@@ -43,12 +43,14 @@
   <ItemGroup>
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Cargo.cs" />
+    <Compile Include="Entidades\EntidadeBasica.cs" />
     <Compile Include="Entidades\Extra.cs" />
     <Compile Include="Entidades\PacoteExtra.cs" />
     <Compile Include="Entidades\LocacaoExtra.cs" />
     <Compile Include="Entidades\Genero.cs" />
     <Compile Include="Entidades\Locacao.cs" />
     <Compile Include="Entidades\Pacote.cs" />
+    <Compile Include="Entidades\Permissao.cs" />
     <Compile Include="Entidades\ProdutoConsole.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

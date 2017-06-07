@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AutDemo.Dominio.Entidades
+namespace LocadoraCrescer.Dominio.Entidades
 {
     public abstract class EntidadeBasica
     {

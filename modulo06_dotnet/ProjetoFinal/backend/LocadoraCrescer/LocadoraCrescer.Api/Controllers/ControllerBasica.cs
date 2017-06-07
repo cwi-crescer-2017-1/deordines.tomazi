@@ -1,6 +1,6 @@
-﻿using AutDemo.Dominio.Entidades;
-using AutDemo.Infraestrutura.Repositorios;
-using AutDemo.WebApi.Models;
+﻿using LocadoraCrescer.Dominio.Entidades;
+using LocadoraCrescer.Infraestrutura.Repositorios;
+//using LocadoraCrescer.WebApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace AutDemo.WebApi.Controllers
+namespace LocadoraCrescer.WebApi.Controllers
 {
     public class ControllerBasica : ApiController
     {

@@ -50,17 +50,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexto.cs" />
-    <Compile Include="Mappings\LocacaoExtraMap.cs" />
-    <Compile Include="Mappings\PacoteExtraMap.cs" />
+    <Compile Include="Mappings\Tabelas N pra N\LocacaoExtraMap.cs" />
+    <Compile Include="Mappings\Tabelas N pra N\PacoteExtraMap.cs" />
     <Compile Include="Mappings\Tabelas Simples\ExtraMap.cs" />
+    <Compile Include="Mappings\Tabelas Simples\PermissaoMap.cs" />
     <Compile Include="Mappings\Tabelas Simples\UsuarioMap.cs" />
     <Compile Include="Mappings\Tabelas Simples\ProdutoConsoleMap.cs" />
-    <Compile Include="Mappings\PacoteMap.cs" />
-    <Compile Include="Mappings\LocacaoMap.cs" />
+    <Compile Include="Mappings\Tabelas Simples\PacoteMap.cs" />
+    <Compile Include="Mappings\Tabelas Simples\LocacaoMap.cs" />
     <Compile Include="Mappings\Tabelas Simples\ClienteMap.cs" />
-    <Compile Include="Migrations\201706070032235_CriacaoDatabase.cs" />
-    <Compile Include="Migrations\201706070032235_CriacaoDatabase.Designer.cs">
-      <DependentUpon>201706070032235_CriacaoDatabase.cs</DependentUpon>
+    <Compile Include="Migrations\201706072046169_CriacaoDatabase.cs" />
+    <Compile Include="Migrations\201706072046169_CriacaoDatabase.Designer.cs">
+      <DependentUpon>201706072046169_CriacaoDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,11 +69,7 @@
     <Compile Include="Repositorios\ClienteRepositorio.cs" />
     <Compile Include="Repositorios\LocacaoRepositorio.cs" />
     <Compile Include="Repositorios\ProdutoConsoleRepositorio.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706070032235_CriacaoDatabase.resx">
-      <DependentUpon>201706070032235_CriacaoDatabase.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="Repositorios\UsuarioRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -83,6 +80,11 @@
       <Project>{0A3F2192-4E70-489E-9E97-91FB2CE35FE8}</Project>
       <Name>LocadoraCrescer.Dominio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706072046169_CriacaoDatabase.resx">
+      <DependentUpon>201706072046169_CriacaoDatabase.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

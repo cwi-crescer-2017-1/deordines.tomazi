@@ -24,6 +24,7 @@ namespace LocadoraCrescer.Infraestrutura
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<LocacaoExtra> LocacaoExtra { get; set; }
         public DbSet<PacoteExtra> PacoteExtra { get; set; }
+        public DbSet<Permissao> Permissao { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -35,6 +36,7 @@ namespace LocadoraCrescer.Infraestrutura
             modelBuilder.Configurations.Add(new UsuarioMap());
             modelBuilder.Configurations.Add(new LocacaoExtraMap());
             modelBuilder.Configurations.Add(new PacoteExtraMap());
+            modelBuilder.Configurations.Add(new PermissaoMap());
             // base.OnModelCreating(modelBuilder);
         }
 

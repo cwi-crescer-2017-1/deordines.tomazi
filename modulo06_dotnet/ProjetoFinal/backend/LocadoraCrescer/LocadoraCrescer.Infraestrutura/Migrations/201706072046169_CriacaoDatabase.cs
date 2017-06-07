@@ -13,7 +13,7 @@ namespace LocadoraCrescer.Infraestrutura.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Nome = c.String(),
-                        CPF = c.Long(nullable: false),
+                        CPF = c.String(),
                         DataNascimento = c.DateTime(nullable: false),
                         Endereco = c.String(),
                         Genero = c.Byte(nullable: false),
@@ -44,7 +44,7 @@ namespace LocadoraCrescer.Infraestrutura.Migrations
                         IdCliente = c.Int(nullable: false),
                         IdPacoteExtra = c.Int(nullable: false),
                         IdProdutoConsole = c.Int(nullable: false),
-                        IdUsuario = c.Int(nullable: false),
+                        IdUsuario = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Cliente", t => t.IdCliente, cascadeDelete: true)
@@ -99,10 +99,19 @@ namespace LocadoraCrescer.Infraestrutura.Migrations
                 "dbo.Usuario",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Guid(nullable: false),
                         Nome = c.String(),
                         Senha = c.String(),
                         Email = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Permissao",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Nome = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -121,6 +130,19 @@ namespace LocadoraCrescer.Infraestrutura.Migrations
                 .Index(t => t.IdExtra)
                 .Index(t => t.IdLocacao);
             
+            CreateTable(
+                "dbo.UsuarioPermissao",
+                c => new
+                    {
+                        IdUsuario = c.Guid(nullable: false),
+                        IdPermissao = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.IdUsuario, t.IdPermissao })
+                .ForeignKey("dbo.Usuario", t => t.IdUsuario, cascadeDelete: true)
+                .ForeignKey("dbo.Permissao", t => t.IdPermissao, cascadeDelete: true)
+                .Index(t => t.IdUsuario)
+                .Index(t => t.IdPermissao);
+            
         }
         
         public override void Down()
@@ -128,12 +150,16 @@ namespace LocadoraCrescer.Infraestrutura.Migrations
             DropForeignKey("dbo.LocacaoExtra", "IdLocacao", "dbo.Locacao");
             DropForeignKey("dbo.LocacaoExtra", "IdExtra", "dbo.Extra");
             DropForeignKey("dbo.Locacao", "IdUsuario", "dbo.Usuario");
+            DropForeignKey("dbo.UsuarioPermissao", "IdPermissao", "dbo.Permissao");
+            DropForeignKey("dbo.UsuarioPermissao", "IdUsuario", "dbo.Usuario");
             DropForeignKey("dbo.Locacao", "IdProdutoConsole", "dbo.ProdutoConsole");
             DropForeignKey("dbo.Locacao", "IdPacoteExtra", "dbo.PacoteExtra");
             DropForeignKey("dbo.PacoteExtra", "IdPacote", "dbo.Pacote");
             DropForeignKey("dbo.Pacote", "PacoteExtra_Id", "dbo.PacoteExtra");
             DropForeignKey("dbo.PacoteExtra", "IdExtra", "dbo.Extra");
             DropForeignKey("dbo.Locacao", "IdCliente", "dbo.Cliente");
+            DropIndex("dbo.UsuarioPermissao", new[] { "IdPermissao" });
+            DropIndex("dbo.UsuarioPermissao", new[] { "IdUsuario" });
             DropIndex("dbo.LocacaoExtra", new[] { "IdLocacao" });
             DropIndex("dbo.LocacaoExtra", new[] { "IdExtra" });
             DropIndex("dbo.Pacote", new[] { "PacoteExtra_Id" });
@@ -143,7 +169,9 @@ namespace LocadoraCrescer.Infraestrutura.Migrations
             DropIndex("dbo.Locacao", new[] { "IdProdutoConsole" });
             DropIndex("dbo.Locacao", new[] { "IdPacoteExtra" });
             DropIndex("dbo.Locacao", new[] { "IdCliente" });
+            DropTable("dbo.UsuarioPermissao");
             DropTable("dbo.LocacaoExtra");
+            DropTable("dbo.Permissao");
             DropTable("dbo.Usuario");
             DropTable("dbo.ProdutoConsole");
             DropTable("dbo.Pacote");

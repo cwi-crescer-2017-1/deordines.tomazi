@@ -21,7 +21,6 @@ namespace LocadoraCrescer.Infraestrutura.Mappings
                 .Map(x => x.MapKey("IdLocacao"))
                 .WillCascadeOnDelete(false);
 
-
             HasRequired(x => x.Extra)
                 .WithMany()
                 .Map(x => x.MapKey("IdExtra"))

@@ -1,35 +1,37 @@
-﻿using AutDemo.Dominio.Entidades;
-using AutDemo.Infraestrutura.Repositorios;
-using AutDemo.Infraestrutura.Servicos;
-using AutDemo.WebApi.Models;
+﻿using LocadoraCrescer.Dominio.Entidades;
+using LocadoraCrescer.Infraestrutura.Repositorios;
+using LocadoraCrescer.WebApi.Models;
+//using LocadoraCrescer.Infraestrutura.Servicos;
+//using LocadoraCrescer.WebApi.Models;
 using System.Net.Http;
 using System.Threading;
 using System.Web.Http;
 
-namespace AutDemo.WebApi.Controllers
+namespace LocadoraCrescer.WebApi.Controllers
 {
     // Permite usuário não autenticados acessarem a controller
     [AllowAnonymous]
     [RoutePrefix("api/acessos")]
     public class UsuarioController : ControllerBasica
     {
-        readonly UsuarioRepositorio _usuarioRepositorio;
+        readonly UsuarioRepositorio repositorio;
 
         public UsuarioController()
         {
-            _usuarioRepositorio = new UsuarioRepositorio();
+            repositorio = new UsuarioRepositorio();
         }
 
         [HttpPost, Route("registrar")]
         public HttpResponseMessage Registrar([FromBody]RegistrarUsuarioModel model)
         {
-            if (_usuarioRepositorio.Obter(model.Email) == null)
+            if (repositorio.Obter(model.Email) == null)
             {
-                var usuario = new Usuario(model.Nome, model.Email, model.Senha);
+                var usuario = new Usuario(model.Nome, model.Senha, model.Email, model.Permissao);
 
                 if (usuario.Validar())
                 {
-                    _usuarioRepositorio.Criar(usuario);
+                    usuario.ValidarSenha(model.Senha);
+                    repositorio.Criar(usuario);
                 }
                 else
                 {
@@ -44,25 +46,25 @@ namespace AutDemo.WebApi.Controllers
             return ResponderOK();
         }
 
-        [HttpPost, Route("resetarsenha")]
-        public HttpResponseMessage ResetarSenha(string email)
-        {
-            var usuario = _usuarioRepositorio.Obter(email);
-            if (usuario == null)
-                return ResponderErro(new string[] { "Usuário não encontrado." });
+        //[HttpPost, Route("resetarsenha")]
+        //public HttpResponseMessage ResetarSenha(string email)
+        //{
+        //    var usuario = repositorio.Obter(email);
+        //    if (usuario == null)
+        //        return ResponderErro(new string[] { "Usuário não encontrado." });
 
-            var novaSenha = usuario.ResetarSenha();
+        //    var novaSenha = usuario.ResetarSenha();
 
-            if (usuario.Validar())
-            {
-                _usuarioRepositorio.Alterar(usuario);
-                // EmailService.Enviar(usuario.Email, "Crescer 2017-1", $"Olá! sua senha foi alterada para: {novaSenha}");
-            }
-            else
-                return ResponderErro(usuario.Mensagens);
+        //    if (usuario.Validar())
+        //    {
+        //        repositorio.Alterar(usuario);
+        //        // EmailService.Enviar(usuario.Email, "Crescer 2017-1", $"Olá! sua senha foi alterada para: {novaSenha}");
+        //    }
+        //    else
+        //        return ResponderErro(usuario.Mensagens);
 
-            return ResponderOK();
-        }
+        //    return ResponderOK();
+        //}
 
         // Exige que o usuário se autentique
         [BasicAuthorization]
@@ -70,7 +72,7 @@ namespace AutDemo.WebApi.Controllers
         public HttpResponseMessage Obter()
         {
             // só pode obter as informações do usuário corrente (logado, autenticado)
-            var usuario = _usuarioRepositorio.Obter(Thread.CurrentPrincipal.Identity.Name);
+            var usuario = repositorio.Obter(Thread.CurrentPrincipal.Identity.Name);
 
             if (usuario == null)
                 return ResponderErro("Usuário não encontrado.");
