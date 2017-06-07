@@ -58,15 +58,18 @@
     <Compile Include="Mappings\PacoteMap.cs" />
     <Compile Include="Mappings\LocacaoMap.cs" />
     <Compile Include="Mappings\Tabelas Simples\ClienteMap.cs" />
-    <Compile Include="Migrations\201706062010216_CriacaoDatabase.cs" />
-    <Compile Include="Migrations\201706062010216_CriacaoDatabase.Designer.cs">
-      <DependentUpon>201706062010216_CriacaoDatabase.cs</DependentUpon>
+    <Compile Include="Migrations\201706070032235_CriacaoDatabase.cs" />
+    <Compile Include="Migrations\201706070032235_CriacaoDatabase.Designer.cs">
+      <DependentUpon>201706070032235_CriacaoDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\ClienteRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Repositorios\" />
+    <EmbeddedResource Include="Migrations\201706070032235_CriacaoDatabase.resx">
+      <DependentUpon>201706070032235_CriacaoDatabase.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -77,11 +80,6 @@
       <Project>{0A3F2192-4E70-489E-9E97-91FB2CE35FE8}</Project>
       <Name>LocadoraCrescer.Dominio</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706062010216_CriacaoDatabase.resx">
-      <DependentUpon>201706062010216_CriacaoDatabase.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

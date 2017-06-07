@@ -12,11 +12,11 @@ namespace LocadoraCrescer.Infraestrutura.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Nome = c.Int(nullable: false),
-                        Endereco = c.String(),
+                        Nome = c.String(),
                         CPF = c.Long(nullable: false),
-                        Genero = c.Byte(nullable: false),
                         DataNascimento = c.DateTime(nullable: false),
+                        Endereco = c.String(),
+                        Genero = c.Byte(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -101,9 +101,8 @@ namespace LocadoraCrescer.Infraestrutura.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Nome = c.String(),
-                        Email = c.String(),
                         Senha = c.String(),
-                        Cargo = c.Byte(nullable: false),
+                        Email = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             

@@ -100,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -116,8 +117,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LocadoraCrescer.Dominio\LocadoraCrescer.Dominio.csproj">
+      <Project>{0A3F2192-4E70-489E-9E97-91FB2CE35FE8}</Project>
+      <Name>LocadoraCrescer.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LocadoraCrescer.Infraestrutura\LocadoraCrescer.Infraestrutura.csproj">
+      <Project>{CA755665-A4C1-4206-B6E9-6832158D74E1}</Project>
+      <Name>LocadoraCrescer.Infraestrutura</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
