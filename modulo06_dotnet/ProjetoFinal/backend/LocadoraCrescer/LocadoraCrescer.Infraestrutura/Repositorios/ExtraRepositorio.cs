@@ -11,14 +11,13 @@ namespace LocadoraCrescer.Infraestrutura.Repositorios
     {
         private Contexto contexto = new Contexto();
 
-        public void Criar(string nome, decimal valor, int estoque)
+        public void Criar(Extra extra)
         {
             /*{
                 "Nome": "Nome Item",
                 "Valor": 9.99,
                 "Estoque": 10
             }*/
-            var extra = new Extra(nome, valor, estoque);
             contexto.Extra.Add(extra);
             contexto.SaveChanges();
         }
@@ -43,7 +42,7 @@ namespace LocadoraCrescer.Infraestrutura.Repositorios
 
         public Extra Devolver(Extra extra, int quantidade)
         {
-            extra.Alugar(quantidade);
+            extra.Devolver(quantidade);
             contexto.Entry(extra).State = System.Data.Entity.EntityState.Modified;
             contexto.SaveChanges();
             return extra;

@@ -13,8 +13,7 @@ namespace LocadoraCrescer.Infraestrutura.Repositorios
 
         public void Criar(ProdutoConsole produto)
         {
-            var produtoConsole = new ProdutoConsole(produto.Nome, produto.Valor, produto.Estoque);
-            contexto.ProdutoConsole.Add(produtoConsole);
+            contexto.ProdutoConsole.Add(produto);
             contexto.SaveChanges();
         }
 
