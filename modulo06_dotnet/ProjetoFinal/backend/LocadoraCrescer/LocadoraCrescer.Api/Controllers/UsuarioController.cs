@@ -26,7 +26,7 @@ namespace LocadoraCrescer.WebApi.Controllers
         {
             if (repositorio.Obter(model.Email) == null)
             {
-                var usuario = new Usuario(model.Nome, model.Senha, model.Email, model.Permissao);
+                var usuario = new Usuario(model.Nome, model.Senha, model.Email);
 
                 if (usuario.Validar())
                 {
