@@ -16,6 +16,26 @@
 
 --------------------------------------------------------------------
 
+Listar
+
 <ul ng-repeat="produto in produtos">
     <li>{{ produto.Id}} - {{ produto.Nome }} - {{ produto.Valor }} - {{ produto.Estoque }}</li>
+</ul>
+
+--------------------------------------------------------------------
+
+Alugar
+
+<ul ng-repeat="produto in produtos">
+    <li>{{ produto.Id}} - {{ produto.Nome }} - {{ produto.Valor }} - {{ produto.Estoque }}</li>
+    <button type="submit" class="btn btn-default" ng-click="alugar(produto.Id)">Alugar</button>
+</ul>
+
+--------------------------------------------------------------------
+
+Devolver
+
+<ul ng-repeat="produto in produtos">
+    <li>{{ produto.Id}} - {{ produto.Nome }} - {{ produto.Valor }} - {{ produto.Estoque }}</li>
+    <button type="submit" class="btn btn-default" ng-click="devolver(produto.Id)">Devolver</button>
 </ul>

@@ -16,14 +16,28 @@
 
 --------------------------------------------------------------------
 
+Listar
+
 <ul ng-repeat="extra in extras">
     <li>{{ extra.Id}} - {{ extra.Nome }} - {{ extra.Valor }} - {{ extra.Estoque }}</li>
 </ul>
 
 --------------------------------------------------------------------
 
+Alugar
+
 <ul ng-repeat="extra in extras">
     <li>{{ extra.Id}} - {{ extra.Nome }} - {{ extra.Valor }} - {{ extra.Estoque }}</li>
-    <input type="number" ng-model="alugar.Quantidade" placeholder="Quantidade">
-    <button type="submit" class="btn btn-default" ng-click="alugar(extra.Id, alugar.Quantidade)">Alugar</button>
+    <input type="number" ng-model="extra.Quantidade" placeholder="Quantidade">
+    <button type="submit" class="btn btn-default" ng-click="alugar(extra)">Alugar</button>
+</ul>
+
+--------------------------------------------------------------------
+
+Devolver
+
+<ul ng-repeat="extra in extras">
+    <li>{{ extra.Id}} - {{ extra.Nome }} - {{ extra.Valor }} - {{ extra.Estoque }}</li>
+    <input type="number" ng-model="extra.Quantidade" placeholder="Quantidade">
+    <button type="submit" class="btn btn-default" ng-click="devolver(extra)">Devolver</button>
 </ul>
