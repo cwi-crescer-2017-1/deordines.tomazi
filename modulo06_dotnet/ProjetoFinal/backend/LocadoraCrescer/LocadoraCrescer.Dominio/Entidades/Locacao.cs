@@ -8,25 +8,28 @@ namespace LocadoraCrescer.Dominio.Entidades
 {
     public class Locacao
     {
-        public int Id { get; set; }
-        public Usuario Usuario { get; set; }
-        public Cliente Cliente { get; set; }
-        public ProdutoConsole ProdutoConsole { get; set; }
-        public PacoteExtra PacoteExtra { get; set; }
-        public DateTime DataPedido { get; set; }
-        public DateTime DataEntrega { get; set; }
-        public DateTime? DataDevolucao { get; set; }
-        public decimal ValorPrevisto { get; set; }
-        public decimal ValorFinal { get; set; }
+        public int Id { get; private set; }
+        public Usuario Usuario { get; private set; }
+        public Cliente Cliente { get; private set; }
+        public ProdutoConsole ProdutoConsole { get; private set; }
+        public Pacote Pacote { get; private set; }
+        //public Extra Extra { get; set; }
+        //public PacoteExtra PacoteExtra { get; private set; 
+        public DateTime DataPedido { get; private set; }
+        public DateTime DataEntrega { get; private set; }
+        public DateTime? DataDevolucao { get; private set; }
+        public decimal ValorPrevisto { get; private set; }
+        public decimal ValorFinal { get; private set; }
 
         protected Locacao() { }
 
-        public Locacao(Usuario usuario, Cliente cliente, ProdutoConsole produto, PacoteExtra pacote)
+        public Locacao(Usuario usuario, Cliente cliente, ProdutoConsole produto, Pacote pacote/*PacoteExtra pacote*/)
         {
             Usuario = usuario;
             Cliente = cliente;
             ProdutoConsole = produto;
-            PacoteExtra = pacote;
+            Pacote = pacote;
+            //PacoteExtra = pacote;
         }
     }
 }
