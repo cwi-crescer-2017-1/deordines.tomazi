@@ -15,8 +15,26 @@ modulo.factory('produtoService', function($http) {
         });
     }
 
+    function alugar(id) {
+        return $http({
+            url: `${url}/alugar/${id}`,
+            method: 'PUT',
+            data: id
+        });
+    }
+
+    function devolver(id) {
+        return $http({
+            url: `${url}/devolver/${id}`,
+            method: 'PUT',
+            data: id
+        });
+    }
+
     return ({
         listar: listar,
-        criar: criar
+        criar: criar,
+        alugar: alugar,
+        devolver: devolver
     })
 })

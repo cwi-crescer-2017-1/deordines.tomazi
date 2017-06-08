@@ -3,8 +3,12 @@ modulo.controller('produtosController', function($scope, produtoService) {
     $scope.produtos = {};
 
     $scope.criar = criar;
-    $scope.listar = listar;    
-    
+    $scope.listar = listar;
+    $scope.alugar = alugar;
+    $scope.devolver = devolver;
+
+    $scope.produto = {};
+
     $scope.produtos = listar();
     
     function criar(novoProduto) {
@@ -21,6 +25,24 @@ modulo.controller('produtosController', function($scope, produtoService) {
             .then(response => {
                 console.log(response.data.dados);
                 $scope.produtos = response.data.dados;
+            })
+    }
+
+    function alugar(id) {
+        produtoService
+            .alugar(id)
+            .then(response => {
+                listar();
+                console.log(response.data.dados);
+            })
+    }
+
+    function devolver(id) {
+        produtoService
+            .devolver(id)
+            .then(response => {
+                listar();
+                console.log(response.data.dados);
             })
     }
 })

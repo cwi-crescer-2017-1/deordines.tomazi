@@ -15,18 +15,27 @@ modulo.factory('extraService', function($http) {
         });
     }
 
-    function alugar(id, quantidade) {
+    function alugar(extra) {
         debugger;
         return $http({
-            url: `${url}/alugar/${id}`,
+            url: `${url}/alugar`,
             method: 'PUT',
-            data: quantidade
+            data: extra
+        });
+    }
+
+    function devolver(extra) {
+        return $http({
+            url: `${url}/devolver`,
+            method: 'PUT',
+            data: extra
         });
     }
 
     return ({
         listar: listar,
         criar: criar,
-        alugar: alugar
+        alugar: alugar,
+        devolver: devolver
     })
 })

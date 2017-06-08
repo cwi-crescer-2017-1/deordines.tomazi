@@ -5,6 +5,9 @@ modulo.controller('extrasController', function($scope, extraService) {
     $scope.criar = criar;
     $scope.listar = listar;
     $scope.alugar = alugar;
+    $scope.devolver = devolver;
+
+    $scope.extra = {};
 
     $scope.extras = listar();
     
@@ -25,11 +28,21 @@ modulo.controller('extrasController', function($scope, extraService) {
             })
     }
 
-    function alugar(id, quantidade) {
+    function alugar(extra) {
         extraService
-        .alugar(id, quantidade)
-        .the(response => {
-            console.log(response.data.dados);
-        })
+            .alugar(extra)
+            .then(response => {
+                listar();
+                console.log(response.data.dados);
+            })
+    }
+
+    function devolver(extra) {
+        extraService
+            .devolver(extra)
+            .then(response => {
+                listar();
+                console.log(response.data.dados);
+            })
     }
 })

@@ -8,6 +8,8 @@ modulo.controller('clientesController', function($scope, clienteService) {
     $scope.clientes = listar();
     
     function criar(cliente) {
+        cliente.dataNascimento = new Date(cliente.dataNascimento).toLocaleString();
+        debugger;
         clienteService
             .criar(cliente)
             .then(response => {
