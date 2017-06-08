@@ -1,0 +1,21 @@
+<form ng-submit="criar(novoProduto)">
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome" ng-model="novoProduto.nome" placeholder="Nome">
+    </div>
+    <div class="form-group">
+        <label for="valor">Valor</label>
+        <input type="text" class="form-control" id="valor" ng-model="novoProduto.valor" placeholder="Valor">
+    </div>
+    <div class="form-group">
+        <label for="estoque">Estoque</label>
+        <input type="text" class="form-control" id="estoque" ng-model="novoProduto.estoque" placeholder="Estoque">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+--------------------------------------------------------------------
+
+<ul ng-repeat="produto in produtos">
+    <li>{{ produto.Id}} - {{ produto.Nome }} - {{ produto.Valor }} - {{ produto.Estoque }}</li>
+</ul>
