@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace LocadoraCrescer.Infraestrutura.Repositorios
 {
-    class LocacaoRepositorio
+    public class LocacaoRepositorio
     {
+        public object Listar()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
