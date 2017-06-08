@@ -20,7 +20,7 @@ namespace LocadoraCrescer.Dominio.Entidades
 
         protected Usuario() { }
 
-        public Usuario(string nome, string senha, string email, string[] permissoes)
+        public Usuario(string nome, string senha, string email)
         {
             Id = Guid.NewGuid();
 
@@ -31,7 +31,7 @@ namespace LocadoraCrescer.Dominio.Entidades
                 Senha = CriptografarSenha(senha);
 
             Permissoes = new List<Permissao>();
-            AtribuirPermissoes(permissoes);
+            AtribuirPermissoes("Colaborador");
         }
 
         public string ResetarSenha()
