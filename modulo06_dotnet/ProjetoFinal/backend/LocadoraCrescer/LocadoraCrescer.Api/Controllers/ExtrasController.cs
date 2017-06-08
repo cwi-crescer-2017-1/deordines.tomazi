@@ -1,4 +1,5 @@
-﻿using LocadoraCrescer.Dominio.Entidades;
+﻿using LocadoraCrescer.Api.Models;
+using LocadoraCrescer.Dominio.Entidades;
 using LocadoraCrescer.Infraestrutura.Repositorios;
 using System;
 using System.Collections.Generic;
@@ -29,33 +30,35 @@ namespace LocadoraCrescer.Api.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult Criar(Extra extra)
+        [Route("registrar")]
+        public IHttpActionResult Criar([FromBody]CriarExtraModel model)
         {
-            repositorio.Criar(extra.Nome, extra.Valor, extra.Estoque);
+            var extra = new Extra(model.Nome, model.Valor, model.Estoque);
+            repositorio.Criar(extra);
             return Ok(new { dados = extra });
         }
 
         [HttpPut]
         [Route("alugar/{id}")]
-        public IHttpActionResult Alugar(int id, int quantidade)
+        public IHttpActionResult Alugar(int id, [FromBody]AlterarQuantidadeExtra model)
         {
             var extra = repositorio.BuscarPorId(id);
 
             if (!extra.ValidarEstoque())
                 return BadRequest();
 
-            repositorio.Alugar(extra, quantidade);
+            repositorio.Alugar(extra, model.Quantidade);
 
             return Ok(new { dados = extra });
         }
 
         [HttpPut]
         [Route("devolver/{id}")]
-        public IHttpActionResult Devolver(int id, int quantidade)
+        public IHttpActionResult Devolver(int id, [FromBody]AlterarQuantidadeExtra model)
         {
             var extra = repositorio.BuscarPorId(id);
 
-            repositorio.Devolver(extra, quantidade);
+            repositorio.Devolver(extra, model.Quantidade);
 
             return Ok(new { dados = extra });
         }

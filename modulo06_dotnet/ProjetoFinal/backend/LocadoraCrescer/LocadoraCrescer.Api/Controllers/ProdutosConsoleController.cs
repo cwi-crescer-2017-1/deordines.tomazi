@@ -1,4 +1,5 @@
-﻿using LocadoraCrescer.Dominio.Entidades;
+﻿using LocadoraCrescer.Api.Models;
+using LocadoraCrescer.Dominio.Entidades;
 using LocadoraCrescer.Infraestrutura.Repositorios;
 using System;
 using System.Collections.Generic;
@@ -28,9 +29,10 @@ namespace LocadoraCrescer.Api.Controllers
             return Ok(new { dados = produtosConsole });
         }
 
-        [HttpPost]
-        public IHttpActionResult Criar(ProdutoConsole produto)
+        [HttpPost, Route("registrar")]
+        public IHttpActionResult Criar([FromBody]CriarProdutoModel model)
         {
+            var produto = new ProdutoConsole(model.Nome, model.Valor, model.Estoque);
             repositorio.Criar(produto);
             return Ok(new { dados = produto });
         }

@@ -1,7 +1,9 @@
-﻿using LocadoraCrescer.Dominio.Entidades;
+﻿using LocadoraCrescer.Api.Models;
+using LocadoraCrescer.Dominio.Entidades;
 using LocadoraCrescer.Infraestrutura.Repositorios;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -21,11 +23,12 @@ namespace LocadoraCrescer.Api.Controllers
             return Ok(new { dados = clientes });
         }
 
-        [HttpPost]
-        public IHttpActionResult Criar(Cliente cliente)
+        [HttpPost, Route("registrar")]
+        public IHttpActionResult Criar([FromBody]CriarClienteModel model)
         {
-            repositorio.Criar(cliente.Nome, cliente.CPF, cliente.DataNascimento, cliente.Endereco, cliente.Genero);
-            return Ok(new { dados = cliente });
+            var cliente = new Cliente(model.Nome, model.CPF, model.DataNascimento, model.Endereco, model.Genero);
+            repositorio.Criar(cliente);
+            return Ok(new { dados = model });
         }
     }
 }
