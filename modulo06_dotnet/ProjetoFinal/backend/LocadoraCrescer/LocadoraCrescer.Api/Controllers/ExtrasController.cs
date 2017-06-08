@@ -39,10 +39,10 @@ namespace LocadoraCrescer.Api.Controllers
         }
 
         [HttpPut]
-        [Route("alugar/{id}")]
-        public IHttpActionResult Alugar(int id, [FromBody]AlterarQuantidadeExtra model)
+        [Route("alugar")]
+        public IHttpActionResult Alugar([FromBody]AlterarQuantidade model)
         {
-            var extra = repositorio.BuscarPorId(id);
+            var extra = repositorio.BuscarPorId(model.Id);
 
             if (!extra.ValidarEstoque())
                 return BadRequest();
@@ -53,10 +53,10 @@ namespace LocadoraCrescer.Api.Controllers
         }
 
         [HttpPut]
-        [Route("devolver/{id}")]
-        public IHttpActionResult Devolver(int id, [FromBody]AlterarQuantidadeExtra model)
+        [Route("devolver")]
+        public IHttpActionResult Devolver([FromBody]AlterarQuantidade model)
         {
-            var extra = repositorio.BuscarPorId(id);
+            var extra = repositorio.BuscarPorId(model.Id);
 
             repositorio.Devolver(extra, model.Quantidade);
 
