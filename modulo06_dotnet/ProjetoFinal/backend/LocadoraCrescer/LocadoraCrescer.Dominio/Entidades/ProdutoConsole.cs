@@ -9,9 +9,9 @@ namespace LocadoraCrescer.Dominio.Entidades
     public class ProdutoConsole
     {
         public int Id { get; set; }
-        public string Nome { get; set; }
-        public decimal Valor { get; set; }
-        public int Estoque { get; set; }
+        public string Nome { get; private set; }
+        public decimal Valor { get; private set; }
+        public int Estoque { get; private set; }
 
         protected ProdutoConsole() { }
 
