@@ -25,7 +25,5 @@ namespace LocadoraCrescer.Dominio.Entidades
             Endereco = endereco;
             Genero = genero;
         }
-
-        
     }
 }
