@@ -36,9 +36,13 @@ namespace LocadoraCrescer.Infraestrutura.Mappings
                 .WithMany()
                 .Map(x => x.MapKey("IdProdutoConsole"));
 
-            HasRequired(x => x.PacoteExtra)
+            //HasRequired(x => x.PacoteExtra)
+            //    .WithMany()
+            //    .Map(x => x.MapKey("IdPacoteExtra"));
+
+            HasRequired(x => x.Pacote)
                 .WithMany()
-                .Map(x => x.MapKey("IdPacoteExtra"));
+                .Map(x => x.MapKey("IdPacote"));
         }
     }
 }
