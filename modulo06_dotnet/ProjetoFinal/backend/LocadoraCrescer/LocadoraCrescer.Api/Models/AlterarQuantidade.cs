@@ -5,8 +5,9 @@ using System.Web;
 
 namespace LocadoraCrescer.Api.Models
 {
-    public class AlterarQuantidadeExtra
+    public class AlterarQuantidade
     {
+        public int Id { get; set; }
         public int Quantidade { get; set; }
     }
 }
