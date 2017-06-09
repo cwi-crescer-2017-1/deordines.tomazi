@@ -1,6 +1,7 @@
 ﻿using LocadoraCrescer.Api.Models;
 using LocadoraCrescer.Dominio.Entidades;
 using LocadoraCrescer.Infraestrutura.Repositorios;
+using LocadoraCrescer.WebApi;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
