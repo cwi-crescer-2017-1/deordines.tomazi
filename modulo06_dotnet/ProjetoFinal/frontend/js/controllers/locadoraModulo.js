@@ -14,5 +14,9 @@ modulo.config(function ($routeProvider) {
         controller: 'extrasController',
         templateUrl: '/templates/extra.html'
     })
+    .when('/locacao', {
+        controller: 'locacaoController',
+        templateUrl: '/templates/locacao.html'
+    })
 })
 
