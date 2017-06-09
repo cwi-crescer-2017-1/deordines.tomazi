@@ -15,14 +15,14 @@ namespace LocadoraCrescer.Infraestrutura.Mappings
             // Somente criar a tabela
             ToTable("Usuario");
 
-            HasMany(x => x.Permissoes)
-                .WithMany()
-                .Map(x =>
-                {
-                    x.MapLeftKey("IdUsuario");
-                    x.MapRightKey("IdPermissao");
-                    x.ToTable("UsuarioPermissao");
-                });
+            //HasMany(x => x.Permissoes)
+            //    .WithMany()
+            //    .Map(x =>
+            //    {
+            //        x.MapLeftKey("IdUsuario");
+            //        x.MapRightKey("IdPermissao");
+            //        x.ToTable("UsuarioPermissao");
+            //    });
         }
     }
 }
