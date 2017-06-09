@@ -107,14 +107,17 @@
     <Compile Include="Controllers\ExemploController.cs" />
     <Compile Include="Controllers\ExtrasController.cs" />
     <Compile Include="Controllers\LocacaoController.cs" />
+    <Compile Include="Controllers\PacotesController.cs" />
     <Compile Include="Controllers\ProdutosConsoleController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AlterarQuantidadeExtra.cs" />
+    <Compile Include="Models\AlterarQuantidade.cs" />
     <Compile Include="Models\CriarClienteModel.cs" />
     <Compile Include="Models\CriarExtraModel.cs" />
+    <Compile Include="Models\CriarLocacaoModel.cs" />
+    <Compile Include="Models\CriarPacoteModel.cs" />
     <Compile Include="Models\CriarProdutoModel.cs" />
     <Compile Include="Models\RegistrarUsuarioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
