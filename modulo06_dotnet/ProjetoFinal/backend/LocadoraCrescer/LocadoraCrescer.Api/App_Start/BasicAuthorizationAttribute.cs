@@ -51,7 +51,9 @@ namespace LocadoraCrescer.WebApi
                 Usuario usuario = null;
                 if (ValidarUsuario(userNameAndPassword[0], userNameAndPassword[1], out usuario))
                 {
-                    string[] papeis = usuario.Permissoes.Select(papel => papel.Nome).ToArray();
+                    //string[] permissao = usuario.Permissao;
+                    //string[] papeis = usuario.Permissao.Select(papel => papel.Nome).ToArray();
+                    string[] papeis = new string[5];
                     var identidade = new GenericIdentity(usuario.Email);
                     var genericUser = new GenericPrincipal(identidade, papeis);
 
