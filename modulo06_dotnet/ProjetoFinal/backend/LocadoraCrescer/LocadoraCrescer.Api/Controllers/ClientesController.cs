@@ -12,11 +12,13 @@ using System.Web.Http;
 
 namespace LocadoraCrescer.Api.Controllers
 {
+    [BasicAuthorization]
     [RoutePrefix("api/clientes")]
     public class ClientesController : ApiController
     {
         private ClienteRepositorio repositorio = new ClienteRepositorio();
 
+        [Authorize(Roles = "funcionario")]
         [HttpGet]
         public IHttpActionResult Listar()
         {
@@ -24,6 +26,7 @@ namespace LocadoraCrescer.Api.Controllers
             return Ok(new { dados = clientes });
         }
 
+        [Authorize(Roles = "funcionario")]
         [HttpPost, Route("registrar")]
         public IHttpActionResult Criar([FromBody]CriarClienteModel model)
         {

@@ -1,6 +1,7 @@
 ﻿using LocadoraCrescer.Api.Models;
 using LocadoraCrescer.Dominio.Entidades;
 using LocadoraCrescer.Infraestrutura.Repositorios;
+using LocadoraCrescer.WebApi;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,13 @@ using System.Web.Http;
 
 namespace LocadoraCrescer.Api.Controllers
 {
+    [BasicAuthorization]
     [RoutePrefix("api/pacotes")]
     public class PacotesController : ApiController
     {
         private PacoteRepositorio repositorio = new PacoteRepositorio();
 
+        [Authorize(Roles = "gerente")]
         [HttpGet]
         public IHttpActionResult Listar()
         {
@@ -22,6 +25,7 @@ namespace LocadoraCrescer.Api.Controllers
             return Ok(new { dados = pacotes });
         }
 
+        [Authorize(Roles = "gerente")]
         [HttpPost, Route("registrar")]
         public IHttpActionResult Criar([FromBody]CriarPacoteModel model)
         {

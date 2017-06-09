@@ -36,7 +36,7 @@ modulo.config(function ($routeProvider) {
     })
     .when('/extra', {
         controller: 'extrasController',
-        templateUrl: '/templates/extra.html'
+        templateUrl: '/templates/extra.html',
     })
     .when('/locacao', {
         controller: 'locacaoController',

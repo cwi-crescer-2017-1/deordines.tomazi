@@ -1,6 +1,7 @@
 ﻿using LocadoraCrescer.Api.Models;
 using LocadoraCrescer.Dominio.Entidades;
 using LocadoraCrescer.Infraestrutura.Repositorios;
+using LocadoraCrescer.WebApi;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,13 @@ using System.Web.Http;
 
 namespace LocadoraCrescer.Api.Controllers
 {
+    [BasicAuthorization]
     [RoutePrefix("api/produtosConsole")]
     public class ProdutosConsoleController : ApiController
     {
         private ProdutoConsoleRepositorio repositorio = new ProdutoConsoleRepositorio();
 
+        [Authorize(Roles = "funcionario")]
         [HttpGet]
         public IHttpActionResult Listar()
         {
@@ -22,6 +25,7 @@ namespace LocadoraCrescer.Api.Controllers
             return Ok(new { dados = produtosConsole });
         }
 
+        [Authorize(Roles = "funcionario")]
         [HttpGet]
         public IHttpActionResult BuscarPorId(int id)
         {
@@ -29,6 +33,7 @@ namespace LocadoraCrescer.Api.Controllers
             return Ok(new { dados = produtosConsole });
         }
 
+        [Authorize(Roles = "gerente")]
         [HttpPost, Route("registrar")]
         public IHttpActionResult Criar([FromBody]CriarProdutoModel model)
         {
@@ -37,6 +42,7 @@ namespace LocadoraCrescer.Api.Controllers
             return Ok(new { dados = produto });
         }
 
+        [Authorize(Roles = "funcionario")]
         [HttpPut]
         [Route("alugar/{id}")]
         public IHttpActionResult Alugar(int id)
@@ -51,6 +57,7 @@ namespace LocadoraCrescer.Api.Controllers
             return Ok(new { dados = produtoConsole });
         }
 
+        [Authorize(Roles = "funcionario")]
         [HttpPut]
         [Route("devolver/{id}")]
         public IHttpActionResult Devolver(int id)
