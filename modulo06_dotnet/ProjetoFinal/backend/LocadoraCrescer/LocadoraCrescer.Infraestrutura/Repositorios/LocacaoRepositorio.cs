@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LocadoraCrescer.Dominio.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,17 @@ namespace LocadoraCrescer.Infraestrutura.Repositorios
 {
     public class LocacaoRepositorio
     {
-        public object Listar()
+        private Contexto contexto = new Contexto();
+
+        public void Criar(Locacao locacao)
         {
-            throw new NotImplementedException();
+            contexto.Locacao.Add(locacao);
+            contexto.SaveChanges();
+        }
+
+        public List<Locacao> Listar()
+        {
+            return contexto.Locacao.ToList();
         }
     }
 }
