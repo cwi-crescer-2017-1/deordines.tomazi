@@ -14,7 +14,6 @@ namespace LocadoraCrescer.Api.Controllers
     public class LocacaoController : ApiController
     {
         private LocacaoRepositorio repositorioLocacao = new LocacaoRepositorio();
-        private UsuarioRepositorio repositorioUsuario = new UsuarioRepositorio();
         private ClienteRepositorio repositorioCliente = new ClienteRepositorio();
         private ProdutoConsoleRepositorio repositorioProduto = new ProdutoConsoleRepositorio();
         private PacoteRepositorio repositorioPacote = new PacoteRepositorio();
@@ -26,11 +25,19 @@ namespace LocadoraCrescer.Api.Controllers
             return Ok(new { dados = locacao });
         }
 
+        //[Authorize(Roles = "funcionario")]
         [HttpPost]
         public IHttpActionResult Criar([FromBody]CriarLocacaoModel model)
         {
-            var locacao = new Locacao(model.Usuario, model.Cliente, model.ProdutoConsole, model.Pacote);
+            var cliente = repositorioCliente.BuscarPorId(model.IdCliente);
+            var produto = repositorioProduto.BuscarPorId(model.IdProdutoConsole);
+            var pacote = repositorioPacote.BuscarPorId(model.IdPacote);
+            var locacao = new Locacao(cliente, produto, pacote);
+            repositorioLocacao.Criar(locacao);
             return Ok(new { dados = locacao });
         }
+
+        //[HttpPut]
+        //public IHttpActionResult
     }
 }

@@ -9,7 +9,7 @@ namespace LocadoraCrescer.Dominio.Entidades
     public class Locacao
     {
         public int Id { get; private set; }
-        public Usuario Usuario { get; private set; }
+        //public Usuario Usuario { get; private set; }
         public Cliente Cliente { get; private set; }
         public ProdutoConsole ProdutoConsole { get; private set; }
         public Pacote Pacote { get; private set; }
@@ -19,17 +19,18 @@ namespace LocadoraCrescer.Dominio.Entidades
         public DateTime DataEntrega { get; private set; }
         public DateTime? DataDevolucao { get; private set; }
         public decimal ValorPrevisto { get; private set; }
-        public decimal ValorFinal { get; private set; }
+        public decimal? ValorFinal { get; private set; }
 
         protected Locacao() { }
 
-        public Locacao(Usuario usuario, Cliente cliente, ProdutoConsole produto, Pacote pacote/*PacoteExtra pacote*/)
+        public Locacao(Cliente cliente, ProdutoConsole produto, Pacote pacote)
         {
-            Usuario = usuario;
             Cliente = cliente;
             ProdutoConsole = produto;
             Pacote = pacote;
-            //PacoteExtra = pacote;
+            DataPedido = DateTime.Now;
+            DataEntrega = DateTime.Now.AddDays(pacote.QuantidadeDias);
+            ValorPrevisto = produto.Valor + pacote.Valor;
         }
     }
 }

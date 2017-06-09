@@ -8,10 +8,9 @@ namespace LocadoraCrescer.Api.Models
 {
     public class CriarLocacaoModel
     {
-        public Usuario Usuario { get; set; }
-        public Cliente Cliente { get; set; }
-        public ProdutoConsole ProdutoConsole { get; set; }
-        public Pacote Pacote { get; set; }
+        public int IdCliente { get; set; }
+        public int IdProdutoConsole { get; set; }
+        public int IdPacote { get; set; }
         //public PacoteExtra PacoteExtra { get; set; }
         public DateTime DataPedido { get; set; }
     }
