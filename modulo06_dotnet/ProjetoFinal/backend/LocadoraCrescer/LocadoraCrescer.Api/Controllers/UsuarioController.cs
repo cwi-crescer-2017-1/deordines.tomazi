@@ -26,7 +26,7 @@ namespace LocadoraCrescer.WebApi.Controllers
         {
             if (repositorio.Obter(model.Email) == null)
             {
-                var usuario = new Usuario(model.Nome, model.Senha, model.Email);
+                var usuario = new Usuario(model.Nome, model.Senha, model.Email, model.Permissao);
 
                 if (usuario.Validar())
                 {
@@ -77,7 +77,7 @@ namespace LocadoraCrescer.WebApi.Controllers
             if (usuario == null)
                 return ResponderErro("Usuário não encontrado.");
 
-            return ResponderOK(new { usuario.Nome, usuario.Permissoes, usuario.Email });
+            return ResponderOK(new { dados = usuario.Nome, usuario.Permissao, usuario.Email });
         }
     }
 }

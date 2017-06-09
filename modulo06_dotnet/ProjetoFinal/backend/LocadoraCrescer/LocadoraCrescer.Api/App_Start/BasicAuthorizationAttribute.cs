@@ -53,7 +53,8 @@ namespace LocadoraCrescer.WebApi
                 {
                     //string[] permissao = usuario.Permissao;
                     //string[] papeis = usuario.Permissao.Select(papel => papel.Nome).ToArray();
-                    string[] papeis = new string[5];
+                    string[] papeis = new string[1];
+                    papeis[0] = usuario.Permissao.ToString();
                     var identidade = new GenericIdentity(usuario.Email);
                     var genericUser = new GenericPrincipal(identidade, papeis);
 
