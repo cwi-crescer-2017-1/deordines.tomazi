@@ -13,7 +13,7 @@ namespace LocadoraCrescer.Infraestrutura.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201706082259519_CriacaoDatabase"; }
+            get { return "201706090810110_CriacaoDatabase"; }
         }
         
         string IMigrationMetadata.Source
