@@ -21,5 +21,10 @@ namespace LocadoraCrescer.Infraestrutura.Repositorios
         {
             return contexto.Pacote.ToList();
         }
+
+        public Pacote BuscarPorId(int id)
+        {
+            return Listar().FirstOrDefault(x => x.Id == id);
+        }
     }
 }
