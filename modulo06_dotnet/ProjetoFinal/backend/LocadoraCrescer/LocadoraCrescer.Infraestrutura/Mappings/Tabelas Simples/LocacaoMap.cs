@@ -24,9 +24,9 @@ namespace LocadoraCrescer.Infraestrutura.Mappings
             //        x.ToTable("ExtraLocacao");
             //    });
 
-            HasRequired(x => x.Usuario)
-                .WithMany()
-                .Map(x => x.MapKey("IdUsuario"));
+            //HasRequired(x => x.Usuario)
+            //    .WithMany()
+            //    .Map(x => x.MapKey("IdUsuario"));
 
             HasRequired(x => x.Cliente)
                 .WithMany()
