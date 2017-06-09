@@ -8,17 +8,21 @@ namespace LocadoraCrescer.Dominio.Entidades
 {
     public class Pacote
     {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public PacoteExtra PacoteExtra { get; set; }
-        public int QuantidadeDias { get; set; }
+        public int Id { get; private set; }
+        public string Nome { get; private set; }
+        public string Descricao { get; private set; }
+        //public PacoteExtra PacoteExtra { get; private set; }
+        public decimal Valor { get; private set; }
+        public int QuantidadeDias { get; private set; }
 
         protected Pacote() { }
 
-        public Pacote(string nome, PacoteExtra pacoteExtra, int quantidadeDias)
+        public Pacote(string nome, string descricao, decimal valor, /*PacoteExtra pacoteExtra,*/ int quantidadeDias)
         {
             Nome = nome;
-            PacoteExtra = pacoteExtra;
+            Descricao = descricao;
+            Valor = valor;
+            //PacoteExtra = pacoteExtra;
             QuantidadeDias = quantidadeDias;
         }
     }

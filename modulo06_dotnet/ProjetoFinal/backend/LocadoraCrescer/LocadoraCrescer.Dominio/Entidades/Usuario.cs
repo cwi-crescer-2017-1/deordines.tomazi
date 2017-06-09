@@ -16,11 +16,11 @@ namespace LocadoraCrescer.Dominio.Entidades
         public string Nome { get; private set; }
         public string Senha { get; private set; }
         public string Email { get; private set; }
-        public List<Permissao> Permissoes { get; private set; }
+        public string Permissao { get; private set; }
 
         protected Usuario() { }
 
-        public Usuario(string nome, string senha, string email)
+        public Usuario(string nome, string senha, string email, string permissao)
         {
             Id = Guid.NewGuid();
 
@@ -30,8 +30,9 @@ namespace LocadoraCrescer.Dominio.Entidades
             if (!string.IsNullOrWhiteSpace(senha))
                 Senha = CriptografarSenha(senha);
 
-            Permissoes = new List<Permissao>();
-            AtribuirPermissoes("Colaborador");
+            Permissao = permissao;
+            //Permissoes = new List<Permissao>();
+            //AtribuirPermissoes("Colaborador");
         }
 
         public string ResetarSenha()
@@ -64,11 +65,11 @@ namespace LocadoraCrescer.Dominio.Entidades
             return CriptografarSenha(senha) == Senha;
         }
 
-        public void AtribuirPermissoes(params string[] nomes)
-        {
-            foreach (var nome in nomes)
-                Permissoes.Add(new Permissao(nome));
-        }
+        //public void AtribuirPermissoes(params string[] nomes)
+        //{
+        //    foreach (var nome in nomes)
+        //        Permissoes.Add(new Permissao(nome));
+        //}
 
         public override bool Validar()
         {
