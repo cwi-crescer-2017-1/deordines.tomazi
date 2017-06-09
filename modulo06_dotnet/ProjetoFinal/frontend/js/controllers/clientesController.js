@@ -1,5 +1,6 @@
-modulo.controller('clientesController', function($scope, clienteService) {
+modulo.controller('clientesController', function($scope, clienteService, authService) {
 
+    $scope.auth = authService;
     $scope.clientes = [];
 
     $scope.criar = criar;
