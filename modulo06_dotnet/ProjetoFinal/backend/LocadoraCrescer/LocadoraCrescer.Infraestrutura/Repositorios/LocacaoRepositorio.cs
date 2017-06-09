@@ -13,6 +13,9 @@ namespace LocadoraCrescer.Infraestrutura.Repositorios
 
         public void Criar(Locacao locacao)
         {
+            contexto.Entry(locacao.Cliente).State = System.Data.Entity.EntityState.Unchanged;
+            contexto.Entry(locacao.Pacote).State = System.Data.Entity.EntityState.Unchanged;
+            contexto.Entry(locacao.ProdutoConsole).State = System.Data.Entity.EntityState.Unchanged;
             contexto.Locacao.Add(locacao);
             contexto.SaveChanges();
         }
