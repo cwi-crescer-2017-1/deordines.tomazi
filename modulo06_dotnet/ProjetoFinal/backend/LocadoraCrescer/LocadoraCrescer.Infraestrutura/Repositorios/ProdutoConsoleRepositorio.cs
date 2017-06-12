@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraCrescer.Infraestrutura.Repositorios
 {
-    public class ProdutoConsoleRepositorio
+    public class ProdutoConsoleRepositorio : IDisposable
     {
         private Contexto contexto = new Contexto();
 
@@ -41,6 +41,11 @@ namespace LocadoraCrescer.Infraestrutura.Repositorios
             contexto.Entry(produto).State = System.Data.Entity.EntityState.Modified;
             contexto.SaveChanges();
             return produto;
+        }
+
+        public void Dispose()
+        {
+            contexto.Dispose();
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraCrescer.Infraestrutura.Repositorios
 {
-    public class UsuarioRepositorio
+    public class UsuarioRepositorio : IDisposable
     {
         private Contexto contexto = new Contexto();
 
@@ -37,6 +37,11 @@ namespace LocadoraCrescer.Infraestrutura.Repositorios
         public Usuario Obter(string email)
         {
             return contexto.Usuario.FirstOrDefault(x => x.Email.Equals(email));
+        }
+
+        public void Dispose()
+        {
+            contexto.Dispose();
         }
     }
 }

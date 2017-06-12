@@ -13,7 +13,7 @@ namespace LocadoraCrescer.Api.Controllers
 {
     [BasicAuthorization]
     [RoutePrefix("api/produtosConsole")]
-    public class ProdutosConsoleController : ApiController
+    public class ProdutosConsoleController : ApiController, IDisposable
     {
         private ProdutoConsoleRepositorio repositorio = new ProdutoConsoleRepositorio();
 
@@ -67,6 +67,12 @@ namespace LocadoraCrescer.Api.Controllers
             repositorio.Devolver(produtoConsole);
 
             return Ok(new { dados = produtoConsole });
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            repositorio.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

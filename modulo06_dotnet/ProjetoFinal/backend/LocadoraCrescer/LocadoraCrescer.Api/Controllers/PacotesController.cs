@@ -13,11 +13,11 @@ namespace LocadoraCrescer.Api.Controllers
 {
     [BasicAuthorization]
     [RoutePrefix("api/pacotes")]
-    public class PacotesController : ApiController
+    public class PacotesController : ApiController, IDisposable
     {
         private PacoteRepositorio repositorio = new PacoteRepositorio();
 
-        [Authorize(Roles = "gerente")]
+        [Authorize(Roles = "funcionario")]
         [HttpGet]
         public IHttpActionResult Listar()
         {
@@ -32,6 +32,12 @@ namespace LocadoraCrescer.Api.Controllers
             var pacote = new Pacote(model.Nome, model.Descricao, model.Valor, model.QuantidadeDias);
             repositorio.Criar(pacote);
             return Ok(new { dados = pacote });
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            repositorio.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

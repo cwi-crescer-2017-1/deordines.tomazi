@@ -13,7 +13,7 @@ namespace LocadoraCrescer.Api.Controllers
 {
     [BasicAuthorization]
     [RoutePrefix("api/extras")]
-    public class ExtrasController : ApiController
+    public class ExtrasController : ApiController, IDisposable
     {
         private ExtraRepositorio repositorio = new ExtraRepositorio();
 
@@ -68,6 +68,12 @@ namespace LocadoraCrescer.Api.Controllers
             repositorio.Devolver(extra, model.Quantidade);
 
             return Ok(new { dados = extra });
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            repositorio.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

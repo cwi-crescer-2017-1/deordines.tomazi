@@ -14,7 +14,7 @@ namespace LocadoraCrescer.Api.Controllers
 {
     [BasicAuthorization]
     [RoutePrefix("api/clientes")]
-    public class ClientesController : ApiController
+    public class ClientesController : ApiController, IDisposable
     {
         private ClienteRepositorio repositorio = new ClienteRepositorio();
 
@@ -33,6 +33,12 @@ namespace LocadoraCrescer.Api.Controllers
             var cliente = new Cliente(model.Nome, model.CPF, model.DataNascimento, model.Endereco, model.Genero);
             repositorio.Criar(cliente);
             return Ok(new { dados = model });
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            repositorio.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

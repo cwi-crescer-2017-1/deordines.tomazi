@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraCrescer.Infraestrutura.Repositorios
 {
-    public class ClienteRepositorio
+    public class ClienteRepositorio : IDisposable
     {
         private Contexto contexto = new Contexto();
 
@@ -33,6 +33,11 @@ namespace LocadoraCrescer.Infraestrutura.Repositorios
         public Cliente BuscarPorId(int id)
         {
             return Listar().FirstOrDefault(x => x.Id == id);
+        }
+
+        public void Dispose()
+        {
+            contexto.Dispose();
         }
     }
 }

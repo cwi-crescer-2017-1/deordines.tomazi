@@ -79,5 +79,11 @@ namespace LocadoraCrescer.WebApi.Controllers
 
             return ResponderOK(new { dados = usuario.Nome, usuario.Permissao, usuario.Email });
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            repositorio.Dispose();
+            base.Dispose(disposing);
+        }
     }
 }
