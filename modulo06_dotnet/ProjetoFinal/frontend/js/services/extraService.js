@@ -16,7 +16,6 @@ modulo.factory('extraService', function($http) {
     }
 
     function alugar(extra) {
-        debugger;
         return $http({
             url: `${url}/alugar`,
             method: 'PUT',
