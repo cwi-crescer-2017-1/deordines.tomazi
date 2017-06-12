@@ -16,8 +16,9 @@ modulo.factory('locacaoService', function($http) {
     }
 
     function devolver(locacao) {
+        console.log(locacao);
         return $http({
-            url: `${url}`,
+            url: `${url}/devolver`,
             method: 'PUT',
             data: locacao
         })

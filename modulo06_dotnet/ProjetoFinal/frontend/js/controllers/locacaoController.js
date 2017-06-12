@@ -58,8 +58,10 @@ modulo.controller('locacaoController', function($scope, $localStorage, locacaoSe
     }
 
     function devolver(locacao) {
+        console.log(locacao);
+        console.log(locacao.pedido.Id);
         locacaoService
-            .devolver(locacao.Id)
+            .devolver(locacao.pedido)
             .then(response => {
                 listar();
                 console.log(response.data.dados);

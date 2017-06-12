@@ -65,7 +65,7 @@ namespace LocadoraCrescer.Api.Controllers
 
         [Authorize(Roles = "funcionario")]
         [HttpPut]
-        [Route("devolver/")]
+        [Route("devolver")]
         public IHttpActionResult Devolver([FromBody]AlterarPedido model)
         {
             var locacao = repositorioLocacao.BuscarPorId(model.Id);

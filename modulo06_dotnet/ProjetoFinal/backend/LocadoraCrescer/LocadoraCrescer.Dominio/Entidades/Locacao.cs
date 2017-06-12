@@ -38,8 +38,14 @@ namespace LocadoraCrescer.Dominio.Entidades
             DataDevolucao = DateTime.Now;
 
             var atraso = DiasEmAtraso((DateTime)DataDevolucao, DataEntrega);
-            var multa = (decimal)(atraso * 20);
-            ValorFinal = ValorPrevisto + multa;
+            if (atraso > 1)
+            {
+                var multa = atraso * 20;
+                ValorFinal = ValorPrevisto + (decimal)multa;
+            } else
+            {
+                ValorFinal = ValorPrevisto;
+            }
         }
 
         public double DiasEmAtraso(DateTime dataFinal, DateTime dataInicial)
