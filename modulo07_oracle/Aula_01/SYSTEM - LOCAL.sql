@@ -10,3 +10,5 @@ Create user CRESCER2017 identified by CRESCER2017;
 grant connect, resource, create view to CRESCER2017;
 
 Alter user CRESCER2017 default tablespace CRESCER17DAT;
+
+CREATE DIRECTORY ORACLE_DUMP as 'C:\ORACLE\DATAPUMP';
