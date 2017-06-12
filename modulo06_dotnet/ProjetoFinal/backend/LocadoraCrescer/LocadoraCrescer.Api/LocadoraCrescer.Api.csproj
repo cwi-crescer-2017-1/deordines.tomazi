@@ -113,6 +113,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AlterarPedido.cs" />
     <Compile Include="Models\AlterarQuantidade.cs" />
     <Compile Include="Models\CriarClienteModel.cs" />
     <Compile Include="Models\CriarExtraModel.cs" />
