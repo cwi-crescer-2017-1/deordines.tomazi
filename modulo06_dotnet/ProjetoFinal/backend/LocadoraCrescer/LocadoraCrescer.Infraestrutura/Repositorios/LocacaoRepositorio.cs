@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraCrescer.Infraestrutura.Repositorios
 {
-    public class LocacaoRepositorio
+    public class LocacaoRepositorio : IDisposable
     {
         private Contexto contexto = new Contexto();
 
@@ -22,7 +22,25 @@ namespace LocadoraCrescer.Infraestrutura.Repositorios
 
         public List<Locacao> Listar()
         {
-            return contexto.Locacao.ToList();
+            return contexto.Locacao.Include("Cliente").Include("ProdutoConsole").Include("Pacote").ToList();
+        }
+
+        public Locacao BuscarPorId(int id)
+        {
+            return Listar().FirstOrDefault(x => x.Id == id);
+        }
+
+        public Locacao Devolver(Locacao locacao)
+        {
+            locacao.Devolver();
+            contexto.Entry(locacao).State = System.Data.Entity.EntityState.Modified;
+            contexto.SaveChanges();
+            return locacao;
+        }
+
+        public void Dispose()
+        {
+            contexto.Dispose();
         }
     }
 }
