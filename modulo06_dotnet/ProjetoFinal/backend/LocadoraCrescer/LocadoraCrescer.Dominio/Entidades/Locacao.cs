@@ -32,5 +32,19 @@ namespace LocadoraCrescer.Dominio.Entidades
             DataEntrega = DateTime.Now.AddDays(pacote.QuantidadeDias);
             ValorPrevisto = produto.Valor + pacote.Valor;
         }
+
+        public void Devolver()
+        {
+            DataDevolucao = DateTime.Now;
+
+            var atraso = DiasEmAtraso((DateTime)DataDevolucao, DataEntrega);
+            var multa = (decimal)(atraso * 20);
+            ValorFinal = ValorPrevisto + multa;
+        }
+
+        public double DiasEmAtraso(DateTime dataFinal, DateTime dataInicial)
+        {
+            return (dataFinal - dataInicial).TotalDays;
+        }
     }
 }
