@@ -56,3 +56,21 @@ BEGIN
     SET ValorPedido = vValorAtualizado
     WHERE IdPedido = vId;
 END;
+
+-- Exercício 3
+-- Atualização de Clientes
+-- Crie uma rotina que atualize todos os clientes que não realizaram nenhum pedido nos últimos 6 meses (considere apenas o mês, dia 01 do 6º mês anterior). Definir o atributo Situacao para I.
+DECLARE
+-- TODO Ver Com o Nunes
+    CURSOR ListaClientes IS
+        SELECT ped.IdCliente, ped.DataPedido
+        FROM Pedido ped
+        JOIN Cliente cli ON cli.IdCliente = ped.IdCliente
+        WHERE ped.DataPedido > add_months(TRUNC(SYSDATE, 'MM'), -5)
+        ORDER BY ped.DataPedido;
+BEGIN
+    FOR cliente IN ListaClientes LOOP
+        UPDATE Cliente
+        SET Situacao = 'I';
+    END LOOP;
+END;
