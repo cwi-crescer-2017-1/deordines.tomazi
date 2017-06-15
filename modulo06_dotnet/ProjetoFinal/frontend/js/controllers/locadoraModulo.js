@@ -1,4 +1,4 @@
-var modulo = angular.module('locadoraCrescerApp', ['ngRoute', 'ngStorage', 'auth']);
+var modulo = angular.module('locadoraCrescerApp', ['ngRoute', 'ngStorage', 'auth', 'ui.bootstrap']);
 
 modulo.constant('authConfig', {
 
