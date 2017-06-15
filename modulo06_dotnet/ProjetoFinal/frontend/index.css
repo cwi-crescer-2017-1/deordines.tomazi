@@ -1,0 +1,62 @@
+body, html {
+    height: 100%;
+}
+
+.bg { 
+    /* The image used */
+    background-image: url("images/background3.png");
+
+    /* Full height */
+    height: 30%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.logo {
+    width:100px;
+    transform: translate(0px, -40px);
+}
+
+.console {
+    width: 200px;
+    opacity: 0.5;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 1s;
+}
+
+.fixed {
+    position: relative;
+    width: 230px;
+    height: 200px;
+    float: left;
+    transition-duration: 1s;
+    margin-left: 30px;
+}
+
+.console:hover {
+    width: 230px;
+    transition-duration: 1s;
+}
+
+.fixed:hover {
+    border-radius: 20px;
+    background-color: lightgray;
+    transition-duration: 1s;
+}
+
+input[type="radio"] {
+    visibility: hidden;
+}
+
+input[type="radio"]:checked + label .console {
+    transition-duration: 1s;
+    opacity: 1.0;
+}
