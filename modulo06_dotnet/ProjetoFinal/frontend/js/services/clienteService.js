@@ -7,6 +7,10 @@ modulo.factory('clienteService', function($http) {
         return $http.get(`${url}`);
     }
 
+    function buscarPorCpf(cpf) {
+        return $http.get(`${url}/buscarcpf/${cpf}`);
+    }
+
     function criar(cliente) {
         return $http({
             url: `${url}/registrar`,
@@ -17,6 +21,7 @@ modulo.factory('clienteService', function($http) {
 
     return ({
         listar: listar,
-        criar: criar
+        criar: criar,
+        buscarPorCpf
     })
 })

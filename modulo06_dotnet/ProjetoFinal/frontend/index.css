@@ -1,5 +1,15 @@
 body, html {
     height: 100%;
+    background-color: rgb(237, 237, 237);
+}
+
+hr {
+    height: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:#8F60A0;
+    color:#8F60A0;
+    border: 0 none;
 }
 
 .bg { 
@@ -32,13 +42,25 @@ body, html {
     transition: 1s;
 }
 
+.extra {
+    width: 150px;
+    opacity: 0.5;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 1s;
+}
+
 .fixed {
     position: relative;
     width: 230px;
     height: 200px;
     float: left;
     transition-duration: 1s;
-    margin-left: 30px;
+    /*margin-left: 30px;*/
 }
 
 .console:hover {
@@ -46,17 +68,27 @@ body, html {
     transition-duration: 1s;
 }
 
-.fixed:hover {
-    border-radius: 20px;
-    background-color: lightgray;
+.extra:hover {
+    width: 180px;
     transition-duration: 1s;
 }
 
-input[type="radio"] {
+.fixed:hover {
+    border-radius: 20px;
+    background-color: #8F60A0;
+    transition-duration: 1s;
+}
+
+.inputRadioImagem input[type="radio"] {
     visibility: hidden;
 }
 
 input[type="radio"]:checked + label .console {
+    transition-duration: 1s;
+    opacity: 1.0;
+}
+
+input[type="radio"]:checked + label .extra {
     transition-duration: 1s;
     opacity: 1.0;
 }

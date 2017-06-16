@@ -1,4 +1,170 @@
---------------------------------------------------------------------
+<!-- INÍCIO SELEÇÃO CLIENTE -->
+<h3>Informe o Cliente</h3>
+<label>
+    <input type="text" class="form-control" style="width:300px;" ng-model="cpfCliente" placeholder="CPF">
+</label>
+<button type="submit" class="btn btn-default" ng-click="buscarPorCpf(cpfCliente)">Buscar</button>
+
+<hr>
+
+<label>
+    <input type"text" class="form-control" style="background-color:white;" ng-model="cliente.Nome" placeholder="Nome" disabled="disabled">
+</label>
+
+<label>
+    <input type"text" class="form-control" style="background-color:white;" ng-model="cliente.CPF" placeholder="CPF" disabled="disabled">
+</label>
+
+<label>
+    <input type"text" class="form-control" style="background-color:white;" ng-model="cliente.DataNascimento | date: 'dd/MM/yyyy'" placeholder="Data Nascimento" disabled="disabled">
+</label>
+
+<label>
+    <input type"text" class="form-control" style="background-color:white;" ng-model="cliente.Endereco" placeholder="Endereço" disabled="disabled">
+</label>
+<button type="submit" class="btn btn-default" ng-click="limpar()">Limpar</button>
+<!-- FIM SELEÇÃO CLIENTE -->
+
+<!-- INÍCIO SELEÇÃO DE PRODUTO -->
+<!--<div class="container">-->
+    <h3>Selecione o Produto</h3>
+    <hr>
+    <div class="inputRadioImagem">
+        <div class="form-group">
+            <input type="radio" name="console" id="ps3" value="1" ng-model="locacao.Produto">
+            <label for="ps3">
+                <h4 style="text-align: center">PS3</h4>
+                <div class="fixed">
+                    <img class="console" src="images/console/ps3.png" alt="PS3">
+                </div>
+            </label>
+
+            <input type="radio" name="console" id="snes" value="2" ng-model="locacao.Produto">
+            <label for="snes">
+                <h4 style="text-align: center">SNES</h4>
+                <div class="fixed">
+                    <img class="console" src="images/console/snes.png" alt="SNES">
+                </div>
+            </label>
+
+            <input type="radio" name="console" id="xbox360" value="3" ng-model="locacao.Produto">
+            <label for="xbox360">
+                <h4 style="text-align: center">XBOX360</h4>
+                <div class="fixed">
+                    <img class="console" src="images/console/xbox360.png" alt="XBOX360">
+                </div>
+            </label>
+
+            <input type="radio" name="console" id="atari" value="4" ng-model="locacao.Produto">
+            <label for="atari">
+                <h4 style="text-align: center">ATARI</h4>
+                <div class="fixed">
+                    <img class="console" src="images/console/atari.png" alt="ATARI">
+                </div>
+            </label>
+        </div>
+    </div>
+<!--</div>-->
+<!-- FIM SELEÇÃO DE PRODUTO -->
+
+<!-- INÍCIO SELEÇÃO DE PACOTE -->
+<!--<div class="container">-->
+    <h3>Selecione o Pacote</h3>
+    <hr>
+    <div class="inputRadioImagem">
+        <div class="form-group">
+            <input type="radio" name="pacote" id="diario" value="1" ng-model="locacao.Pacote">
+            <label for="diario">
+                <h4 style="text-align: center">Diário</h4>
+                <div class="fixed">
+                    <img class="extra" src="images/pacote/pacote.png" alt="Pacote Diário">
+                </div>
+            </label>
+
+            <input type="radio" name="pacote" id="finde" value="2" ng-model="locacao.Pacote">
+            <label for="finde">
+                <h4 style="text-align: center">Fim de Semana</h4>
+                <div class="fixed">
+                    <img class="extra" src="images/pacote/pacote.png" alt="Pacote Finde">
+                </div>
+            </label>
+
+            <input type="radio" name="pacote" id="semanal" value="3" ng-model="locacao.Pacote">
+            <label for="semanal">
+                <h4 style="text-align: center">Semanal</h4>
+                <div class="fixed">
+                    <img class="extra" src="images/pacote/pacote.png" alt="Pacote Semanal">
+                </div>
+            </label>
+        </div>
+    </div>
+<!--</div>-->
+<!-- FIM SELEÇÃO DE PACOTE -->
+
+<!-- INÍCIO SELEÇÃO DE EXTRA -->
+<!--<div class="container">-->
+    <h3>Selecione um Extra</h3>
+    <hr>
+    <div class="inputRadioImagem">
+        <div class="form-group">
+            <input type="radio" name="extra" id="jogo" value="1" ng-model="locacao.Extra">
+            <label for="jogo">
+                <h4 style="text-align: center">Jogo</h4>
+                <div class="fixed">
+                    <img class="extra" src="images/extra/jogo.png" alt="Jogo">
+                </div>
+            </label>
+
+            <input type="radio" name="extra" id="memoryCard" value="2" ng-model="locacao.Extra">
+            <label for="memoryCard">
+                <h4 style="text-align: center">Memory Card</h4>
+                <div class="fixed">
+                    <img class="extra" src="images/extra/memoryCard.png" alt="MemoryCard">
+                </div>
+            </label>
+
+            <input type="radio" name="extra" id="controle" value="3" ng-model="locacao.Extra">
+            <label for="controle">
+                <h4 style="text-align: center">Controle</h4>
+                <div class="fixed">
+                    <img class="extra" src="images/extra/controle.png" alt="Controle">
+                </div>
+            </label>
+
+            <input type="radio" name="extra" id="guia" value="4" ng-model="locacao.Extra">
+            <label for="guia">
+                <h4 style="text-align: center">Guia de Cheat</h4>
+                <div class="fixed">
+                    <img class="extra" src="images/extra/guiaCheat.png" alt="Guia de Cheat">
+                </div>
+            </label>
+        </div>
+    </div>
+<!--</div>-->
+<!-- FIM SELEÇÃO DE EXTRA -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Criar
 <br>
@@ -22,15 +188,11 @@ Criar
     <option value="">Selecione o Extra</option>
 </select>
 <br>
-<label>Valor Total:</label>
-{{ locacao.produtoConsole.Valor + locacao.pacote.Valor + locacao.extra.Valor }}
+<label>Valor Total:</label> {{ locacao.produtoConsole.Valor + locacao.pacote.Valor + locacao.extra.Valor }}
 <br>
 <button type="submit" class="btn btn-default" ng-click="criar(locacao)">Submit</button>
 
-<br>
---------------------------------------------------------------------
-
-Devolver
+<br> -------------------------------------------------------------------- Devolver
 <br>
 <label>Selecione o pedido</label>
 <select class="form-control" ng-model="locacao.pedido" ng-options="locacao.Id for locacao in locacoes">

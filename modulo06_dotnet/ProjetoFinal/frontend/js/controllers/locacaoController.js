@@ -7,6 +7,8 @@ modulo.controller('locacaoController', function($scope, $localStorage, locacaoSe
     $scope.extras = listarExtras();
     $scope.criar = criar;
     $scope.devolver = devolver;
+    $scope.buscarPorCpf = buscarPorCpf;
+    $scope.limpar = limpar;
     
     function listarClientes() {
         clienteService
@@ -15,6 +17,23 @@ modulo.controller('locacaoController', function($scope, $localStorage, locacaoSe
                 console.log(response.data.dados);
                 $scope.clientes = response.data.dados;
             })
+    }
+
+    function buscarPorCpf(cpf) {
+        if (angular.isUndefined(cpf) || cpf == null)
+            return;
+
+        clienteService
+            .buscarPorCpf(cpf)
+            .then(response => {
+                console.log(response.data.dados);
+                $scope.cpfCliente = undefined;
+                $scope.cliente = response.data.dados;
+            })
+    }
+
+    function limpar() {
+        $scope.cliente = {};
     }
 
     function listarProdutos() {

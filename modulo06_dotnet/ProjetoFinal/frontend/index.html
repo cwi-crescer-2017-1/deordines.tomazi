@@ -12,8 +12,9 @@
 
 <body>
 
+    <div class="bg"></div>
     <!-- INÍCIO NAVBAR -->
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
@@ -27,7 +28,7 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#!/home"><span class="glyphicon glyphicon-home"></span> HOME</a></li>
                     <li uib-dropdown on-toggle="toggled(open)">
-                        <a href="#" uib-dropdown-toggle><span class="glyphicon glyphicon-tasks"></span> SERVICES <strong class="caret"></strong></a>
+                        <a href="#" uib-dropdown-toggle><span class="glyphicon glyphicon-tasks"></span> SERVIÇOS <strong class="caret"></strong></a>
                         <ul uib-dropdown-menu>
                             <li><a href= "#!/cliente">Cadastrar Cliente</a></li>
                             <li><a href= "#!/locacao">Locação</a></li>
@@ -50,35 +51,17 @@
     </nav>
     <!-- FIM NAVBAR -->
 
-    <!-- INÍCIO SELEÇÃO DE PRODUTO -->
-    <div class="container">
-        <input type="radio" name="console" id="ps3" value="1">
-        <label for="ps3"><div class="fixed"><img class="console" src="images/console/ps3.png" alt="PS3">PS3</div></label>
-    
-        <input type="radio" name="console"id="snes" value="2">
-        <label for="snes"><div class="fixed"><img class="console" src="images/console/snes.png" alt="SNES">SNES</div></label>
-
-        <input type="radio" name="console"id="xbox360" value="3">
-        <label for="xbox360"><div class="fixed"><img class="console" src="images/console/xbox360.png" alt="XBOX360">XBOX360</div></label>
-        
-        <input type="radio" name="console"id="atari" value="4">
-        <label for="atari"><div class="fixed"><img class="console" src="images/console/atari.png" alt="ATARI">ATARI</div></label>
-    </div>
-    <!-- FIM SELEÇÃO DE PRODUTO -->    
-
-
-
-
-    <!-- START VIEW ROUTES -->
+    <!-- INÍCIO VIEW ROUTES -->
     <div class="container">
         <ng-view></ng-view>
     </div>
-    <!-- END VIEW ROUTES -->
+    <!-- FIM VIEW ROUTES -->
 
     <!-- Angular -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.js"></script>
+    <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>-->
+    <!--<scrip src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-sanitize.js"></scrip>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.js"></script>    
 
     <!-- Rotas -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-route.js"></script>
