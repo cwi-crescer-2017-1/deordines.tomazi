@@ -35,6 +35,11 @@ namespace LocadoraCrescer.Infraestrutura.Repositorios
             return Listar().FirstOrDefault(x => x.Id == id);
         }
 
+        public Cliente BuscarPorCpf(string cpf)
+        {
+            return Listar().FirstOrDefault(x => x.CPF == cpf);
+        }
+
         public void Dispose()
         {
             contexto.Dispose();

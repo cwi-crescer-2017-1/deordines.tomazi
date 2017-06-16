@@ -27,6 +27,15 @@ namespace LocadoraCrescer.Api.Controllers
         }
 
         [Authorize(Roles = "funcionario")]
+        [HttpGet]
+        [Route("buscarcpf/{cpf}")]
+        public IHttpActionResult BuscarPorCpf(string cpf)
+        {
+            var cliente = repositorio.BuscarPorCpf(cpf);
+            return Ok(new { dados = cliente });
+        }
+
+        [Authorize(Roles = "funcionario")]
         [HttpPost, Route("registrar")]
         public IHttpActionResult Criar([FromBody]CriarClienteModel model)
         {
