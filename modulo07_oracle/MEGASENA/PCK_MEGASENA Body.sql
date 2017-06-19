@@ -171,14 +171,22 @@ create or replace package body pck_megasena is
             FOR numeroApostado IN listaNumerosApostados(aposta.IdAposta) LOOP
                 vNumero := numeroApostado.Numero;
                 
-                CASE vNumero
-                    WHEN vPrimeiraDezena THEN vQuantidadeAcertos := vQuantidadeAcertos + 1;
-                    WHEN vSegundaDezena THEN vQuantidadeAcertos := vQuantidadeAcertos + 1;
-                    WHEN vTerceiraDezena THEN vQuantidadeAcertos := vQuantidadeAcertos + 1;
-                    WHEN vQuartaDezena THEN vQuantidadeAcertos := vQuantidadeAcertos + 1;
-                    WHEN vQuintaDezena THEN vQuantidadeAcertos := vQuantidadeAcertos + 1;
-                    WHEN vSextaDezena THEN vQuantidadeAcertos := vQuantidadeAcertos + 1;
-                END CASE;
+                IF (vNumero = vPrimeiraDezena OR
+                    vNumero = vSegundaDezena OR
+                    vNumero = vTerceiraDezena OR
+                    vNumero = vQuartaDezena OR
+                    vNumero = vQuintaDezena OR
+                    vNumero = vSextaDezena) THEN
+                    vQuantidadeAcertos := vQuantidadeAcertos + 1;
+                END IF;
+--                CASE vNumero
+--                    WHEN vPrimeiraDezena THEN vQuantidadeAcertos := vQuantidadeAcertos + 1;
+--                    WHEN vSegundaDezena THEN vQuantidadeAcertos := vQuantidadeAcertos + 1;
+--                    WHEN vTerceiraDezena THEN vQuantidadeAcertos := vQuantidadeAcertos + 1;
+--                    WHEN vQuartaDezena THEN vQuantidadeAcertos := vQuantidadeAcertos + 1;
+--                    WHEN vQuintaDezena THEN vQuantidadeAcertos := vQuantidadeAcertos + 1;
+--                    WHEN vSextaDezena THEN vQuantidadeAcertos := vQuantidadeAcertos + 1;
+--                END CASE;
             END LOOP;
             
             IF (vQuantidadeAcertos >= 4) THEN
