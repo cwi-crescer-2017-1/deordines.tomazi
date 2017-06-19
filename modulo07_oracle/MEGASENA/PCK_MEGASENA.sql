@@ -1,113 +1,30 @@
-create or replace package body pck_megasena is
+create or replace package pck_megasena is
 
-  /* Busca valores percentuais conforme regra definida na tabela 'Regra_Rateio_Premio' */
-  function buscaPercentual(pIdentificador in varchar2) return number as
-        -- 
-        v_percentual  regra_rateio_premio.percentual%type; -- herdará as propriedades do campo percentual
-      begin
-        
-        -- busca percentual conforme parametro de entrada
-        select percentual
-        into   v_percentual   -- atribuí valor para a variavel
-        from   regra_rateio_premio
-        where  identificador = lower(pIdentificador);
-        
-        return v_percentual;
-      exception
-        when no_data_found then
-          dbms_output.put_line('Erro: '||pIdentificador);
-          raise_application_error(-20002, sqlerrm);
-      end buscaPercentual;
-  ---------------------------------------------------------------------------------------------------------------------------------------
-  /* Executa o rateio dos premios conforme definção das regras */
-  procedure defineRateioPremio (pPremio in number) as
-    begin
-    
-       gPremio_sena          := buscaPercentual('premio_sena') * pPremio;
-       gPremio_quina         := buscaPercentual('premio_quina') * pPremio;
-       gPremio_quadra        := buscaPercentual('premio_quadra') * pPremio;
-       gAcumulado_proximo_05 := buscaPercentual('acumulado_05') * pPremio;
-       gAcumulado_final_ano  := buscaPercentual('acumulado_final_ano') * pPremio;
+  -- Author  : ANDRENUNES
+  -- Purpose : Manipulação na base de dados da Loteria mais conhecida do Brasil
   
-    end defineRateioPremio;
-
-  ---------------------------------------------------------------------------------------------------------------------------------------
-  /* Salva o registro referente ao concurso */
+  -- Variáveis Globais - definidas em procedimento específico
+  gPremio_sena          number(12,2) := 0;
+  gPremio_quina         number(12,2) := 0;
+  gPremio_quadra        number(12,2) := 0;
+  gAcumulado_proximo_05 number(12,2) := 0;
+  gAcumulado_final_ano  number(12,2) := 0;
+  
+  -- Public type declarations
   procedure salvaConcurso (pConcurso in integer,
                            pData     in date,
-                           pPremio   in number) as
-    begin
-
-       defineRateioPremio(pPremio);
-       
-       --insereConcurso( pConcurso, pData, gPremio_Sena, gPremio_Quina, gPremio_Quadra, gAcumulado_proximo_05, gAcumulado_final_ano );
-       
-       Insert into Concurso 
-           (Idconcurso, Data_Sorteio, Premio_Sena, Premio_Quina, Premio_Quadra, Acumulado_Proximo_05, Acumulado_Final_Ano)
-       Values 
-           (pConcurso, pData, gPremio_Sena, gPremio_Quina, gPremio_Quadra, gAcumulado_proximo_05, gAcumulado_final_ano);
-    end salvaConcurso;
-  ---------------------------------------------------------------------------------------------------------------------------------------
-    /*
-     Questão "A" - implementar rotina que irá inserir um novo concurso
-    */
-    FUNCTION retornarIdUltimoConcurso RETURN Concurso.IdConcurso%TYPE AS
-        vIdUltimoConcurso Concurso.IdConcurso%TYPE;
-        BEGIN
-            SELECT MAX(IdConcurso)
-            INTO vIdUltimoConcurso
-            FROM Concurso;
-        RETURN vIdUltimoConcurso;
-    END retornarIdUltimoConcurso;
-    
-    FUNCTION retornarValorUltimoConcurso RETURN Aposta.Valor%TYPE AS
-        vValorUltimoConcurso Aposta.Valor%TYPE;
-        BEGIN
-            SELECT SUM(Valor)
-            INTO vValorUltimoConcurso
-            FROM Aposta
-            WHERE IdConcurso = PCK_MEGASENA.retornarIdUltimoConcurso;
-        RETURN vValorUltimoConcurso;
-    END retornarValorUltimoConcurso;
-    
-    FUNCTION retornarAcumulou RETURN Concurso.Acumulou%TYPE AS
-        vAcumulou Concurso.Acumulou%TYPE;
-        BEGIN
-            SELECT Acumulou
-            INTO vAcumulou
-            FROM Concurso
-            WHERE IdConcurso = PCK_MEGASENA.retornarIdUltimoConcurso;
-        RETURN vAcumulou;
-    END retornarAcumulou;
-    
-    PROCEDURE geraProximoConcurso AS
-        vIdUltimoConcurso Concurso.IdConcurso%TYPE;
-        vValorUltimoConcurso Aposta.Valor%TYPE;
-        vAcumulou Concurso.Acumulou%TYPE;
-        vDataConcurso Concurso.Data_Sorteio%TYPE;
-        BEGIN
-            vIdUltimoConcurso := PCK_MEGASENA.retornarIdUltimoConcurso + 1;
-            vValorUltimoConcurso := PCK_MEGASENA.retornarValorUltimoConcurso;
-            vAcumulou := PCK_MEGASENA.retornarAcumulou;
-            vDataConcurso := '19-JUN-17';
-            
-            IF (vAcumulou = 1) THEN
-                vValorUltimoConcurso := vValorUltimoConcurso + (vValorUltimoConcurso * 0.453);
-            END IF;
-            
-            PCK_MEGASENA.salvaConcurso(vIdUltimoConcurso, vDataConcurso, vValorUltimoConcurso);
-            
-    END geraProximoConcurso;
-  ---------------------------------------------------------------------------------------------------------------------------------------
-    /*
-     Questão "B" - implementar rotina que irá inserir todos os acertadores de um determinado concurso
-    */
-  procedure atualizaAcertadores (pConcurso in integer) as
-   begin
-      null; --> codar aqui
-   end atualizaAcertadores;
-   
-begin
-  -- Initialization
-  null; --<Statement>;
+                           pPremio   in number);
+  function buscaPercentual(pIdentificador in varchar2) return number;
+  
+  FUNCTION retornarIdUltimoConcurso RETURN Concurso.IdConcurso%TYPE;
+  FUNCTION retornarValorUltimoConcurso RETURN Aposta.Valor%TYPE;
+  FUNCTION retonarUltimoNumeroIdConcurso RETURN INTEGER;
+  FUNCTION retornarAcumulou RETURN Concurso.Acumulou%TYPE;
+  PROCEDURE geraProximoConcurso;
+  
+  FUNCTION retornarPremioQuadra RETURN Aposta.Valor%TYPE;
+  FUNCTION retornarPremioQuina RETURN Aposta.Valor%TYPE;
+  FUNCTION retornarPremioSena RETURN Aposta.Valor%TYPE;
+  PROCEDURE atualizaAcertadores (pConcurso IN INTEGER);
+  
 end pck_megasena;
