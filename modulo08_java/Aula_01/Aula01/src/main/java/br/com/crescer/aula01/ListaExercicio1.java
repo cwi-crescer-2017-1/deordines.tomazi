@@ -10,6 +10,8 @@ import br.com.crescer.Interfaces.Parcelator;
 import br.com.crescer.Interfaces.StringUtils;
 import java.math.BigDecimal;
 import java.text.Normalizer;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
 
@@ -31,6 +33,12 @@ public class ListaExercicio1 implements StringUtils, CalendarUtils, Parcelator {
         System.out.println(executar.isPalindromo("ovo"));
         System.out.println(executar.isPalindromo("Ame a ema"));
         System.out.println(executar.isPalindromo("A sogra má e amargosa"));
+        
+        try {
+            System.out.println(executar.diaSemana(new SimpleDateFormat("dd/MM/yyyy").parse("21/06/2017")));
+        } catch (Exception e) {
+            // ..
+        }
     }
     
     public String RemoverAcentuacao(String string) {
@@ -97,7 +105,31 @@ public class ListaExercicio1 implements StringUtils, CalendarUtils, Parcelator {
     
     @Override
     public DiaSemana diaSemana(Date date) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        
+        calendar.get(Calendar.YEAR);
+        calendar.get(Calendar.MONTH);
+        calendar.get(Calendar.DAY_OF_YEAR);
+        
+        switch (calendar.get(Calendar.DAY_OF_WEEK)) {
+            case 1:
+                return DiaSemana.DOMINGO;
+            case 2:
+                return DiaSemana.SEGUNDA_FEIRA;
+            case 3:
+                return DiaSemana.TERCA_FEIRA;
+            case 4:
+                return DiaSemana.QUARTA_FEIRA;
+            case 5:
+                return DiaSemana.QUINTA_FEIRA;
+            case 6:
+                return DiaSemana.SEXTA_FEIRA;
+            case 7:
+                return DiaSemana.SABADO;
+            default:
+                return null;
+        }
     }
 
     @Override
