@@ -9,6 +9,7 @@ import br.com.crescer.Interfaces.CalendarUtils;
 import br.com.crescer.Interfaces.Parcelator;
 import br.com.crescer.Interfaces.StringUtils;
 import java.math.BigDecimal;
+import java.text.Normalizer;
 import java.util.Date;
 import java.util.Map;
 
@@ -27,6 +28,15 @@ public class ListaExercicio1 implements StringUtils, CalendarUtils, Parcelator {
         System.out.println(executar.inverter("Inverter"));
         System.out.println(executar.contaVogais("abcdefghijklmnopqrstuvxwyz"));
         System.out.println(executar.contaVogais("abcdefghijklmnopqrstuvxwyz".toUpperCase()));
+        System.out.println(executar.isPalindromo("ovo"));
+        System.out.println(executar.isPalindromo("Ame a ema"));
+        System.out.println(executar.isPalindromo("A sogra má e amargosa"));
+    }
+    
+    public String RemoverAcentuacao(String string) {
+        string = Normalizer.normalize(string, Normalizer.Form.NFD);
+        string = string.replaceAll("[^\\p{ASCII}]", "");
+        return string;
     }
     
     /*
@@ -62,9 +72,22 @@ public class ListaExercicio1 implements StringUtils, CalendarUtils, Parcelator {
 
     @Override
     public boolean isPalindromo(String string) {
+        string = RemoverAcentuacao(string);
+        string = string.replaceAll(" ", "").toLowerCase();
         
-    }
+        char[] letrasNormais = string.toCharArray();
+        char[] letrasInvertidas = new char[0];
+        String stringInvertida = inverter(string);
+        letrasInvertidas = stringInvertida.toCharArray();
+        
+        for (int i = 0; i < letrasNormais.length; i++) {
+            if (letrasNormais[i] != letrasInvertidas[i]) {
+                return false;
+            }
+        }
 
+        return true;
+    }
     // ---------------------------------------- //
     
     /*
