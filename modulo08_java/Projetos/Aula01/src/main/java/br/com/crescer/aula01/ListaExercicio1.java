@@ -64,7 +64,7 @@ public class ListaExercicio1 implements StringUtils, CalendarUtils, Parcelator {
     
     @Override
     public boolean isEmpty(String string) {
-        return string == null || string.isEmpty();
+        return string == null || string.trim().isEmpty();
     }
 
     @Override
@@ -145,10 +145,11 @@ public class ListaExercicio1 implements StringUtils, CalendarUtils, Parcelator {
         Calendar calendarEnd = Calendar.getInstance();
         
         calendarStart.setTime(date);
+//        calendarEnd.set(Calendar.get(Calendar.YEAR), Calendar.get(Calendar.MONTH), Calendar.get(Calendar.DAY_OF_MONTH), 0, 0, 0);
         
         final int ano = calendarEnd.get(Calendar.YEAR) - calendarStart.get(Calendar.YEAR);
         final int mes = calendarEnd.get(Calendar.MONTH) - calendarStart.get(Calendar.MONTH);
-        final int dia = calendarEnd.get(Calendar.DAY_OF_YEAR) - calendarStart.get(Calendar.DAY_OF_YEAR);
+        final int dia = calendarEnd.get(Calendar.DAY_OF_MONTH) - calendarStart.get(Calendar.DAY_OF_MONTH);
         
         String string = String.format("%1$d anos(s), %2$d mes(es) e %3$d dia(s)", ano, mes, dia);
         return string;
