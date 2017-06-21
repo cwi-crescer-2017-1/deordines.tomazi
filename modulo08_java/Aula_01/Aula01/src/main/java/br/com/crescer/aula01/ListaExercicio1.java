@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -36,6 +37,12 @@ public class ListaExercicio1 implements StringUtils, CalendarUtils, Parcelator {
         
         try {
             System.out.println(executar.diaSemana(new SimpleDateFormat("dd/MM/yyyy").parse("21/06/2017")));
+        } catch (Exception e) {
+            // ..
+        }
+        
+        try {
+            System.out.println(executar.tempoDecorrido(new SimpleDateFormat("dd/MM/yyyy").parse("18/08/1993")));
         } catch (Exception e) {
             // ..
         }
@@ -134,7 +141,17 @@ public class ListaExercicio1 implements StringUtils, CalendarUtils, Parcelator {
 
     @Override
     public String tempoDecorrido(Date date) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Calendar calendarStart = Calendar.getInstance();
+        Calendar calendarEnd = Calendar.getInstance();
+        
+        calendarStart.setTime(date);
+        
+        final int ano = calendarEnd.get(Calendar.YEAR) - calendarStart.get(Calendar.YEAR);
+        final int mes = calendarEnd.get(Calendar.MONTH) - calendarStart.get(Calendar.MONTH);
+        final int dia = calendarEnd.get(Calendar.DAY_OF_YEAR) - calendarStart.get(Calendar.DAY_OF_YEAR);
+        
+        String string = String.format("%1$d anos(s), %2$d mes(es) e %3$d dia(s)", ano, mes, dia);
+        return string;
     }
 
     // ---------------------------------------- //
@@ -142,9 +159,9 @@ public class ListaExercicio1 implements StringUtils, CalendarUtils, Parcelator {
     /*
     O método calcular deve retornar um map com a data de vencimento (dd/MM/yyyy) da parcela e o valor (R$ .....).
     */
-    
+
     @Override
     public Map<String, BigDecimal> calcular(BigDecimal valorParcelar, int numeroParcelas, double taxaJuros, Date dataPrimeiroVencimento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    }    
 }
