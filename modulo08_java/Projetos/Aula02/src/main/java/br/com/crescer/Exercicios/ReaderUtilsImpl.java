@@ -16,7 +16,7 @@ import java.io.Reader;
  * @author Deordines
  */
 public class ReaderUtilsImpl implements ReaderUtils {
-       
+
     /*
     O método read receba o nome do arquivo e exiba seu conteúdo.
     O arquivo deve ser apenas do tipo .txt, caso contrário exibir lançar um exception.
@@ -29,9 +29,9 @@ public class ReaderUtilsImpl implements ReaderUtils {
             final File file = new File(string);
             
             if (!string.contains(".txt")) {
-                return new String("Somente arquivo de extensão .txt pode ser lido.");
+                throw new Exception("Somente arquivo de extensão .txt pode ser lido.");
             } else if (file.isDirectory() || !file.exists()) {
-                return new String("Arquivo não encontrado");
+                throw new Exception("Arquivo não encontrado");
             }
             
             final Reader reader = new FileReader(string);
@@ -44,7 +44,7 @@ public class ReaderUtilsImpl implements ReaderUtils {
             
             return builder.toString();
         } catch (Exception e) {
-            //
+            System.out.println(e.toString());
         }
         return null;
     }
