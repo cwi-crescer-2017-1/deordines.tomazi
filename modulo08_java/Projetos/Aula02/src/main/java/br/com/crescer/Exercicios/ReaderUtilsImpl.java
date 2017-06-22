@@ -16,13 +16,7 @@ import java.io.Reader;
  * @author Deordines
  */
 public class ReaderUtilsImpl implements ReaderUtils {
-    
-    public static void main (String[] args) {
-        ReaderUtilsImpl executar = new ReaderUtilsImpl();
-        
-        System.out.println(executar.read("arquivoTeste.txt"));
-    }
-    
+       
     /*
     O método read receba o nome do arquivo e exiba seu conteúdo.
     O arquivo deve ser apenas do tipo .txt, caso contrário exibir lançar um exception.
