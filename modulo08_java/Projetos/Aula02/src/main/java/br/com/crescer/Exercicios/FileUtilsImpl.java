@@ -25,11 +25,15 @@ public class FileUtilsImpl implements FileUtils {
     O método ls deve mostra o caminho absoluto, se for um diretório listar o nome dos arquivos internos.
     O método mv deve mover o arquivo, caso for um diretório deve exibir uma mensagem que o arquivo é invalido.
     */
-        
+    
     @Override
     public boolean mk(String string) {
         try {
-            return new File(string).createNewFile();
+            if (string.contains(".txt")) {
+                return new File(string).createNewFile();
+            } else {
+                return new File(string).mkdir();
+            }
         } catch (Exception e) {
             e.printStackTrace();
             return false;
