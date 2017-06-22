@@ -21,7 +21,7 @@ import static org.junit.Assert.*;
  */
 public class CalendarUtilsTest {
 
-    private final CalendarUtils calendarUtils = new ListaExercicio1();
+    private final CalendarUtils calendarUtils = new CalendarUtilsImpl();
     private static final Calendar CALENDAR = Calendar.getInstance();
 
     /**
@@ -111,18 +111,20 @@ public class CalendarUtilsTest {
     /**
      * Test of tempoDecorrido method, of class CalendarUtils.
      */
-//    @Test
-//    public void testTempoDecorrido() {
-//        final Period between = Period.between(LocalDate.of(1985, Month.JANUARY, 29), LocalDate.now());
-//
-//        CALENDAR.set(1985, 0, 29, 0, 0, 0); // 1985-01-29 00:00:00    
-//
-//        final String tempo = calendarUtils.tempoDecorrido(CALENDAR.getTime());
-//        final String format = String.format("%s ano(s), %s messe(s) e %s dia(s)", 
-//                between.getYears(), 
-//                between.getMonths(), 
-//                between.getDays());
-//
-//        assertEquals(format, tempo);
-//    }
+    /*
+    @Test
+    public void testTempoDecorrido() {
+        final Period between = Period.between(LocalDate.of(1985, Month.JANUARY, 29), LocalDate.now());
+
+        CALENDAR.set(1985, 0, 29, 0, 0, 0); // 1985-01-29 00:00:00    
+
+        final String tempo = calendarUtils.tempoDecorrido(CALENDAR.getTime());
+        final String format = String.format("%s ano(s), %s messe(s) e %s dia(s)", 
+                between.getYears(), 
+                between.getMonths(), 
+                between.getDays());
+
+        assertEquals(format, tempo);
+    }
+    */
 }

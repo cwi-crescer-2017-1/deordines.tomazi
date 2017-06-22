@@ -14,7 +14,7 @@ public class StringUtilsTest {
     private final StringUtils stringUtils;
 
     public StringUtilsTest() {
-        this.stringUtils = new ListaExercicio1();
+        this.stringUtils = new StringUtilsImpl();
     }
 
     /**
