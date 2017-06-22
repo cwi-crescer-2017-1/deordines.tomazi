@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
 public class ParcelatorTest {
 
     private static final Calendar CALENDAR = Calendar.getInstance();
-    private static final DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyyy");
+    private static final DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
 
     private final Parcelator parcelator;
 
