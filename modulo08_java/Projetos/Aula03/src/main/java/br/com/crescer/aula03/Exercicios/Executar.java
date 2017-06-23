@@ -14,6 +14,8 @@ public class Executar {
     public static void main (String[] args) {
         final SQLUtils sqlUtils = new SQLUtilsImpl();
         
-        sqlUtils.runFile("arquivo.sql");
+//        sqlUtils.runFile("arquivo.sql");
+        System.out.println(sqlUtils.executeQuery("SELECT * FROM CIDADE WHERE ID = 3000"));
+
     }
 }

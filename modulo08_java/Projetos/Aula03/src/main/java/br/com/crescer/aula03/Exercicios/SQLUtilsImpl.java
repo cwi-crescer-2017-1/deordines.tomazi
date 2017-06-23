@@ -83,15 +83,17 @@ public class SQLUtilsImpl implements SQLUtils {
             final int qtdColunas = dataColuna.getColumnCount();
             
             for (int i = 1; i <= qtdColunas; i++) {
-                builder.append(dataColuna.getColumnName(i)).append(" - ");
+                builder.append(dataColuna.getColumnName(i)).append("                      ");
             }
-  
+            
+            builder.append(System.getProperty("line.separator"));
+            
             // Não imprime a linha escolhida, verificar isso ainda
-//            while (resultSet.next()) {
-//                for (int i = 2; i <= qtdColunas; i++) {
-//                    builder.append(resultSet.getString(i));
-//                }
-//            }
+            while (resultSet.next()) {
+                for (int i = 1; i <= qtdColunas; i++) {
+                    builder.append(resultSet.getString(i)).append("                      ");
+                }
+            }
             
         } catch (SQLException e) {
             e.printStackTrace();

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MapeamentoCidades.Entidades.Executar;
+package MapeamentoCidades.Executar;
 
 import MapeamentoCidades.Entidades.Cidade;
 import MapeamentoCidades.Entidades.Estado;

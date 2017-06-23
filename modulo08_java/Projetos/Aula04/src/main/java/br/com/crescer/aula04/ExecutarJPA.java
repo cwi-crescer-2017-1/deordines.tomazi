@@ -13,7 +13,7 @@ import javax.persistence.Persistence;
  *
  * @author deordines.tomazi
  */
-public class Executar {
+public class ExecutarJPA {
 
     public static void main(String[] args) {
         final EntityManagerFactory emf = Persistence.createEntityManagerFactory("CRESCER");
