@@ -1,4 +1,4 @@
-package br.com.crescer.Aula03;
+package br.com.crescer.aula03;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

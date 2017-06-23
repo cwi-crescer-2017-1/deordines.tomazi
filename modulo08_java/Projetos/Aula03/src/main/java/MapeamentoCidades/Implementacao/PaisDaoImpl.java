@@ -2,7 +2,7 @@ package MapeamentoCidades.Implementacao;
 
 import MapeamentoCidades.Entidades.Pais;
 import MapeamentoCidades.Interfaces.PaisDao;
-import br.com.crescer.Aula03.ConnectionUtils;
+import br.com.crescer.aula03.ConnectionUtils;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
