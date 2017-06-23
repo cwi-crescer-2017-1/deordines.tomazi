@@ -5,15 +5,19 @@
  */
 package br.com.crescer.aula03.Exercicios;
 
-import br.com.crescer.Aula03.ConnectionUtils;
+import br.com.crescer.aula03.ConnectionUtils;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.Reader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -27,7 +31,6 @@ public class SQLUtilsImpl implements SQLUtils {
     Deve possuir um metodo onde possa ser importado um arquivo ".csv".
     Deve possuir um metodo onde possa ser exportado um arquivo ".csv".
      */
-    
     @Override
     public void runFile(String filename) {
         try {
@@ -41,12 +44,12 @@ public class SQLUtilsImpl implements SQLUtils {
 
             final Reader reader = new FileReader(filename);
             final BufferedReader bufferReader = new BufferedReader(reader);
-            ArrayList<String> comandosSQL = new ArrayList<String>();
+            final ArrayList<String> comandosSQL = new ArrayList<String>();
 
             bufferReader
                     .lines()
                     .forEach(linha -> comandosSQL.add(linha));
-            
+
             try (final Connection connection = ConnectionUtils.getConnection()) {
                 PreparedStatement preparedStatement;
                 for (String s : comandosSQL) {
@@ -65,7 +68,35 @@ public class SQLUtilsImpl implements SQLUtils {
 
     @Override
     public String executeQuery(String query) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        final StringBuilder builder = new StringBuilder();
+        try {
+            if (query.trim().isEmpty() || query == null) {
+                throw new Exception("Parâmetro inválido");
+            }
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+
+        try (final PreparedStatement preparedStatement = ConnectionUtils.getConnection().prepareStatement(query)) {
+            final ResultSet resultSet = preparedStatement.executeQuery();
+            final ResultSetMetaData dataColuna = resultSet.getMetaData();
+            final int qtdColunas = dataColuna.getColumnCount();
+            
+            for (int i = 1; i <= qtdColunas; i++) {
+                builder.append(dataColuna.getColumnName(i)).append(" - ");
+            }
+  
+            // Não imprime a linha escolhida, verificar isso ainda
+//            while (resultSet.next()) {
+//                for (int i = 2; i <= qtdColunas; i++) {
+//                    builder.append(resultSet.getString(i));
+//                }
+//            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return builder.toString();
     }
 
     @Override
@@ -74,7 +105,7 @@ public class SQLUtilsImpl implements SQLUtils {
     }
 
     @Override
-    public File importCSV(String query) {
+    public File exportCSV(String query) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
