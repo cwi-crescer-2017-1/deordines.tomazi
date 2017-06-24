@@ -10,10 +10,10 @@ modulo.constant('authConfig', {
     urlLogin: '/login',
 
     // Opcional - URL da aplicação para onde será redirecionado (se for informado) após o LOGIN com sucesso
-    urlPrivado: '/cliente',
+    urlPrivado: '/home',
 
     // Opcional - URL da aplicação para onde será redirecionado (se for informado) após o LOGOUT
-    urlLogout: '/home'
+    urlLogout: '/login'
 });
 
 modulo.config(function ($routeProvider) {
@@ -41,6 +41,14 @@ modulo.config(function ($routeProvider) {
     .when('/locacao', {
         controller: 'locacaoController',
         templateUrl: '/templates/locacao.html'
+    })
+    .when('/relatorioMensal', {
+        controller: 'relatorioController',
+        templateUrl: '/templates/relatorioMensal.html'
+    })
+    .when('/relatorioAtraso', {
+        controller: 'relatorioController',
+        templateUrl: '/templates/relatorioAtraso.html'
     })
     .otherwise('/login');
 })
