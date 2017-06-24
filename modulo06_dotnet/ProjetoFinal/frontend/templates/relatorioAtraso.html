@@ -1,0 +1,28 @@
+<h3>Locações em atraso</h3>
+
+<hr class="purpleHr">
+
+<table class="table table-striped">
+    <thead>
+        <th>Cliente</th>
+        <th>CPF</th>
+        <th>Endereço</th>
+        <th>Produto</th>
+        <th>Pacote</th>
+        <th>Data Pedido</th>
+        <th>Data Entrega</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="atraso in relatorioAtraso">
+            <td>{{ atraso.Cliente.Nome }}</td>
+            <td>{{ atraso.Cliente.CPF }}</td>
+            <td>{{ atraso.Cliente.Endereco }}</td>
+            <td>{{ atraso.ProdutoConsole.Nome }}</td>            
+            <td>{{ atraso.Pacote.Nome }}</td>
+            <td>{{ atraso.DataPedido | date:"dd/MM/yyyy" }}</td>
+            <td>{{ atraso.DataEntrega | date:"dd/MM/yyyy" }}</td>            
+        </tr>
+    </tbody>
+</table>
+
+<hr class="purpleHr">
