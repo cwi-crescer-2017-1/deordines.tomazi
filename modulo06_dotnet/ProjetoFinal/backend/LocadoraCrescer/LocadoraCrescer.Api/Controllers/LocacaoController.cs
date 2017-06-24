@@ -21,7 +21,7 @@ namespace LocadoraCrescer.Api.Controllers
         private PacoteRepositorio repositorioPacote = new PacoteRepositorio();
         private ExtraRepositorio repositorioExtra = new ExtraRepositorio();
 
-        [Authorize(Roles = "funcionario")]
+        [Authorize(Roles = "funcionario, gerente")]
         [HttpGet]
         public IHttpActionResult Listar()
         {
@@ -29,7 +29,7 @@ namespace LocadoraCrescer.Api.Controllers
             return Ok(new { dados = locacao });
         }
 
-        [Authorize(Roles = "funcionario")]
+        [Authorize(Roles = "funcionario, gerente")]
         [HttpPost]
         public IHttpActionResult Criar([FromBody]CriarLocacaoModel model)
         {
@@ -63,7 +63,7 @@ namespace LocadoraCrescer.Api.Controllers
             return Ok(new { dados = locacao });
         }
 
-        [Authorize(Roles = "funcionario")]
+        [Authorize(Roles = "funcionario, gerente")]
         [HttpPut]
         [Route("devolver")]
         public IHttpActionResult Devolver([FromBody]AlterarPedido model)

@@ -17,7 +17,7 @@ namespace LocadoraCrescer.Api.Controllers
     {
         private PacoteRepositorio repositorio = new PacoteRepositorio();
 
-        [Authorize(Roles = "funcionario")]
+        [Authorize(Roles = "funcionario, gerente")]
         [HttpGet]
         public IHttpActionResult Listar()
         {

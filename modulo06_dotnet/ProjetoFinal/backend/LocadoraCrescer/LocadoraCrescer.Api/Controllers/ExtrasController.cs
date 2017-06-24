@@ -17,7 +17,7 @@ namespace LocadoraCrescer.Api.Controllers
     {
         private ExtraRepositorio repositorio = new ExtraRepositorio();
 
-        [Authorize(Roles = "funcionario")]
+        [Authorize(Roles = "funcionario, gerente")]
         [HttpGet]
         public IHttpActionResult Listar()
         {
@@ -25,7 +25,7 @@ namespace LocadoraCrescer.Api.Controllers
             return Ok(new { dados = extras });
         }
 
-        [Authorize(Roles = "funcionario")]
+        [Authorize(Roles = "funcionario, gerente")]
         [HttpGet]
         public IHttpActionResult BuscarPorId(int id)
         {
@@ -43,7 +43,7 @@ namespace LocadoraCrescer.Api.Controllers
             return Ok(new { dados = extra });
         }
 
-        [Authorize(Roles = "funcionario")]
+        [Authorize(Roles = "funcionario, gerente")]
         [HttpPut]
         [Route("alugar")]
         public IHttpActionResult Alugar([FromBody]AlterarQuantidade model)
@@ -58,7 +58,7 @@ namespace LocadoraCrescer.Api.Controllers
             return Ok(new { dados = extra });
         }
 
-        [Authorize(Roles = "funcionario")]
+        [Authorize(Roles = "funcionario, gerente")]
         [HttpPut]
         [Route("devolver")]
         public IHttpActionResult Devolver([FromBody]AlterarQuantidade model)

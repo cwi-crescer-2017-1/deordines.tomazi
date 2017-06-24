@@ -17,7 +17,7 @@ namespace LocadoraCrescer.Api.Controllers
     {
         private ProdutoConsoleRepositorio repositorio = new ProdutoConsoleRepositorio();
 
-        [Authorize(Roles = "funcionario")]
+        [Authorize(Roles = "funcionario, gerente")]
         [HttpGet]
         public IHttpActionResult Listar()
         {
@@ -25,7 +25,7 @@ namespace LocadoraCrescer.Api.Controllers
             return Ok(new { dados = produtosConsole });
         }
 
-        [Authorize(Roles = "funcionario")]
+        [Authorize(Roles = "funcionario, gerente")]
         [HttpGet]
         public IHttpActionResult BuscarPorId(int id)
         {
@@ -42,7 +42,7 @@ namespace LocadoraCrescer.Api.Controllers
             return Ok(new { dados = produto });
         }
 
-        [Authorize(Roles = "funcionario")]
+        [Authorize(Roles = "funcionario, gerente")]
         [HttpPut]
         [Route("alugar/{id}")]
         public IHttpActionResult Alugar(int id)
@@ -57,7 +57,7 @@ namespace LocadoraCrescer.Api.Controllers
             return Ok(new { dados = produtoConsole });
         }
 
-        [Authorize(Roles = "funcionario")]
+        [Authorize(Roles = "funcionario, gerente")]
         [HttpPut]
         [Route("devolver/{id}")]
         public IHttpActionResult Devolver(int id)

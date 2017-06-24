@@ -18,7 +18,7 @@ namespace LocadoraCrescer.Api.Controllers
     {
         private ClienteRepositorio repositorio = new ClienteRepositorio();
 
-        [Authorize(Roles = "funcionario")]
+        [Authorize(Roles = "funcionario, gerente")]
         [HttpGet]
         public IHttpActionResult Listar()
         {
@@ -26,7 +26,7 @@ namespace LocadoraCrescer.Api.Controllers
             return Ok(new { dados = clientes });
         }
 
-        [Authorize(Roles = "funcionario")]
+        [Authorize(Roles = "funcionario, gerente")]
         [HttpGet]
         [Route("buscarcpf/{cpf}")]
         public IHttpActionResult BuscarPorCpf(string cpf)
@@ -35,7 +35,7 @@ namespace LocadoraCrescer.Api.Controllers
             return Ok(new { dados = cliente });
         }
 
-        [Authorize(Roles = "funcionario")]
+        [Authorize(Roles = "funcionario, gerente")]
         [HttpPost, Route("registrar")]
         public IHttpActionResult Criar([FromBody]CriarClienteModel model)
         {
