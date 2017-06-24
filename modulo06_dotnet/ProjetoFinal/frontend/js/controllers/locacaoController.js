@@ -64,10 +64,12 @@ modulo.controller('locacaoController', function($scope, $localStorage, locacaoSe
     }
 
     function criar(locacao) {
-        console.log(locacao.cliente.Id);
+        // console.log(locacao.cliente.Id);
+        console.log($scope.cliente.Id);        
         console.log(locacao.produtoConsole.Id);
         console.log(locacao.pacote.Id);
-        locacao = { IdCliente: locacao.cliente.Id, IdProdutoConsole: locacao.produtoConsole.Id, IdPacote: locacao.pacote.Id };
+        // locacao = { IdCliente: locacao.cliente.Id, IdProdutoConsole: locacao.produtoConsole.Id, IdPacote: locacao.pacote.Id };
+        locacao = { IdCliente: $scope.cliente.Id, IdProdutoConsole: locacao.produtoConsole.Id, IdPacote: locacao.pacote.Id };        
         console.log(locacao);
         locacaoService
             .criar(locacao)
