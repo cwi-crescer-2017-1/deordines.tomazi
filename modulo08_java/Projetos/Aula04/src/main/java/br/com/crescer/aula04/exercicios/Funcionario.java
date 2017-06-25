@@ -5,6 +5,7 @@
  */
 package br.com.crescer.aula04.exercicios;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Column;
@@ -26,7 +27,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "FUNCIONARIO")
-public class Funcionario {
+public class Funcionario implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_FUNCIONARIO")
