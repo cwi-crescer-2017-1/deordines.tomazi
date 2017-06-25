@@ -4,12 +4,12 @@
     <!--<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <class>br.com.crescer.aula04.ClienteAula</class>
-    <class>br.com.crescer.aula04.exercicios.Funcionario</class>
-    <class>br.com.crescer.aula04.exercicios.Cliente</class>
-    <class>br.com.crescer.aula04.exercicios.Genero</class>
-    <class>br.com.crescer.aula04.exercicios.Genero</class>
-    <class>br.com.crescer.aula04.exercicios.Video</class>
-    <class>br.com.crescer.aula04.exercicios.Locacao</class>
+    <class>br.com.crescer.aula04.exercicios.entidades.Funcionario</class>
+    <class>br.com.crescer.aula04.exercicios.entidades.Cliente</class>
+    <class>br.com.crescer.aula04.exercicios.entidades.Genero</class>
+    <class>br.com.crescer.aula04.exercicios.entidades.Genero</class>
+    <class>br.com.crescer.aula04.exercicios.entidades.Video</class>
+    <class>br.com.crescer.aula04.exercicios.entidades.Locacao</class>
   </persistence-unit>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
