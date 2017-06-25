@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.crescer.aula04.exercicios;
+package br.com.crescer.aula04.exercicio.entidades;
 
 import java.io.Serializable;
 import javax.persistence.Column;

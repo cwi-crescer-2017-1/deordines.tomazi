@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.crescer.aula04.exercicios;
+package br.com.crescer.aula04.exercicio.entidades;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,58 +17,50 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
-
 /**
  *
  * @author Deordines
  */
 
 @Entity
-@Table(name = "FUNCIONARIO")
-public class Funcionario implements Serializable {
+@Table(name = "CLIENTE")
+public class Cliente implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_FUNCIONARIO")
-    @SequenceGenerator(name = "SEQ_FUNCIONARIO", sequenceName = "SEQ_FUNCIONARIO", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_CLIENTE")
+    @SequenceGenerator(name = "SEQ_CLIENTE", sequenceName = "SEQ_CLIENTE", allocationSize = 1)
     @Column(name = "ID", length = 12, nullable = false)
     private Long id;
     
-    @Column(name = "NOME", length = 60, nullable = false)
+    @Column(name = "NOME", length = 50, nullable = false)
     private String nome;
     
-    @Column(name = "BAIRRO", length = 60)
-    private String bairro;
-    
-    @Column(name = "CIDADE", length = 60)
-    private String cidade;
-
-    @Column(name = "NUMERO_CASA", length = 10)
-    private String numeroCasa;
-
-    @Column(name = "RUA", length = 80)
-    private String rua;
+    @Column(name = "CPF", length = 11, nullable = false)
+    private String cpf;
     
     @Column(name = "RG", length = 15, nullable = false)
     private String rg;
+    
+    @Column(name = "RUA", length = 50)
+    private String rua;
+    
+    @Column(name = "BAIRRO", length = 50)
+    private String bairro;
+    
+    @Column(name = "CIDADE", length = 50)
+    private String cidade;
 
-    @Column(name = "EMAIL", length = 100)
+    @Column(name = "NUMERO_CASA", length = 50)
+    private String numeroCasa;
+    
+    @Column(name = "EMAIL", length = 50)
     private String email;
 
     @Column(name = "TELEFOME", length = 50)
     private String telefone;
     
-    @Column(name = "CELULAR", length = 50)
+    @Column(name = "CELULAR", length = 50, nullable = false)
     private String celular;
-    
-    @Column(name = "SALARIO")
-    private BigDecimal salario;
-
-    @Column(name = "FUNCAO", length = 50)
-    private String funcao;
-
-    @Column(name = "CPF", length = 11)
-    private String cpf;
     
     @Column(name = "NASCIMENTO")
     @Temporal(TemporalType.DATE)
@@ -101,6 +92,48 @@ public class Funcionario implements Serializable {
      */
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    /**
+     * @return the cpf
+     */
+    public String getCpf() {
+        return cpf;
+    }
+
+    /**
+     * @param cpf the cpf to set
+     */
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    /**
+     * @return the rg
+     */
+    public String getRg() {
+        return rg;
+    }
+
+    /**
+     * @param rg the rg to set
+     */
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+    /**
+     * @return the rua
+     */
+    public String getRua() {
+        return rua;
+    }
+
+    /**
+     * @param rua the rua to set
+     */
+    public void setRua(String rua) {
+        this.rua = rua;
     }
 
     /**
@@ -146,34 +179,6 @@ public class Funcionario implements Serializable {
     }
 
     /**
-     * @return the rua
-     */
-    public String getRua() {
-        return rua;
-    }
-
-    /**
-     * @param rua the rua to set
-     */
-    public void setRua(String rua) {
-        this.rua = rua;
-    }
-
-    /**
-     * @return the rg
-     */
-    public String getRg() {
-        return rg;
-    }
-
-    /**
-     * @param rg the rg to set
-     */
-    public void setRg(String rg) {
-        this.rg = rg;
-    }
-
-    /**
      * @return the email
      */
     public String getEmail() {
@@ -213,48 +218,6 @@ public class Funcionario implements Serializable {
      */
     public void setCelular(String celular) {
         this.celular = celular;
-    }
-
-    /**
-     * @return the salario
-     */
-    public BigDecimal getSalario() {
-        return salario;
-    }
-
-    /**
-     * @param salario the salario to set
-     */
-    public void setSalario(BigDecimal salario) {
-        this.salario = salario;
-    }
-
-    /**
-     * @return the funcao
-     */
-    public String getFuncao() {
-        return funcao;
-    }
-
-    /**
-     * @param funcao the funcao to set
-     */
-    public void setFuncao(String funcao) {
-        this.funcao = funcao;
-    }
-
-    /**
-     * @return the cpf
-     */
-    public String getCpf() {
-        return cpf;
-    }
-
-    /**
-     * @param cpf the cpf to set
-     */
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
     }
 
     /**
