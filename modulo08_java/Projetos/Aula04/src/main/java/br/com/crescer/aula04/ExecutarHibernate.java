@@ -23,7 +23,7 @@ public class ExecutarHibernate {
         final Session session = em.unwrap(Session.class);
         
         /*
-        final Cliente cliente = new Cliente();
+        final ClienteAula cliente = new ClienteAula();
         cliente.setId(1l);
         cliente.setNome("Deórdines");
         
@@ -32,7 +32,7 @@ public class ExecutarHibernate {
         em.getTransaction().commit();
         */
         
-        final Cliente cliente = (Cliente)session.load(Cliente.class, 1l);
+        final ClienteAula cliente = (ClienteAula)session.load(ClienteAula.class, 1l);
         System.out.println(cliente.getNome());
 //        cliente.setNome("Deórdines Tomazi");       
 //        em.getTransaction().begin();

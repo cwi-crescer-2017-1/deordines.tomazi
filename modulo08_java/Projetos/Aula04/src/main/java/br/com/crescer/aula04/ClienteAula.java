@@ -16,7 +16,7 @@ import javax.persistence.Id;
  * @author deordines.tomazi
  */
 @Entity
-public class Cliente {
+public class ClienteAula {
 
     @Id // Identifica a PK
     @Basic(optional = false)
