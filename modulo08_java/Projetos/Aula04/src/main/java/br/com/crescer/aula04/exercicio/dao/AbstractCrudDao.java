@@ -5,35 +5,57 @@
  */
 package br.com.crescer.aula04.exercicio.dao;
 
-import br.com.crescer.aula04.exercicio.interfaces.ICrudDao;
 import java.util.List;
+import br.com.crescer.aula04.exercicio.interfaces.ICrudDAO;
+import java.io.Serializable;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
 
 /**
  *
  * @author Deordines
  */
-public abstract class AbstractCrudDao<Entity, ID> implements ICrudDao<Entity, ID> {
+public abstract class AbstractCrudDAO<Entity, ID> implements ICrudDAO<Entity, ID> {
 
+    private final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("CRESCER");
+    private final EntityManager entityManager = entityManagerFactory.createEntityManager();
+    private final Session session = entityManager.unwrap(Session.class);
+    private Class<Entity> entityClass;
+    
+    public AbstractCrudDAO(Class<Entity> entityClass) {
+        this.entityClass = entityClass;
+    }
+    
     @Override
     public Entity save(Entity e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        entityManager.getTransaction().begin();
+        session.saveOrUpdate(e);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        entityManagerFactory.close();
+        return e;
     }
 
     @Override
     public void remove(Entity e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        entityManager.getTransaction().begin();
+        session.delete(e);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        entityManagerFactory.close();
     }
 
     @Override
     public Entity loadById(ID id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (Entity) session.load(entityClass, (Serializable) id);
     }
 
     @Override
     public List<Entity> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Criteria criteria = session.createCriteria(entityClass);
+        return criteria.list();
     }
-    
-    
-    
 }
