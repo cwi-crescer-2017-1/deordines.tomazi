@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Deordines
  */
-public interface ICrudDao<Entity, ID> {
+public interface ICrudDAO<Entity, ID> {
     
     Entity save(Entity e);
 
