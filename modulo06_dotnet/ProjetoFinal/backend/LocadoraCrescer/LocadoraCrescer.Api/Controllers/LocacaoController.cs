@@ -30,6 +30,15 @@ namespace LocadoraCrescer.Api.Controllers
         }
 
         [Authorize(Roles = "funcionario, gerente")]
+        [HttpGet]
+        [Route("{cpf}")]
+        public IHttpActionResult ListarLocacaoCPF(string cpf)
+        {
+            var locacao = repositorioLocacao.ListarDevolucao(cpf);
+            return Ok(new { dados = locacao });
+        }
+
+        [Authorize(Roles = "funcionario, gerente")]
         [HttpPost]
         public IHttpActionResult Criar([FromBody]CriarLocacaoModel model)
         {

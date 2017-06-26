@@ -26,6 +26,10 @@ namespace LocadoraCrescer.Infraestrutura.Repositorios
             return contexto.Locacao.Include("Cliente").Include("ProdutoConsole").Include("Pacote").ToList();
         }
 
+        public List<Locacao> ListarDevolucao(string cpf)
+        {
+            return Listar().Where(l => l.Cliente.CPF == cpf && l.DataDevolucao == null).ToList();
+        }
 
         public Locacao BuscarPorId(int id)
         {
