@@ -7,6 +7,10 @@ modulo.factory('locacaoService', function($http) {
         return $http.get(`${url}`);
     }
 
+    function listarDevolucao(cpf) {
+        return $http.get(`${url}/${cpf}`);
+    }
+
     function criar(locacao) {
         return $http({
             url: `${url}`,
@@ -26,6 +30,7 @@ modulo.factory('locacaoService', function($http) {
 
     return ({
         listar: listar,
+        listarDevolucao: listarDevolucao,
         criar: criar,
         devolver: devolver
     })

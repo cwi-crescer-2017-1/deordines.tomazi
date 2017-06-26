@@ -1,4 +1,4 @@
-modulo.controller('locacaoController', function($scope, $localStorage, locacaoService, clienteService, produtoService, pacoteService, extraService) {
+modulo.controller('locacaoController', function($scope, $localStorage, $route, locacaoService, clienteService, produtoService, pacoteService, extraService, toastr) {
 
     $scope.locacoes = listar();
     $scope.clientes = listarClientes();
@@ -9,6 +9,8 @@ modulo.controller('locacaoController', function($scope, $localStorage, locacaoSe
     $scope.devolver = devolver;
     $scope.buscarPorCpf = buscarPorCpf;
     $scope.limpar = limpar;
+
+    $scope.listarDevolucao = listarDevolucao;    
     
     function listarClientes() {
         clienteService
@@ -20,12 +22,15 @@ modulo.controller('locacaoController', function($scope, $localStorage, locacaoSe
     }
 
     function buscarPorCpf(cpf) {
-        if (angular.isUndefined(cpf) || cpf == null)
+        if (angular.isUndefined(cpf) || cpf == null) {
+            toastr.warning('Algo inesperado aconteceu.');
             return;
+        }
 
         clienteService
             .buscarPorCpf(cpf)
             .then(response => {
+                toastr.success('Ação realizada com sucesso.');
                 console.log(response.data.dados);
                 $scope.cpfCliente = undefined;
                 $scope.cliente = response.data.dados;
@@ -33,6 +38,7 @@ modulo.controller('locacaoController', function($scope, $localStorage, locacaoSe
     }
 
     function limpar() {
+        toastr.success('Ação realizada com sucesso.');
         $scope.cliente = {};
     }
 
@@ -64,6 +70,11 @@ modulo.controller('locacaoController', function($scope, $localStorage, locacaoSe
     }
 
     function criar(locacao) {
+        if (angular.isUndefined(locacao) || locacao === null) {
+            toastr.error('Ação inválida.');
+            return;
+        }
+
         // console.log(locacao.cliente.Id);
         console.log($scope.cliente.Id);        
         console.log(locacao.produtoConsole.Id);
@@ -74,17 +85,31 @@ modulo.controller('locacaoController', function($scope, $localStorage, locacaoSe
         locacaoService
             .criar(locacao)
             .then(response => {
+                toastr.success('Ação realizada com sucesso.');
                 console.log(response.data.dados);
+                // $window.location.reload();
+                $route.reload();
+            })
+    }
+
+    function listarDevolucao(cpf) {
+        locacaoService
+            .listarDevolucao(cpf)
+            .then(response => {
+                toastr.success('Ação realizada com sucesso.');
+                console.log(response.data.dados);
+                $scope.devolucoes = response.data.dados;
             })
     }
 
     function devolver(locacao) {
         console.log(locacao);
-        console.log(locacao.pedido.Id);
+        // console.log(locacao.pedido.Id);
         locacaoService
-            .devolver(locacao.pedido)
+            .devolver(locacao)
             .then(response => {
-                listar();
+                listarDevolucao(locacao.Cliente.Id);
+                toastr.success('Ação realizada com sucesso.');
                 console.log(response.data.dados);
             })
     }
