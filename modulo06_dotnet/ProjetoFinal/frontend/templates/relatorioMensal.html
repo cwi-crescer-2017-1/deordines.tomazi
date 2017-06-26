@@ -6,7 +6,8 @@
 <input type="date" id="dataNascimento" class="form-control" name="data" ng-model="dataRelatorio.data">
 
 <button type="submit" class="btn btn-default" ng-click="listarRelatorioMensal(dataRelatorio)">Buscar</button>
-
+<br><br>
+<p><strong>Valor Total: R${{ valorTotal }}</strong></p>
 <table class="table table-striped">
     <thead>
         <th>Cliente</th>
@@ -17,6 +18,7 @@
         <th>Data Pedido</th>
         <th>Data Entrega</th>
         <th>Data Devolução</th>
+        <th>Valor Final</th>
     </thead>
     <tbody>
         <tr ng-repeat="mensal in relatorioMensal">
@@ -28,6 +30,7 @@
             <td>{{ mensal.DataPedido | date:"dd/MM/yyyy" }}</td>
             <td>{{ mensal.DataEntrega | date:"dd/MM/yyyy" }}</td>
             <td>{{ mensal.DataDevolucao | date:"dd/MM/yyyy" }}</td>
+            <td>R${{ mensal.ValorFinal }}</td>
         </tr>
     </tbody>
 </table>
