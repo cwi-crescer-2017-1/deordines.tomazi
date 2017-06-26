@@ -48,10 +48,17 @@ namespace LocadoraCrescer.Api.Controllers
             //var extra = repositorioExtra.BuscarPorId(model.IdExtra);
             var locacao = new Locacao(cliente, produto, pacote);
 
-            repositorioProduto.Alugar(produto);
-
             var extraJogo = repositorioExtra.BuscarPorId(1);
             var extraControle = repositorioExtra.BuscarPorId(2);
+
+            if (produto.Estoque - 1 > 0 ||
+                extraJogo.Estoque - 1 > 0 || extraJogo.Estoque - 2 > 0 || extraJogo.Estoque - 7 > 0 ||
+                extraControle.Estoque - 1 > 0 || extraControle.Estoque - 2 > 0)
+            {
+                return BadRequest();
+            }
+
+            repositorioProduto.Alugar(produto);
             switch (pacote.Id)
             {
                 case 1:
@@ -63,7 +70,7 @@ namespace LocadoraCrescer.Api.Controllers
                     repositorioExtra.Alugar(extraControle, 1);
                     break;
                 case 3:
-                    repositorioExtra.Alugar(extraJogo, 5);
+                    repositorioExtra.Alugar(extraJogo, 7);
                     repositorioExtra.Alugar(extraControle, 2);
                     break;
             }
