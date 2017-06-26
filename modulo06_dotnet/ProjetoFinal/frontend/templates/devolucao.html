@@ -1,0 +1,37 @@
+<h3>Devolver Locação</h3>
+
+<hr class="purpleHr">
+
+<h3>Informe o CPF do Cliente</h3>
+<label>
+    <input type="text" class="form-control" id="cpf" ng-model="cpfCliente" placeholder="CPF">
+</label>
+<br>
+<div ng-if="devolucoes.length == 0">Cliente não encontrado ou não existem locações para este CPF.</div>
+<button type="submit" class="btn btn-default" ng-click="listarDevolucao(cpfCliente)">Buscar</button>
+<br><br>
+
+<table class="table table-striped">
+    <thead>
+        <th>Cliente</th>
+        <th>Data Pedido</th>
+        <th>Data Entrega</th>
+        <th>Valor Previsto</th>
+        <th>Pacote</th>
+        <th>Console</th>
+        <th>Ação</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="devolucao in devolucoes">
+            <td>{{ devolucao.Cliente.Nome }}</td>
+            <td>{{ devolucao.DataPedido | date:"dd/MM/yyyy" }}</td>
+            <td>{{ devolucao.DataEntrega | date:"dd/MM/yyyy" }}</td>
+            <td>{{ devolucao.ValorPrevisto }}</td>
+            <td>{{ devolucao.Pacote.Nome }}</td>
+            <td>{{ devolucao.ProdutoConsole.Nome }}</td>
+            <td><button type="submit" class="btn btn-danger" ng-click="devolver(devolucao)">Devolver</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<hr class="purpleHr">
