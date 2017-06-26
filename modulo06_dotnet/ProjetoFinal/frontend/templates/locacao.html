@@ -8,8 +8,8 @@
     <input type="text" class="form-control" id="cpf" ng-model="cpfCliente" placeholder="CPF">
 </label>
 <br>
+<div ng-if="cliente == null">Cliente não encontrado.</div>
 <button type="submit" class="btn btn-default" ng-click="buscarPorCpf(cpfCliente)">Buscar</button>
-
 <br><br>
 
 <!--<input type="radio" ng-value="cliente.Id" ng-model="locacao.cliente.Id" ng-hide="false" ng-checked="cliente.Id">-->
