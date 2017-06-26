@@ -4,7 +4,7 @@ modulo.controller('relatorioController', function($scope, relatorioService, toas
 
     $scope.relatorioMensal = [];
     $scope.relatorioAtraso = [];
-    $scope.relatorioAtraso = listarRelatorioAtraso;
+    $scope.relatorioAtraso = listarRelatorioAtraso();
     
     $scope.listarRelatorioMensal = listarRelatorioMensal;
 
