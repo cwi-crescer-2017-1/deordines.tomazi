@@ -1,4 +1,4 @@
-var modulo = angular.module('locadoraCrescerApp', ['ngRoute', 'ngStorage', 'auth', 'ui.bootstrap']);
+var modulo = angular.module('locadoraCrescerApp', ['ngRoute', 'ngAnimate', 'ngStorage', 'auth', 'ui.bootstrap', 'toastr']);
 
 modulo.constant('authConfig', {
 
@@ -42,6 +42,10 @@ modulo.config(function ($routeProvider) {
         controller: 'locacaoController',
         templateUrl: '/templates/locacao.html'
     })
+    .when('/devolucao', {
+        controller: 'locacaoController',
+        templateUrl: '/templates/devolucao.html'
+    })
     .when('/relatorioMensal', {
         controller: 'relatorioController',
         templateUrl: '/templates/relatorioMensal.html'
@@ -51,4 +55,18 @@ modulo.config(function ($routeProvider) {
         templateUrl: '/templates/relatorioAtraso.html'
     })
     .otherwise('/login');
+});
+
+modulo.config(function (toastrConfig) {
+    angular.extend(toastrConfig, {
+    autoDismiss: false,
+    containerId: 'toast-container',
+    maxOpened: 0,    
+    newestOnTop: true,
+    positionClass: 'toast-top-right',
+    preventDuplicates: false,
+    preventOpenDuplicates: true,
+    target: 'body',
+    timeOut: 2000
+  });
 })
