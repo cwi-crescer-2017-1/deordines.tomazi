@@ -7,13 +7,13 @@ namespace LocadoraCrescer.Infraestrutura.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class CriacaoDatabase : IMigrationMetadata
+    public sealed partial class CREATE_DATABASE : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CriacaoDatabase));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CREATE_DATABASE));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706090810110_CriacaoDatabase"; }
+            get { return "201706260145083_CREATE_DATABASE"; }
         }
         
         string IMigrationMetadata.Source

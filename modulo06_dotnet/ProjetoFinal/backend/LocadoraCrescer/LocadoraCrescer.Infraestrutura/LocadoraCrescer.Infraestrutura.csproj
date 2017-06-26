@@ -59,9 +59,9 @@
     <Compile Include="Mappings\Tabelas Simples\PacoteMap.cs" />
     <Compile Include="Mappings\Tabelas Simples\LocacaoMap.cs" />
     <Compile Include="Mappings\Tabelas Simples\ClienteMap.cs" />
-    <Compile Include="Migrations\201706090810110_CriacaoDatabase.cs" />
-    <Compile Include="Migrations\201706090810110_CriacaoDatabase.Designer.cs">
-      <DependentUpon>201706090810110_CriacaoDatabase.cs</DependentUpon>
+    <Compile Include="Migrations\201706260145083_CREATE_DATABASE.cs" />
+    <Compile Include="Migrations\201706260145083_CREATE_DATABASE.Designer.cs">
+      <DependentUpon>201706260145083_CREATE_DATABASE.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,8 +83,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706090810110_CriacaoDatabase.resx">
-      <DependentUpon>201706090810110_CriacaoDatabase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706260145083_CREATE_DATABASE.resx">
+      <DependentUpon>201706260145083_CREATE_DATABASE.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
