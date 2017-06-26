@@ -7,6 +7,8 @@ package br.com.crescer.aula05;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,13 +19,16 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author deordines.tomazi
  */
-@WebServlet(name = "pessoa", urlPatterns = {"/pessoa"})
+//@WebServlet(name = "pessoa", urlPatterns = {"/pessoa"})
 public class PessoaServlet extends HttpServlet {
 
+    private List<String> nomes = new ArrayList<>();
+    
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
         try (final PrintWriter out = resp.getWriter();) {
+
             out.append("<!DOCTYPE html>");
             out.append("<html>");
             out.append("<head>");
@@ -32,7 +37,16 @@ public class PessoaServlet extends HttpServlet {
             out.append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
             out.append("</head>");
             out.append("<body>");
-            out.append("<h1>Pessoa</h1>");
+
+            out.append("<form action=\"/Aula05/pessoa\" method=\"POST\"><br>");
+            out.append(" <input name=\"nome\" autofocus/>");
+            out.append(" <input type=\"submit\" value=\"Enviar\" /><br>");
+            out.append("</form>");
+
+            out.append("<table class=\"table table-hover\"><thead><tr><th>Nome</th></tr></thead><tbody>");
+            nomes.forEach(nome -> out.append("<tr><td>").append(nome).append("</td></tr>"));
+            out.append("</tbody></table>");
+
             out.append("</body>");
             out.append("</html>");
         }
@@ -40,7 +54,10 @@ public class PessoaServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp); //To change body of generated methods, choose Tools | Templates.
+        final String nome = req.getParameter("nome");
+        if (nome != null) {
+            nomes.add(nome);
+        }
+        resp.sendRedirect("/Aula05/pessoa");
     }
-
 }
