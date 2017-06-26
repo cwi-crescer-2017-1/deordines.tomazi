@@ -1,4 +1,4 @@
-modulo.controller('clientesController', function($scope, clienteService, authService) {
+modulo.controller('clientesController', function($scope, clienteService, authService, toastr) {
 
     $scope.auth = authService;
     $scope.clientes = [];
@@ -9,11 +9,18 @@ modulo.controller('clientesController', function($scope, clienteService, authSer
     $scope.clientes = listar();
     
     function criar(cliente) {
+        if (angular.isUndefined(cliente.Nome) || cliente.Nome == null ||
+            angular.isUndefined(cliente.Cpf) || cliente.Cpf == null ||
+            angular.isUndefined(cliente.Endereco) || cliente.Endereco == null) {
+            $scope.cliente = undefined;
+            toastr.error('Ação inválida.');
+            return;
+        }
         cliente.dataNascimento = new Date(cliente.dataNascimento).toLocaleString();
-        debugger;
         clienteService
             .criar(cliente)
             .then(response => {
+                toastr.success('Ação realizada com sucesso.');
                 console.log(response.data.dados);
             })
     }
