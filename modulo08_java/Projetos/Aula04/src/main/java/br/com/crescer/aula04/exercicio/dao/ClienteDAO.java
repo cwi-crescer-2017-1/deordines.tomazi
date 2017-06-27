@@ -7,6 +7,7 @@ package br.com.crescer.aula04.exercicio.dao;
 
 import br.com.crescer.aula04.exercicio.entidades.Cliente;
 import java.util.List;
+import javax.persistence.EntityManager;
 
 /**
  *
@@ -14,7 +15,7 @@ import java.util.List;
  */
 public class ClienteDAO extends AbstractCrudDAO<Cliente, Long> {
 
-    public ClienteDAO() {
-        super(Cliente.class);
+    public ClienteDAO(EntityManager entityManager) {
+        super(Cliente.class, entityManager);
     }
 }

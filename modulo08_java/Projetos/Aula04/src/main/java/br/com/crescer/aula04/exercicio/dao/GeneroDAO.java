@@ -7,6 +7,7 @@ package br.com.crescer.aula04.exercicio.dao;
 
 import br.com.crescer.aula04.exercicio.entidades.Genero;
 import java.util.List;
+import javax.persistence.EntityManager;
 
 /**
  *
@@ -14,7 +15,7 @@ import java.util.List;
  */
 public class GeneroDAO extends AbstractCrudDAO<Genero, Long> {
 
-    public GeneroDAO() {
-        super(Genero.class);
+    public GeneroDAO(EntityManager entityManager) {
+        super(Genero.class, entityManager);
     }
 }

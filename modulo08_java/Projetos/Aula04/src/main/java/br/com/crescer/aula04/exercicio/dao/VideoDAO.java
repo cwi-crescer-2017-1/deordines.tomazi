@@ -7,6 +7,7 @@ package br.com.crescer.aula04.exercicio.dao;
 
 import br.com.crescer.aula04.exercicio.entidades.Video;
 import java.util.List;
+import javax.persistence.EntityManager;
 
 /**
  *
@@ -14,7 +15,7 @@ import java.util.List;
  */
 public class VideoDAO extends AbstractCrudDAO<Video, Long> {
 
-    public VideoDAO() {
-        super(Video.class);
+    public VideoDAO(EntityManager entityManager) {
+        super(Video.class, entityManager);
     }
 }

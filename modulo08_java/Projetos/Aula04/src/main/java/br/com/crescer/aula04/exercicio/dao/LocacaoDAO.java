@@ -7,6 +7,7 @@ package br.com.crescer.aula04.exercicio.dao;
 
 import br.com.crescer.aula04.exercicio.entidades.Locacao;
 import java.util.List;
+import javax.persistence.EntityManager;
 
 /**
  *
@@ -14,7 +15,7 @@ import java.util.List;
  */
 public class LocacaoDAO extends AbstractCrudDAO<Locacao, Long> {
 
-    public LocacaoDAO() {
-        super(Locacao.class);
+    public LocacaoDAO(EntityManager entityManager) {
+        super(Locacao.class, entityManager);
     }
 }
