@@ -20,42 +20,33 @@ import org.hibernate.Session;
  */
 public abstract class AbstractCrudDAO<Entity, ID> implements ICrudDAO<Entity, ID> {
 
-    private final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("CRESCER");
-    private final EntityManager entityManager = entityManagerFactory.createEntityManager();
-    private final Session session = entityManager.unwrap(Session.class);
+    private final EntityManager entityManager;
+    
     private Class<Entity> entityClass;
     
-    public AbstractCrudDAO(Class<Entity> entityClass) {
+    public AbstractCrudDAO(Class<Entity> entityClass, EntityManager entityManager) {
         this.entityClass = entityClass;
+        this.entityManager = entityManager;
     }
     
     @Override
     public Entity save(Entity e) {
-        entityManager.getTransaction().begin();
-        session.saveOrUpdate(e);
-        entityManager.getTransaction().commit();
-        entityManager.close();
-        entityManagerFactory.close();
+        entityManager.persist(e);
         return e;
     }
 
     @Override
     public void remove(Entity e) {
-        entityManager.getTransaction().begin();
-        session.delete(e);
-        entityManager.getTransaction().commit();
-        entityManager.close();
-        entityManagerFactory.close();
+        entityManager.remove(e);
     }
 
     @Override
     public Entity loadById(ID id) {
-        return (Entity) session.load(entityClass, (Serializable) id);
+        return entityManager.find(entityClass, id);
     }
 
     @Override
     public List<Entity> findAll() {
-        Criteria criteria = session.createCriteria(entityClass);
-        return criteria.list();
+        return entityManager.createQuery("select e from " + entityClass.getSimpleName() + " e").getResultList();
     }
 }

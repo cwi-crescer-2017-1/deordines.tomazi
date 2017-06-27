@@ -7,6 +7,7 @@ package br.com.crescer.aula04.exercicio.dao;
 
 import br.com.crescer.aula04.exercicio.entidades.Funcionario;
 import java.util.List;
+import javax.persistence.EntityManager;
 
 /**
  *
@@ -14,7 +15,7 @@ import java.util.List;
  */
 public class FuncionarioDAO extends AbstractCrudDAO<Funcionario, Long> {
 
-    public FuncionarioDAO() {
-        super(Funcionario.class);
+    public FuncionarioDAO(EntityManager entityManager ) {
+        super(Funcionario.class, entityManager);
     }
 }

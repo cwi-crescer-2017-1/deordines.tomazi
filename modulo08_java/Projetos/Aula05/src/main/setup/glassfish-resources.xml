@@ -29,7 +29,7 @@
                           wrap-jdbc-objects="false">
         <property name="serverName" value="localhost"/>
         <property name="portNumber" value="1521"/>
-        <property name="databaseName" value="AULAJAVA"/>
+        <property name="databaseName" value="XE"/>
         <property name="User" value="AULAJAVA"/>
         <property name="Password" value="AULAJAVA"/>
         <property name="URL" value="jdbc:oracle:thin:@localhost:1521:XE"/>
