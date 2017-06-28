@@ -1,25 +1,49 @@
-<h1 class="page-header">Login (pública)</h1>
+<br><br>
 
-<div class="row">
+<div class="col-md-4 col-md-offset-4">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Login</div>
+    <div class="panel-body">
 
-  <div class="col-sm-4">
+      <!-- Login Form -->
+      <form role="form" ng-submit="login(usuario)">
 
-    <form novalidate name="formLogin" ng-submit="login(usuario)">
+        <!-- Username Field -->
+        <div class="row">
+          <div class="form-group col-xs-12">
+            <label for="username">Email:</label>
+            <div class="input-group">
+              <input class="form-control" id="username" type="text" name="username" ng-model="usuario.email" placeholder="Username" required/>
+              <span class="input-group-btn">
+                <label class="btn btn-primary"><span class="glyphicon glyphicon-user" aria-hidden="true"></label></span>
+              </span>
+            </div>
+          </div>
+        </div>
 
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input ng-model="usuario.email" type="email" class="form-control" name="email">
-      </div>
+        <!-- Content Field -->
+        <div class="row">
+          <div class="form-group col-xs-12">
+            <label for="password">Senha:</label>
+            <div class="input-group">
+              <input class="form-control" id="password" type="password" name="password" ng-model="usuario.senha" placeholder="Password"
+                required/>
+              <span class="input-group-btn"><label class="btn btn-primary"><span class="glyphicon glyphicon-lock" aria-hidden="true"></label></span>
+              </span>
+            </div>
+          </div>
+        </div>
 
-      <div class="form-group">
-        <label for="senha">Senha</label>
-        <input ng-model="usuario.senha" type="password" class="form-control" name="senha">
-      </div>
+        <!-- Login Button -->
+        <div class="row">
+          <div class="form-group col-xs-4">
+            <button class="btn btn-primary" type="submit">Entrar</button>
+          </div>
+        </div>
 
-      <button class="btn btn-default">Buscar</button>
+      </form>
+      <!-- End of Login Form -->
 
-    </form>
-
+    </div>
   </div>
-
 </div>
