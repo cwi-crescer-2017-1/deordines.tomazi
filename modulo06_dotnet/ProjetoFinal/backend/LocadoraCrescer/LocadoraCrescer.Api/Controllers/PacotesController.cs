@@ -25,6 +25,15 @@ namespace LocadoraCrescer.Api.Controllers
             return Ok(new { dados = pacotes });
         }
 
+        [Authorize(Roles = "funcionario, gerente")]
+        [HttpGet]
+        [Route("{id}")]
+        public IHttpActionResult BuscarPorId(int id)
+        {
+            var pacotes = repositorio.BuscarPorId(id);
+            return Ok(new { dados = pacotes });
+        }
+
         [Authorize(Roles = "gerente")]
         [HttpPost, Route("registrar")]
         public IHttpActionResult Criar([FromBody]CriarPacoteModel model)

@@ -7,16 +7,25 @@ modulo.factory('pacoteService', function($http) {
         return $http.get(`${url}`);
     }
 
-    function criar(cliente) {
+    function buscarPorId(id) {
+        return $http({
+            url: `${url}/${id}`,
+            method: 'GET',
+            data: id
+        });
+    }
+
+    function criar(pacote) {
         return $http({
             url: `${url}/registrar`,
             method: 'POST',
-            data: cliente
+            data: pacote
         });
     }
 
     return ({
         listar: listar,
-        criar: criar
+        criar: criar,
+        buscarPorId: buscarPorId
     })
 })
