@@ -15,7 +15,7 @@
 
     <div class="bg"></div>
     <!-- INÍCIO NAVBAR -->
-    <nav class="navbar navbar-default navbar-fixed-top" ng-if="true">
+    <nav class="navbar navbar-default navbar-fixed-top" ng-if="isAutenticado">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
@@ -36,7 +36,7 @@
                             <li><a href= "#!/devolucao">Devolução</a></li>
                             <li class="divider"></li>
                             <li class="dropdown-header">Administrativo</li>
-                            <li><a href="#!/relatorioMensal">Relatório Mensal</a></li>
+                            <li><a href="#!/relatorioMensal" ng-if="isGerente">Relatório Mensal</a></li>
                             <li><a href="#!/relatorioAtraso">Relatório Atraso</a></li>
                         </ul>
                     </li>
@@ -54,8 +54,9 @@
     </nav>
     <!-- FIM NAVBAR -->
 
-    <button ng-click="botao1()">Oi</button>
-    <button ng-click="botao2()">Sign In</button>
+    <!--<button ng-click="botao1()">Oi</button>
+    <button ng-click="botao2()">Sign In</button>-->
+
     <!-- INÍCIO VIEW ROUTES -->
     <div class="container">
         <ng-view></ng-view>

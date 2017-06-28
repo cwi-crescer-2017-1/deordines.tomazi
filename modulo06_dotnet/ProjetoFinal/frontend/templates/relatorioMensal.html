@@ -1,38 +1,45 @@
-<h3>Locações de até 30 dias atrás</h3>
+<div ng-if="isGerente">
+    <h3>Locações de até 30 dias atrás</h3>
 
-<hr class="purpleHr">
+    <hr class="purpleHr">
+    <form>
+    <label for="data">Insira uma data:
+    <input type="date" id="dataNascimento" class="form-control" name="data" ng-model="dataRelatorio.data">
+    </label>
+    <button type="submit" class="btn btn-default" ng-click="listarRelatorioMensal(dataRelatorio)">Buscar</button>
+    </form>
+    <br><br>
+    <strong>Valor Total: R${{ valorTotal }}</strong>
+    <table class="table table-striped">
+        <thead>
+            <th>Cliente</th>
+            <th>CPF</th>
+            <th>Endereço</th>
+            <th>Produto</th>
+            <th>Pacote</th>
+            <th>Data Pedido</th>
+            <th>Data Entrega</th>
+            <th>Data Devolução</th>
+            <th>Valor Final</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="mensal in relatorioMensal">
+                <td>{{ mensal.Cliente.Nome }}</td>
+                <td>{{ mensal.Cliente.CPF }}</td>
+                <td>{{ mensal.Cliente.Endereco }}</td>
+                <td>{{ mensal.ProdutoConsole.Nome }}</td>
+                <td>{{ mensal.Pacote.Nome }}</td>
+                <td>{{ mensal.DataPedido | date:"dd/MM/yyyy" }}</td>
+                <td>{{ mensal.DataEntrega | date:"dd/MM/yyyy" }}</td>
+                <td>{{ mensal.DataDevolucao | date:"dd/MM/yyyy" }}</td>
+                <td>R${{ mensal.ValorFinal }}</td>
+            </tr>
+        </tbody>
+    </table>
 
-<label for="data">Insira uma data:</label>
-<input type="date" id="dataNascimento" class="form-control" name="data" ng-model="dataRelatorio.data">
-
-<button type="submit" class="btn btn-default" ng-click="listarRelatorioMensal(dataRelatorio)">Buscar</button>
-<br><br>
-<p><strong>Valor Total: R${{ valorTotal }}</strong></p>
-<table class="table table-striped">
-    <thead>
-        <th>Cliente</th>
-        <th>CPF</th>
-        <th>Endereço</th>
-        <th>Produto</th>
-        <th>Pacote</th>
-        <th>Data Pedido</th>
-        <th>Data Entrega</th>
-        <th>Data Devolução</th>
-        <th>Valor Final</th>
-    </thead>
-    <tbody>
-        <tr ng-repeat="mensal in relatorioMensal">
-            <td>{{ mensal.Cliente.Nome }}</td>
-            <td>{{ mensal.Cliente.CPF }}</td>
-            <td>{{ mensal.Cliente.Endereco }}</td>
-            <td>{{ mensal.ProdutoConsole.Nome }}</td>
-            <td>{{ mensal.Pacote.Nome }}</td>
-            <td>{{ mensal.DataPedido | date:"dd/MM/yyyy" }}</td>
-            <td>{{ mensal.DataEntrega | date:"dd/MM/yyyy" }}</td>
-            <td>{{ mensal.DataDevolucao | date:"dd/MM/yyyy" }}</td>
-            <td>R${{ mensal.ValorFinal }}</td>
-        </tr>
-    </tbody>
-</table>
-
-<hr class="purpleHr">
+    <hr class="purpleHr">
+</div>
+<div ng-if="!isGerente">
+    <h3>Acesso negado</h3>
+    <hr class="purpleHr">
+</div>
