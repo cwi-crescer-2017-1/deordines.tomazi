@@ -7,6 +7,14 @@ modulo.factory('produtoService', function($http) {
         return $http.get(`${url}`);
     }
 
+    function buscarPorId(id) {
+        return $http({
+            url: `${url}/${id}`,
+            method: 'GET',
+            data: id
+        });
+    }
+
     function criar(produto) {
         return $http({
             url: `${url}/registrar`,
@@ -35,6 +43,7 @@ modulo.factory('produtoService', function($http) {
         listar: listar,
         criar: criar,
         alugar: alugar,
-        devolver: devolver
+        devolver: devolver,
+        buscarPorId: buscarPorId
     })
 })

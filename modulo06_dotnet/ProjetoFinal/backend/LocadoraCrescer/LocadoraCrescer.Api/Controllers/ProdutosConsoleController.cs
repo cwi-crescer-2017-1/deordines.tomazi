@@ -27,6 +27,7 @@ namespace LocadoraCrescer.Api.Controllers
 
         [Authorize(Roles = "funcionario, gerente")]
         [HttpGet]
+        [Route("{id}")]
         public IHttpActionResult BuscarPorId(int id)
         {
             var produtosConsole = repositorio.BuscarPorId(id);
