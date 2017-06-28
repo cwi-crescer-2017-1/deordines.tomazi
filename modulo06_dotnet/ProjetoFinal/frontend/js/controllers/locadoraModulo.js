@@ -54,7 +54,7 @@ modulo.config(function ($routeProvider) {
         controller: 'relatorioController',
         templateUrl: '/templates/relatorioAtraso.html'
     })
-    .otherwise('/login');
+    .otherwise('/home');
 });
 
 modulo.config(function (toastrConfig) {
