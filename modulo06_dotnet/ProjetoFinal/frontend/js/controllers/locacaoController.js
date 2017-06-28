@@ -1,5 +1,8 @@
 modulo.controller('locacaoController', function($scope, $localStorage, $route, locacaoService, clienteService, produtoService, pacoteService, extraService, toastr) {
 
+    var valorProduto = 0;
+    var valorPacote = 0;
+
     $scope.locacoes = listar();
     $scope.clientes = listarClientes();
     $scope.produtos = listarProdutos();
@@ -10,6 +13,10 @@ modulo.controller('locacaoController', function($scope, $localStorage, $route, l
     $scope.buscarPorCpf = buscarPorCpf;
     $scope.limpar = limpar;
 
+    $scope.valorTotal = 0;
+    $scope.obterValorProduto = obterValorProduto;
+    $scope.obterValorPacote = obterValorPacote;
+    
     $scope.listarDevolucao = listarDevolucao;    
     
     function listarClientes() {
@@ -119,6 +126,28 @@ modulo.controller('locacaoController', function($scope, $localStorage, $route, l
             .listar()
             .then(response => {
                 $scope.locacoes = response.data.dados;
+            })
+    }
+
+    function obterValorProduto(id) {
+        produtoService
+            .buscarPorId(id)
+            .then(response => {
+                console.log(response);
+                $scope.valorTotal = $scope.valorTotal - valorProduto;
+                valorProduto = response.data.dados.Valor;
+                $scope.valorTotal = $scope.valorTotal + valorProduto;                
+            })
+    }
+
+    function obterValorPacote(id) {
+        pacoteService
+            .buscarPorId(id)
+            .then(response => {
+                console.log(response);
+                $scope.valorTotal = $scope.valorTotal - valorPacote;
+                valorPacote = response.data.dados.Valor;
+                $scope.valorTotal = $scope.valorTotal + valorPacote;                
             })
     }
 })
