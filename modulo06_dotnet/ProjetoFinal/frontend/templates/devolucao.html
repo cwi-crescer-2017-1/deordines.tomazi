@@ -3,16 +3,24 @@
 <hr class="purpleHr">
 
 <h3>Informe o CPF do Cliente</h3>
+<form>
 <label>
     <input type="text" class="form-control" id="cpf" ng-model="cpfCliente" placeholder="CPF">
 </label>
 <br>
 <div ng-if="devolucoes.length == 0">Cliente não encontrado ou não existem locações para este CPF.</div>
 <button type="submit" class="btn btn-default" ng-click="listarDevolucao(cpfCliente)">Buscar</button>
-<br><br>
-
+</form>
+<br>
+<h3>Filtrar por código</h3>
+<label>
+    <input type="text" class="form-control" ng-model="devolucao.Id" placeholder="Código">
+</label>
+<br>
+<hr class="purpleHr">
 <table class="table table-striped">
     <thead>
+        <th>Código</th>
         <th>Cliente</th>
         <th>Data Pedido</th>
         <th>Data Entrega</th>
@@ -22,7 +30,8 @@
         <th>Ação</th>
     </thead>
     <tbody>
-        <tr ng-repeat="devolucao in devolucoes">
+        <tr ng-repeat="devolucao in devolucoes | filter: devolucao.Id">
+            <td>{{ devolucao.Id }}</td>
             <td>{{ devolucao.Cliente.Nome }}</td>
             <td>{{ devolucao.DataPedido | date:"dd/MM/yyyy" }}</td>
             <td>{{ devolucao.DataEntrega | date:"dd/MM/yyyy" }}</td>

@@ -2,6 +2,14 @@
 
 <hr class="purpleHr">
 
+<h3>Filtrar por cliente</h3>
+<label>
+    <input type="text" class="form-control" ng-model="atraso.Cliente.Nome" placeholder="Nome">
+</label>
+<br>
+
+<hr class="purpleHr">
+
 <table class="table table-striped">
     <thead>
         <th>Cliente</th>
@@ -13,7 +21,7 @@
         <th>Data Entrega</th>
     </thead>
     <tbody>
-        <tr ng-repeat="atraso in relatorioAtraso">
+        <tr ng-repeat="atraso in relatorioAtraso | filter: atraso.Cliente.Nome">
             <td>{{ atraso.Cliente.Nome }}</td>
             <td>{{ atraso.Cliente.CPF }}</td>
             <td>{{ atraso.Cliente.Endereco }}</td>
