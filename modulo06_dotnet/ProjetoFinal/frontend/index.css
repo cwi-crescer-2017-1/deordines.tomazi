@@ -138,3 +138,26 @@ input[type="radio"]:checked + label .extra {
     transition-duration: 1s;
     opacity: 1.0;
 }
+
+/*sobrescrever as regras do botão primário do bootstrap*/
+.panel-primary>.panel-heading {
+    color: #fff;
+    background-color: #8F60A0 !important;
+    border-color: #8F60A0 !important;
+}
+
+.panel-primary {
+    border-color: purple !important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #8F60A0 !important;
+    border-color: #8F60A0 !important;
+    border-color: purple !important;
+    opacity: 0.8;
+}
+
+.btn-primary:hover {
+    opacity: 1;
+}
