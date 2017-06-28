@@ -51,9 +51,9 @@ namespace LocadoraCrescer.Api.Controllers
             var extraJogo = repositorioExtra.BuscarPorId(1);
             var extraControle = repositorioExtra.BuscarPorId(2);
 
-            if (produto.Estoque - 1 > 0 ||
-                extraJogo.Estoque - 1 > 0 || extraJogo.Estoque - 2 > 0 || extraJogo.Estoque - 7 > 0 ||
-                extraControle.Estoque - 1 > 0 || extraControle.Estoque - 2 > 0)
+            if (produto.Estoque - 1 < 0 ||
+                extraJogo.Estoque - 1 < 0 || extraJogo.Estoque - 2 < 0 || extraJogo.Estoque - 7 < 0 ||
+                extraControle.Estoque - 1 < 0 || extraControle.Estoque - 2 < 0)
             {
                 return BadRequest();
             }
