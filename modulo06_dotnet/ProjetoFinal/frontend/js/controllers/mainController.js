@@ -1,35 +1,52 @@
-modulo.controller('mainController', function($scope, $localStorage, $timeout, authService) {
+modulo.controller('mainController', function($scope, $window, $localStorage, $timeout, authService) {
 
-    $scope.logout = authService.logout;
+    var values = {};
 
-    // function consultarLocalStorage() {
-    //     var values = JSON.parse(localStorage.getItem('ngStorage-usuarioLogado'));
-    // }
+    $scope.logout = logout;
 
-    // console.log($scope.user);
+    consultarLocalStorage();
+    $scope.isAutenticado = authService.isAutenticado();
+    $scope.isGerente = isGerente();
+    $scope.isFuncionario = isFuncionario();
+    
+    function isGerente() {
+        if (values !== null && values.Permissao === 'gerente') {
+            return true;
+        }
+    }
+    
+    function isFuncionario() {
+        if (values !== null && values.Permissao == 'funcionario') {
+            return true;
+        }
+    }
 
-    // if ($scope.user === null) {
-    //     $scope.exibirNav = false;
+    function logout() {
+        localStorage.clear();
+        authService.logout;
+        $window.location.reload();
+    }
+    
+    function consultarLocalStorage() {
+        values = JSON.parse(localStorage.getItem('ngStorage-usuarioLogado'));
+        console.log(values);
+        if (values !== null) {
+            $scope.user = values.dados;
+        }
+    }
+
+    // $scope.botao1 = botao1;
+    // $scope.botao2 = botao2;
+
+    // function botao1() {
+    //     $scope.exibirNav = true;        
+    //     $scope.user = 'eu';
     //     console.log($scope.exibirNav);
-    // } else {
-    //     if (values !== null) {
-    //         $scope.user = values.dados;
-    //         $scope.exibirNav = true;
-    //     }
     // }
 
-    $scope.botao1 = botao1;
-    $scope.botao2 = botao2;
-
-    function botao1() {
-        $scope.exibirNav = true;        
-        $scope.user = 'eu';
-        console.log($scope.exibirNav);
-    }
-
-    function botao2() {
-        $scope.user = 'Sign in';
-        $scope.exibirNav = false;
-        console.log($scope.exibirNav);                
-    }
+    // function botao2() {
+    //     $scope.user = 'Sign in';
+    //     $scope.exibirNav = false;
+    //     console.log($scope.exibirNav);                
+    // }
 });
