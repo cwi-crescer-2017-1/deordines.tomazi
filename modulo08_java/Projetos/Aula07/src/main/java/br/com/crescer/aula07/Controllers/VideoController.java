@@ -31,8 +31,8 @@ public class VideoController {
     }
     
     @PostMapping("/video")
-    public void criar (@RequestBody Video vVideo) {
-        service.criar(vVideo);
+    public void criar (@RequestBody Video video) {
+        service.criar(video);
     }
     
     @GetMapping("/video/{id}")
