@@ -8,8 +8,11 @@ package br.com.crescer.aula07.Controllers;
 import br.com.crescer.aula07.Services.GeneroService;
 import br.com.crescer.aula07.Entidades.Genero;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -17,14 +20,28 @@ import org.springframework.web.bind.annotation.RestController;
  * @author deordines.tomazi
  */
 @RestController
-@RequestMapping(value = "/genero")
 public class GeneroController {
     
     @Autowired
     private GeneroService service;
     
-    @GetMapping
+    @GetMapping("/genero")
     public Iterable<Genero> listar() {
         return service.listar();
+    }
+    
+    @PostMapping("/genero")
+    public void criar (@RequestBody Genero genero) {
+        service.criar(genero);
+    }
+    
+    @GetMapping("/genero/{id}")
+    public Genero getById(@PathVariable Long id) {
+        return service.buscarPorId(id);
+    }
+    
+    @DeleteMapping("/genero/{id}")
+    public void remove(@PathVariable Long id) {
+        service.remover(id);
     }
 }
