@@ -5,14 +5,13 @@
  */
 package br.com.crescer.social.repositorio;
 
-import br.com.crescer.social.entidade.Usuario;
+import br.com.crescer.social.entidade.Curtida;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
- * @author deordines.tomazi
+ * @author Deordines
  */
-public interface UsuarioRepositorio extends CrudRepository<Usuario, Long> {
+public interface CurtidaRepositorio extends CrudRepository<Curtida, Long> {
     
-    public Usuario findOneByEmail(String email);
 }
