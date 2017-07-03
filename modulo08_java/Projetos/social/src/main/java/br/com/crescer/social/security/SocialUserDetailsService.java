@@ -1,7 +1,7 @@
 package br.com.crescer.social.security;
 
-import br.com.crescer.social.entidades.Usuario;
-import br.com.crescer.social.services.UsuarioService;
+import br.com.crescer.social.entidade.Usuario;
+import br.com.crescer.social.service.UsuarioService;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
