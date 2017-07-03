@@ -41,7 +41,12 @@ public class UsuarioController {
         hashMap.put("dados", usuario);
         return hashMap;
     }
-   
+    
+    @GetMapping(value = "/buscarPorEmail")
+    public Usuario buscarPorEmail(@AuthenticationPrincipal User usuario) {
+        return service.buscarPorEmail(usuario.getUsername());
+    }
+    
     @GetMapping(value = "/amigos")
     public Iterable<Usuario> listarAmigos(@AuthenticationPrincipal User usuario) {
         return service.listarAmigos(usuario);
