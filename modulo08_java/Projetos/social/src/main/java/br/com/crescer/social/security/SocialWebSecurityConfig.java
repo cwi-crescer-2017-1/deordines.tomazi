@@ -1,6 +1,5 @@
 package br.com.crescer.social.security;
 
-import br.com.crescer.social.security.SocialUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -53,7 +52,8 @@ public class SocialWebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new WebMvcConfigurerAdapter() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**");
+                registry.addMapping("/**")
+                        .allowedMethods("PUT", "DELETE", "GET", "OPTIONS", "POST");
             }
         };
     }
