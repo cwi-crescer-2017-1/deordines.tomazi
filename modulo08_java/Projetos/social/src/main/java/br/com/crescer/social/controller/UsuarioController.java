@@ -5,11 +5,15 @@
  */
 package br.com.crescer.social.controller;
 
-import br.com.crescer.social.entidades.Usuario;
-import br.com.crescer.social.services.UsuarioService;
-import java.util.List;
+import br.com.crescer.social.entidade.Usuario;
+import br.com.crescer.social.service.UsuarioService;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,15 +32,43 @@ public class UsuarioController {
     UsuarioService service;
     
     @GetMapping
-    public List<Usuario> listar() {
-        return (List) service.listar();
+    public Map<String, Object> listarUsuarios(Authentication authentication) {
+        User usuario = Optional.ofNullable(authentication)
+                .map(Authentication::getPrincipal)
+                .map(User.class::cast)
+                .orElse(null);
+        final HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("dados", usuario);
+        return hashMap;
+    }
+   
+    @GetMapping(value = "/amigos")
+    public Iterable<Usuario> listarAmigos(@AuthenticationPrincipal User usuario) {
+        return service.listarAmigos(usuario);
     }
     
-    @PostMapping
+    @GetMapping(value = "/amigosPendentes")
+    public Iterable<Usuario> listarAmigosPendentes(@AuthenticationPrincipal User usuario) {
+        return service.listarAmigosPendentes(usuario);
+    }
+                
+    @PostMapping(consumes = "application/json")
     public Usuario criar(@RequestBody Usuario usuario) {
-        String senha = usuario.getSenha();
-        String senhaCriptografada = new BCryptPasswordEncoder().encode(senha);
-        usuario.setSenha(senhaCriptografada);
         return service.criar(usuario);
+    }
+    
+    @PostMapping(value = "/adicionar")
+    public void adicionar(@AuthenticationPrincipal User usuario, @RequestBody Usuario solicitado) {
+        service.adicionar(usuario, solicitado);
+    }
+    
+    @PostMapping(value = "/aceitar")
+    public void aceitar(@AuthenticationPrincipal User usuario, @RequestBody Usuario solicitante) {
+        service.aceitar(usuario, solicitante);
+    }
+    
+    @PostMapping(value = "/recusar")
+    public void recusar(@AuthenticationPrincipal User usuario, @RequestBody Usuario solicitante) {
+        service.recusar(usuario, solicitante);
     }
 }
