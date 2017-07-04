@@ -9,6 +9,8 @@ import br.com.crescer.social.entidade.Curtida;
 import br.com.crescer.social.entidade.Postagem;
 import br.com.crescer.social.entidade.Usuario;
 import br.com.crescer.social.repositorio.CurtidaRepositorio;
+import br.com.crescer.social.repositorio.PostagemRepositorio;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
@@ -30,6 +32,9 @@ public class CurtidaService {
     @Autowired
     CurtidaRepositorio repositorio;
     
+    @Autowired
+    PostagemRepositorio postagemRepositorio;
+    
     public Iterable<Curtida> listar() {
         return repositorio.findAll();
     }
@@ -38,21 +43,27 @@ public class CurtidaService {
         return repositorio.findOne(id);
     }
     
-    public Curtida criar(@AuthenticationPrincipal User usuario, Long idPostagem) {
-        Curtida curtida = new Curtida();
-        Postagem p = postagemService.buscarPorId(idPostagem);
+    public Curtida criar(@AuthenticationPrincipal User usuario, Postagem postagem) {
         Usuario u = usuarioService.buscarPorEmail(usuario.getUsername());
+        
+        List<Curtida> curtidas = postagem.getCurtidas();
+        for (Curtida c : curtidas) {
+            if (c.getUsuario().getEmail().equals(u.getEmail())) {
+                return remover(u, c, postagem);
+            }
+        }
+        
+        Curtida curtida = new Curtida();
         curtida.setUsuario(u);
-        p.getCurtidas().add(curtida);
+        postagem.getCurtidas().add(curtida);
+        postagemRepositorio.save(postagem);
         return repositorio.save(curtida);
     }
     
-    public void remover(@AuthenticationPrincipal User usuario, Long idCurtida, Long idPostagem) {
-        if (buscarPorId(idCurtida).getUsuario().getEmail().equals(usuario.getUsername())) {
-            Curtida c = buscarPorId(idCurtida);
-            Postagem p = postagemService.buscarPorId(idPostagem);
-            p.getCurtidas().remove(c);
-            repositorio.delete(idCurtida);
-        }
+    public Curtida remover(Usuario usuario, Curtida curtida, Postagem postagem) {
+        postagem.getCurtidas().remove(curtida);
+        postagemRepositorio.save(postagem);
+        repositorio.delete(curtida);
+        return null;
     }
 }
