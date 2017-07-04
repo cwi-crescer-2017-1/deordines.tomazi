@@ -15,9 +15,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -42,6 +44,11 @@ public class UsuarioController {
         return hashMap;
     }
     
+    @GetMapping(value = "/{id}")
+    public Usuario buscarPorId(@PathVariable Long id) {
+        return service.buscarPorId(id);
+    }
+    
     @GetMapping(value = "/buscarPorEmail")
     public Usuario buscarPorEmail(@AuthenticationPrincipal User usuario) {
         return service.buscarPorEmail(usuario.getUsername());
@@ -52,11 +59,21 @@ public class UsuarioController {
         return service.listarAmigos(usuario);
     }
     
+    @GetMapping(value = "/amigosPerfilVisitado/{id}")
+    public Iterable<Usuario> listarAmigosPerfilVisitado(@PathVariable Long id) {
+        return service.listarAmigosPerfilVisitado(id);
+    }
+    
     @GetMapping(value = "/amigosPendentes")
     public Iterable<Usuario> listarAmigosPendentes(@AuthenticationPrincipal User usuario) {
         return service.listarAmigosPendentes(usuario);
     }
-                
+    
+    @GetMapping(value = "/nome")
+    public Iterable<Usuario> obterUsuarioPorNome(@RequestParam String nome) {
+        return service.buscarPorNome(nome);
+    }
+    
     @PostMapping(consumes = "application/json")
     public Usuario criar(@RequestBody Usuario usuario) {
         return service.criar(usuario);
