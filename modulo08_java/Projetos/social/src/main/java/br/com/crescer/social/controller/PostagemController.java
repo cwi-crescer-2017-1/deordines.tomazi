@@ -36,5 +36,4 @@ public class PostagemController {
     public Postagem criar(@AuthenticationPrincipal User usuario, @RequestBody Postagem postagem) {
         return service.criar(usuario, postagem);
     }
-    }
 }
