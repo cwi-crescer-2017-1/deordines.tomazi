@@ -6,6 +6,7 @@
 package br.com.crescer.social.controller;
 
 import br.com.crescer.social.entidade.Curtida;
+import br.com.crescer.social.entidade.Postagem;
 import br.com.crescer.social.service.CurtidaService;
 import br.com.crescer.social.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,13 +38,13 @@ public class CurtidaController {
         return service.listar();
     }
     
-    @PostMapping(value = "/{idPostagem}")
-    public Curtida criar(@AuthenticationPrincipal User usuario, @PathVariable Long idPostagem) {
-        return service.criar(usuario, idPostagem);
+    @PostMapping(value = "/postagem", consumes = "application/json")
+    public Curtida criar(@AuthenticationPrincipal User usuario, @RequestBody Postagem postagem) {
+        return service.criar(usuario, postagem);
     }
     
-    @PostMapping(value = "remover/{idCurtida}/{idPostagem}")
-    public void remover(@AuthenticationPrincipal User usuario, @PathVariable Long idCurtida, @PathVariable Long idPostagem) {
-        service.remover(usuario, idCurtida, idPostagem);
-    }
+//    @PostMapping(value = "remover/{idCurtida}/{idPostagem}")
+//    public void remover(@AuthenticationPrincipal User usuario, @PathVariable Long idCurtida, @PathVariable Long idPostagem) {
+//        service.remover(usuario, idCurtida, idPostagem);
+//    }
 }
