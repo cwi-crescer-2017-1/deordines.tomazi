@@ -28,13 +28,16 @@ public class UsuarioService {
         return repositorio.findAll();
     }
     
-    // ANALISAR
-    public List<Usuario> listarAmigos(@AuthenticationPrincipal User user) {
+    public Iterable<Usuario> listarAmigos(@AuthenticationPrincipal User user) {
         Usuario usuario = repositorio.findOneByEmail(user.getUsername());
         return usuario.getAmigos();
     }
     
-    // ANALISAR
+    public Iterable<Usuario> listarAmigosPerfilVisitado(Long id) {
+        Usuario usuario = buscarPorId(id);
+        return usuario.getAmigos();
+    }
+    
     public Iterable<Usuario> listarAmigosPendentes(@AuthenticationPrincipal User user) {
         Usuario usuario = repositorio.findOneByEmail(user.getUsername());
         return usuario.getAmigosPendentes();
@@ -62,6 +65,10 @@ public class UsuarioService {
     public Usuario buscarPorEmail(String email) {
         return repositorio.findOneByEmail(email);
     }
+    
+    public Iterable<Usuario> buscarPorNome(String nome) {
+        return repositorio.findByNomeIgnoreCase(nome);
+    }
         
     public void remover(Long id) {
         repositorio.delete(id);
@@ -87,7 +94,7 @@ public class UsuarioService {
     public void recusar(@AuthenticationPrincipal User user, Usuario solicitante) {
         Usuario solicitado = buscarPorEmail(user.getUsername());
         solicitante = buscarPorEmail(solicitante.getEmail());
-        solicitado.getAmigosPendentes().remove(solicitante.getEmail());
+        solicitado.getAmigosPendentes().remove(solicitante);
         repositorio.save(solicitado);
     }
 }
