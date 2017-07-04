@@ -1,10 +1,15 @@
-modulo.controller('homeController', function ($scope, authService, usuarioService, toastr) {
+modulo.controller('homeController', function ($scope, authService, usuarioService, postagemService, curtidaService, toastr) {
 
     let usuarioDaSessao = authService.getUsuario();
 
     buscarPorEmail();
     buscarAmigos();
     buscarAmigosPendentes();
+    $scope.aceitar = aceitar;
+    $scope.recusar = recusar;
+    $scope.criar = criar;
+    $scope.postagens = buscarPostagens();
+    $scope.curtir = curtir;
 
     function buscarPorEmail() {
         usuarioService
@@ -16,7 +21,6 @@ modulo.controller('homeController', function ($scope, authService, usuarioServic
     }
 
     function buscarAmigos() {
-        debugger;
         usuarioService
             .obterAmigos()
             .then(response => {
@@ -31,6 +35,50 @@ modulo.controller('homeController', function ($scope, authService, usuarioServic
             .then(response => {
                 console.log(response.data);
                 $scope.amigosPendentes = response.data;
+            });
+    }
+
+    function aceitar(usuario) {
+        debugger;
+        usuarioService
+            .aceitar(usuario)
+            .then(response => {
+                console.log(response);
+            });
+    }
+
+    function recusar(usuario) {
+        usuarioService
+            .recusar(usuario)
+            .then(response => {
+                console.log(response);
+            });
+    }
+
+    function criar(postagem) {
+        debugger;
+        postagemService
+            .criar(postagem)
+            .then(response => {
+                console.log(response);
+            });
+    }
+
+    function buscarPostagens() {
+        postagemService
+            .obterPostagens()
+            .then(response => {
+                console.log(response);
+                $scope.postagens = response.data;
+            });
+    }
+
+    function curtir(postagem) {
+        debugger;
+        curtidaService
+            .curtir(postagem)
+            .then(response => {
+                console.log(response);
             });
     }
 });
