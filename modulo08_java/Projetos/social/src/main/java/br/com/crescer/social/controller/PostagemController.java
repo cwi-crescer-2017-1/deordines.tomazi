@@ -8,6 +8,8 @@ package br.com.crescer.social.controller;
 import br.com.crescer.social.entidade.Postagem;
 import br.com.crescer.social.service.PostagemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,12 +28,13 @@ public class PostagemController {
     PostagemService service;
     
     @GetMapping
-    public Iterable<Postagem> listar() {
-        return service.listar();
+    public Iterable<Postagem> listar(@AuthenticationPrincipal User usuario) {
+        return service.listar(usuario);
     }
     
     @PostMapping(consumes = "application/json")
-    public Postagem criar(@RequestBody Postagem postagem) {
-        return service.criar(postagem);
+    public Postagem criar(@AuthenticationPrincipal User usuario, @RequestBody Postagem postagem) {
+        return service.criar(usuario, postagem);
+    }
     }
 }
