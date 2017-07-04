@@ -30,6 +30,10 @@ modulo.config(function ($routeProvider) {
         controller: 'homeController',
         templateUrl: '/templates/home.html'
     })
+    .when('/perfil/:id', {
+        controller: 'perfilController',
+        templateUrl: '/templates/perfil.html'
+    })
     .otherwise('/login');
 });
 

@@ -1,6 +1,75 @@
-<br><br>
+<br><br><br><br><br><br><br><br><br><br>
 
-<div>{{ usuario.nome }}</div>
-<div>{{ usuario.dataNascimento }}</div>
-<div>{{ usuario.genero }}</div>
-<div>{{ usuario.imagemPerfil }}</div>
+<div>Dados do usuário</div>
+<div style="float:left;margin-right:25px"><img class="img-thumbnail" style="width:200px" src="{{ usuario.imagemPerfil }}"></div>
+<div><h1>{{ usuario.nome }}</h1></div>
+<div><h4>{{ usuario.dataNascimento | date:"dd/MM/yyyy" }}</h4></div>
+
+<div class="clearfix"></div>
+
+<br><br>
+<div>Lista de Amigos ({{ amigos.length }})</div>
+<div ng-repeat="usuario in amigos">
+    <a href="#!/perfil/{{ usuario.id }}">
+        <div style="float:left;padding: 10px;">
+            <div style="margin-right:25px"><img class="img-circle" style="width:100px" src="{{ usuario.imagemPerfil }}"></div>
+            <div style="padding:10px;font-size:20px;">{{ usuario.nome }}</div>
+        </div>
+    </a>
+</div>
+
+<div class="clearfix"></div>
+
+<br><br>
+<div>Lista Amigos Pendentes ({{ amigosPendentes.length }})</div>
+<div ng-repeat="usuario in amigosPendentes">
+    <div class="clearfix" style="padding: 10px;">
+        <a href="#!/perfil/{{ usuario.id }}">
+            <div style="float:left;margin-right:25px"><img class="img-circle" style="width:100px" src="{{ usuario.imagemPerfil }}"></div>
+        </a>
+        <div style="padding:10px;font-size:20px;">{{ usuario.nome }}</div>
+        <button type="submit" class="btn btn-success" ng-click="aceitar(usuario)">Aceitar</button>    
+        <button type="submit" class="btn btn-danger" ng-click="recusar(usuario)">Recusar</button>
+    </div>
+</div>
+
+<br><br>
+<div>Postar</div>
+<form ng-submit="criar(postagem)">
+<textarea cols='60' rows='8' style="resize:none;width:500px;height:50px;" ng-model="postagem.conteudo"></textarea>
+<br>
+<button type="submit" class="btn btn-primary">Postar</button>
+</form>
+
+<br><br>
+<div>Listar Postagens</div>
+<div ng-repeat="postagem in postagens">
+    <div class="clearfix" style="padding: 10px;">
+        <div style="float:left;margin-right:25px"><img class="img-rounded" style="width:75px" src="{{ usuario.imagemPerfil }}"></div>
+        <div>{{ postagem.usuario.nome }}</div>
+        <div>{{ postagem.conteudo }}</div>
+        <div>{{ postagem.dataPostagem | date:"dd/MM/yyyy" }}</div>
+        <div>{{ postagem.curtidas.length }} <button type="button" class="btn btn-info" ng-click="curtir(postagem)"><span class="glyphicon glyphicon-thumbs-up"></span></button></div>
+    </div>
+    <ul ng-repeat="comentario in postagem.comentarios">
+        <li>comentario.conteudo</li>
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
