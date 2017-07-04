@@ -7,7 +7,6 @@ package br.com.crescer.social.service;
 
 import br.com.crescer.social.entidade.Usuario;
 import br.com.crescer.social.repositorio.UsuarioRepositorio;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
@@ -43,7 +42,7 @@ public class UsuarioService {
         return usuario.getAmigosPendentes();
     }
     
-    public Usuario criar(Usuario usuario) {
+    public synchronized Usuario criar(Usuario usuario) {
 
         if (buscarPorEmail(usuario.getEmail()) != null) {
             return null;
