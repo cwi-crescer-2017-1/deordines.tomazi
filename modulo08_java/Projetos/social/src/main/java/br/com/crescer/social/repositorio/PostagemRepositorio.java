@@ -6,6 +6,8 @@
 package br.com.crescer.social.repositorio;
 
 import br.com.crescer.social.entidade.Postagem;
+import br.com.crescer.social.entidade.Usuario;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -14,4 +16,5 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface PostagemRepositorio extends CrudRepository<Postagem, Long> {
     
+    List<Postagem> findByUsuarioOrderById(Usuario usuarios);
 }
